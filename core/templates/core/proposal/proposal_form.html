@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+{% block title %}
+	<title>Proposal Form</title>
+{% endblock title %}
+
+{% block content %}
+
+<form class="form-horizontal" action="." method="POST">
+    <legend>Orçamento</legend>
+    {% csrf_token %}
+    {{ form.num_prop|bootstrap_horizontal }}
+    {{ form.type_prop|bootstrap_horizontal }}
+    {{ form.num_type_prop|bootstrap_horizontal }}
+    {{ form.category|bootstrap_horizontal }}
+    {{ form.description|bootstrap_horizontal }}
+    {{ form.work|bootstrap_horizontal }}
+    {{ form.person|bootstrap_horizontal }}
+    {{ form.employee|bootstrap_horizontal }}
+    {{ form.seller|bootstrap_horizontal }}
+    {{ form.status|bootstrap_horizontal }}
+    {{ form.date_conclusion|bootstrap_horizontal }}
+    {{ form.price|bootstrap_horizontal }}
+    {{ form.obs|bootstrap_horizontal }}
+
+	<div class="form-group">
+      <div class="col-sm-10 col-sm-offset-2">
+        <button type="submit" id="id_submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+</form>
+
+{% endblock content %}

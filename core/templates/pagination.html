@@ -1,0 +1,22 @@
+<!-- pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+					{% if page_obj.has_previous %}
+						<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+					{% endif %}
+					{% for pg in page_obj.paginator.page_range %}
+						{% if page_obj.number == pg %}
+							<li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+						{% else %}
+							<li><a href="?page={{ pg }}">{{ pg }}</a></li>
+						{% endif %}
+					{% endfor %}
+					{% if page_obj.has_next %}
+						<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+
+<!-- https://www.technovelty.org/web/skipping-pages-with-djangocorepaginator.html -->

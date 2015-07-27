@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Obras</title>
+{% endblock title %}
+
+{% block content %}
+
+    <form class="navbar-form navbar-right" action="." method="get">
+        <!-- add -->
+        <a href="{% url 'work_add' %}">
+            <button id="new_customer" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar
+            </button>
+        </a>
+        <!-- search form -->
+        <div class="form-group">
+	        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+	        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+	    </div>
+	</form>
+	
+	<div class="page-header">
+		<h2><h2><i class="fa fa-home"></i> Lista de Obras</h2>
+	</div>
+
+	{% if object_list %}
+		<table class="table table-striped">
+		    <thead>
+		        <tr>
+		            <th>Obra</th>
+					<th>Cliente</th>
+					<th>Endereço</th>
+					<th>Bairro</th>
+					<th>Cidade</th>
+					<th>Contato</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    {% for work in object_list %}
+		        <tr>
+		            <td><a href="{{ work.get_work_detail_url }}">{{ work.name_work }}</a></td>
+		            <td>{{ work.customer }}</td>
+		            <td>{{ work.address }}</td>
+		            <td>{{ work.district }}</td>
+		            <td>{{ work.city }}</td>
+		            <td>{{ work.person }}</td>
+		        </tr>
+		    {% endfor %}
+		    </tbody>
+		</table>
+	{% else %}
+		<p class="alert alert-warning">Sem itens na lista.</p>
+	{% endif %}
+
+    <hr>
+	<div>
+		{% if count > 0 %}
+			<h3><b>Total:</b> {{ count }}
+				{% if count == 1 %}
+					obra
+				{% elif count > 1 %}
+					obras
+				{% endif %}
+			</h3>
+		{% endif %}
+	</div>
+
+<!-- pagination -->
+{% include "pagination.html" %}
+
+{% endblock content %}

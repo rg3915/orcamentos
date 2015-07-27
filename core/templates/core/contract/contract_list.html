@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>Contratos</title>
+{% endblock title %}
+
+{% block content %}
+
+    <!-- <form class="navbar-form navbar-right" action="." method="get"> -->
+        <!-- search form -->
+        <!-- <div class="form-group">
+	        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+	        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+	    </div>
+	</form> -->
+	
+	<div class="page-header">
+		<h2><i class="fa fa-star"></i> Lista de Contratos</h2>
+	</div>
+
+	<div>
+		{% if object_list %}
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Número</th>
+						<th>Obra</th>
+						<th>Cliente</th>
+						<th>Vendedor</th>
+						<th class="text-right">Valor</th>
+						<th>Data</th>
+						<th class="text-center">Cancelado</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for contract in object_list %}
+					{% if contract.is_canceled %}
+						<tr class="danger">
+					{% else %}
+						<tr>
+					{% endif %}
+							<td><a href="{{ contract.get_contract_detail_url }}">{{ contract.proposal }}</a></td>
+
+							<td>{{ contract.proposal.work }}</td>
+							<td>{{ contract.proposal.work.customer }}</td>
+							<td>{{ contract.proposal.seller.employee.user.first_name }}</td>
+							<td class="text-right">{{ contract.proposal.get_price }}</td>
+							<td>{{ contract.created|date:"d/m/Y" }}</td>
+							{% if not contract.is_canceled %}
+								<td></td>
+							{% else %}
+								<td class="text-center"><span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span></td>
+							{% endif %}
+						</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<p class="alert alert-warning">Sem itens na lista.</p>
+		{% endif %}
+	</div>
+
+    <hr>
+	<div>
+		{% if count > 0 %}
+			<h3><b>Total:</b> {{ count }}
+				{% if count == 1 %}
+					contrato
+				{% elif count > 1 %}
+					contratos
+				{% endif %}
+			</h3>
+		{% endif %}
+	</div>
+
+<!-- pagination -->
+{% include "pagination.html" %}
+
+{% endblock content %}

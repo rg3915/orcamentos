@@ -1,0 +1,4844 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "model": "logentry",
+    "app_label": "admin"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "model": "permission",
+    "app_label": "auth"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "model": "group",
+    "app_label": "auth"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "model": "user",
+    "app_label": "auth"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "model": "contenttype",
+    "app_label": "contenttypes"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "model": "session",
+    "app_label": "sessions"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "model": "person",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "model": "customer",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "model": "employee",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "model": "occupation",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "model": "seller",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "model": "entry",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "model": "category",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "model": "work",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "model": "proposal",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "model": "contract",
+    "app_label": "core"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "model": "numlastproposal",
+    "app_label": "core"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 1,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "11122233396",
+    "last_name": "da Silva",
+    "district": "Cerqueira C\u00e9sar",
+    "cep": "01020000",
+    "complement": "Apto 303",
+    "company": "RG Solutions",
+    "rg": "40373800",
+    "active": true,
+    "first_name": "Regis",
+    "department": "Or\u00e7amentos",
+    "phone3": "11 7543-2103",
+    "occupation": 1,
+    "address": "Avenida Paulista, 1320",
+    "email": "regis@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:20.295Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "11 7543-2102",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:20.295Z",
+    "phone1": "11 7543-2101"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 2,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "45877531140",
+    "last_name": "do Nascimento",
+    "district": "Ribeirinho",
+    "cep": "01020000",
+    "complement": "casa 1",
+    "company": "RG Solutions",
+    "rg": "50373801",
+    "active": true,
+    "first_name": "Adailton",
+    "department": "Developer",
+    "phone3": "50 7543-2103",
+    "occupation": 4,
+    "address": "Rua Rafael Barbosa",
+    "email": "dhelbegors@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:20.434Z",
+    "city": "Goi\u00e1s",
+    "phone2": "50 7543-2102",
+    "gender": "M",
+    "uf": "GO",
+    "created": "2015-07-27T06:01:20.434Z",
+    "phone1": "50 7543-2101"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 3,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "40234975312",
+    "last_name": "Ortiz",
+    "district": "Tatuap\u00e9",
+    "cep": "03323-040",
+    "complement": null,
+    "company": "ILM",
+    "rg": "671596475",
+    "active": true,
+    "first_name": "Berta",
+    "department": null,
+    "phone3": "69 9527-0066",
+    "occupation": 1,
+    "address": "Rua Coelho Lisboa, 574",
+    "email": "b.ortiz@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:20.722Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "81 8797-0680",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:20.722Z",
+    "phone1": "85 7496-3810"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 4,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "38350122563",
+    "last_name": "Howell",
+    "district": "Indian\u00f3polis",
+    "cep": "04062-000",
+    "complement": null,
+    "company": "Wayne",
+    "rg": "294841586",
+    "active": true,
+    "first_name": "Brooke",
+    "department": null,
+    "phone3": "29 8941-6951",
+    "occupation": 1,
+    "address": "Av. Indian\u00f3polis, 100",
+    "email": "b.howell@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:21.176Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "96 6791-2701",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:21.176Z",
+    "phone1": "96 2925-3174"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 5,
+  "fields": {
+    "treatment": "d",
+    "cpf": "45354492704",
+    "last_name": "Fulcher",
+    "district": "Barra Funda",
+    "cep": "01155-000",
+    "complement": null,
+    "company": "Acme",
+    "rg": "411053911",
+    "active": true,
+    "first_name": "Marsha",
+    "department": null,
+    "phone3": "88 5844-1277",
+    "occupation": 1,
+    "address": "Av. Pacaemb\u00fa, 380",
+    "email": "m.fulcher@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:21.315Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "68 2223-7319",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:21.315Z",
+    "phone1": "59 0422-2372"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 6,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "33810784438",
+    "last_name": "Steinberger",
+    "district": "Morumbi",
+    "cep": "00568-602",
+    "complement": null,
+    "company": "Oscorp",
+    "rg": "882075668",
+    "active": true,
+    "first_name": "Andre",
+    "department": null,
+    "phone3": "61 0658-5278",
+    "occupation": 1,
+    "address": "Av. Ulisses Reis de Matos, 100",
+    "email": "a.steinberger@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:21.501Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "45 6635-4489",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:21.501Z",
+    "phone1": "19 3674-5641"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 7,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "57581535100",
+    "last_name": "Riley",
+    "district": "Moema",
+    "cep": "04074-030",
+    "complement": null,
+    "company": "Cyberdyne",
+    "rg": "689258286",
+    "active": true,
+    "first_name": "Laura",
+    "department": null,
+    "phone3": "48 9399-3501",
+    "occupation": 1,
+    "address": "Av. Moreira Guimar\u00e3es, 367",
+    "email": "l.riley@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:21.632Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "05 2434-6827",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:21.632Z",
+    "phone1": "28 5287-6112"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 8,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "93670766608",
+    "last_name": "Pignataro",
+    "district": "Vila Mariana",
+    "cep": "04127-001",
+    "complement": null,
+    "company": "Stark",
+    "rg": "108421053",
+    "active": true,
+    "first_name": "Vi",
+    "department": null,
+    "phone3": "45 8702-9055",
+    "occupation": 1,
+    "address": "Rua Padre Machado, 68",
+    "email": "v.pignataro@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:21.836Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "51 2068-9141",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:21.836Z",
+    "phone1": "48 2941-9222"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 9,
+  "fields": {
+    "treatment": "d",
+    "cpf": "30434195074",
+    "last_name": "Stinson",
+    "district": "Centro",
+    "cep": "05835-005",
+    "complement": null,
+    "company": "ILM",
+    "rg": "503721923",
+    "active": true,
+    "first_name": "Barrie",
+    "department": null,
+    "phone3": "49 4410-5591",
+    "occupation": 1,
+    "address": "Est Itapecerica, 2925",
+    "email": "b.stinson@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:21.978Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "63 6283-6582",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:21.978Z",
+    "phone1": "38 9945-9124"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 10,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "62633847527",
+    "last_name": "Moorhead",
+    "district": "Vila Mariana",
+    "cep": "04008-090",
+    "complement": null,
+    "company": "RG Solutions",
+    "rg": "757468062",
+    "active": true,
+    "first_name": "Clifford",
+    "department": null,
+    "phone3": "64 7851-5223",
+    "occupation": 1,
+    "address": "Av 23 de Maio, 3041",
+    "email": "c.moorhead@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:22.123Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "47 1854-7631",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:22.123Z",
+    "phone1": "96 3757-6673"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 11,
+  "fields": {
+    "treatment": "d",
+    "cpf": "06294833594",
+    "last_name": "Kelley",
+    "district": "Jardim Am\u00e9rica",
+    "cep": "01438-001",
+    "complement": null,
+    "company": "Wonka",
+    "rg": "632705999",
+    "active": true,
+    "first_name": "Catherine",
+    "department": null,
+    "phone3": "49 5763-7518",
+    "occupation": 1,
+    "address": "Rua Col\u00f4mbia, 810",
+    "email": "c.kelley@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:22.299Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "73 7819-0175",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:22.299Z",
+    "phone1": "91 5298-0346"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 12,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "60006314282",
+    "last_name": "Stanton",
+    "district": "Pinheiros",
+    "cep": "05420-002",
+    "complement": null,
+    "company": "Acme",
+    "rg": "624128712",
+    "active": true,
+    "first_name": "Maximo",
+    "department": null,
+    "phone3": "11 6056-2661",
+    "occupation": 1,
+    "address": "Av Pedroso de Morais, 1552",
+    "email": "m.stanton@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:22.503Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "35 6282-0570",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:22.503Z",
+    "phone1": "43 0254-7374"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 13,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "39326340467",
+    "last_name": "Hernandez",
+    "district": "Vila Ol\u00edmpia",
+    "cep": "04553-010",
+    "complement": null,
+    "company": "Acme",
+    "rg": "577079558",
+    "active": true,
+    "first_name": "Mark",
+    "department": null,
+    "phone3": "33 0362-6488",
+    "occupation": 1,
+    "address": "Av dos Bandeirantes, 1729",
+    "email": "m.hernandez@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:22.686Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "77 5950-9342",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:22.686Z",
+    "phone1": "87 4181-9511"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 14,
+  "fields": {
+    "treatment": "a",
+    "cpf": "98127865543",
+    "last_name": "Kramer",
+    "district": "Vila R\u00e9",
+    "cep": "03658-000",
+    "complement": null,
+    "company": "ILM",
+    "rg": "970484611",
+    "active": true,
+    "first_name": "David",
+    "department": null,
+    "phone3": "41 6167-2298",
+    "occupation": 1,
+    "address": "Rua Itingu\u00e7u, 1288",
+    "email": "d.kramer@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:22.823Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "80 0312-5755",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:22.823Z",
+    "phone1": "21 6209-3324"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 15,
+  "fields": {
+    "treatment": "ea",
+    "cpf": "01341571724",
+    "last_name": "Voeltner",
+    "district": "Santo Amaro",
+    "cep": "04703-000",
+    "complement": null,
+    "company": "Ghostbusters",
+    "rg": "537251811",
+    "active": true,
+    "first_name": "Juana",
+    "department": null,
+    "phone3": "71 6659-7370",
+    "occupation": 1,
+    "address": "Av Morumbi, 7600",
+    "email": "j.voeltner@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:23.093Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "79 5722-5560",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:23.093Z",
+    "phone1": "77 3612-0563"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 16,
+  "fields": {
+    "treatment": "sra",
+    "cpf": "87143914614",
+    "last_name": "Thomas",
+    "district": "Morumbi",
+    "cep": "05650-002",
+    "complement": null,
+    "company": "RG Solutions",
+    "rg": "383604785",
+    "active": true,
+    "first_name": "Lisa",
+    "department": null,
+    "phone3": "04 8631-9883",
+    "occupation": 1,
+    "address": "Av Morumbi, 6989",
+    "email": "l.thomas@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:23.288Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "90 6566-4352",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:23.288Z",
+    "phone1": "85 7374-5924"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 17,
+  "fields": {
+    "treatment": "a",
+    "cpf": "98558633526",
+    "last_name": "Draper",
+    "district": "Butant\u00e3",
+    "cep": "05512-200",
+    "complement": null,
+    "company": "Tivit",
+    "rg": "924709148",
+    "active": true,
+    "first_name": "Johnathan",
+    "department": null,
+    "phone3": "80 1600-2716",
+    "occupation": 1,
+    "address": "Av Prof Francisco Morato, 1706",
+    "email": "j.draper@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:23.470Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "38 7892-1520",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:23.470Z",
+    "phone1": "80 6837-0925"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 18,
+  "fields": {
+    "treatment": "aa",
+    "cpf": "74320700842",
+    "last_name": "Palacios",
+    "district": "Morumbi",
+    "cep": "05651-002",
+    "complement": null,
+    "company": "Ghostbusters",
+    "rg": "326922587",
+    "active": true,
+    "first_name": "Vickie",
+    "department": null,
+    "phone3": "36 7772-0307",
+    "occupation": 1,
+    "address": "Av Giovanni Gronchi, 2911",
+    "email": "v.palacios@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:23.627Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "54 1557-9706",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:23.627Z",
+    "phone1": "07 3559-7496"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 19,
+  "fields": {
+    "treatment": "sra",
+    "cpf": "09331393250",
+    "last_name": "Mcdonald",
+    "district": "Jardim Europa",
+    "cep": "01449-000",
+    "complement": null,
+    "company": "Wayne",
+    "rg": "091055018",
+    "active": true,
+    "first_name": "Linette",
+    "department": null,
+    "phone3": "57 2364-7310",
+    "occupation": 1,
+    "address": "Av Europa, 725",
+    "email": "l.mcdonald@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:23.806Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "10 5064-9157",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:23.805Z",
+    "phone1": "20 1478-1057"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 20,
+  "fields": {
+    "treatment": "e",
+    "cpf": "11120708702",
+    "last_name": "Crandall",
+    "district": "Jardim Am\u00e9rica",
+    "cep": "01438-001",
+    "complement": null,
+    "company": "Ghostbusters",
+    "rg": "191166643",
+    "active": true,
+    "first_name": "Augustine",
+    "department": null,
+    "phone3": "40 2814-1987",
+    "occupation": 1,
+    "address": "Rua Col\u00f4mbia, 659",
+    "email": "a.crandall@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:24.008Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "50 0421-8040",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:24.008Z",
+    "phone1": "12 0880-9012"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 21,
+  "fields": {
+    "treatment": "p",
+    "cpf": "71094385474",
+    "last_name": "Cowan",
+    "district": "Jardim Petr\u00f3polis",
+    "cep": "04636-000",
+    "complement": null,
+    "company": "RG Solutions",
+    "rg": "349239865",
+    "active": true,
+    "first_name": "Gerald",
+    "department": null,
+    "phone3": "40 7760-4319",
+    "occupation": 1,
+    "address": "Av Prof Vicente R\u00e1o, 915",
+    "email": "g.cowan@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:24.179Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "59 7812-3614",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:24.179Z",
+    "phone1": "49 3521-7789"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 22,
+  "fields": {
+    "treatment": "pa",
+    "cpf": "26148282400",
+    "last_name": "Jandres",
+    "district": "Casa Verde",
+    "cep": "02511-000",
+    "complement": null,
+    "company": "Acme",
+    "rg": "720492307",
+    "active": true,
+    "first_name": "Irene",
+    "department": null,
+    "phone3": "18 9634-0001",
+    "occupation": 1,
+    "address": "Av Braz Leme, 268",
+    "email": "i.jandres@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:24.398Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "50 0314-6360",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:24.398Z",
+    "phone1": "84 1440-2582"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 23,
+  "fields": {
+    "treatment": "aa",
+    "cpf": "96885237814",
+    "last_name": "Dawson",
+    "district": "Vila Ol\u00edmpia",
+    "cep": "04547-001",
+    "complement": null,
+    "company": "ILM",
+    "rg": "014371981",
+    "active": true,
+    "first_name": "Natasha",
+    "department": null,
+    "phone3": "70 6509-8732",
+    "occupation": 1,
+    "address": "Rua Gomes de Carvalho, 421",
+    "email": "n.dawson@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:24.544Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "11 5075-2004",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:24.544Z",
+    "phone1": "47 2444-7028"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 24,
+  "fields": {
+    "treatment": "aa",
+    "cpf": "62462309148",
+    "last_name": "Oliver",
+    "district": "Jardim Marajoara",
+    "cep": "04660-001",
+    "complement": null,
+    "company": "Oscorp",
+    "rg": "004312555",
+    "active": true,
+    "first_name": "Cathy",
+    "department": null,
+    "phone3": "70 4962-3346",
+    "occupation": 1,
+    "address": "Av Interlagos, 1550",
+    "email": "c.oliver@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:24.722Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "95 3471-1290",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:24.722Z",
+    "phone1": "79 5156-4390"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 25,
+  "fields": {
+    "treatment": "a",
+    "cpf": "17993921313",
+    "last_name": "Connell",
+    "district": "Real Parque",
+    "cep": "05686-020",
+    "complement": null,
+    "company": "Teknotronic",
+    "rg": "612591277",
+    "active": true,
+    "first_name": "Tommy",
+    "department": null,
+    "phone3": "96 0450-2509",
+    "occupation": 1,
+    "address": "Rua Ulysses Reis de Mattos, 100",
+    "email": "t.connell@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:24.896Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "42 1478-6822",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:24.895Z",
+    "phone1": "46 1961-8875"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 26,
+  "fields": {
+    "treatment": "ea",
+    "cpf": "19141507666",
+    "last_name": "Wilcox",
+    "district": "Vila Almeida",
+    "cep": "04795-100",
+    "complement": null,
+    "company": "Globex",
+    "rg": "365834857",
+    "active": true,
+    "first_name": "Cornelia",
+    "department": null,
+    "phone3": "35 5036-1266",
+    "occupation": 1,
+    "address": "Av das Na\u00e7\u00f5es Unidas, 17471",
+    "email": "c.wilcox@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:25.072Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "91 4738-0634",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:25.072Z",
+    "phone1": "60 0046-6076"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 27,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "06221050006",
+    "last_name": "Barrett",
+    "district": "Jardim S\u00e3o Lu\u00eds",
+    "cep": "05804-925",
+    "complement": null,
+    "company": "Gringotes",
+    "rg": "703065704",
+    "active": true,
+    "first_name": "Frederick",
+    "department": null,
+    "phone3": "75 4803-7544",
+    "occupation": 1,
+    "address": "Avenida Maria Coelho Aguiar, 215",
+    "email": "f.barrett@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:25.224Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "61 1934-6573",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:25.224Z",
+    "phone1": "77 1670-7558"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 28,
+  "fields": {
+    "treatment": "aa",
+    "cpf": "22989694664",
+    "last_name": "Brown",
+    "district": "Alto de Pinheiros",
+    "cep": "05307-085",
+    "complement": null,
+    "company": "Wayne",
+    "rg": "405455550",
+    "active": true,
+    "first_name": "Lisa",
+    "department": null,
+    "phone3": "61 7621-4639",
+    "occupation": 1,
+    "address": "Avenida das Na\u00e7\u00f5es Unidas, 22540",
+    "email": "l.brown@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:25.369Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "29 5004-7976",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:25.369Z",
+    "phone1": "85 2698-9600"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 29,
+  "fields": {
+    "treatment": "aa",
+    "cpf": "52175333409",
+    "last_name": "Marlowe",
+    "district": "Vila Ivone",
+    "cep": "03282-035",
+    "complement": null,
+    "company": "Oscorp",
+    "rg": "297619975",
+    "active": true,
+    "first_name": "Charlotte",
+    "department": null,
+    "phone3": "16 0493-4708",
+    "occupation": 1,
+    "address": "Rua Manoel Jos\u00e9 Viana, 94",
+    "email": "c.marlowe@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:25.551Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "07 1676-2574",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:25.551Z",
+    "phone1": "63 6049-9357"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 30,
+  "fields": {
+    "treatment": "sra",
+    "cpf": "00977382162",
+    "last_name": "West",
+    "district": "Santa Terezinha",
+    "cep": "02460-070",
+    "complement": null,
+    "company": "ILM",
+    "rg": "338276478",
+    "active": true,
+    "first_name": "Iris",
+    "department": null,
+    "phone3": "86 2597-9112",
+    "occupation": 1,
+    "address": "Rua Dona Maria Cust\u00f3dia, 319",
+    "email": "i.west@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:25.705Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "16 5638-2665",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:25.705Z",
+    "phone1": "64 1960-6065"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 31,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "37984918355",
+    "last_name": "Odell",
+    "district": "Socorro",
+    "cep": "04768-000",
+    "complement": null,
+    "company": "Acme",
+    "rg": "732181348",
+    "active": true,
+    "first_name": "Karen",
+    "department": null,
+    "phone3": "58 7620-4165",
+    "occupation": 1,
+    "address": "Avenida Robert Kennedy, 188",
+    "email": "k.odell@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:25.919Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "95 5646-9278",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:25.919Z",
+    "phone1": "50 5442-5413"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 32,
+  "fields": {
+    "treatment": "d",
+    "cpf": "68913255359",
+    "last_name": "Rodriguez",
+    "district": "Lim\u00e3o",
+    "cep": "00000-000",
+    "complement": null,
+    "company": "Oscorp",
+    "rg": "698968313",
+    "active": true,
+    "first_name": "Anna",
+    "department": null,
+    "phone3": "16 0342-7547",
+    "occupation": 1,
+    "address": "Av Eng Caetano Alvares, 3916",
+    "email": "a.rodriguez@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:26.123Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "21 9051-3141",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:26.123Z",
+    "phone1": "21 5394-8678"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 33,
+  "fields": {
+    "treatment": "e",
+    "cpf": "27910840640",
+    "last_name": "German",
+    "district": "Santo Amaro",
+    "cep": "04703-000",
+    "complement": null,
+    "company": "Gringotes",
+    "rg": "483878815",
+    "active": true,
+    "first_name": "Warren",
+    "department": null,
+    "phone3": "26 4810-1556",
+    "occupation": 1,
+    "address": "Av Morumbi, 7766",
+    "email": "w.german@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:26.293Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "47 5766-7008",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:26.293Z",
+    "phone1": "75 8698-4279"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 34,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "54241522166",
+    "last_name": "Schmig",
+    "district": "Jardim Brasil",
+    "cep": "00000-000",
+    "complement": null,
+    "company": "Stark",
+    "rg": "620114826",
+    "active": true,
+    "first_name": "Thurman",
+    "department": null,
+    "phone3": "79 6657-9947",
+    "occupation": 1,
+    "address": "Av Roland Garros, 1853",
+    "email": "t.schmig@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:26.527Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "58 9948-5408",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:26.527Z",
+    "phone1": "19 5103-3195"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 35,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "00762432783",
+    "last_name": "Scott",
+    "district": "Ipiranga",
+    "cep": "04262-200",
+    "complement": null,
+    "company": "ILM",
+    "rg": "907721839",
+    "active": true,
+    "first_name": "Robert",
+    "department": null,
+    "phone3": "51 9919-1490",
+    "occupation": 1,
+    "address": "Av Nazar\u00e9, 1070",
+    "email": "r.scott@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:26.684Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "45 9151-4349",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:26.684Z",
+    "phone1": "96 0226-9793"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 36,
+  "fields": {
+    "treatment": "a",
+    "cpf": "40765891576",
+    "last_name": "Reyes",
+    "district": "Vila Almeida",
+    "cep": "04795-100",
+    "complement": null,
+    "company": "RG Solutions",
+    "rg": "473332972",
+    "active": true,
+    "first_name": "Devon",
+    "department": null,
+    "phone3": "43 7858-4549",
+    "occupation": 1,
+    "address": "Avenida das Nacoes Unidas, 19667",
+    "email": "d.reyes@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:26.858Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "29 4289-4437",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:26.858Z",
+    "phone1": "27 4829-5890"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 37,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "01117129262",
+    "last_name": "Hossack",
+    "district": "Vila Guilherme",
+    "cep": "02170-000",
+    "complement": null,
+    "company": "Tabajara",
+    "rg": "785467341",
+    "active": true,
+    "first_name": "Alycia",
+    "department": null,
+    "phone3": "09 7413-4215",
+    "occupation": 1,
+    "address": "Av Morvan Dias de Figueiredo, 1175",
+    "email": "a.hossack@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:27.109Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "12 6268-1171",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:27.109Z",
+    "phone1": "86 9274-8483"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 38,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "32149026151",
+    "last_name": "Hayes",
+    "district": "Jardim Avelino",
+    "cep": "03154-100",
+    "complement": null,
+    "company": "Ghostbusters",
+    "rg": "650418531",
+    "active": true,
+    "first_name": "Will",
+    "department": null,
+    "phone3": "35 0803-0386",
+    "occupation": 1,
+    "address": "Av Prof Luiz Ign\u00e1cio Anhaia Mello, 2560",
+    "email": "w.hayes@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:27.316Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "92 4263-2887",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:27.316Z",
+    "phone1": "21 3316-4979"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 39,
+  "fields": {
+    "treatment": "p",
+    "cpf": "74703143111",
+    "last_name": "Crane",
+    "district": "Mirand\u00f3polis",
+    "cep": "04045-003",
+    "complement": null,
+    "company": "Globex",
+    "rg": "280889918",
+    "active": true,
+    "first_name": "Phillip",
+    "department": null,
+    "phone3": "22 2919-0325",
+    "occupation": 1,
+    "address": "Av Jabaquara, 2177",
+    "email": "p.crane@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:27.462Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "46 3287-0071",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:27.462Z",
+    "phone1": "62 3198-8378"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 40,
+  "fields": {
+    "treatment": "sra",
+    "cpf": "70820525614",
+    "last_name": "Merrill",
+    "district": "Belenzinho",
+    "cep": "03163-050",
+    "complement": null,
+    "company": "Gringotes",
+    "rg": "639497546",
+    "active": true,
+    "first_name": "Lindsay",
+    "department": null,
+    "phone3": "94 2800-7861",
+    "occupation": 1,
+    "address": "P\u00e7 Br de Tiet\u00ea, 115",
+    "email": "l.merrill@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:27.626Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "95 8158-5087",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:27.626Z",
+    "phone1": "73 2381-1065"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 41,
+  "fields": {
+    "treatment": "a",
+    "cpf": "74022447050",
+    "last_name": "Cam",
+    "district": "Nossa Senhora do \u00d3",
+    "cep": "02901-000",
+    "complement": null,
+    "company": "RG Solutions",
+    "rg": "659661346",
+    "active": true,
+    "first_name": "Wayne",
+    "department": null,
+    "phone3": "22 9238-5937",
+    "occupation": 1,
+    "address": "Av Otaviano Alves de Lima, 3972",
+    "email": "w.cam@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:27.838Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "57 8836-4015",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:27.838Z",
+    "phone1": "12 0280-2213"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 42,
+  "fields": {
+    "treatment": "p",
+    "cpf": "52020676445",
+    "last_name": "Lagrone",
+    "district": "Barra Funda",
+    "cep": "01155-000",
+    "complement": null,
+    "company": "Tivit",
+    "rg": "571636232",
+    "active": true,
+    "first_name": "Edmund",
+    "department": null,
+    "phone3": "77 7980-0506",
+    "occupation": 1,
+    "address": "Av Pacaembu, 380",
+    "email": "e.lagrone@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:28.013Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "85 4702-0539",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:28.013Z",
+    "phone1": "35 8903-4612"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 43,
+  "fields": {
+    "treatment": "a",
+    "cpf": "41549678759",
+    "last_name": "Viray",
+    "district": "Vila Firmiano Pinto",
+    "cep": "04123-030",
+    "complement": null,
+    "company": "Globex",
+    "rg": "347062269",
+    "active": true,
+    "first_name": "Bryant",
+    "department": null,
+    "phone3": "90 5987-7570",
+    "occupation": 1,
+    "address": "Av Dr Ricardo Jafet, 2419",
+    "email": "b.viray@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:28.188Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "26 6577-5045",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:28.187Z",
+    "phone1": "11 5110-0871"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 44,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "24121429161",
+    "last_name": "Kelly",
+    "district": "Campos El\u00edseos",
+    "cep": "01205-001",
+    "complement": null,
+    "company": "Gringotes",
+    "rg": "253931885",
+    "active": true,
+    "first_name": "Phillip",
+    "department": null,
+    "phone3": "60 6773-1530",
+    "occupation": 1,
+    "address": "Av Rio Branco, 1457",
+    "email": "p.kelly@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:28.336Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "25 7598-6858",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:28.336Z",
+    "phone1": "46 7025-1028"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 45,
+  "fields": {
+    "treatment": "p",
+    "cpf": "78540307471",
+    "last_name": "Weinbauer",
+    "district": "Jardim Idepend\u00eancia",
+    "cep": "03294-100",
+    "complement": null,
+    "company": "Stark",
+    "rg": "631834504",
+    "active": true,
+    "first_name": "Alfredo",
+    "department": null,
+    "phone3": "52 2463-7287",
+    "occupation": 1,
+    "address": "Av Prof\u00ba Luiz Ignacio Anhaia Mello, 4470",
+    "email": "a.weinbauer@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:28.566Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "95 3079-2981",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:28.566Z",
+    "phone1": "03 3155-9087"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 46,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "91535526980",
+    "last_name": "Rogers",
+    "district": "Barra Funda",
+    "cep": "01155-040",
+    "complement": null,
+    "company": "Ghostbusters",
+    "rg": "001533925",
+    "active": true,
+    "first_name": "Jerome",
+    "department": null,
+    "phone3": "17 0943-2858",
+    "occupation": 1,
+    "address": "Al Olga, 259",
+    "email": "j.rogers@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:28.715Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "94 4822-8254",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:28.715Z",
+    "phone1": "60 9873-0146"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 47,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "71658801288",
+    "last_name": "Flores",
+    "district": "Vila Leopoldina",
+    "cep": "05314-000",
+    "complement": null,
+    "company": "Teknotronic",
+    "rg": "538624122",
+    "active": true,
+    "first_name": "Kenneth",
+    "department": null,
+    "phone3": "98 0772-7498",
+    "occupation": 1,
+    "address": "Av Dr Gast\u00e3o Vidigal, 1595",
+    "email": "k.flores@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:28.859Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "56 4474-2241",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:28.859Z",
+    "phone1": "77 1329-8050"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 48,
+  "fields": {
+    "treatment": "a",
+    "cpf": "96767261756",
+    "last_name": "Riding",
+    "district": "\u00c1gua Branca",
+    "cep": "05042-000",
+    "complement": null,
+    "company": "Tivit",
+    "rg": "329624757",
+    "active": true,
+    "first_name": "Randall",
+    "department": null,
+    "phone3": "68 9907-5827",
+    "occupation": 1,
+    "address": "Rua Cl\u00e9lia, 1000",
+    "email": "r.riding@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:29.034Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "89 9635-3849",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:29.034Z",
+    "phone1": "45 9979-8170"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 49,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "25818676360",
+    "last_name": "Carter",
+    "district": "\u00c1gua Branca",
+    "cep": "05038-000",
+    "complement": null,
+    "company": "Cyberdyne",
+    "rg": "163493640",
+    "active": true,
+    "first_name": "Jennifer",
+    "department": null,
+    "phone3": "56 9353-4546",
+    "occupation": 1,
+    "address": "Av Ermano Marchetti, 596",
+    "email": "j.carter@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:29.182Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "50 7932-1218",
+    "gender": "F",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:29.182Z",
+    "phone1": "84 8308-1264"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 50,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "73885850745",
+    "last_name": "Sharp",
+    "district": "Carr\u00e3o",
+    "cep": "03402-001",
+    "complement": null,
+    "company": "Tabajara",
+    "rg": "337561467",
+    "active": true,
+    "first_name": "Steven",
+    "department": null,
+    "phone3": "01 5749-7285",
+    "occupation": 1,
+    "address": "Av Conselheiro Carr\u00e3o, 1306",
+    "email": "s.sharp@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:29.371Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "09 2901-4929",
+    "gender": "M",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:29.371Z",
+    "phone1": "41 8858-8263"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 1,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Tatuap\u00e9",
+    "cep": "03323-040",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "AA Arquitetos Associados",
+    "type_customer": "a",
+    "department": null,
+    "phone3": "51 7726-0725",
+    "address": "Rua Coelho Lisboa, 574",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:30.328Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "25 0801-6400",
+    "gender": "M",
+    "cnpj": "25221598571585",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:30.328Z",
+    "phone1": "05 7968-6083",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 2,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Indian\u00f3polis",
+    "cep": "04062-000",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Athie Wohnrath",
+    "type_customer": "a",
+    "department": null,
+    "phone3": "39 2853-7382",
+    "address": "Av. Indian\u00f3polis, 100",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:30.477Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "00 2603-5411",
+    "gender": "F",
+    "cnpj": "57138861075570",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:30.477Z",
+    "phone1": "81 7274-8640",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 3,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Barra Funda",
+    "cep": "01155-000",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Brookfield",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "64 6364-0613",
+    "address": "Av. Pacaemb\u00fa, 380",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:30.639Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "49 2495-3611",
+    "gender": "F",
+    "cnpj": "96787210658271",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:30.639Z",
+    "phone1": "47 6048-1053",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 4,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Morumbi",
+    "cep": "00568-602",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Camargo Corr\u00eaa",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "18 2063-7266",
+    "address": "Av. Ulisses Reis de Matos, 100",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:30.806Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "39 2107-7063",
+    "gender": "F",
+    "cnpj": "93717743730418",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:30.806Z",
+    "phone1": "78 9465-5078",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 5,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Moema",
+    "cep": "04074-030",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Camila Vieira Santos",
+    "type_customer": "a",
+    "department": null,
+    "phone3": "70 7763-3891",
+    "address": "Av. Moreira Guimar\u00e3es, 367",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:31.029Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "30 5647-8198",
+    "gender": "F",
+    "cnpj": "02383212159149",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:31.029Z",
+    "phone1": "70 3601-8998",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 6,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Vila Mariana",
+    "cep": "04127-001",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Costa Hirota",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "68 5135-3959",
+    "address": "Rua Padre Machado, 68",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:31.188Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "70 9912-2987",
+    "gender": "M",
+    "cnpj": "34109490773518",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:31.188Z",
+    "phone1": "02 1423-5394",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 7,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Centro",
+    "cep": "05835-005",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Cyrela",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "69 6615-4210",
+    "address": "Est Itapecerica, 2925",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:31.345Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "93 8046-9458",
+    "gender": "F",
+    "cnpj": "97104232733876",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:31.345Z",
+    "phone1": "55 1535-9965",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 8,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Vila Mariana",
+    "cep": "04008-090",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Even",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "81 8931-5809",
+    "address": "Av 23 de Maio, 3041",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:31.525Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "04 1724-3076",
+    "gender": "F",
+    "cnpj": "85158857594563",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:31.525Z",
+    "phone1": "39 3019-6631",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 9,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Jardim Am\u00e9rica",
+    "cep": "01438-001",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Fonseca & Mercadante",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "02 3674-0504",
+    "address": "Rua Col\u00f4mbia, 810",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:31.711Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "47 2461-7215",
+    "gender": "M",
+    "cnpj": "34569834222952",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:31.711Z",
+    "phone1": "91 3948-7594",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 10,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Pinheiros",
+    "cep": "05420-002",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Gafisa",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "37 4292-2391",
+    "address": "Av Pedroso de Morais, 1552",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:31.890Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "47 5686-5954",
+    "gender": "F",
+    "cnpj": "55166792041125",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:31.889Z",
+    "phone1": "38 5798-0781",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 11,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Vila Ol\u00edmpia",
+    "cep": "04553-010",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Hochtief",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "33 3595-9664",
+    "address": "Av dos Bandeirantes, 1729",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:32.099Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "10 5373-4253",
+    "gender": "F",
+    "cnpj": "64199809746825",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:32.099Z",
+    "phone1": "05 3630-6128",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 12,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Vila R\u00e9",
+    "cep": "03658-000",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Lucio Engenharia",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "77 5975-4008",
+    "address": "Rua Itingu\u00e7u, 1288",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:32.290Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "89 8663-2574",
+    "gender": "M",
+    "cnpj": "88299676249830",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:32.289Z",
+    "phone1": "69 7080-3279",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 13,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Santo Amaro",
+    "cep": "04703-000",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "MRV",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "71 0383-7914",
+    "address": "Av Morumbi, 7600",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:32.621Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "78 8851-8856",
+    "gender": "M",
+    "cnpj": "79232237338352",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:32.621Z",
+    "phone1": "41 9679-4713",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 14,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Morumbi",
+    "cep": "05650-002",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Plaenge",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "31 1949-5785",
+    "address": "Av Morumbi, 6989",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:32.821Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "23 0609-4071",
+    "gender": "M",
+    "cnpj": "49883987014816",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:32.821Z",
+    "phone1": "87 8942-9394",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 15,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Butant\u00e3",
+    "cep": "05512-200",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Rocha Andrade Arquitetura",
+    "type_customer": "a",
+    "department": null,
+    "phone3": "42 0912-4006",
+    "address": "Av Prof Francisco Morato, 1706",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:32.977Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "87 5944-8605",
+    "gender": "M",
+    "cnpj": "00738783309426",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:32.977Z",
+    "phone1": "77 4102-6403",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 16,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Morumbi",
+    "cep": "05651-002",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Tecnisa",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "32 4962-0442",
+    "address": "Av Giovanni Gronchi, 2911",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:33.197Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "17 2362-7166",
+    "gender": "M",
+    "cnpj": "54061552142309",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:33.197Z",
+    "phone1": "15 9517-0291",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 17,
+  "fields": {
+    "treatment": null,
+    "cpf": null,
+    "last_name": null,
+    "district": "Jardim Europa",
+    "cep": "01449-000",
+    "complement": null,
+    "company": null,
+    "rg": null,
+    "active": true,
+    "first_name": "Toledo Ferrari",
+    "type_customer": "c",
+    "department": null,
+    "phone3": "42 1257-8832",
+    "address": "Av Europa, 725",
+    "email": null,
+    "blocked": false,
+    "modified": "2015-07-27T06:01:33.344Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "15 2236-1423",
+    "gender": "M",
+    "cnpj": "75966102139815",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:33.344Z",
+    "phone1": "87 6231-1909",
+    "ie": "isento"
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 18,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "49905574709",
+    "last_name": "Maisenbacher",
+    "district": "Jardim Am\u00e9rica",
+    "cep": "01438-001",
+    "complement": null,
+    "company": "Tivit",
+    "rg": "439926153",
+    "active": true,
+    "first_name": "Samuel",
+    "type_customer": "p",
+    "department": null,
+    "phone3": "21 4517-9392",
+    "address": "Rua Col\u00f4mbia, 659",
+    "email": "s.maisenbacher@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:33.584Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "69 4162-6357",
+    "gender": "M",
+    "cnpj": null,
+    "uf": "SP",
+    "created": "2015-07-27T06:01:33.584Z",
+    "phone1": "71 8167-7868",
+    "ie": null
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 19,
+  "fields": {
+    "treatment": "d",
+    "cpf": "34839475588",
+    "last_name": "Killion",
+    "district": "Jardim Petr\u00f3polis",
+    "cep": "04636-000",
+    "complement": null,
+    "company": "ILM",
+    "rg": "214360418",
+    "active": true,
+    "first_name": "Antoinette",
+    "type_customer": "p",
+    "department": null,
+    "phone3": "44 2410-9046",
+    "address": "Av Prof Vicente R\u00e1o, 915",
+    "email": "a.killion@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:33.763Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "15 4525-6947",
+    "gender": "F",
+    "cnpj": null,
+    "uf": "SP",
+    "created": "2015-07-27T06:01:33.763Z",
+    "phone1": "67 6406-8769",
+    "ie": null
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 20,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "98273814644",
+    "last_name": "Hackler",
+    "district": "Casa Verde",
+    "cep": "02511-000",
+    "complement": null,
+    "company": "Cyberdyne",
+    "rg": "992987623",
+    "active": true,
+    "first_name": "Jeffrey",
+    "type_customer": "p",
+    "department": null,
+    "phone3": "21 5076-6386",
+    "address": "Av Braz Leme, 268",
+    "email": "j.hackler@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:33.997Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "19 9800-5459",
+    "gender": "M",
+    "cnpj": null,
+    "uf": "SP",
+    "created": "2015-07-27T06:01:33.997Z",
+    "phone1": "40 0163-7594",
+    "ie": null
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 21,
+  "fields": {
+    "treatment": "sr",
+    "cpf": "64362681413",
+    "last_name": "Riley",
+    "district": "Vila Ol\u00edmpia",
+    "cep": "04547-001",
+    "complement": null,
+    "company": "Globex",
+    "rg": "302131959",
+    "active": true,
+    "first_name": "Anthony",
+    "type_customer": "p",
+    "department": null,
+    "phone3": "41 2401-6253",
+    "address": "Rua Gomes de Carvalho, 421",
+    "email": "a.riley@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:34.166Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "43 1997-3656",
+    "gender": "M",
+    "cnpj": null,
+    "uf": "SP",
+    "created": "2015-07-27T06:01:34.166Z",
+    "phone1": "16 0559-5564",
+    "ie": null
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 22,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "51088412195",
+    "last_name": "Kinney",
+    "district": "Jardim Marajoara",
+    "cep": "04660-001",
+    "complement": null,
+    "company": "Wayne",
+    "rg": "448111848",
+    "active": true,
+    "first_name": "Delores",
+    "type_customer": "p",
+    "department": null,
+    "phone3": "71 8003-9132",
+    "address": "Av Interlagos, 1550",
+    "email": "d.kinney@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:34.336Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "56 3150-2523",
+    "gender": "F",
+    "cnpj": null,
+    "uf": "SP",
+    "created": "2015-07-27T06:01:34.336Z",
+    "phone1": "57 9091-1148",
+    "ie": null
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 23,
+  "fields": {
+    "treatment": "dr",
+    "cpf": "20802302277",
+    "last_name": "Montgomery",
+    "district": "Real Parque",
+    "cep": "05686-020",
+    "complement": null,
+    "company": "ILM",
+    "rg": "936537421",
+    "active": true,
+    "first_name": "Brian",
+    "type_customer": "p",
+    "department": null,
+    "phone3": "96 4940-3571",
+    "address": "Rua Ulysses Reis de Mattos, 100",
+    "email": "b.montgomery@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:34.487Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "96 2487-0996",
+    "gender": "M",
+    "cnpj": null,
+    "uf": "SP",
+    "created": "2015-07-27T06:01:34.487Z",
+    "phone1": "14 4749-1660",
+    "ie": null
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 24,
+  "fields": {
+    "treatment": "srta",
+    "cpf": "41123566007",
+    "last_name": "Pardo",
+    "district": "Vila Almeida",
+    "cep": "04795-100",
+    "complement": null,
+    "company": "Wayne",
+    "rg": "762010721",
+    "active": true,
+    "first_name": "Melanie",
+    "type_customer": "p",
+    "department": null,
+    "phone3": "85 9942-1304",
+    "address": "Av das Na\u00e7\u00f5es Unidas, 17471",
+    "email": "m.pardo@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:34.720Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "09 2277-2470",
+    "gender": "F",
+    "cnpj": null,
+    "uf": "SP",
+    "created": "2015-07-27T06:01:34.720Z",
+    "phone1": "51 1604-2782",
+    "ie": null
+  }
+},
+{
+  "model": "core.customer",
+  "pk": 25,
+  "fields": {
+    "treatment": "a",
+    "cpf": "16137768401",
+    "last_name": "Kibler",
+    "district": "Jardim S\u00e3o Lu\u00eds",
+    "cep": "05804-925",
+    "complement": null,
+    "company": "Acme",
+    "rg": "397988654",
+    "active": true,
+    "first_name": "John",
+    "type_customer": "p",
+    "department": null,
+    "phone3": "29 8596-8236",
+    "address": "Avenida Maria Coelho Aguiar, 215",
+    "email": "j.kibler@example.com",
+    "blocked": false,
+    "modified": "2015-07-27T06:01:34.907Z",
+    "city": "S\u00e3o Paulo",
+    "phone2": "95 3260-2019",
+    "gender": "M",
+    "cnpj": null,
+    "uf": "SP",
+    "created": "2015-07-27T06:01:34.907Z",
+    "phone1": "71 9391-0150",
+    "ie": null
+  }
+},
+{
+  "model": "core.occupation",
+  "pk": 1,
+  "fields": {
+    "occupation": "Or\u00e7amentista"
+  }
+},
+{
+  "model": "core.occupation",
+  "pk": 2,
+  "fields": {
+    "occupation": "Vendedor"
+  }
+},
+{
+  "model": "core.occupation",
+  "pk": 3,
+  "fields": {
+    "occupation": "Arquiteto"
+  }
+},
+{
+  "model": "core.occupation",
+  "pk": 4,
+  "fields": {
+    "occupation": "Engenheiro"
+  }
+},
+{
+  "model": "core.occupation",
+  "pk": 5,
+  "fields": {
+    "occupation": "Coordenador"
+  }
+},
+{
+  "model": "core.occupation",
+  "pk": 6,
+  "fields": {
+    "occupation": "Estagi\u00e1rio"
+  }
+},
+{
+  "model": "core.occupation",
+  "pk": 7,
+  "fields": {
+    "occupation": "Gerente"
+  }
+},
+{
+  "model": "core.occupation",
+  "pk": 8,
+  "fields": {
+    "occupation": "Diretor"
+  }
+},
+{
+  "model": "core.seller",
+  "pk": 1,
+  "fields": {
+    "internal": false,
+    "commissioned": true,
+    "employee": 5,
+    "commission": "0.01"
+  }
+},
+{
+  "model": "core.seller",
+  "pk": 2,
+  "fields": {
+    "internal": true,
+    "commissioned": true,
+    "employee": 8,
+    "commission": "0.01"
+  }
+},
+{
+  "model": "core.seller",
+  "pk": 3,
+  "fields": {
+    "internal": true,
+    "commissioned": true,
+    "employee": 9,
+    "commission": "0.01"
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 1,
+  "fields": {
+    "priority": "b",
+    "description": "9vfEVm7ERzzgE4_jfz4",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:43.976Z",
+    "work": 1,
+    "category": 1,
+    "seller": 2,
+    "created": "2015-07-27T06:01:43.976Z",
+    "person": 18
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 2,
+  "fields": {
+    "priority": "b",
+    "description": "CCCCbCDwbScUCswsCCUS",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:44.102Z",
+    "work": 2,
+    "category": 7,
+    "seller": 2,
+    "created": "2015-07-27T06:01:44.102Z",
+    "person": 26
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 3,
+  "fields": {
+    "priority": "b",
+    "description": "FtmqfSXf5EdTe",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:44.235Z",
+    "work": 3,
+    "category": 8,
+    "seller": 3,
+    "created": "2015-07-27T06:01:44.235Z",
+    "person": 13
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 4,
+  "fields": {
+    "priority": "n",
+    "description": "GDru7s627ssLNR7u",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:44.397Z",
+    "work": 4,
+    "category": 4,
+    "seller": 2,
+    "created": "2015-07-27T06:01:44.397Z",
+    "person": 25
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 5,
+  "fields": {
+    "priority": "a",
+    "description": "AMy2HJQWEC92M4oMMyr",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:44.543Z",
+    "work": 5,
+    "category": 8,
+    "seller": 3,
+    "created": "2015-07-27T06:01:44.543Z",
+    "person": 7
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 6,
+  "fields": {
+    "priority": "b",
+    "description": "4p8piOgfui",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:44.698Z",
+    "work": 6,
+    "category": 7,
+    "seller": 1,
+    "created": "2015-07-27T06:01:44.697Z",
+    "person": 3
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 7,
+  "fields": {
+    "priority": "a",
+    "description": "n9ldbUxMIMUUuM95WZdn",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:44.830Z",
+    "work": 7,
+    "category": 7,
+    "seller": 1,
+    "created": "2015-07-27T06:01:44.830Z",
+    "person": 50
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 8,
+  "fields": {
+    "priority": "a",
+    "description": "OxLx4gusAemLsvAJjRb",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:44.963Z",
+    "work": 8,
+    "category": 3,
+    "seller": 1,
+    "created": "2015-07-27T06:01:44.963Z",
+    "person": 42
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 9,
+  "fields": {
+    "priority": "b",
+    "description": "SLb92gSNLYlT",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:45.098Z",
+    "work": 9,
+    "category": 8,
+    "seller": 3,
+    "created": "2015-07-27T06:01:45.098Z",
+    "person": 27
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 10,
+  "fields": {
+    "priority": "a",
+    "description": "NidC0FxYwxRy8",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:45.254Z",
+    "work": 10,
+    "category": 8,
+    "seller": 1,
+    "created": "2015-07-27T06:01:45.253Z",
+    "person": 39
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 11,
+  "fields": {
+    "priority": "b",
+    "description": "qNqPyH2ZFOBX6vBTn",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:45.420Z",
+    "work": 11,
+    "category": 1,
+    "seller": 1,
+    "created": "2015-07-27T06:01:45.420Z",
+    "person": 17
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 12,
+  "fields": {
+    "priority": "a",
+    "description": "24ERCsWEBpNC",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:45.563Z",
+    "work": 12,
+    "category": 1,
+    "seller": 1,
+    "created": "2015-07-27T06:01:45.563Z",
+    "person": 37
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 13,
+  "fields": {
+    "priority": "n",
+    "description": "NaDsFnxvpH_vYDgj",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:45.731Z",
+    "work": 13,
+    "category": 4,
+    "seller": 1,
+    "created": "2015-07-27T06:01:45.731Z",
+    "person": 47
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 14,
+  "fields": {
+    "priority": "b",
+    "description": "7AXb2Td0Jth0XOlVUl",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:45.879Z",
+    "work": 14,
+    "category": 1,
+    "seller": 2,
+    "created": "2015-07-27T06:01:45.879Z",
+    "person": 23
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 15,
+  "fields": {
+    "priority": "n",
+    "description": "OupQuqEuWWxSpqXKWD",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:46.018Z",
+    "work": 15,
+    "category": 7,
+    "seller": 2,
+    "created": "2015-07-27T06:01:46.018Z",
+    "person": 26
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 16,
+  "fields": {
+    "priority": "b",
+    "description": "ppSpzppa7hphBTBkhka",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:46.157Z",
+    "work": 16,
+    "category": 3,
+    "seller": 2,
+    "created": "2015-07-27T06:01:46.157Z",
+    "person": 16
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 17,
+  "fields": {
+    "priority": "a",
+    "description": "52K00UF84xxa2",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:46.309Z",
+    "work": 17,
+    "category": 5,
+    "seller": 3,
+    "created": "2015-07-27T06:01:46.309Z",
+    "person": 46
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 18,
+  "fields": {
+    "priority": "a",
+    "description": "WQ2oeq2vD6q34",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:46.465Z",
+    "work": 18,
+    "category": 7,
+    "seller": 3,
+    "created": "2015-07-27T06:01:46.465Z",
+    "person": 43
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 19,
+  "fields": {
+    "priority": "b",
+    "description": "wvtZwdOrOteqUCmuEYl",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:46.619Z",
+    "work": 19,
+    "category": 3,
+    "seller": 2,
+    "created": "2015-07-27T06:01:46.619Z",
+    "person": 3
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 20,
+  "fields": {
+    "priority": "a",
+    "description": "CjImZkQuuuxxx",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:46.779Z",
+    "work": 20,
+    "category": 7,
+    "seller": 1,
+    "created": "2015-07-27T06:01:46.778Z",
+    "person": 43
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 21,
+  "fields": {
+    "priority": "a",
+    "description": "FnGyxgJZ12lj",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:46.959Z",
+    "work": 21,
+    "category": 8,
+    "seller": 3,
+    "created": "2015-07-27T06:01:46.959Z",
+    "person": 48
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 22,
+  "fields": {
+    "priority": "b",
+    "description": "PAPa2GeaaP",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:47.134Z",
+    "work": 22,
+    "category": 1,
+    "seller": 1,
+    "created": "2015-07-27T06:01:47.134Z",
+    "person": 14
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 23,
+  "fields": {
+    "priority": "n",
+    "description": "lMjMl1ljB1Gj",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:47.289Z",
+    "work": 23,
+    "category": 5,
+    "seller": 1,
+    "created": "2015-07-27T06:01:47.289Z",
+    "person": 44
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 24,
+  "fields": {
+    "priority": "n",
+    "description": "gSuSlgnl7aATPuAAL8a",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:47.447Z",
+    "work": 24,
+    "category": 5,
+    "seller": 2,
+    "created": "2015-07-27T06:01:47.447Z",
+    "person": 9
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 25,
+  "fields": {
+    "priority": "a",
+    "description": "CFNHqMzNd0t2dp6v",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:47.580Z",
+    "work": 25,
+    "category": 6,
+    "seller": 3,
+    "created": "2015-07-27T06:01:47.580Z",
+    "person": 50
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 26,
+  "fields": {
+    "priority": "n",
+    "description": "SSCeZp9eZM4mvSijs",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:47.735Z",
+    "work": 26,
+    "category": 1,
+    "seller": 3,
+    "created": "2015-07-27T06:01:47.735Z",
+    "person": 24
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 27,
+  "fields": {
+    "priority": "u",
+    "description": "aG6jsSwJBmjfy",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:48.028Z",
+    "work": 27,
+    "category": 1,
+    "seller": 2,
+    "created": "2015-07-27T06:01:48.028Z",
+    "person": 1
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 28,
+  "fields": {
+    "priority": "a",
+    "description": "y2V1WyVW2plHlJla",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:48.178Z",
+    "work": 28,
+    "category": 3,
+    "seller": 3,
+    "created": "2015-07-27T06:01:48.178Z",
+    "person": 47
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 29,
+  "fields": {
+    "priority": "b",
+    "description": "eyYWI19dcWyI",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:48.324Z",
+    "work": 29,
+    "category": 7,
+    "seller": 2,
+    "created": "2015-07-27T06:01:48.324Z",
+    "person": 17
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 30,
+  "fields": {
+    "priority": "u",
+    "description": "nkc2MEi4jCQcL",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:48.481Z",
+    "work": 30,
+    "category": 1,
+    "seller": 3,
+    "created": "2015-07-27T06:01:48.481Z",
+    "person": 7
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 31,
+  "fields": {
+    "priority": "b",
+    "description": "g7GMKGHVydayc",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:48.660Z",
+    "work": 31,
+    "category": 6,
+    "seller": 1,
+    "created": "2015-07-27T06:01:48.660Z",
+    "person": 43
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 32,
+  "fields": {
+    "priority": "u",
+    "description": "NV4NFrWuJ53YzkYW31g",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:48.851Z",
+    "work": 32,
+    "category": 7,
+    "seller": 1,
+    "created": "2015-07-27T06:01:48.851Z",
+    "person": 3
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 33,
+  "fields": {
+    "priority": "n",
+    "description": "lj_0hp28vem03HB",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:49.065Z",
+    "work": 33,
+    "category": 2,
+    "seller": 2,
+    "created": "2015-07-27T06:01:49.065Z",
+    "person": 9
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 34,
+  "fields": {
+    "priority": "b",
+    "description": "rg2L_rLP1oKPGnaF",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:49.197Z",
+    "work": 34,
+    "category": 8,
+    "seller": 1,
+    "created": "2015-07-27T06:01:49.197Z",
+    "person": 40
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 35,
+  "fields": {
+    "priority": "a",
+    "description": "6wDlD76FEviJW",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:49.331Z",
+    "work": 35,
+    "category": 1,
+    "seller": 1,
+    "created": "2015-07-27T06:01:49.331Z",
+    "person": 40
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 36,
+  "fields": {
+    "priority": "n",
+    "description": "yBJCLDBLy88e_M",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:49.464Z",
+    "work": 36,
+    "category": 8,
+    "seller": 2,
+    "created": "2015-07-27T06:01:49.464Z",
+    "person": 44
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 37,
+  "fields": {
+    "priority": "u",
+    "description": "kt87FJZ57kPph2w87QQ",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:49.614Z",
+    "work": 37,
+    "category": 4,
+    "seller": 3,
+    "created": "2015-07-27T06:01:49.614Z",
+    "person": 20
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 38,
+  "fields": {
+    "priority": "b",
+    "description": "ZkjaN_fl8r9Uu2JsYD",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:49.763Z",
+    "work": 38,
+    "category": 1,
+    "seller": 1,
+    "created": "2015-07-27T06:01:49.763Z",
+    "person": 35
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 39,
+  "fields": {
+    "priority": "b",
+    "description": "hUfenCeMFUnnXoAiCuY",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:49.940Z",
+    "work": 39,
+    "category": 8,
+    "seller": 1,
+    "created": "2015-07-27T06:01:49.940Z",
+    "person": 27
+  }
+},
+{
+  "model": "core.entry",
+  "pk": 40,
+  "fields": {
+    "priority": "n",
+    "description": "KLyLWXeUdXR0j",
+    "is_entry": false,
+    "modified": "2015-07-27T06:01:50.132Z",
+    "work": 40,
+    "category": 3,
+    "seller": 2,
+    "created": "2015-07-27T06:01:50.132Z",
+    "person": 26
+  }
+},
+{
+  "model": "core.category",
+  "pk": 1,
+  "fields": {
+    "category": "or\u00e7amento"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 2,
+  "fields": {
+    "category": "concorr\u00eancia"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 3,
+  "fields": {
+    "category": "consulta"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 4,
+  "fields": {
+    "category": "cota\u00e7\u00e3o"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 5,
+  "fields": {
+    "category": "extra"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 6,
+  "fields": {
+    "category": "global"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 7,
+  "fields": {
+    "category": "particular"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 8,
+  "fields": {
+    "category": "outros"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 1,
+  "fields": {
+    "customer": 5,
+    "city": "S\u00e3o Paulo",
+    "district": "Tatuap\u00e9",
+    "cep": "03323-040",
+    "address": "Rua Coelho Lisboa, 574",
+    "name_work": "New Parker",
+    "complement": null,
+    "person": 16,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 2,
+  "fields": {
+    "customer": 1,
+    "city": "S\u00e3o Paulo",
+    "district": "Indian\u00f3polis",
+    "cep": "04062-000",
+    "address": "Av. Indian\u00f3polis, 100",
+    "name_work": "Ed. Boulevard",
+    "complement": null,
+    "person": 37,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 3,
+  "fields": {
+    "customer": 2,
+    "city": "S\u00e3o Paulo",
+    "district": "Barra Funda",
+    "cep": "01155-000",
+    "address": "Av. Pacaemb\u00fa, 380",
+    "name_work": "Ed. Levantina",
+    "complement": null,
+    "person": 24,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 4,
+  "fields": {
+    "customer": 21,
+    "city": "S\u00e3o Paulo",
+    "district": "Morumbi",
+    "cep": "00568-602",
+    "address": "Av. Ulisses Reis de Matos, 100",
+    "name_work": "Ed. Morizono",
+    "complement": null,
+    "person": 36,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 5,
+  "fields": {
+    "customer": 25,
+    "city": "S\u00e3o Paulo",
+    "district": "Moema",
+    "cep": "04074-030",
+    "address": "Av. Moreira Guimar\u00e3es, 367",
+    "name_work": "Tiree Itaim",
+    "complement": null,
+    "person": 30,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 6,
+  "fields": {
+    "customer": 7,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila Mariana",
+    "cep": "04127-001",
+    "address": "Rua Padre Machado, 68",
+    "name_work": "Casa Ferraz",
+    "complement": null,
+    "person": 2,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 7,
+  "fields": {
+    "customer": 17,
+    "city": "S\u00e3o Paulo",
+    "district": "Centro",
+    "cep": "05835-005",
+    "address": "Est Itapecerica, 2925",
+    "name_work": "Ed. Leopoldo",
+    "complement": null,
+    "person": 18,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 8,
+  "fields": {
+    "customer": 14,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila Mariana",
+    "cep": "04008-090",
+    "address": "Av 23 de Maio, 3041",
+    "name_work": "SP Loft IV",
+    "complement": null,
+    "person": 41,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 9,
+  "fields": {
+    "customer": 4,
+    "city": "S\u00e3o Paulo",
+    "district": "Jardim Am\u00e9rica",
+    "cep": "01438-001",
+    "address": "Rua Col\u00f4mbia, 810",
+    "name_work": "Ed. Faria Lima",
+    "complement": null,
+    "person": 44,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 10,
+  "fields": {
+    "customer": 16,
+    "city": "S\u00e3o Paulo",
+    "district": "Pinheiros",
+    "cep": "05420-002",
+    "address": "Av Pedroso de Morais, 1552",
+    "name_work": "Ed. Hor\u00e1cio Lafer",
+    "complement": null,
+    "person": 27,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 11,
+  "fields": {
+    "customer": 17,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila Ol\u00edmpia",
+    "cep": "04553-010",
+    "address": "Av dos Bandeirantes, 1729",
+    "name_work": "Ed. Spraiada",
+    "complement": null,
+    "person": 44,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 12,
+  "fields": {
+    "customer": 21,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila R\u00e9",
+    "cep": "03658-000",
+    "address": "Rua Itingu\u00e7u, 1288",
+    "name_work": "Ed. 23 de Maio",
+    "complement": null,
+    "person": 36,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 13,
+  "fields": {
+    "customer": 22,
+    "city": "S\u00e3o Paulo",
+    "district": "Santo Amaro",
+    "cep": "04703-000",
+    "address": "Av Morumbi, 7600",
+    "name_work": "Ed. Santo Augusto",
+    "complement": null,
+    "person": 11,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 14,
+  "fields": {
+    "customer": 18,
+    "city": "S\u00e3o Paulo",
+    "district": "Morumbi",
+    "cep": "05650-002",
+    "address": "Av Morumbi, 6989",
+    "name_work": "Infinity",
+    "complement": null,
+    "person": 15,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 15,
+  "fields": {
+    "customer": 25,
+    "city": "S\u00e3o Paulo",
+    "district": "Butant\u00e3",
+    "cep": "05512-200",
+    "address": "Av Prof Francisco Morato, 1706",
+    "name_work": "Boavista Shopping",
+    "complement": null,
+    "person": 1,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 16,
+  "fields": {
+    "customer": 20,
+    "city": "S\u00e3o Paulo",
+    "district": "Morumbi",
+    "cep": "05651-002",
+    "address": "Av Giovanni Gronchi, 2911",
+    "name_work": "Brascan Century Open Mall",
+    "complement": null,
+    "person": 35,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 17,
+  "fields": {
+    "customer": 19,
+    "city": "S\u00e3o Paulo",
+    "district": "Jardim Europa",
+    "cep": "01449-000",
+    "address": "Av Europa, 725",
+    "name_work": "Central Plaza Shopping",
+    "complement": null,
+    "person": 40,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 18,
+  "fields": {
+    "customer": 22,
+    "city": "S\u00e3o Paulo",
+    "district": "Jardim Am\u00e9rica",
+    "cep": "01438-001",
+    "address": "Rua Col\u00f4mbia, 659",
+    "name_work": "Shopping Interlagos",
+    "complement": null,
+    "person": 29,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 19,
+  "fields": {
+    "customer": 8,
+    "city": "S\u00e3o Paulo",
+    "district": "Jardim Petr\u00f3polis",
+    "cep": "04636-000",
+    "address": "Av Prof Vicente R\u00e1o, 915",
+    "name_work": "Continental Shopping Center",
+    "complement": null,
+    "person": 24,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 20,
+  "fields": {
+    "customer": 24,
+    "city": "S\u00e3o Paulo",
+    "district": "Casa Verde",
+    "cep": "02511-000",
+    "address": "Av Braz Leme, 268",
+    "name_work": "Morumbi Shopping",
+    "complement": null,
+    "person": 32,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 21,
+  "fields": {
+    "customer": 13,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila Ol\u00edmpia",
+    "cep": "04547-001",
+    "address": "Rua Gomes de Carvalho, 421",
+    "name_work": "Raposo Shopping",
+    "complement": null,
+    "person": 4,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 22,
+  "fields": {
+    "customer": 21,
+    "city": "S\u00e3o Paulo",
+    "district": "Jardim Marajoara",
+    "cep": "04660-001",
+    "address": "Av Interlagos, 1550",
+    "name_work": "Santana Parque Shopping",
+    "complement": null,
+    "person": 32,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 23,
+  "fields": {
+    "customer": 5,
+    "city": "S\u00e3o Paulo",
+    "district": "Real Parque",
+    "cep": "05686-020",
+    "address": "Rua Ulysses Reis de Mattos, 100",
+    "name_work": "Shopping Analia Franco",
+    "complement": null,
+    "person": 23,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 24,
+  "fields": {
+    "customer": 3,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila Almeida",
+    "cep": "04795-100",
+    "address": "Av das Na\u00e7\u00f5es Unidas, 17471",
+    "name_work": "Shopping Butant\u00e3",
+    "complement": null,
+    "person": 5,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 25,
+  "fields": {
+    "customer": 5,
+    "city": "S\u00e3o Paulo",
+    "district": "Jardim S\u00e3o Lu\u00eds",
+    "cep": "05804-925",
+    "address": "Avenida Maria Coelho Aguiar, 215",
+    "name_work": "Shopping Eldorado",
+    "complement": null,
+    "person": 35,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 26,
+  "fields": {
+    "customer": 10,
+    "city": "S\u00e3o Paulo",
+    "district": "Alto de Pinheiros",
+    "cep": "05307-085",
+    "address": "Avenida das Na\u00e7\u00f5es Unidas, 22540",
+    "name_work": "Shopping Frei Caneca",
+    "complement": null,
+    "person": 50,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 27,
+  "fields": {
+    "customer": 21,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila Ivone",
+    "cep": "03282-035",
+    "address": "Rua Manoel Jos\u00e9 Viana, 94",
+    "name_work": "Shopping Ibirapuera",
+    "complement": null,
+    "person": 22,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 28,
+  "fields": {
+    "customer": 4,
+    "city": "S\u00e3o Paulo",
+    "district": "Santa Terezinha",
+    "cep": "02460-070",
+    "address": "Rua Dona Maria Cust\u00f3dia, 319",
+    "name_work": "Shopping Jardim Sul",
+    "complement": null,
+    "person": 37,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 29,
+  "fields": {
+    "customer": 19,
+    "city": "S\u00e3o Paulo",
+    "district": "Socorro",
+    "cep": "04768-000",
+    "address": "Avenida Robert Kennedy, 188",
+    "name_work": "Shopping JK Iguatemi",
+    "complement": null,
+    "person": 11,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 30,
+  "fields": {
+    "customer": 18,
+    "city": "S\u00e3o Paulo",
+    "district": "Lim\u00e3o",
+    "cep": "00000-000",
+    "address": "Av Eng Caetano Alvares, 3916",
+    "name_work": "Shopping Metro Boulevard Tatuape",
+    "complement": null,
+    "person": 42,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 31,
+  "fields": {
+    "customer": 24,
+    "city": "S\u00e3o Paulo",
+    "district": "Santo Amaro",
+    "cep": "04703-000",
+    "address": "Av Morumbi, 7766",
+    "name_work": "Shopping Metr\u00f4 Itaquera",
+    "complement": null,
+    "person": 15,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 32,
+  "fields": {
+    "customer": 13,
+    "city": "S\u00e3o Paulo",
+    "district": "Jardim Brasil",
+    "cep": "00000-000",
+    "address": "Av Roland Garros, 1853",
+    "name_work": "Shopping Metr\u00f4 Tatuape",
+    "complement": null,
+    "person": 23,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 33,
+  "fields": {
+    "customer": 16,
+    "city": "S\u00e3o Paulo",
+    "district": "Ipiranga",
+    "cep": "04262-200",
+    "address": "Av Nazar\u00e9, 1070",
+    "name_work": "Shopping Metr\u00f4 Tucuruvi",
+    "complement": null,
+    "person": 23,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 34,
+  "fields": {
+    "customer": 3,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila Almeida",
+    "cep": "04795-100",
+    "address": "Avenida das Nacoes Unidas, 19667",
+    "name_work": "Shopping P\u00e1tio Higien\u00f3polis",
+    "complement": null,
+    "person": 16,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 35,
+  "fields": {
+    "customer": 5,
+    "city": "S\u00e3o Paulo",
+    "district": "Vila Guilherme",
+    "cep": "02170-000",
+    "address": "Av Morvan Dias de Figueiredo, 1175",
+    "name_work": "Shopping P\u00e1tio Paulista",
+    "complement": null,
+    "person": 37,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 36,
+  "fields": {
+    "customer": 3,
+    "city": "S\u00e3o Paulo",
+    "district": "Jardim Avelino",
+    "cep": "03154-100",
+    "address": "Av Prof Luiz Ign\u00e1cio Anhaia Mello, 2560",
+    "name_work": "Shopping Plaza Sul",
+    "complement": null,
+    "person": 34,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 37,
+  "fields": {
+    "customer": 3,
+    "city": "S\u00e3o Paulo",
+    "district": "Mirand\u00f3polis",
+    "cep": "04045-003",
+    "address": "Av Jabaquara, 2177",
+    "name_work": "Shopping Sp Market",
+    "complement": null,
+    "person": 3,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 38,
+  "fields": {
+    "customer": 17,
+    "city": "S\u00e3o Paulo",
+    "district": "Belenzinho",
+    "cep": "03163-050",
+    "address": "P\u00e7 Br de Tiet\u00ea, 115",
+    "name_work": "Shopping Vila Ol\u00edmpia",
+    "complement": null,
+    "person": 33,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 39,
+  "fields": {
+    "customer": 8,
+    "city": "S\u00e3o Paulo",
+    "district": "Nossa Senhora do \u00d3",
+    "cep": "02901-000",
+    "address": "Av Otaviano Alves de Lima, 3972",
+    "name_work": "Shopping Villa - lobos",
+    "complement": null,
+    "person": 15,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.work",
+  "pk": 40,
+  "fields": {
+    "customer": 25,
+    "city": "S\u00e3o Paulo",
+    "district": "Barra Funda",
+    "cep": "01155-000",
+    "address": "Av Pacaembu, 380",
+    "name_work": "West Plaza Shopping",
+    "complement": null,
+    "person": 40,
+    "uf": "SP"
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 1,
+  "fields": {
+    "status": "elab",
+    "employee": 7,
+    "category": 3,
+    "num_type_prop": 0,
+    "date_conclusion": null,
+    "type_prop": "R",
+    "description": "ACvESUCV_TB",
+    "price": "0.00",
+    "obs": null,
+    "modified": "2015-07-27T06:01:50.944Z",
+    "work": 28,
+    "seller": 2,
+    "num_prop": 1,
+    "created": "2015-07-27T06:01:50.944Z",
+    "person": 13
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 2,
+  "fields": {
+    "status": "p",
+    "employee": 1,
+    "category": 2,
+    "num_type_prop": 0,
+    "date_conclusion": null,
+    "type_prop": "R",
+    "description": "KYx_lq2yoKPoDWyHl",
+    "price": "0.00",
+    "obs": null,
+    "modified": "2015-07-27T06:01:51.084Z",
+    "work": 25,
+    "seller": 2,
+    "num_prop": 2,
+    "created": "2015-07-27T06:01:51.084Z",
+    "person": 23
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 3,
+  "fields": {
+    "status": "c",
+    "employee": 4,
+    "category": 2,
+    "num_type_prop": 0,
+    "date_conclusion": null,
+    "type_prop": "R",
+    "description": "RXydGvOLlQhbXwrGWvF",
+    "price": "0.00",
+    "obs": null,
+    "modified": "2015-07-27T06:01:51.216Z",
+    "work": 29,
+    "seller": 2,
+    "num_prop": 3,
+    "created": "2015-07-27T06:01:51.216Z",
+    "person": 8
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 4,
+  "fields": {
+    "status": "co",
+    "employee": 8,
+    "category": 6,
+    "num_type_prop": 0,
+    "date_conclusion": "2015-01-12T02:00:00Z",
+    "type_prop": "R",
+    "description": "J_PReAe3IZsF3ulRtf",
+    "price": "1735739.19",
+    "obs": null,
+    "modified": "2015-07-27T06:01:51.362Z",
+    "work": 2,
+    "seller": 1,
+    "num_prop": 4,
+    "created": "2015-07-27T06:01:51.362Z",
+    "person": 3
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 5,
+  "fields": {
+    "status": "elab",
+    "employee": 4,
+    "category": 5,
+    "num_type_prop": 0,
+    "date_conclusion": null,
+    "type_prop": "R",
+    "description": "JL6C9yrZ9ZOV6XYgdFS",
+    "price": "0.00",
+    "obs": null,
+    "modified": "2015-07-27T06:01:51.530Z",
+    "work": 33,
+    "seller": 1,
+    "num_prop": 5,
+    "created": "2015-07-27T06:01:51.530Z",
+    "person": 8
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 6,
+  "fields": {
+    "status": "c",
+    "employee": 7,
+    "category": 6,
+    "num_type_prop": 0,
+    "date_conclusion": null,
+    "type_prop": "R",
+    "description": "FCk3AiwhD9hDnjBD",
+    "price": "0.00",
+    "obs": null,
+    "modified": "2015-07-27T06:01:51.662Z",
+    "work": 24,
+    "seller": 2,
+    "num_prop": 6,
+    "created": "2015-07-27T06:01:51.662Z",
+    "person": 10
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 7,
+  "fields": {
+    "status": "co",
+    "employee": 9,
+    "category": 6,
+    "num_type_prop": 0,
+    "date_conclusion": "2015-12-21T02:00:00Z",
+    "type_prop": "R",
+    "description": "8c36PH6bbHPUy",
+    "price": "8266504.88",
+    "obs": null,
+    "modified": "2015-07-27T06:01:51.806Z",
+    "work": 17,
+    "seller": 1,
+    "num_prop": 7,
+    "created": "2015-07-27T06:01:51.806Z",
+    "person": 37
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 8,
+  "fields": {
+    "status": "p",
+    "employee": 2,
+    "category": 5,
+    "num_type_prop": 0,
+    "date_conclusion": null,
+    "type_prop": "R",
+    "description": "UgAX2gGrP1m1AK",
+    "price": "0.00",
+    "obs": null,
+    "modified": "2015-07-27T06:01:51.951Z",
+    "work": 35,
+    "seller": 2,
+    "num_prop": 8,
+    "created": "2015-07-27T06:01:51.951Z",
+    "person": 2
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 9,
+  "fields": {
+    "status": "a",
+    "employee": 8,
+    "category": 2,
+    "num_type_prop": 0,
+    "date_conclusion": "2015-09-04T03:00:00Z",
+    "type_prop": "R",
+    "description": "XZZXZZTZTZ",
+    "price": "8817603.35",
+    "obs": null,
+    "modified": "2015-07-27T06:01:52.105Z",
+    "work": 3,
+    "seller": 3,
+    "num_prop": 9,
+    "created": "2015-07-27T06:01:52.105Z",
+    "person": 22
+  }
+},
+{
+  "model": "core.proposal",
+  "pk": 10,
+  "fields": {
+    "status": "a",
+    "employee": 1,
+    "category": 8,
+    "num_type_prop": 0,
+    "date_conclusion": "2015-05-05T03:00:00Z",
+    "type_prop": "R",
+    "description": "4aeOZaGXXQS",
+    "price": "9703641.56",
+    "obs": null,
+    "modified": "2015-07-27T06:01:52.274Z",
+    "work": 29,
+    "seller": 1,
+    "num_prop": 10,
+    "created": "2015-07-27T06:01:52.274Z",
+    "person": 29
+  }
+},
+{
+  "model": "core.contract",
+  "pk": 1,
+  "fields": {
+    "is_canceled": false,
+    "contractor": 2,
+    "modified": "2015-07-27T06:01:53.155Z",
+    "created": "2015-07-27T06:01:53.155Z",
+    "proposal": 9
+  }
+},
+{
+  "model": "core.contract",
+  "pk": 2,
+  "fields": {
+    "is_canceled": true,
+    "contractor": 19,
+    "modified": "2015-07-27T06:01:53.282Z",
+    "created": "2015-07-27T06:01:53.282Z",
+    "proposal": 10
+  }
+},
+{
+  "model": "core.numlastproposal",
+  "pk": 1,
+  "fields": {
+    "num_last_prop": 10
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "content_type": 1,
+    "codename": "add_logentry",
+    "name": "Can add log entry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "content_type": 1,
+    "codename": "change_logentry",
+    "name": "Can change log entry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "content_type": 1,
+    "codename": "delete_logentry",
+    "name": "Can delete log entry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "content_type": 2,
+    "codename": "add_permission",
+    "name": "Can add permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "content_type": 2,
+    "codename": "change_permission",
+    "name": "Can change permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "content_type": 2,
+    "codename": "delete_permission",
+    "name": "Can delete permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "content_type": 3,
+    "codename": "add_group",
+    "name": "Can add group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "content_type": 3,
+    "codename": "change_group",
+    "name": "Can change group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "content_type": 3,
+    "codename": "delete_group",
+    "name": "Can delete group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "content_type": 4,
+    "codename": "add_user",
+    "name": "Can add user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "content_type": 4,
+    "codename": "change_user",
+    "name": "Can change user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "content_type": 4,
+    "codename": "delete_user",
+    "name": "Can delete user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "content_type": 5,
+    "codename": "add_contenttype",
+    "name": "Can add content type"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "content_type": 5,
+    "codename": "change_contenttype",
+    "name": "Can change content type"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "content_type": 5,
+    "codename": "delete_contenttype",
+    "name": "Can delete content type"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "content_type": 6,
+    "codename": "add_session",
+    "name": "Can add session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "content_type": 6,
+    "codename": "change_session",
+    "name": "Can change session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "content_type": 6,
+    "codename": "delete_session",
+    "name": "Can delete session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "content_type": 7,
+    "codename": "add_person",
+    "name": "Can add contato"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "content_type": 7,
+    "codename": "change_person",
+    "name": "Can change contato"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "content_type": 7,
+    "codename": "delete_person",
+    "name": "Can delete contato"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "content_type": 8,
+    "codename": "add_customer",
+    "name": "Can add cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "content_type": 8,
+    "codename": "change_customer",
+    "name": "Can change cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "content_type": 8,
+    "codename": "delete_customer",
+    "name": "Can delete cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "content_type": 9,
+    "codename": "add_employee",
+    "name": "Can add funcion\u00e1rio"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "content_type": 9,
+    "codename": "change_employee",
+    "name": "Can change funcion\u00e1rio"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "content_type": 9,
+    "codename": "delete_employee",
+    "name": "Can delete funcion\u00e1rio"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "content_type": 10,
+    "codename": "add_occupation",
+    "name": "Can add cargo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "content_type": 10,
+    "codename": "change_occupation",
+    "name": "Can change cargo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "content_type": 10,
+    "codename": "delete_occupation",
+    "name": "Can delete cargo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "content_type": 11,
+    "codename": "add_seller",
+    "name": "Can add vendedor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "content_type": 11,
+    "codename": "change_seller",
+    "name": "Can change vendedor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "content_type": 11,
+    "codename": "delete_seller",
+    "name": "Can delete vendedor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "content_type": 12,
+    "codename": "add_entry",
+    "name": "Can add entrada"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "content_type": 12,
+    "codename": "change_entry",
+    "name": "Can change entrada"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "content_type": 12,
+    "codename": "delete_entry",
+    "name": "Can delete entrada"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "content_type": 13,
+    "codename": "add_category",
+    "name": "Can add categoria"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "content_type": 13,
+    "codename": "change_category",
+    "name": "Can change categoria"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "content_type": 13,
+    "codename": "delete_category",
+    "name": "Can delete categoria"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "content_type": 14,
+    "codename": "add_work",
+    "name": "Can add obra"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "content_type": 14,
+    "codename": "change_work",
+    "name": "Can change obra"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "content_type": 14,
+    "codename": "delete_work",
+    "name": "Can delete obra"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "content_type": 15,
+    "codename": "add_proposal",
+    "name": "Can add or\u00e7amento"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "content_type": 15,
+    "codename": "change_proposal",
+    "name": "Can change or\u00e7amento"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "content_type": 15,
+    "codename": "delete_proposal",
+    "name": "Can delete or\u00e7amento"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "content_type": 16,
+    "codename": "add_contract",
+    "name": "Can add contrato"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "content_type": 16,
+    "codename": "change_contract",
+    "name": "Can change contrato"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "content_type": 16,
+    "codename": "delete_contract",
+    "name": "Can delete contrato"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "content_type": 17,
+    "codename": "add_numlastproposal",
+    "name": "Can add n\u00famero \u00faltimo or\u00e7amento"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "content_type": 17,
+    "codename": "change_numlastproposal",
+    "name": "Can change n\u00famero \u00faltimo or\u00e7amento"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "content_type": 17,
+    "codename": "delete_numlastproposal",
+    "name": "Can delete n\u00famero \u00faltimo or\u00e7amento"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "is_superuser": true,
+    "last_name": "",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:12.151Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "",
+    "groups": [],
+    "password": "pbkdf2_sha256$20000$vXP206qVK5xs$+7aS51hj3L4cxtQQule6PBH73RKmRyxcOeBP9MAEa6o=",
+    "email": "",
+    "username": "admin"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "is_superuser": false,
+    "last_name": "Santos",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:13.707Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Amanda",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "amanda@example.com",
+    "username": "amanda"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "is_superuser": false,
+    "last_name": "Gomes Oliveira",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:13.869Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Caio",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "caio@example.com",
+    "username": "caio"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "is_superuser": false,
+    "last_name": "Araujo Costa",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:14.002Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Rebeca",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "rebeca@example.com",
+    "username": "rebeca"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "is_superuser": false,
+    "last_name": "Cardoso Rodrigues",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:14.157Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Douglas",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "douglas@example.com",
+    "username": "douglas"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "is_superuser": false,
+    "last_name": "Carlos Frederico",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:14.302Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Jos\u00e9",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "jc@example.com",
+    "username": "jose"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "is_superuser": false,
+    "last_name": "Cunha Santos",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:14.445Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Alice",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "alice@example.com",
+    "username": "alice"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "is_superuser": false,
+    "last_name": "Azevedo Santos",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:14.592Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Carla",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "carla@example.com",
+    "username": "carla"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "is_superuser": true,
+    "last_name": "da Silva Santos",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:14.736Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Regis",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "regis@example.com",
+    "username": "regis"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "is_superuser": true,
+    "last_name": "do Nascimento",
+    "user_permissions": [],
+    "date_joined": "2015-07-27T06:01:14.880Z",
+    "is_active": true,
+    "last_login": null,
+    "is_staff": true,
+    "first_name": "Adailton",
+    "groups": [],
+    "password": "pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA=",
+    "email": "adailton@example.com",
+    "username": "adailton"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 1,
+  "fields": {
+    "date_entry": "2015-12-03T01:47:17.524Z",
+    "treatment": "aa",
+    "cpf": "11122233396",
+    "phone3": "11 7543-2103",
+    "district": "Cerqueira C\u00e9sar",
+    "cep": "01020000",
+    "complement": "Apto 303",
+    "company": "Tivit",
+    "rg": "40373800",
+    "active": true,
+    "department": "Arquitetura",
+    "blocked": false,
+    "occupation": 3,
+    "address": "Avenida Paulista, 1320",
+    "date_release": null,
+    "gender": "F",
+    "city": "S\u00e3o Paulo",
+    "phone2": "11 7543-2102",
+    "user": 2,
+    "modified": "2015-07-27T06:01:17.309Z",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:17.309Z",
+    "phone1": "11 7543-2101"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 2,
+  "fields": {
+    "date_entry": "2015-01-02T15:25:35.127Z",
+    "treatment": "eng",
+    "cpf": "73842008714",
+    "phone3": "(11) 1827-6927",
+    "district": "Aclima\u00e7\u00e3o",
+    "cep": "01100000",
+    "complement": "Apto 16",
+    "company": "Tivit",
+    "rg": "506793799",
+    "active": true,
+    "department": "Engenharia",
+    "blocked": false,
+    "occupation": 4,
+    "address": "Rua Mar\u00edlia de Dirceu, 1525",
+    "date_release": null,
+    "gender": "M",
+    "city": "S\u00e3o Paulo",
+    "phone2": "(11) 0638-5029",
+    "user": 3,
+    "modified": "2015-07-27T06:01:17.450Z",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:17.450Z",
+    "phone1": "(11) 7630-3598"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 3,
+  "fields": {
+    "date_entry": "2015-11-14T09:41:02.105Z",
+    "treatment": "",
+    "cpf": "24644675769",
+    "phone3": "(11) 7757-6085",
+    "district": "Vergueiro",
+    "cep": "01289098",
+    "complement": "cj. 3",
+    "company": "Titanium",
+    "rg": "592288359",
+    "active": true,
+    "department": "Or\u00e7amentos",
+    "blocked": false,
+    "occupation": 6,
+    "address": "Rua Monte Belo, 704",
+    "date_release": null,
+    "gender": "F",
+    "city": "S\u00e3o Paulo",
+    "phone2": "(11) 2887-3286",
+    "user": 4,
+    "modified": "2015-07-27T06:01:17.595Z",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:17.595Z",
+    "phone1": "(11) 5941-2233"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 4,
+  "fields": {
+    "date_entry": "2015-05-16T21:27:20.081Z",
+    "treatment": "",
+    "cpf": "96699840361",
+    "phone3": null,
+    "district": "Para\u00edso",
+    "cep": "02812750",
+    "complement": null,
+    "company": "Titanium",
+    "rg": "224651880",
+    "active": true,
+    "department": "Suprimentos",
+    "blocked": false,
+    "occupation": 6,
+    "address": "Rua Dr\u00e1usio Camargo, 440",
+    "date_release": null,
+    "gender": "M",
+    "city": "S\u00e3o Paulo",
+    "phone2": "(11) 9544-1853",
+    "user": 5,
+    "modified": "2015-07-27T06:01:17.759Z",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:17.759Z",
+    "phone1": "(11) 0162-6907"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 5,
+  "fields": {
+    "date_entry": "2015-09-28T06:00:01.305Z",
+    "treatment": "sr",
+    "cpf": "88922876699",
+    "phone3": "(11) 7896-0948",
+    "district": "Centro",
+    "cep": "01627400",
+    "complement": null,
+    "company": "Bot",
+    "rg": "967728378",
+    "active": true,
+    "department": "Vendas",
+    "blocked": false,
+    "occupation": 2,
+    "address": "Estrada Macacu, 1530",
+    "date_release": null,
+    "gender": "M",
+    "city": "S\u00e3o Paulo",
+    "phone2": "(11) 1784-3771",
+    "user": 6,
+    "modified": "2015-07-27T06:01:17.915Z",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:17.915Z",
+    "phone1": "(11) 2821-6772"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 6,
+  "fields": {
+    "date_entry": "2015-09-02T19:20:50.544Z",
+    "treatment": "srta",
+    "cpf": "52168942960",
+    "phone3": null,
+    "district": "Santo Amaro",
+    "cep": "02616720",
+    "complement": null,
+    "company": "Plan",
+    "rg": "742367358",
+    "active": true,
+    "department": "Ger\u00eancia",
+    "blocked": false,
+    "occupation": 6,
+    "address": "Rua Georgina S\u00e1 Leite Orcessi, 1851",
+    "date_release": null,
+    "gender": "F",
+    "city": "S\u00e3o Paulo",
+    "phone2": "(11) 0911-8736",
+    "user": 7,
+    "modified": "2015-07-27T06:01:18.085Z",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:18.085Z",
+    "phone1": "(11) 5872-4814"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 7,
+  "fields": {
+    "date_entry": "2015-12-26T22:35:56.660Z",
+    "treatment": "srta",
+    "cpf": "27663116303",
+    "phone3": "(11) 8369-8870",
+    "district": "Filipinas",
+    "cep": "01327465",
+    "complement": null,
+    "company": "Plan",
+    "rg": "188830743",
+    "active": true,
+    "department": "Arquitetura",
+    "blocked": false,
+    "occupation": 1,
+    "address": "Rua Vinte e Oito, 1491",
+    "date_release": null,
+    "gender": "F",
+    "city": "S\u00e3o Paulo",
+    "phone2": "(11) 8955-2228",
+    "user": 8,
+    "modified": "2015-07-27T06:01:18.208Z",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:18.208Z",
+    "phone1": "(11) 6297-4741"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 8,
+  "fields": {
+    "date_entry": "2015-06-07T00:32:48.285Z",
+    "treatment": "",
+    "cpf": "15895419181",
+    "phone3": null,
+    "district": "Pomp\u00e9ia",
+    "cep": "01727389",
+    "complement": "Apto 44",
+    "company": "RG Solutions",
+    "rg": "305467840",
+    "active": true,
+    "department": "TI",
+    "blocked": false,
+    "occupation": 5,
+    "address": "Pra\u00e7a Otaviano de Paulo, 89",
+    "date_release": null,
+    "gender": "M",
+    "city": "S\u00e3o Paulo",
+    "phone2": "(11) 7137-0769",
+    "user": 9,
+    "modified": "2015-07-27T06:01:18.371Z",
+    "uf": "SP",
+    "created": "2015-07-27T06:01:18.371Z",
+    "phone1": "(11) 4470-4335"
+  }
+},
+{
+  "model": "core.employee",
+  "pk": 9,
+  "fields": {
+    "date_entry": "2015-06-07T00:32:48.285Z",
+    "treatment": "",
+    "cpf": "41895976210",
+    "phone3": null,
+    "district": "Santo Antonio",
+    "cep": "10282900",
+    "complement": null,
+    "company": "RG Solutions",
+    "rg": "535121673",
+    "active": true,
+    "department": "TI",
+    "blocked": false,
+    "occupation": 6,
+    "address": "Rua Jaqueira, 460",
+    "date_release": null,
+    "gender": "M",
+    "city": "Aparecida de Goi\u00e2nia",
+    "phone2": "(11) 0444-0210",
+    "user": 10,
+    "modified": "2015-07-27T06:01:18.497Z",
+    "uf": "GO",
+    "created": "2015-07-27T06:01:18.497Z",
+    "phone1": "(11) 9002-9415"
+  }
+}
+]

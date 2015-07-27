@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+	<title>Work Form</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="page-header">
+	<h2>Nova Obra</h2>
+</div>
+
+<form class="form-horizontal" action="." method="POST">
+	{% csrf_token %}
+	{{ form.non_fields_errors }}
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.name_work.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4">
+			{{ form.name_work|attr:"class:form-control" }} {{ form.name_work.errors }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.person.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4 controls">
+			{{ form.person|attr:"class:form-control" }} {{ form.person.errors }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.customer.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4">
+			{{ form.customer|attr:"class:form-control" }} {{ form.customer.errors }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.address.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4">
+			{{ form.address|attr:"class:form-control" }} {{ form.address.errors }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.complement.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4">
+			{{ form.complement|attr:"class:form-control" }} {{ form.complement.errors }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.district.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4">
+			{{ form.district|attr:"class:form-control" }} {{ form.district.errors }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.city.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4">
+			{{ form.city|attr:"class:form-control" }} {{ form.city.errors }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.uf.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4">
+			{{ form.uf|attr:"class:form-control" }} {{ form.uf.errors }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2 col-lg-2">
+			{{ form.cep.label }}
+		</label>
+		<div class="col-sm-4 col-lg-4">
+			{{ form.cep|attr:"class:form-control" }} {{ form.cep.errors }}
+		</div>
+	</div>
+
+	<div class="form-group">
+      <div class="col-sm-2 col-sm-offset-2">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+</form>
+
+{% endblock content %}

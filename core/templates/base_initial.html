@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  {% load static from staticfiles %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+  <link rel="stylesheet" href="{% static "css/bootstrap.css.map" %}">
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "css/morris.css" %}">
+  <!-- <link rel="stylesheet" href="{% static "css/style.css" %}"> -->
+  <link rel="stylesheet" href="{% static "css/stylenew.css" %}">
+  <link rel="stylesheet" href="{% static "css/status.css" %}">
+  <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}">
+
+  <!-- MetisMenu CSS -->
+  <link href="{% static "css/metisMenu.min.css" %}" rel="stylesheet">
+
+  <!-- Timeline CSS -->
+  <link href="{% static "css/timeline.css" %}" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{% static "css/sb-admin-2.css" %}" rel="stylesheet">
+
+
+  <script src="{% static "js/jquery.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+  <script src="{% static "js/raphael-min.js" %}"></script>
+  <script src="{% static "js/metisMenu.min.js" %}"></script>
+  <script src="{% static "js/morris-data.js" %}"></script>
+  <script src="{% static "js/morris.js" %}"></script>
+
+  {% block title %}
+    <title>Orçamentos</title>
+  {% endblock title %}
+
+{% block style %}{% endblock style %}
+  
+</head>
+
+<body>
+
+{% block menu %}{% endblock menu %}
+
+{% block nocontent %}
+  
+{% endblock nocontent %}
+
+<div class="container">
+  {% block content %}
+
+  {% endblock content %}
+</div>
+
+{% block footer %}{% endblock footer %}
+
+  {% block js %}
+    
+  {% endblock js %}
+
+</body>
+</html>
+

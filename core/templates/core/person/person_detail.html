@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}
+	<title>Person Detail</title>
+{% endblock title %}
+
+{% block content %}
+
+<form class="navbar-form navbar-right" action="." method="get">
+    <!-- edit -->
+    <a href="{% url 'person_edit' pk=person.id %}">
+        <button id="edit_person" type="button" class="btn btn-success">
+            <span class="fa fa-pencil"></span> Editar
+        </button>
+    </a>
+</form>
+	
+<div class="col-lg-8">
+	<div class="col-md-2 column">
+		<img src="{% static "img/person128.png" %}" class="img-square" />
+	</div>
+	<div class="col-md-offset-3 column">
+		{% if object.treatment %}
+			<h1>{{ object.get_treatment_display }} {{ object.full_name }}</h1>
+		{% else %}
+			<h1>{{ object.full_name }}</h1>
+		{% endif %}
+		{% if object.email %}
+			<h4><span class="glyphicon glyphicon-envelope"></span><a href="#"> {{ object.email }}</a></h4>
+		{% endif %}
+	</div>
+
+	</br>
+
+	<table class="table table-user-information">
+		<tbody>
+			<tr>
+				<th class="col-md-3 text-right">Gênero</th>
+				<td>{{ object.get_gender_display }}</td>
+			</tr>
+			{% if object.company %}
+				<tr>
+					<th class="col-md-3 text-right">Empresa</th>
+					<td>{{ object.company }}</td>
+				</tr>
+			{% endif %}
+			{% if object.occupation %}
+				<tr>
+					<th class="col-md-3 text-right">Cargo</th>
+					<td>{{ object.occupation }}</td>
+				</tr>
+			{% endif %}
+			{% if object.department %}
+				<tr>
+					<th class="col-md-3 text-right">Departamento</th>
+					<td>{{ object.department }}</td>
+				</tr>
+			{% endif %}
+			{% if object.phone1 %}
+				<tr>
+					<th class="col-md-3 text-right">Telefone 1</th>
+					<td>{{ object.phone1 }}</td>
+				</tr>
+			{% else %}
+				<tr>
+					<th class="col-md-3 text-right">Telefone 1</th>
+					<td>---</td>
+				</tr>
+			{% endif %}
+			{% if object.phone2 %}
+				<tr>
+					<th class="col-md-3 text-right">Telefone 2</th>
+					<td>{{ object.phone2 }}</td>
+				</tr>
+			{% endif %}
+			{% if object.phone3 %}
+				<tr>
+					<th class="col-md-3 text-right">Telefone 3</th>
+					<td>{{ object.phone3 }}</td>
+				</tr>
+			{% endif %}
+			{% if object.cpf %}
+				<tr>
+					<th class="col-md-3 text-right">CPF</th>
+					<td>{{ object.cpf }}</td>
+				</tr>
+			{% endif %}
+			{% if object.rg %}
+				<tr>
+					<th class="col-md-3 text-right">RG</th>
+					<td>{{ object.rg }}</td>
+				</tr>
+			{% endif %}
+			{% if object.cnpj %}
+				<tr>
+					<th class="col-md-3 text-right">CNPJ</th>
+					<td>{{ object.cnpj }}</td>
+				</tr>
+			{% endif %}
+			{% if object.ie %}
+				<tr>
+					<th class="col-md-3 text-right">IE</th>
+					<td>{{ object.ie }}</td>
+				</tr>
+			{% endif %}
+			<tr>
+				<th class="col-md-3 text-right">Ativo</th>
+				{% if object.active %}
+					<td><span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span></td>
+				{% else %}
+					<td><span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span></td>
+				{% endif %}
+			</tr>
+			<tr>
+				<th class="col-md-3 text-right">Bloqueado</th>
+				{% if object.blocked %}
+					<td><span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span></td>
+				{% else %}
+					<td><span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span></td>
+				{% endif %}
+			</tr>
+
+			{% if object.address %}
+				<tr>
+					<th class="col-md-3 text-right">Endereço</th>
+					<td>{{ object.address }}</td>
+				</tr>
+			{% endif %}
+			{% if object.complement %}
+				<tr>
+					<th class="col-md-3 text-right">Complemento</th>
+					<td>{{ object.complement }}</td>
+				</tr>
+			{% endif %}
+			{% if object.district %}
+				<tr>
+					<th class="col-md-3 text-right">Bairro</th>
+					<td>{{ object.district }}</td>
+				</tr>
+			{% endif %}
+			{% if object.city %}
+				<tr>
+					<th class="col-md-3 text-right">Cidade</th>
+					<td>{{ object.city }}</td>
+				</tr>
+			{% endif %}
+			{% if object.uf %}
+				<tr>
+					<th class="col-md-3 text-right">UF</th>
+					<td>{{ object.uf }}</td>
+				</tr>
+			{% endif %}
+			{% if object.cep %}
+				<tr>
+					<th class="col-md-3 text-right">CEP</th>
+					<td>{{ object.cep }}</td>
+				</tr>
+			{% endif %}
+
+		</tbody>
+	</table>
+</div>
+
+{% endblock content %}

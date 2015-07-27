@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Proposal Detail</title>
+{% endblock title %}
+
+{% block content %}
+
+    <form class="navbar-form navbar-right" action="." method="get">
+        <!-- edit -->
+        <a id="edit_proposal" href="{% url 'proposal_edit' pk=proposal.id %}">
+            <button type="button" class="btn btn-success">
+                <span class="fa fa-pencil"></span> Editar
+            </button>
+        </a>
+	</form>
+
+<div>	
+	<table class="table table-user-information">
+		<tbody>
+			<tr>
+				<td><h1>{{ object.codigo }}</h1></td>
+
+				{% if object.status == 'c' %}
+					<td valign="middle"><i class="fa fa-close fa-fw fa-3x status-cancelado"></i> {{ object.get_status_display }}</td>
+				{% elif object.status == 'elab' %}
+					<td valign="middle"><i class="fa fa-circle fa-fw fa-3x status-elab"></i> {{ object.get_status_display }}</td>
+				{% elif object.status == 'p' %}
+					<td valign="middle"><i class="fa fa-circle fa-fw fa-3x status-pendente"></i> {{ object.get_status_display }}</td>
+				{% elif object.status == 'co' %}
+					<td valign="middle"><i class="fa fa-check fa-fw fa-3x status-concluido"></i> {{ object.get_status_display }}</td>
+				{% elif object.status == 'a' %}
+					<td valign="middle" class="text-info"><i class="fa fa-star fa-fw fa-3x status-aprovado"></i> {{ object.get_status_display }}</td>
+				{% endif %}
+
+
+			</tr>
+			<tr>
+				<th class="col-md-3 text-right">Categoria</th>
+				<td>{{ object.category }}</td>
+			</tr>
+			<tr>
+				<th class="col-md-3 text-right">Cliente</th>
+				<td><h2>{{ object.cliente }}</h2></td>
+			</tr>
+				<th class="col-md-3 text-right">Tipo de cliente</th>
+				<td>{{ object.cliente.get_type_customer_display }}</td>
+			</tr>
+			<tr>
+				<th class="col-md-3 text-right">Obra</th>
+				<!-- <td><h2><a href=" url 'work_detail' pk=work.id ">{{ object.work }}</a></h2></td> -->
+				<td><h2>{{ object.work }}</h2></td>
+			</tr>
+			<tr>
+				<th class="col-md-3 text-right">Endereço</th>
+				<td>{{ object.get_address }} </td>
+			</tr>
+			{% if object.person %}
+				<tr>
+					<th class="col-md-3 text-right">Contato</th>
+					<td>{{ object.person }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-3 text-right"><span class="glyphicon glyphicon-envelope"></span></th>
+					<td><a href="#">{{ object.person.email }}</a></td>
+				</tr>
+				<tr>
+					<th class="col-md-3 text-right"><span class="glyphicon glyphicon-phone-alt"></span></th>
+					<td>{{ object.person.phone1 }}</td>
+				</tr>
+			{% endif %}
+
+			{% if object.description %}
+				<tr>
+					<th class="col-md-3 text-right">Descrição</th>
+					<td>{{ object.description }}</td>
+				</tr>
+			{% endif %}
+			<tr>
+				<th class="col-md-3 text-right">Vendedor</th>
+				<td>{{ object.get_seller }}</td>
+			</tr>
+			{% if object.price != 0 %}
+				<tr>
+					<th class="col-md-3 text-right">Valor</th>
+					<td>{{ object.get_price }}</td>
+				</tr>
+			{% endif %}
+			{% if object.date_conclusion %}
+				<tr>
+					<th class="col-md-3 text-right">Conclusão</th>
+					<td>{{ object.date_conclusion }}</td>
+				</tr>
+			{% endif %}
+			{% if object.obs %}
+				<tr>
+					<th class="col-md-3 text-right">Observação</th>
+					<td>{{ object.obs }}</td>
+				</tr>
+			{% endif %}
+
+		</tbody>
+	</table>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+{% block title %}
+	<title>Entry Form</title>
+{% endblock title %}
+
+{% block content %}
+
+<form class="form-horizontal" action="." method="POST">
+    <legend>Entrada</legend>
+    {% csrf_token %}
+	{{ form.priority|bootstrap_horizontal }}
+	{{ form.category|bootstrap_horizontal }}
+	{{ form.work|bootstrap_horizontal }}
+	{{ form.person|bootstrap_horizontal }}
+	{{ form.description|bootstrap_horizontal }}
+	{{ form.seller|bootstrap_horizontal }}
+
+	<div class="form-group">
+      <div class="col-sm-10 col-sm-offset-2">
+        <button type="submit" id="id_submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+</form>
+
+{% endblock content %}

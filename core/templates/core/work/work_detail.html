@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Work Detail</title>
+{% endblock title %}
+
+{% block content %}
+
+<div>	
+
+	<form class="navbar-form navbar-right" action="." method="get">
+	    <!-- edit -->
+	    <a href="{% url 'work_edit' pk=work.id %}">
+	        <button id="edit_work" type="button" class="btn btn-success">
+	            <span class="fa fa-pencil"></span> Editar
+	        </button>
+	    </a>
+	</form>
+
+	<table class="table table-user-information">
+		<tbody>
+			<tr>
+				<td><h1>{{ object.name_work }}</h1></td>
+			</tr>
+			{% if object.customer %}
+				<tr>
+					<th class="col-md-3 text-right">Cliente</th>
+					<td>{{ object.customer }}</td>
+				</tr>
+			{% endif %}
+			{% if object.person %}
+				<tr>
+					<th class="col-md-3 text-right">Contato</th>
+					<td>{{ object.person }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-3 text-right"><span class="glyphicon glyphicon-envelope"></span></th>
+					<td><a href="#">{{ object.person.email }}</a></td>
+				</tr>
+				<tr>
+					<th class="col-md-3 text-right"><span class="glyphicon glyphicon-phone-alt"></span></th>
+					<td>{{ object.person.phone1 }}</td>
+				</tr>
+			{% endif %}
+
+			{% if object.address %}
+				<tr>
+					<th class="col-md-3 text-right">Endereço</th>
+					<td>{{ object.address }}</td>
+				</tr>
+			{% endif %}
+			{% if object.complement %}
+				<tr>
+					<th class="col-md-3 text-right">Complemento</th>
+					<td>{{ object.complement }}</td>
+				</tr>
+			{% endif %}
+			{% if object.district %}
+				<tr>
+					<th class="col-md-3 text-right">Bairro</th>
+					<td>{{ object.district }}</td>
+				</tr>
+			{% endif %}
+			{% if object.city %}
+				<tr>
+					<th class="col-md-3 text-right">Cidade</th>
+					<td>{{ object.city }}</td>
+				</tr>
+			{% endif %}
+			{% if object.uf %}
+				<tr>
+					<th class="col-md-3 text-right">UF</th>
+					<td>{{ object.uf }}</td>
+				</tr>
+			{% endif %}
+			{% if object.cep %}
+				<tr>
+					<th class="col-md-3 text-right">CEP</th>
+					<td>{{ object.cep }}</td>
+				</tr>
+			{% endif %}
+
+		</tbody>
+	</table>
+</div>
+
+{% endblock content %}
