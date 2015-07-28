@@ -89,7 +89,7 @@ class EntryList(CounterMixin, ListView):
 class EntryDetail(DetailView):
     template_name = 'core/entry/entry_detail.html'
     model = Entry
-'''
+
     def get_object(self):
         pk = super(EntryDetail, self).get_object()
         employee = Employee.objects.get(pk=1)  # TODO
@@ -114,7 +114,6 @@ class EntryDetail(DetailView):
         nlp.save()
 
         return obj
-'''
 
 
 class EntryActionMixin(object):
