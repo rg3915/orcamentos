@@ -1,3 +1,7 @@
+**TimeStampedModel**
+created
+modified
+
 **Address**
 address
 complement
@@ -6,15 +10,17 @@ city
 uf
 cep
 
+**MyUser**
+first_name
+last_name
+email
+
 
 **People(TimeStampedModel, Address)**
 gender
 treatment
-first_name
-last_name
 company
 department
-email
 phone1
 phone2
 phone3
@@ -25,19 +31,18 @@ blocked (boolean)
 
 
 **Person(People)**
-occupation (fk)
+occupation (FK)
 
 
-**Customer(People)**
-type_customer
+**Customer(MyUser, People)**
 cnpj
 ie
-person (fk)
+type_customer
 
 
 **Employee(People)**
 user(o2o)
-occupation (fk)
+occupation (FK)
 date_entry
 date_release
 
@@ -47,7 +52,7 @@ occupation
 
 
 **Seller**
-employee (fk)
+employee (FK)
 internal(boolean)
 commissioned(boolean)
 commission
@@ -55,40 +60,46 @@ commission
 
 **Work(Address)**
 name_work
-person(contato) (fk)
-customer(cliente) (fk)
+person(contato) (FK)
+customer(cliente) (FK)
 
 
 **Entry(TimeStampedModel)**
 priority
-category (fk)
-work (fk)
-person(contato) (fk)
+category (FK)
+work (FK)
+person(contato) (FK)
 description
-employee (fk)
-seller (fk)
-entry_ok(boolean)
+seller (FK)
+is_entry(boolean)
 
+**Category**
+category
+
+**Work(Address)**
+name_work
+person (FK)
+customer (FK)
 
 **Proposal(TimeStampedModel)**
 num_prop
 type_prop ('R','OP')
 num_type_prop (0,1,2,...)
-category (fk)
+category (FK)
 description
-work (fk)
-person (fk) (contato)
-employee (fk)
-seller (fk)
+work (FK)
+person (FK) (contato)
+employee (FK)
+seller (FK)
 status
 date_conclusion
 price
 obs
 
+**Contract**
+proposal (o2o)
+contractor (FK)
+is_canceled (FK)
 
-**Category**
-category
-
-
-**LastProposal**
+**NumLastProposal**
 num_last_prop
