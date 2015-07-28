@@ -165,9 +165,15 @@ class ProposalList(CounterMixin, ListView):
     paginate_by = 10
 
     def get_context_data(self, **kwargs):
+        status_classes = {'c': 'fa-close status-cancelado',
+                          'elab': 'fa-circle status-elab',
+                          'p': 'fa-circle status-pendente',
+                          'co': 'fa-check status-concluido',
+                          'a': 'fa-star status-aprovado'}
         context = super(ProposalList, self).get_context_data(**kwargs)
         context.update({'status_search_form': StatusSearchForm(), })
-        context['status'] = status_list
+        context['status'] = [(item, item_display, status_classes[item])
+                             for item, item_display in status_list]
         return context
 
     def get_queryset(self):
