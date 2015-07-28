@@ -16,6 +16,7 @@ urlpatterns = patterns(
 
     url(r'^entry/$', EntryList.as_view(), name='entry_list'),
     url(r'^entry/(?P<pk>\d+)/$', EntryDetail.as_view(), name='entry_detail'),
+    url(r'^entry/(?P<pk>\d+)/$', 'teste'),
     url(r'^entry/edit/(?P<pk>\d+)/$',
         EntryUpdate.as_view(), name='entry_edit'),
     url(r'^entry/add/$', EntryCreate.as_view(), name='entry_add'),

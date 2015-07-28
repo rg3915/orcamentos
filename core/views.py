@@ -86,15 +86,27 @@ class EntryList(CounterMixin, ListView):
         return e
 
 
+def teste(request):
+    print('Teste')
+    if request.GET.get('new_proposal'):
+        print('OK')
+
+
 class EntryDetail(DetailView):
     template_name = 'core/entry/entry_detail.html'
     model = Entry
 
-    def get_object(self):
+'''
+    def teste(self):
+        print('Teste')
+        if self.request.GET.get('new_proposal'):
+            print('Teste')
+    def create_proposal(self, employee_pk=1, **kwargs):
         pk = super(EntryDetail, self).get_object()
         employee = Employee.objects.get(pk=1)  # TODO
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
-        entry = Entry.objects.get(pk=self.kwargs['pk'])
+        # entry = Entry.objects.get(pk=self.kwargs['pk'])
+        entry = Entry.objects.get(pk=kwargs.get('pk', None))
         obj = Proposal(
             num_prop=nlp.num_last_prop + 1,
             type_prop='R',
@@ -114,6 +126,8 @@ class EntryDetail(DetailView):
         nlp.save()
 
         return obj
+
+'''
 
 
 class EntryActionMixin(object):
