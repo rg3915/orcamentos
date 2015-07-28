@@ -78,7 +78,7 @@ class CustomerTest(TestCase):
             cnpj='00194604000116',
             ie='1110125462',
             type_customer='a',
-            active=True
+            active=True,
         )
 
     def test_create(self):

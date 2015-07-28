@@ -8,28 +8,22 @@
 
     <form class="navbar-form navbar-right" action="." method="get">
         <div class="form-group">
-        <!-- search form -->
+	        <!-- search form -->
 	        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
 	        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
-        <!-- status search form -->
-        <!-- <div class="form-group">
-        	<label>Status</label>
-	         for radio in status_ search_ form . status 
-	        	 radio 
-	         endfor 
-        </div> -->
+	        <!-- status search form -->
         	<ul class="list-inline">
-	        	{% for item in status %}
-	        		{% if item == 'cancelado' %}
-		        		<li name="{{ item }}"><a href="?{{ item }}=1"><i class="fa fa-close fa-fw status-cancelado"></i></a></li>
-					{% elif item == 'em elaboração' %}
-						<li name="{{ item }}"><a href="?{{ item }}=1"><i class="fa fa-circle fa-fw status-elab"></i></a></li>
-					{% elif item == 'pendente' %}
-						<li name="{{ item }}"><a href="?{{ item }}=1"><i class="fa fa-circle fa-fw status-pendente"></i></a></li>
-					{% elif item == 'concluido' %}
-						<li name="{{ item }}"><a href="?{{ item }}=1"><i class="fa fa-check fa-fw status-concluido"></i></a></li>
-					{% elif item == 'aprovado' %}
-						<li name="{{ item }}"><a href="?{{ item }}=1"><i class="fa fa-star fa-fw status-aprovado"></i></a></li>
+	        	{% for item, item_display in status %}
+	        		{% if item == 'c' %}
+		        		<li><a href="?{{ item }}=1"><i class="fa fa-close fa-fw status-cancelado"></i></a></li>
+					{% elif item == 'elab' %}
+						<li><a href="?{{ item }}=1"><i class="fa fa-circle fa-fw status-elab"></i></a></li>
+					{% elif item == 'p' %}
+						<li><a href="?{{ item }}=1"><i class="fa fa-circle fa-fw status-pendente"></i></a></li>
+					{% elif item == 'co' %}
+						<li><a href="?{{ item }}=1"><i class="fa fa-check fa-fw status-concluido"></i></a></li>
+					{% elif item == 'a' %}
+						<li><a href="?{{ item }}=1"><i class="fa fa-star fa-fw status-aprovado"></i></a></li>
 	        		{% endif %}
 	        	{% endfor %}
 	        </ul>

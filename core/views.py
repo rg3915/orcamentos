@@ -154,30 +154,21 @@ class ProposalList(CounterMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(ProposalList, self).get_context_data(**kwargs)
         context.update({'status_search_form': StatusSearchForm(), })
-        l = []
-        for i in status_list:
-            # pegando apenas o segundo item de status_list
-            # para ser usado em proposal_list.html
-            l.append(i[1])
-        context['status'] = l
-        dct = {}
-        for i in status_list:
-            dct[i[0]] = i[1]
-        context['dct'] = dct
+        context['status'] = status_list
         return context
 
     def get_queryset(self):
         p = Proposal.objects.select_related().all()
 
-        if 'cancelado' in self.request.GET:
+        if 'c' in self.request.GET:
             return p.filter(status__exact='c')
-        if 'em elaboração' in self.request.GET:
+        if 'elab' in self.request.GET:
             return p.filter(status__exact='elab')
-        if 'pendente' in self.request.GET:
+        if 'p' in self.request.GET:
             return p.filter(status__exact='p')
-        if 'concluido' in self.request.GET:
+        if 'co' in self.request.GET:
             return p.filter(status__exact='co')
-        if 'aprovado' in self.request.GET:
+        if 'a' in self.request.GET:
             return p.filter(status__exact='a')
         # acho que da pra melhorar esses if usando
         # <li name="{{ item }}"><a href="?status={{ item }}">{{ item }}</a></li>
