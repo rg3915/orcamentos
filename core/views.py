@@ -181,7 +181,7 @@ class ProposalList(CounterMixin, ListView):
 
         status = self.request.GET.get('status')
         if status in ('c', 'elab', 'p', 'co', 'a'):
-            return p.filter(status=status)
+            p = p.filter(status=status)
         # acho que da pra melhorar esses if usando
         # <li name="{{ item }}"><a href="?status={{ item }}">{{ item }}</a></li>
         # no template
