@@ -179,19 +179,14 @@ class ProposalList(CounterMixin, ListView):
     def get_queryset(self):
         p = Proposal.objects.select_related().all()
 
-        if 'c' in self.request.GET:
-            return p.filter(status__exact='c')
-        if 'elab' in self.request.GET:
-            return p.filter(status__exact='elab')
-        if 'p' in self.request.GET:
-            return p.filter(status__exact='p')
-        if 'co' in self.request.GET:
-            return p.filter(status__exact='co')
-        if 'a' in self.request.GET:
-            return p.filter(status__exact='a')
+        status = self.request.GET.get('status')
+        if status in ('c', 'elab', 'p', 'co', 'a'):
+            return p.filter(status=status)
         # acho que da pra melhorar esses if usando
         # <li name="{{ item }}"><a href="?status={{ item }}">{{ item }}</a></li>
         # no template
+        # sim, e fica bem mais limpo usando status={{ item }} que {{ item }}=1
+        # valeria apena {{ item }}=1 se tivesse um tratamento diferenciado ou pudesse usar vários juntos
 
         q = self.request.GET.get('search_box')
         # s = self.request.GET.get('status')
