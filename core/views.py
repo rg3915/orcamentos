@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, F
@@ -7,7 +8,6 @@ from django.views.generic.edit import UpdateView
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
 from .forms import PersonForm, CustomerForm, StatusSearchForm
 from .lists import status_list
-from django.http import HttpResponseRedirect
 
 
 def home(request):
@@ -90,6 +90,7 @@ def teste(request):
     print('Teste')
     if request.GET.get('new_proposal'):
         print('OK')
+    return HttpResponse('OK HttpResponse')
 
 
 class EntryDetail(DetailView):
@@ -186,11 +187,12 @@ class ProposalList(CounterMixin, ListView):
         # <li name="{{ item }}"><a href="?status={{ item }}">{{ item }}</a></li>
         # no template
         # sim, e fica bem mais limpo usando status={{ item }} que {{ item }}=1
-        # valeria apena {{ item }}=1 se tivesse um tratamento diferenciado ou pudesse usar vários juntos
+        # valeria apena {{ item }}=1 se tivesse um tratamento diferenciado ou
+        # pudesse usar vários juntos
 
         q = self.request.GET.get('search_box')
         # s = self.request.GET.get('status')
-        if q is not None:
+        if not q in [None, '']:
             # try:
             p = p.filter(
                 Q(id__icontains=q) |

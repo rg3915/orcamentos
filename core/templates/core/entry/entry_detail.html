@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <form class="navbar-form navbar-right" action="." method="get">
+    <form class="navbar-form navbar-right" action="" method="get">
         <!-- edit -->
         <a id="edit_entry" href="{% url 'entry_edit' pk=entry.id %}">
             <button type="button" class="btn btn-success">
@@ -15,11 +15,12 @@
         </a>
         <!-- add -->
         <!-- <p name="filter_link" class="pull-right"><a href="">Produtos em baixo estoque</a></p> -->
-        <a id="new_proposal" name="new_proposal" href="{% url 'entry_list' %}">
+        <a name="new_proposal" href="{% url 'proposal_list' %}">
             <button type="button" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span> Criar Orçamento
             </button>
         </a>
+        <!-- <input name="new_proposal0" type="submit" value="1"> -->
 	</form>
 
 <div>	
