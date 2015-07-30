@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy
 from django.utils.formats import number_format
 from django.contrib.auth.models import User
 from .managers import PersonManager
@@ -88,7 +89,7 @@ class Person(MyUser, People):
         return self.full_name
 
     def get_absolute_url(self):
-        return u'/person/%i' % self.id
+        return reverse_lazy('person_detail', kwargs={'pk': self.pk})
 
 
 class Customer(MyUser, People):
@@ -108,7 +109,7 @@ class Customer(MyUser, People):
         return self.full_name
 
     def get_absolute_url(self):
-        return u'/customer/%i' % self.id
+        return reverse_lazy('customer_detail', kwargs={'pk': self.pk})
 
 
 class Employee(People):
@@ -184,7 +185,7 @@ class Entry(TimeStampedModel):
         return str(self.work)
 
     def get_absolute_url(self):
-        return u'/entry/%i' % self.id
+        return reverse_lazy('entry_detail', kwargs={'pk': self.pk})
 
 
 class Category(models.Model):
@@ -215,7 +216,7 @@ class Work(Address):
         return self.name_work
 
     def get_absolute_url(self):
-        return u'/work/%i' % self.id
+        return reverse_lazy('work_detail', kwargs={'pk': self.pk})
 
 
 class Proposal(TimeStampedModel):
@@ -255,7 +256,7 @@ class Proposal(TimeStampedModel):
     codigo = property(__str__)
 
     def get_absolute_url(self):
-        return u'/proposal/%i' % self.id
+        return reverse_lazy('proposal_detail', kwargs={'pk': self.pk})
 
     def get_price(self):
         return u"R$ %s" % number_format(self.price, 2)
@@ -295,7 +296,7 @@ class Contract(TimeStampedModel):
         return str(self.proposal)
 
     def get_absolute_url(self):
-        return u'/contract/%i' % self.id
+        return reverse_lazy('contract_detail', kwargs={'pk': self.pk})
 
 
 class NumLastProposal(models.Model):
