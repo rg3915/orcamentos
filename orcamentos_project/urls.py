@@ -17,6 +17,8 @@ urlpatterns = patterns(
     url(r'^entry/$', EntryList.as_view(), name='entry_list'),
     url(r'^entry/(?P<pk>\d+)/$', EntryDetail.as_view(), name='entry_detail'),
     url(r'^entry/teste/$', 'myfunction', name='testeurl'),
+    url(r'^entry/json/(?P<pk>\d+)/$',
+        'entry_detail_json', name='entry_detail_json'),
     url(r'^entry/edit/proposal/$', 'create_proposal',
         name='create_proposal_url'),
     url(r'^entry/edit/(?P<pk>\d+)/$',

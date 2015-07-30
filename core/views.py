@@ -1,3 +1,5 @@
+import json
+from django.core import serializers
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
@@ -95,6 +97,12 @@ def myfunction(request):
     return redirect('proposal_list')
 
 
+def entry_detail_json(request, pk):
+    data = Entry.objects.filter(pk=pk)
+    s = serializers.serialize("json", data)
+    return HttpResponse(s)
+
+
 def create_proposal(request, employee_pk=1, **kwargs):
     f = None
     if request.method == 'GET':
@@ -103,8 +111,8 @@ def create_proposal(request, employee_pk=1, **kwargs):
         employee = Employee.objects.get(pk=employee_pk)  # TODO
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
         # entry = Entry.objects.get(pk=kwargs.get('pk', None))
-        entry = Entry.objects.get(pk=request.pk)
-        print(entry)
+        entry = Entry.objects.get(pk=3)
+        print(epk)
         obj = Proposal(
             num_prop=nlp.num_last_prop + 1,
             type_prop='R',
