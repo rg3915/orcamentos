@@ -95,21 +95,16 @@ def myfunction(request):
     return redirect('proposal_list')
 
 
-class EntryDetail(DetailView):
-    template_name = 'core/entry/entry_detail.html'
-    model = Entry
-
-'''
-    def teste(self):
-        print('Teste')
-        if self.request.GET.get('new_proposal'):
-            print('Teste')
-    def create_proposal(self, employee_pk=1, **kwargs):
-        pk = super(EntryDetail, self).get_object()
-        employee = Employee.objects.get(pk=1)  # TODO
+def create_proposal(request, employee_pk=1, **kwargs):
+    f = None
+    if request.method == 'GET':
+        f = request.GET['new_proposal']
+    if f:
+        employee = Employee.objects.get(pk=employee_pk)  # TODO
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
-        # entry = Entry.objects.get(pk=self.kwargs['pk'])
-        entry = Entry.objects.get(pk=kwargs.get('pk', None))
+        # entry = Entry.objects.get(pk=kwargs.get('pk', None))
+        entry = Entry.objects.get(pk=request.pk)
+        print(entry)
         obj = Proposal(
             num_prop=nlp.num_last_prop + 1,
             type_prop='R',
@@ -121,16 +116,19 @@ class EntryDetail(DetailView):
             seller=entry.seller,
         )
         obj.save()
-
+        # Define que foi dado entrada
         entry.is_entry = True
         entry.save()
-
+        # Incrementa o número do último orçamento
         nlp.num_last_prop += 1
         nlp.save()
+        print('OK')
+    return redirect('proposal_list')
 
-        return obj
 
-'''
+class EntryDetail(DetailView):
+    template_name = 'core/entry/entry_detail.html'
+    model = Entry
 
 
 class EntryActionMixin(object):
