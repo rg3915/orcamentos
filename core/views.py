@@ -21,6 +21,21 @@ class Home(TemplateView):
 
     def proposals(self):
         return Proposal.objects.all().count()
+
+    def proposal_elab(self):
+        return Proposal.objects.filter(status='elab').count()
+
+    def contracts(self):
+        return Contract.objects.all().count()
+
+    def customers(self):
+        return Customer.objects.all().count()
+
+    def works(self):
+        return Work.objects.all().count()
+
+    def persons(self):
+        return Person.objects.all().count()
 '''
     def get_context_data(self, **kwargs):
         e = {
