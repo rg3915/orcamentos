@@ -18,7 +18,7 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li><a href="#"><span class="fa fa-inbox fa-fw"></span><span class="label label-warning">40</span></a></li>
+                <li><a href="#"><span class="fa fa-inbox fa-fw"></span><span class="label label-warning">{{ view.entrys }}</span></a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -243,7 +243,7 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <li><a href="{% url 'entry_list' %}"><i class="fa fa-inbox"></i> Entrada<span class="pull-right label label-warning small"><em>40</em></span></a></li>
+                        <li><a href="{% url 'entry_list' %}"><i class="fa fa-inbox"></i> Entrada<span class="pull-right label label-warning small"><em>{{ view.entrys }}</em></span></a></li>
                         <li><a href="#"><span class="fa fa-magic fa-flip-horizontal"></span> Cadastro rápido</a></li>
                         <li><a href="{% url 'proposal_list' %}"><i class="fa fa-list"></i> Orçamentos<span class="pull-right label label-success small"><em>5</em></span></a></li>
                         <li><a href="{% url 'contract_list' %}"><i class="fa fa-star"></i> Contratos</a></li>
@@ -359,7 +359,7 @@
                                     </a>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="large">40</div>
+                                    <div class="large">{{ view.entrys }}</div>
                                     <div>Entrada</div>
                                 </div>
                             </div>
@@ -384,7 +384,7 @@
                                     </a>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="large">998</div>
+                                    <div class="large">{{ view.proposals }}</div>
                                     <div>Orçamentos</div>
                                 </div>
                             </div>

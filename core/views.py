@@ -9,43 +9,34 @@ from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
 from .forms import PersonForm, CustomerForm, StatusSearchForm
+from .mixins import LoginRequiredMixin, CounterMixin, FirstnameSearchMixin
 from .lists import status_list
 
 
-def home(request):
-    return render(request, 'index.html')
+class Home(TemplateView):
+    template_name = 'index.html'
+
+    def entrys(self):
+        return Entry.objects.filter(is_entry=False).count()
+
+    def proposals(self):
+        return Proposal.objects.all().count()
+'''
+    def get_context_data(self, **kwargs):
+        e = {
+            'n': {'total': Entry.objects.all().count(),
+                  'entrada': Entry.objects.filter(is_entry=False).count()
+                  },
+        }
+        context = super(Home, self).get_context_data(**kwargs)
+        context['entry'] = e
+        return context
+        # use: {{ entry.n.total }}
+'''
 
 
 def status(request):
     return render(request, 'status.html')
-
-
-class LoginRequiredMixin(object):
-
-    @classmethod
-    def as_view(cls, **initkwargs):
-        view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
-        return login_required(view)
-
-
-class CounterMixin(object):
-
-    def get_context_data(self, **kwargs):
-        context = super(CounterMixin, self).get_context_data(**kwargs)
-        context['count'] = self.get_queryset().count()
-        return context
-
-
-class FirstnameSearchMixin(object):
-
-    def get_queryset(self):
-        queryset = super(FirstnameSearchMixin, self).get_queryset()
-        q = self.request.GET.get('search_box')
-        if q:
-            return queryset.filter(
-                Q(first_name__icontains=q) |
-                Q(company__icontains=q))
-        return queryset
 
 
 class PersonList(CounterMixin, FirstnameSearchMixin, ListView):
