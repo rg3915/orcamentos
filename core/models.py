@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.formats import number_format
 from django.contrib.auth.models import User
+from .managers import PersonManager
 # List of values for use in choices
 from .lists import gender_list, treatment_list, uf_list, type_customer_list, priority_list, type_prop_list, status_list
 
@@ -86,7 +87,7 @@ class Person(MyUser, People):
     def __str__(self):
         return self.full_name
 
-    def get_person_detail_url(self):
+    def get_absolute_url(self):
         return u'/person/%i' % self.id
 
 
@@ -106,7 +107,7 @@ class Customer(MyUser, People):
     def __str__(self):
         return self.full_name
 
-    def get_customer_detail_url(self):
+    def get_absolute_url(self):
         return u'/customer/%i' % self.id
 
 
@@ -182,7 +183,7 @@ class Entry(TimeStampedModel):
     def __str__(self):
         return str(self.work)
 
-    def get_entry_detail_url(self):
+    def get_absolute_url(self):
         return u'/entry/%i' % self.id
 
 
@@ -213,7 +214,7 @@ class Work(Address):
     def __str__(self):
         return self.name_work
 
-    def get_work_detail_url(self):
+    def get_absolute_url(self):
         return u'/work/%i' % self.id
 
 
@@ -253,7 +254,7 @@ class Proposal(TimeStampedModel):
         return u"%03d.%s.%d" % (self.num_prop, self.created.strftime('%y'), self.num_type_prop)
     codigo = property(__str__)
 
-    def get_proposal_detail_url(self):
+    def get_absolute_url(self):
         return u'/proposal/%i' % self.id
 
     def get_price(self):
@@ -293,7 +294,7 @@ class Contract(TimeStampedModel):
     def __str__(self):
         return str(self.proposal)
 
-    def get_contract_detail_url(self):
+    def get_absolute_url(self):
         return u'/contract/%i' % self.id
 
 

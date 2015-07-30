@@ -39,7 +39,7 @@
 					{% else %}
 						<tr>
 					{% endif %}
-							<td><a href="{{ contract.get_contract_detail_url }}">{{ contract.proposal }}</a></td>
+							<td><a href="{{ contract.get_absolute_url }}">{{ contract.proposal }}</a></td>
 
 							<td>{{ contract.proposal.work }}</td>
 							<td>{{ contract.proposal.work.customer }}</td>

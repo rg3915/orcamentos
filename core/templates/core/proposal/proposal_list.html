@@ -44,15 +44,15 @@
 				{% for proposal in object_list %}
 					<tr>
 						{% if proposal.status == 'c' %}
-							<td><a href="{{ proposal.get_proposal_detail_url }}"><strike>{{ proposal.codigo }}</strike> <i class="fa fa-close fa-fw status-cancelado"></i></a></td>
+							<td><a href="{{ proposal.get_absolute_url }}"><strike>{{ proposal.codigo }}</strike> <i class="fa fa-close fa-fw status-cancelado"></i></a></td>
 						{% elif proposal.status == 'elab' %}
-							<td><a href="{{ proposal.get_proposal_detail_url }}">{{ proposal.codigo }} <i class="fa fa-circle fa-fw status-elab"></i></a></td>
+							<td><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-circle fa-fw status-elab"></i></a></td>
 						{% elif proposal.status == 'p' %}
-							<td><a href="{{ proposal.get_proposal_detail_url }}">{{ proposal.codigo }} <i class="fa fa-circle fa-fw status-pendente"></i></a></td>
+							<td><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-circle fa-fw status-pendente"></i></a></td>
 						{% elif proposal.status == 'co' %}
-							<td><a href="{{ proposal.get_proposal_detail_url }}">{{ proposal.codigo }} <i class="fa fa-check fa-fw status-concluido"></i></a></td>
+							<td><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-check fa-fw status-concluido"></i></a></td>
 						{% elif proposal.status == 'a' %}
-							<td class="text-info"><a href="{{ proposal.get_proposal_detail_url }}">{{ proposal.codigo }} <i class="fa fa-star fa-fw status-aprovado"></i></a></td>
+							<td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-star fa-fw status-aprovado"></i></a></td>
 						{% endif %}
 
 						<td>{{ proposal.work }}</td>

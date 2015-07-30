@@ -41,7 +41,7 @@
 				<tbody>
 				{% for entry in entrys %}
 					<tr>
-					<td><a href="{{ entry.get_entry_detail_url }}">{{ entry.work }}</a></td>
+					<td><a href="{{ entry.get_absolute_url }}">{{ entry.work }}</a></td>
 						<td>{{ entry.work.customer }}</td>
 						<td>{{ entry.seller.employee.user.first_name }}</td>
 						<td>{{ entry.get_priority_display }}</td>

@@ -40,7 +40,7 @@
 				<tbody>
 				{% for person in object_list %}
 					<tr>
-						<td><a href="{{ person.get_person_detail_url }}">{{ person.full_name }}</a></td>
+						<td><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></td>
 						<td>{{ person.email }}</td>
 						<td>{{ person.phone1 }}</td>
 						<td>{{ person.phone2 }}</td>

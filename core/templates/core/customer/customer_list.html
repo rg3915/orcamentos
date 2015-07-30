@@ -39,7 +39,7 @@
 		    <tbody>
 		    {% for customer in object_list %}
 		        <tr>
-		            <td><a href="{{ customer.get_customer_detail_url }}">{{ customer.full_name }}</a></td>
+		            <td><a href="{{ customer.get_absolute_url }}">{{ customer.full_name }}</a></td>
 		            {% if customer.email %}
 		            	<td>{{ customer.email }}</td>
 		            {% else %}
