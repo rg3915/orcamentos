@@ -263,6 +263,15 @@ class Proposal(TimeStampedModel):
         return self.work.customer
     cliente = property(get_customer)
 
+    def get_customer_url(self):
+        return u'/customer/%i' % self.work.customer.id
+
+    def get_work_url(self):
+        return u'/work/%i' % self.work.id
+
+    def get_person_url(self):
+        return u'/person/%i' % self.person.id
+
     def get_seller(self):
         return self.seller.employee.user.first_name
 

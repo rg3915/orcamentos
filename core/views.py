@@ -112,7 +112,6 @@ def create_proposal(request, employee_pk=1, **kwargs):
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
         # entry = Entry.objects.get(pk=kwargs.get('pk', None))
         entry = Entry.objects.get(pk=3)
-        print(epk)
         obj = Proposal(
             num_prop=nlp.num_last_prop + 1,
             type_prop='R',
