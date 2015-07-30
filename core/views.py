@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -86,11 +86,13 @@ class EntryList(CounterMixin, ListView):
         return e
 
 
-def teste(request):
-    print('Teste')
-    if request.GET.get('new_proposal'):
+def myfunction(request):
+    f = None
+    if request.method == 'GET':
+        f = request.GET['new_proposal']
+    if f:
         print('OK')
-    return HttpResponse('OK HttpResponse')
+    return redirect('proposal_list')
 
 
 class EntryDetail(DetailView):
