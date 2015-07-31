@@ -245,7 +245,7 @@
                         </li>
                         <li><a href="{% url 'entry_list' %}"><i class="fa fa-inbox"></i> Entrada<span class="pull-right label label-warning small"><em>{{ view.entrys }}</em></span></a></li>
                         <li><a href="#"><span class="fa fa-magic fa-flip-horizontal"></span> Cadastro rápido</a></li>
-                        <li><a href="{% url 'proposal_list' %}"><i class="fa fa-list"></i> Orçamentos<span class="pull-right label label-success small"><em>{{ view.proposal_elab }}</em></span></a></li>
+                        <li><a href="{% url 'proposal_list' %}"><i class="fa fa-list"></i> Orçamentos<span class="pull-right label label-success small"><em>{{ proposals.proposal_elab }}</em></span></a></li>
                         <li><a href="{% url 'contract_list' %}"><i class="fa fa-star"></i> Contratos</a></li>
                         <li><a href="{% url 'customer_list' %}"><i class="fa fa-users"></i> Clientes</a></li>
                         <li><a href="{% url 'work_list' %}"><i class="fa fa-home"></i> Obras</a></li>
@@ -375,7 +375,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <div class="panel panel-primary">
-                        <span class="label label-success">{{ view.proposal_elab }}</span>
+                        <span class="label label-success">{{ proposals.proposal_elab }}</span>
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -384,7 +384,7 @@
                                     </a>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="large">{{ view.proposals }}</div>
+                                    <div class="large">{{ proposals.proposals }}</div>
                                     <div>Orçamentos</div>
                                 </div>
                             </div>
@@ -581,7 +581,7 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-circle status-elab"></i> Orçamentos em elaboração <span class="label label-success">{{ view.proposal_elab }}</span>
+                            <i class="fa fa-circle status-elab"></i> Orçamentos em elaboração <span class="label label-success">{{ proposals.proposal_elab }}</span>
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -769,27 +769,27 @@
                                     <div class="list-group">
                                         <a href="#" class="list-group-item">
                                             <i class="fa fa-circle fa-fw status-elab"></i> Em Elaboração
-                                            <span class="pull-right text-muted small"><em>{{ view.proposal_elab }}</em>
+                                            <span class="pull-right text-muted small"><em>{{ proposals.proposal_elab }}</em>
                                             </span>
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <i class="fa fa-circle fa-fw status-pendente"></i> Pendentes
-                                            <span class="pull-right text-muted small"><em>{{ view.proposal_pending }}</em>
+                                            <span class="pull-right text-muted small"><em>{{ proposals.proposal_pending }}</em>
                                             </span>
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <i class="fa fa-check fa-fw status-concluido"></i> Concluidos
-                                            <span class="pull-right text-muted small"><em>{{ view.proposal_concluded }}</em>
+                                            <span class="pull-right text-muted small"><em>{{ proposals.proposal_concluded }}</em>
                                             </span>
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <i class="fa fa-star fa-fw status-aprovado"></i> Aprovados
-                                            <span class="pull-right text-muted small"><em>{{ view.proposal_approved }}</em>
+                                            <span class="pull-right text-muted small"><em>{{ proposals.proposal_approved }}</em>
                                             </span>
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <i class="fa fa-close fa-fw status-cancelado"></i> Cancelados
-                                            <span class="pull-right text-muted small"><em>{{ view.proposal_canceled }}</em>
+                                            <span class="pull-right text-muted small"><em>{{ proposals.proposal_canceled }}</em>
                                             </span>
                                         </a>
                                     </div><!-- /.list-group -->

@@ -4,8 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, F
-from aggregate_if import Count
+from django.db.models import IntegerField, Count, Case, When
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
@@ -17,26 +16,26 @@ from .lists import status_list
 class Home(TemplateView):
     template_name = 'index.html'
 
+    def get_context_data(self, **kwargs):
+        q = Proposal.objects.aggregate(
+            proposals=Count('pk'),
+            proposal_elab=Count(
+                Case(When(status='elab', then=1), output_field=IntegerField())),
+            proposal_pending=Count(
+                Case(When(status='p', then=1), output_field=IntegerField())),
+            proposal_concluded=Count(
+                Case(When(status='co', then=1), output_field=IntegerField())),
+            proposal_approved=Count(
+                Case(When(status='a', then=1), output_field=IntegerField())),
+            proposal_canceled=Count(
+                Case(When(status='c', then=1), output_field=IntegerField())),
+        )
+        context = super(Home, self).get_context_data(**kwargs)
+        context['proposals'] = q
+        return context
+
     def entrys(self):
         return Entry.objects.filter(is_entry=False).count()
-
-    def proposals(self):
-        return Proposal.objects.all().count()
-
-    def proposal_elab(self):
-        return Proposal.objects.filter(status='elab').count()
-
-    def proposal_pending(self):
-        return Proposal.objects.filter(status='p').count()
-
-    def proposal_concluded(self):
-        return Proposal.objects.filter(status='co').count()
-
-    def proposal_approved(self):
-        return Proposal.objects.filter(status='a').count()
-
-    def proposal_canceled(self):
-        return Proposal.objects.filter(status='c').count()
 
     def contracts(self):
         return Contract.objects.all().count()
