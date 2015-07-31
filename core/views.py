@@ -17,7 +17,7 @@ class Home(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
-        q = Proposal.objects.aggregate(
+        p = Proposal.objects.aggregate(
             proposals=Count('pk'),
             proposal_elab=Count(
                 Case(When(status='elab', then=1), output_field=IntegerField())),
@@ -31,7 +31,8 @@ class Home(TemplateView):
                 Case(When(status='c', then=1), output_field=IntegerField())),
         )
         context = super(Home, self).get_context_data(**kwargs)
-        context['proposals'] = q
+        context['proposals'] = p
+
         return context
 
     def entrys(self):
