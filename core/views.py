@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q, F
 from django.db.models import IntegerField, Count, Case, When
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
@@ -198,20 +199,21 @@ class ProposalList(CounterMixin, ListView):
         if status in ('c', 'elab', 'p', 'co', 'a'):
             p = p.filter(status=status)
 
+        # Recomendado por
+        # http://pt.stackoverflow.com/a/77694/761
         q = self.request.GET.get('search_box')
+        # e = self.request.GET.get('ano', False)
         # s = self.request.GET.get('status')
+        # if e:
+        # p = p.filter(created__year=q)
         if not q in [None, '']:
-            # try:
             p = p.filter(
-                Q(id__icontains=q) |
+                Q(id__startswith=q) |
                 Q(work__name_work__icontains=q) |
                 Q(work__customer__first_name__icontains=q) |
                 Q(category__category__startswith=q) |
                 Q(employee__user__first_name__startswith=q) |
                 Q(seller__employee__user__first_name__startswith=q))
-            # Q(created__year=q))
-            # except ValueError:
-            #     pass
         # if s:
             # p = p.filter(status__exact=s)
         return p
