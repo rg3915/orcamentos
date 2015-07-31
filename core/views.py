@@ -8,6 +8,7 @@ from django.db.models import Q, F
 from django.db.models import IntegerField, Count, Case, When
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
+from django.contrib.auth.models import User
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
 from .forms import PersonForm, CustomerForm, StatusSearchForm
 from .mixins import LoginRequiredMixin, CounterMixin, FirstnameSearchMixin
@@ -111,12 +112,13 @@ def entry_detail_json(request, pk):
     return HttpResponse(s)
 
 
-def create_proposal(request, employee_pk=1, **kwargs):
+def create_proposal(request, **kwargs):
     f = None
     if request.method == 'GET':
         f = request.GET['new_proposal']
     if f:
-        employee = Employee.objects.get(pk=employee_pk)  # TODO
+        employee = Employee.objects.get(pk=request.user.id)
+        print(request.user.id)
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
         # entry = Entry.objects.get(pk=kwargs.get('pk', None))
         entry = Entry.objects.get(pk=f)
@@ -138,7 +140,7 @@ def create_proposal(request, employee_pk=1, **kwargs):
         nlp.num_last_prop += 1
         nlp.save()
         print('Orçamento criado com sucesso')
-    return redirect('proposal_list')
+    return redirect('/proposal/%d' % obj.id)
 
 
 class EntryDetail(DetailView):
