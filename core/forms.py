@@ -20,6 +20,9 @@ class PersonForm(forms.ModelForm):
         model = Person
         fields = '__all__'
 
+    def clean_cpf(self):
+        return self.cleaned_data['cpf'] or None
+
 
 class CustomerForm(forms.ModelForm):
     gender = forms.ChoiceField(

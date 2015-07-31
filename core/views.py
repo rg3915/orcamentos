@@ -214,7 +214,7 @@ class ProposalList(CounterMixin, ListView):
                 Q(category__category__startswith=q) |
                 Q(employee__user__first_name__startswith=q) |
                 Q(seller__employee__user__first_name__startswith=q))
-            # Q(created__year=q))
+            # Q(created__year=q.strftime('%Y')))
             # except ValueError:
             #     pass
         # if s:
