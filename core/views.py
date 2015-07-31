@@ -119,7 +119,7 @@ def create_proposal(request, employee_pk=1, **kwargs):
         employee = Employee.objects.get(pk=employee_pk)  # TODO
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
         # entry = Entry.objects.get(pk=kwargs.get('pk', None))
-        entry = Entry.objects.get(pk=3)
+        entry = Entry.objects.get(pk=f)
         obj = Proposal(
             num_prop=nlp.num_last_prop + 1,
             type_prop='R',
@@ -137,7 +137,7 @@ def create_proposal(request, employee_pk=1, **kwargs):
         # Incrementa o número do último orçamento
         nlp.num_last_prop += 1
         nlp.save()
-        print('OK')
+        print('Orçamento criado com sucesso')
     return redirect('proposal_list')
 
 
@@ -199,13 +199,8 @@ class ProposalList(CounterMixin, ListView):
         if status in ('c', 'elab', 'p', 'co', 'a'):
             p = p.filter(status=status)
 
-        # Recomendado por
         # http://pt.stackoverflow.com/a/77694/761
         q = self.request.GET.get('search_box')
-        # e = self.request.GET.get('ano', False)
-        # s = self.request.GET.get('status')
-        # if e:
-        # p = p.filter(created__year=q)
         if not q in [None, '']:
             p = p.filter(
                 Q(id__startswith=q) |
@@ -214,8 +209,6 @@ class ProposalList(CounterMixin, ListView):
                 Q(category__category__startswith=q) |
                 Q(employee__user__first_name__startswith=q) |
                 Q(seller__employee__user__first_name__startswith=q))
-        # if s:
-            # p = p.filter(status__exact=s)
         return p
 
 
