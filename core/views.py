@@ -25,6 +25,18 @@ class Home(TemplateView):
     def proposal_elab(self):
         return Proposal.objects.filter(status='elab').count()
 
+    def proposal_pending(self):
+        return Proposal.objects.filter(status='p').count()
+
+    def proposal_concluded(self):
+        return Proposal.objects.filter(status='co').count()
+
+    def proposal_approved(self):
+        return Proposal.objects.filter(status='a').count()
+
+    def proposal_canceled(self):
+        return Proposal.objects.filter(status='c').count()
+
     def contracts(self):
         return Contract.objects.all().count()
 
@@ -184,12 +196,6 @@ class ProposalList(CounterMixin, ListView):
         status = self.request.GET.get('status')
         if status in ('c', 'elab', 'p', 'co', 'a'):
             p = p.filter(status=status)
-        # acho que da pra melhorar esses if usando
-        # <li name="{{ item }}"><a href="?status={{ item }}">{{ item }}</a></li>
-        # no template
-        # sim, e fica bem mais limpo usando status={{ item }} que {{ item }}=1
-        # valeria apena {{ item }}=1 se tivesse um tratamento diferenciado ou
-        # pudesse usar vários juntos
 
         q = self.request.GET.get('search_box')
         # s = self.request.GET.get('status')
