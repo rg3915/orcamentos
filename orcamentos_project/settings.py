@@ -21,6 +21,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'bootstrapform',
     'widget_tweaks',
+    'aggregate_if',
     'core',
 )
 

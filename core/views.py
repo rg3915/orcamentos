@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, F
+from aggregate_if import Count
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
