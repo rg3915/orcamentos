@@ -114,32 +114,32 @@ def entry_detail_json(request, pk):
 
 def create_proposal(request, **kwargs):
     f = None
-    if request.method == 'GET':
-        f = request.GET['new_proposal']
-    if f:
-        employee = Employee.objects.get(pk=request.user.id)
-        print(request.user.id)
-        nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
-        # entry = Entry.objects.get(pk=kwargs.get('pk', None))
-        entry = Entry.objects.get(pk=f)
-        obj = Proposal(
-            num_prop=nlp.num_last_prop + 1,
-            type_prop='R',
-            category=entry.category,
-            description=entry.description,
-            work=entry.work,
-            person=entry.person,
-            employee=employee,
-            seller=entry.seller,
-        )
-        obj.save()
-        # Define que foi dado entrada
-        entry.is_entry = True
-        entry.save()
-        # Incrementa o número do último orçamento
-        nlp.num_last_prop += 1
-        nlp.save()
-        print('Orçamento criado com sucesso')
+    if request.user.is_authenticated:
+        if request.method == 'GET':
+            f = request.GET['new_proposal']
+        if f:
+            employee = Employee.objects.get(pk=request.user.id)
+            nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
+            # entry = Entry.objects.get(pk=kwargs.get('pk', None))
+            entry = Entry.objects.get(pk=f)
+            obj = Proposal(
+                num_prop=nlp.num_last_prop + 1,
+                type_prop='R',
+                category=entry.category,
+                description=entry.description,
+                work=entry.work,
+                person=entry.person,
+                employee=employee,
+                seller=entry.seller,
+            )
+            obj.save()
+            # Define que foi dado entrada
+            entry.is_entry = True
+            entry.save()
+            # Incrementa o número do último orçamento
+            nlp.num_last_prop += 1
+            nlp.save()
+            print('Orçamento criado com sucesso')
     return redirect('/proposal/%d' % obj.id)
 
 
