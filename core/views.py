@@ -36,18 +36,6 @@ class Home(TemplateView):
 
     def persons(self):
         return Person.objects.all().count()
-'''
-    def get_context_data(self, **kwargs):
-        e = {
-            'n': {'total': Entry.objects.all().count(),
-                  'entrada': Entry.objects.filter(is_entry=False).count()
-                  },
-        }
-        context = super(Home, self).get_context_data(**kwargs)
-        context['entry'] = e
-        return context
-        # use: {{ entry.n.total }}
-'''
 
 
 def status(request):
@@ -214,7 +202,7 @@ class ProposalList(CounterMixin, ListView):
                 Q(category__category__startswith=q) |
                 Q(employee__user__first_name__startswith=q) |
                 Q(seller__employee__user__first_name__startswith=q))
-            # Q(created__year=q.strftime('%Y')))
+            # Q(created__year=q))
             # except ValueError:
             #     pass
         # if s:
