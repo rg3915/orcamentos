@@ -32,6 +32,12 @@ class CustomerForm(forms.ModelForm):
         model = Customer
         fields = '__all__'
 
+    def clean_cpf(self):
+        return self.cleaned_data['cpf'] or None
+
+    def clean_cnpj(self):
+        return self.cleaned_data['cnpj'] or None
+
 
 class StatusSearchForm(forms.Form):
     status = forms.ChoiceField(

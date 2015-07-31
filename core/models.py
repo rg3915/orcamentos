@@ -5,7 +5,8 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.formats import number_format
 from django.contrib.auth.models import User
 # List of values for use in choices
-from .lists import gender_list, treatment_list, uf_list, type_customer_list, priority_list, type_prop_list, status_list
+from .lists import gender_list, treatment_list, uf_list, \
+    type_customer_list, priority_list, type_prop_list, status_list
 
 
 class TimeStampedModel(models.Model):
