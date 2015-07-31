@@ -3,21 +3,9 @@ import rstr
 from core.models import Proposal, Category, Work, Person, Employee, Seller, NumLastProposal
 from shell.gen_random_values import gen_date, gen_decimal
 
-# eu quis ordenar alguns status de propósito
-status_list = (
-    ('elab'),
-    ('p'),
-    ('c'),
-    ('co'),
-    ('elab'),
-    ('c'),
-    ('co'),
-    ('p'),
-    ('a'),
-    ('a'),
-)
+status_list = ('c', 'elab', 'p', 'co', 'a')
 
-REPEAT = 10
+REPEAT = 100
 
 for i in range(1, REPEAT + 1):
     c = random.randint(1, 8)
@@ -31,7 +19,8 @@ for i in range(1, REPEAT + 1):
     employee = Employee.objects.get(pk=e)
     s = random.randint(1, 3)
     seller = Seller.objects.get(pk=s)
-    status = status_list[i - 1]
+    sl = random.randint(0, 4)
+    status = status_list[sl]
     if status == 'co' or status == 'a':
         date_conclusion = gen_date(min_year=2015, max_year=2015)
         price = gen_decimal(9, 2)
