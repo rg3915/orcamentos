@@ -247,6 +247,7 @@ class Proposal(TimeStampedModel):
         _(u'observação'), max_length=100, null=True, blank=True)
 
     class Meta:
+        ordering = ['id']
         verbose_name = u'orçamento'
         verbose_name_plural = u'orçamentos'
 
@@ -289,6 +290,7 @@ class Contract(TimeStampedModel):
     is_canceled = models.BooleanField(_('cancelado'), default=False)
 
     class Meta:
+        ordering = ['proposal']
         verbose_name = u'contrato'
         verbose_name_plural = u'contratos'
 

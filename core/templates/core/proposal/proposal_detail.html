@@ -6,13 +6,15 @@
 
 {% block content %}
 
-    <form class="navbar-form navbar-right" action="." method="get">
+    <form class="navbar-form navbar-right" action="{% url 'create_contract_url' %}" method="get">
         <!-- edit -->
         <a id="edit_proposal" href="{% url 'proposal_edit' pk=proposal.id %}">
             <button type="button" class="btn btn-success">
                 <span class="fa fa-pencil"></span> Editar
             </button>
         </a>
+    	<input name="new_contract" type="submit" class="btn btn-primary" value="{{ proposal.id }}" />
+
 	</form>
 
 <div>	

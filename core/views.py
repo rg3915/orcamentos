@@ -112,6 +112,7 @@ def entry_detail_json(request, pk):
     return HttpResponse(s)
 
 
+@login_required
 def create_proposal(request, **kwargs):
     f = None
     if request.user.is_authenticated:
@@ -122,6 +123,7 @@ def create_proposal(request, **kwargs):
             nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
             # entry = Entry.objects.get(pk=kwargs.get('pk', None))
             entry = Entry.objects.get(pk=f)
+            # print(request.id)
             obj = Proposal(
                 num_prop=nlp.num_last_prop + 1,
                 type_prop='R',
@@ -141,6 +143,28 @@ def create_proposal(request, **kwargs):
             nlp.save()
             print('Orçamento criado com sucesso')
     return redirect('/proposal/%d' % obj.id)
+
+
+@login_required
+def create_contract(request, **kwargs):
+    f = None
+    if request.user.is_authenticated:
+        if request.method == 'GET':
+            f = request.GET['new_contract']
+        if f:
+            proposal = Proposal.objects.get(pk=f)
+            if proposal.status != 'co':
+                return HttpResponse('O status do orçamento deve ser concluido.')
+            else:
+                contractor = proposal.work.customer
+                obj = Contract(
+                    proposal=proposal,
+                    contractor=contractor
+                )
+                obj.save()
+                proposal.status = 'a'
+                proposal.save()
+    return redirect('/contract/%d' % obj.id)
 
 
 class EntryDetail(DetailView):
