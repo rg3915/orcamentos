@@ -246,7 +246,7 @@
                         <li><a href="{% url 'entry_list' %}"><i class="fa fa-inbox"></i> Entrada<span class="pull-right label label-warning small"><em>{{ view.entrys }}</em></span></a></li>
                         <li><a href="#"><span class="fa fa-magic fa-flip-horizontal"></span> Cadastro rápido</a></li>
                         <li><a href="{% url 'proposal_list' %}"><i class="fa fa-list"></i> Orçamentos<span class="pull-right label label-success small"><em>{{ proposals.proposal_elab }}</em></span></a></li>
-                        <li><a href="{% url 'contract_list' %}"><i class="fa fa-star"></i> Contratos</a></li>
+                        <li><a href="{% url 'contract_list' %}"><i class="fa fa-star"></i> Contratos<span class="pull-right label label-danger small"><em>{{ view.contracts_canceled }}</em></span></a></li>
                         <li><a href="{% url 'customer_list' %}"><i class="fa fa-users"></i> Clientes</a></li>
                         <li><a href="{% url 'work_list' %}"><i class="fa fa-home"></i> Obras</a></li>
                         <li><a href="{% url 'person_list' %}"><i class="fa fa-user"></i> Contatos</a></li>
@@ -400,6 +400,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <div class="panel panel-contrato">
+                        <span class="label label-danger">{{ view.contracts_canceled }}</span>
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">

@@ -43,6 +43,9 @@ class Home(TemplateView):
     def contracts(self):
         return Contract.objects.all().count()
 
+    def contracts_canceled(self):
+        return Contract.objects.filter(is_canceled=True).count()
+
     def customers(self):
         return Customer.objects.all().count()
 
