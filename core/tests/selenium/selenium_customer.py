@@ -9,6 +9,16 @@ from selenium.webdriver.common.keys import Keys
 customer = webdriver.Firefox()
 customer.get('http://localhost:8000/customer/add/')
 
+# pegar o campo de busca onde podemos digitar algum termo
+search = customer.find_element_by_id('id_username')
+search.send_keys('admin')
+
+search = customer.find_element_by_id('id_password')
+search.send_keys('admin')
+
+button = customer.find_element_by_class_name('grp-button')
+button.click()
+
 # pegando o campo de busca e inserindo um customer fake no mesmo.
 search = customer.find_element_by_id('id_treatment')
 search.send_keys('sr')

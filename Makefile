@@ -47,6 +47,9 @@ shell_proposal:
 shell_contract:
 	./manage.py shell < shell/shell_contract.py
 
+selenium_login:
+	python core/tests/selenium/selenium_login.py
+
 selenium_person:
 	python core/tests/selenium/selenium_person.py
 

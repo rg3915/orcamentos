@@ -6,6 +6,16 @@ ffox = webdriver.Firefox()
 ffox.get('http://localhost:8000/work/add/')
 
 # pegar o campo de busca onde podemos digitar algum termo
+search = ffox.find_element_by_id('id_username')
+search.send_keys('admin')
+
+search = ffox.find_element_by_id('id_password')
+search.send_keys('admin')
+
+button = ffox.find_element_by_class_name('grp-button')
+button.click()
+
+# pegar o campo de busca onde podemos digitar algum termo
 campo_busca = ffox.find_element_by_id('id_name_work')
 campo_busca.send_keys('Ed. Faria Lima')
 
@@ -32,3 +42,6 @@ campo_busca.send_keys('SP')  # r['UF']
 
 campo_busca = ffox.find_element_by_id('id_cep')
 campo_busca.send_keys('01200100')  # r['CEP']
+
+button = ffox.find_element_by_id('id_submit')
+button.click()

@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<form class="form-horizontal" action="." method="POST">
+<form class="form-horizontal col-sm-6" action="." method="POST">
     <legend>Novo Contato</legend>
     {% csrf_token %}
 	{{ form.gender|bootstrap_horizontal }}
