@@ -11,11 +11,11 @@ from django.views.generic.edit import UpdateView
 from django.contrib.auth.models import User
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
 from .forms import PersonForm, CustomerForm, StatusSearchForm
-from .mixins import LoginRequiredMixin, CounterMixin, FirstnameSearchMixin
+from .mixins import LoginRequiredMixin, CounterMixin, FirstnameSearchMixin, DashboardMixin
 from .lists import status_list
 
 
-class Home(TemplateView):
+class Home(DashboardMixin, TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
@@ -36,24 +36,6 @@ class Home(TemplateView):
         context['proposals'] = p
 
         return context
-
-    def entrys(self):
-        return Entry.objects.filter(is_entry=False).count()
-
-    def contracts(self):
-        return Contract.objects.all().count()
-
-    def contracts_canceled(self):
-        return Contract.objects.filter(is_canceled=True).count()
-
-    def customers(self):
-        return Customer.objects.all().count()
-
-    def works(self):
-        return Work.objects.all().count()
-
-    def persons(self):
-        return Person.objects.all().count()
 
 
 def status(request):

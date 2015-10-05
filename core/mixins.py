@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from .models import Person, Entry, Proposal, Contract, Customer, Work
 
 
 class LoginRequiredMixin(object):
@@ -28,3 +29,24 @@ class FirstnameSearchMixin(object):
                 Q(first_name__icontains=q) |
                 Q(company__icontains=q))
         return queryset
+
+
+class DashboardMixin(object):
+
+    def entrys(self):
+        return Entry.objects.filter(is_entry=False).count()
+
+    def contracts(self):
+        return Contract.objects.all().count()
+
+    def contracts_canceled(self):
+        return Contract.objects.filter(is_canceled=True).count()
+
+    def customers(self):
+        return Customer.objects.all().count()
+
+    def works(self):
+        return Work.objects.all().count()
+
+    def persons(self):
+        return Person.objects.all().count()
