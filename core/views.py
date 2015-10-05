@@ -200,7 +200,6 @@ class EntryUpdate(LoginRequiredMixin, UpdateView,  EntryActionMixin):
     template_name = 'core/entry/entry_form.html'
     model = Entry
     fields = '__all__'
-    success_url = reverse_lazy('entry_list')
     action = 'atualizada'
 
 
@@ -250,7 +249,6 @@ class ProposalUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'core/proposal/proposal_form.html'
     model = Proposal
     fields = '__all__'
-    success_url = reverse_lazy('proposal_list')
 
 
 class ContractList(CounterMixin, ListView):
@@ -268,7 +266,6 @@ class ContractUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'core/contract/contract_form.html'
     model = Contract
     fields = '__all__'
-    success_url = reverse_lazy('contract_list')
 
 
 class CustomerList(CounterMixin, FirstnameSearchMixin, ListView):
