@@ -21,7 +21,11 @@
 	</form>
 	
 	<div class="page-header">
-		<h2><i class="fa fa-inbox"></i> Lista de Entradas</h2>
+		{% if count == entrys.count %}
+			<h2><i class="fa fa-inbox"></i> Lista de Entradas <small><a href="{% url 'entry_list' %}">Todos</a></small></h2>
+		{% else %}
+			<h2><i class="fa fa-inbox"></i> Lista de Entradas </h2>
+		{% endif %}
 	</div>
 
 	<div>

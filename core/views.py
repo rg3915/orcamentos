@@ -34,6 +34,8 @@ class Home(DashboardMixin, TemplateView):
         )
         context = super(Home, self).get_context_data(**kwargs)
         context['proposals'] = p
+        context['proposal_list'] = self.proposal_list()
+        context['entrys'] = self.entry_list()
 
         return context
 
@@ -75,6 +77,9 @@ class EntryList(CounterMixin, ListView):
     def get_queryset(self):
         e = Entry.objects.filter(is_entry=False).select_related()
         q = self.request.GET.get('search_box')
+        priority = self.request.GET.get('priority')
+        if priority in ('u',):
+            e = e.filter(priority='u')
         if q is not None:
             e = e.filter(
                 Q(work__name_work__icontains=q) |
@@ -236,7 +241,14 @@ class ProposalUpdate(LoginRequiredMixin, UpdateView):
 class ContractList(CounterMixin, ListView):
     template_name = 'core/contract/contract_list.html'
     model = Contract
+    context_object_name = 'contracts'
     paginate_by = 10
+
+    def get_queryset(self):
+        c = Contract.objects.all()
+        if self.request.GET.get('is_canceled', False):
+            c = c.filter(is_canceled=True)
+        return c
 
 
 class ContractDetail(DetailView):

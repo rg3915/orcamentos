@@ -18,7 +18,7 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li><a href="#"><span class="fa fa-inbox fa-fw"></span><span class="label label-warning">{{ view.entrys }}</span></a></li>
+                <li><a href="{% url 'entry_list' %}"><span class="fa fa-inbox fa-fw"></span><span class="label label-warning">{{ view.entrys }}</span></a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -351,6 +351,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-6">
                     <div class="panel panel-entrada">
+                        <a href="/entry/?priority=u"><span class="label label-danger">{{ view.entrys_urgent }}</span></a>
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -375,7 +376,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <div class="panel panel-primary">
-                        <span class="label label-success">{{ proposals.proposal_elab }}</span>
+                        <a href="/proposal/?status=elab"><span class="label label-success">{{ proposals.proposal_elab }}</span></a>
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -400,7 +401,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <div class="panel panel-contrato">
-                        <span class="label label-danger">{{ view.contracts_canceled }}</span>
+                        <a href="/contract/?is_canceled=True"><span class="label label-danger">{{ view.contracts_canceled }}</span></a>
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -502,7 +503,7 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-inbox fa-fw status-pendente"></i> Entradas <span class="label label-warning">{{ view.entrys }}</span>
+                            <i class="fa fa-inbox fa-fw status-pendente"></i> <a href="/entry/?priority=u">Entradas urgentes</a> <a href="/entry/?priority=u"><span class="label label-danger">{{ view.entrys_urgent }}</span></a>
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -535,41 +536,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-flash urgente"></i> <a href="#">New Parker</a></td>
-                                                    <td>Camargo Corrêa</td>
-                                                    <td>01/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-flash urgente"></i> <a href="#">Ed. Boulevard</a></td>
-                                                    <td>Costa Hirota</td>
-                                                    <td>01/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-flash urgente"></i> <a href="#">Berrini One</a></td>
-                                                    <td>Bueno Netto</td>
-                                                    <td>02/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">Ed. Timboril</a></td>
-                                                    <td>Adolpho Lindenberg</td>
-                                                    <td>03/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">Ed. Nova Faria Lima</a></td>
-                                                    <td>Hochtief</td>
-                                                    <td>04/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">Ed. Morizono</a></td>
-                                                    <td>Método</td>
-                                                    <td>05/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">Shopping Center Tietê</a></td>
-                                                    <td>Tecnisa</td>
-                                                    <td>05/07/2015</td>
-                                                </tr>
+                                                {% for entry in entrys %}
+                                                    <tr>
+                                                        <td><i class="pull-right fa fa-flash urgente"></i> <a href="#">{{ entry.work }}</a></td>
+                                                        <td>{{ entry.work.customer }}</td>
+                                                        <td>{{ entry.created|date:"d/m/Y" }}</td>
+                                                    </tr>
+                                                {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -582,7 +555,7 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-circle status-elab"></i> Orçamentos em elaboração <span class="label label-success">{{ proposals.proposal_elab }}</span>
+                            <i class="fa fa-circle status-elab"></i> <a href="/proposal/?status=elab">Orçamentos em elaboração</a> <a href="/proposal/?status=elab"><span class="label label-success">{{ proposals.proposal_elab }}</span></a>
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -617,41 +590,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><a href="#">001.15.0</a></td>
-                                                    <td><i class="fa fa-circle fa-fw status-elab"></i> New Parker</td>
-                                                    <td>Camargo Corrêa</td>
-                                                    <td>Regis</td>
-                                                    <td>01/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">002.15.0</a></td>
-                                                    <td><i class="fa fa-circle fa-fw status-elab"></i> Ed. Boulevard</td>
-                                                    <td>Costa Hirota</td>
-                                                    <td>Regis</td>
-                                                    <td>01/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">003.15.0</a></td>
-                                                    <td><i class="fa fa-circle fa-fw status-elab"></i> Berrini One</td>
-                                                    <td>Bueno Netto</td>
-                                                    <td>Adailton</td>
-                                                    <td>02/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">004.15.0</a></td>
-                                                    <td><i class="fa fa-circle fa-fw status-elab"></i> Ed. Timboril</td>
-                                                    <td>Adolpho Lindenberg</td>
-                                                    <td>Regis</td>
-                                                    <td>03/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">005.15.0</a></td>
-                                                    <td><i class="fa fa-circle fa-fw status-elab"></i> Ed. Nova Faria Lima</td>
-                                                    <td>Hochtief</td>
-                                                    <td>Adailton</td>
-                                                    <td>04/07/2015</td>
-                                                </tr>
+                                                {% for p in proposal_list %}
+                                                    <tr>
+                                                        <td><a href="#">{{ p.codigo }}</a></td>
+                                                        <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
+                                                        <td>{{ p.work.customer }}</td>
+                                                        <td>{{ p.employee }}</td>
+                                                        <td>{{ p.created|date:"d/m/Y" }}</td>
+                                                    </tr>
+                                                {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -768,27 +715,27 @@
                                 <!-- 3 -->
                                 <div class="col-lg-3">
                                     <div class="list-group">
-                                        <a href="#" class="list-group-item">
+                                        <a href="/proposal/?status=elab" class="list-group-item">
                                             <i class="fa fa-circle fa-fw status-elab"></i> Em Elaboração
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_elab }}</em>
                                             </span>
                                         </a>
-                                        <a href="#" class="list-group-item">
+                                        <a href="/proposal/?status=p" class="list-group-item">
                                             <i class="fa fa-circle fa-fw status-pendente"></i> Pendentes
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_pending }}</em>
                                             </span>
                                         </a>
-                                        <a href="#" class="list-group-item">
+                                        <a href="/proposal/?status=co" class="list-group-item">
                                             <i class="fa fa-check fa-fw status-concluido"></i> Concluidos
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_concluded }}</em>
                                             </span>
                                         </a>
-                                        <a href="#" class="list-group-item">
+                                        <a href="/proposal/?status=a" class="list-group-item">
                                             <i class="fa fa-star fa-fw status-aprovado"></i> Aprovados
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_approved }}</em>
                                             </span>
                                         </a>
-                                        <a href="#" class="list-group-item">
+                                        <a href="/proposal/?status=c" class="list-group-item">
                                             <i class="fa fa-close fa-fw status-cancelado"></i> Cancelados
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_canceled }}</em>
                                             </span>

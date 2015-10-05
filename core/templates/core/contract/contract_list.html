@@ -13,13 +13,15 @@
 	        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
 	    </div>
 	</form> -->
+
+
 	
 	<div class="page-header">
-		<h2><i class="fa fa-star"></i> Lista de Contratos</h2>
+		<h2><i class="fa fa-star"></i> Lista de Contratos <small><a href="{% url 'contract_list' %}">Todos</a></small></h2>
 	</div>
 
 	<div>
-		{% if object_list %}
+		{% if contracts %}
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -33,7 +35,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				{% for contract in object_list %}
+				{% for contract in contracts %}
 					{% if contract.is_canceled %}
 						<tr class="danger">
 					{% else %}

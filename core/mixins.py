@@ -36,6 +36,19 @@ class DashboardMixin(object):
     def entrys(self):
         return Entry.objects.filter(is_entry=False).count()
 
+    def entrys_urgent(self):
+        return Entry.objects.filter(is_entry=False, priority='u').count()
+
+    def entry_list(self):
+        ''' retorna entradas urgentes '''
+        e = Entry.objects.filter(is_entry=False, priority='u')[:7]
+        return e
+
+    def proposal_list(self):
+        ''' retorna orçamentos em elaboração '''
+        p = Proposal.objects.filter(status='elab')[:6]
+        return p
+
     def contracts(self):
         return Contract.objects.all().count()
 
