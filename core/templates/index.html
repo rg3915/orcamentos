@@ -579,30 +579,30 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Num</th>
-                                                    <th>Obra</th>
-                                                    <th>Cliente</th>
-                                                    <th>Func</th>
-                                                    <th>Data</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {% for p in proposal_list %}
-                                                    <tr>
-                                                        <td><a href="#">{{ p.codigo }}</a></td>
-                                                        <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
-                                                        <td>{{ p.work.customer }}</td>
-                                                        <td>{{ p.employee }}</td>
-                                                        <td>{{ p.created|date:"d/m/Y" }}</td>
-                                                    </tr>
-                                                {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Num</th>
+                                            <th>Obra</th>
+                                            <th>Cliente</th>
+                                            <th>Func</th>
+                                            <th>Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for p in proposal_list %}
+                                            <tr>
+                                                <td><a href="#">{{ p.codigo }}</a></td>
+                                                <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
+                                                <td>{{ p.work.customer }}</td>
+                                                <td>{{ p.employee }}</td>
+                                                <td>{{ p.created|date:"d/m/Y" }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -715,27 +715,27 @@
                                 <!-- 3 -->
                                 <div class="col-lg-3">
                                     <div class="list-group">
-                                        <a href="/proposal/?status=elab" class="list-group-item">
+                                        <a href="#" class="list-group-item">
                                             <i class="fa fa-circle fa-fw status-elab"></i> Em Elaboração
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_elab }}</em>
                                             </span>
                                         </a>
-                                        <a href="/proposal/?status=p" class="list-group-item">
+                                        <a href="#" class="list-group-item">
                                             <i class="fa fa-circle fa-fw status-pendente"></i> Pendentes
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_pending }}</em>
                                             </span>
                                         </a>
-                                        <a href="/proposal/?status=co" class="list-group-item">
+                                        <a href="#" class="list-group-item">
                                             <i class="fa fa-check fa-fw status-concluido"></i> Concluidos
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_concluded }}</em>
                                             </span>
                                         </a>
-                                        <a href="/proposal/?status=a" class="list-group-item">
+                                        <a href="#" class="list-group-item">
                                             <i class="fa fa-star fa-fw status-aprovado"></i> Aprovados
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_approved }}</em>
                                             </span>
                                         </a>
-                                        <a href="/proposal/?status=c" class="list-group-item">
+                                        <a href="#" class="list-group-item">
                                             <i class="fa fa-close fa-fw status-cancelado"></i> Cancelados
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_canceled }}</em>
                                             </span>
