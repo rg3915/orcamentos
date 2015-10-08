@@ -1,5 +1,12 @@
 {% extends "base_initial.html" %}
 
+{% load static from staticfiles %}
+
+{% block style %}
+  <script src="{% static "js/morris-data.js" %}"></script>
+  <script src="{% static "js/morris.js" %}"></script>
+{% endblock style %}
+
 {% block nocontent %}
 
     <div id="wrapper">
