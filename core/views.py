@@ -231,6 +231,10 @@ class ProposalDetail(DetailView):
     template_name = 'core/proposal/proposal_detail.html'
     model = Proposal
 
+    def post(self, request, *args, **kwargs):
+        novoValor = request.POST['novoValor']
+        return novoValor
+
 
 class ProposalUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'core/proposal/proposal_form.html'
