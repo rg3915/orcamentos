@@ -1,7 +1,6 @@
 Django==1.8.2
 argparse==1.2.1
 django-bootstrap-form==3.2
-django-extensions==1.5.5
 django-grappelli==2.7.1
 django-widget-tweaks==1.4.1
 names==0.3.0
