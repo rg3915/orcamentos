@@ -11,7 +11,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
-    'grappelli',
+    # 'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -21,6 +21,7 @@ INSTALLED_APPS = (
     'bootstrapform',
     'widget_tweaks',
     'aggregate_if',
+    'daterange_filter',
     'core',
 )
 

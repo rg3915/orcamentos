@@ -1,3 +1,4 @@
+from daterange_filter.filter import DateRangeFilter
 from django.contrib import admin
 from .models import Occupation, Person, Customer
 from .models import Employee, Seller, Entry
@@ -15,7 +16,9 @@ class ProposalAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     search_fields = (
         'work__name_work', 'work__customer__first_name', 'employee__user__first_name')
-    list_filter = ('status', 'category', 'seller')
+    list_filter = ('status', 'category', 'seller',
+        ('created',DateRangeFilter),
+    )
 
 
 class ContractAdmin(admin.ModelAdmin):
