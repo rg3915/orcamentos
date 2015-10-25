@@ -1,16 +1,26 @@
 # -*- coding: utf-8 -*-
-import random
 import rstr
-import datetime
+from datetime import date, datetime, timedelta
+from random import random, randint, choice
 from decimal import Decimal
 
 
-def gen_age():
-    return random.randint(18, 100)
+def gen_age(min_age=15, max_age=99):
+    # gera numeros inteiros entre 15 e 99
+    return randint(min_age, max_age)
 
 
-def gen_doc(length=11):
-    return rstr.rstr('1234567890', length)
+def gen_doc(doc='cpf'):
+    if doc == 'cpf':
+        return rstr.rstr('1234567890', 11)
+    elif doc == 'cnpj':
+        return rstr.rstr('1234567890', 14)
+    elif doc == 'rg':
+        return rstr.rstr('1234567890', 10)
+
+
+def gen_ncm():
+    return rstr.rstr('123456789', 8)
 
 
 def gen_phone():
@@ -21,9 +31,9 @@ def gen_phone():
         rstr.rstr('1234567890', 4))
 
 
-def gen_decimal(max_digits, decimal_places):
+def gen_decimal(max_digits=5, decimal_places=2):
     num_as_str = lambda x: ''.join(
-        [str(random.randint(0, 9)) for i in range(x)])
+        [str(randint(0, 9)) for i in range(x)])
     return Decimal("%s.%s" % (num_as_str(max_digits - decimal_places),
                               num_as_str(decimal_places)))
 gen_decimal.required = ['max_digits', 'decimal_places']
@@ -31,25 +41,33 @@ gen_decimal.required = ['max_digits', 'decimal_places']
 
 def gen_date(min_year=1915, max_year=1997):
     # gera um date no formato yyyy-mm-dd
-    year = random.randint(min_year, max_year)
-    month = random.randint(1, 12)
-    day = random.randint(1, 28)
-    date = datetime.date(year, month, day).isoformat()
-    return date
+    year = randint(min_year, max_year)
+    month = randint(1, 12)
+    day = randint(1, 28)
+    d = date(year, month, day).isoformat()
+    return d
 
 
 def gen_timestamp(min_year=1915, max_year=1997):
     # gera um datetime no formato yyyy-mm-dd hh:mm:ss.000000
-    year = random.randint(min_year, max_year)
-    month = random.randint(1, 12)
-    day = random.randint(1, 28)
-    hour = random.randint(0, 23)
-    minute = random.randint(0, 59)
-    second = random.randint(0, 59)
-    microsecond = random.randint(0, 999999)
-    date = datetime.datetime(
-        year, month, day, hour, minute, second, microsecond).isoformat(" ")
-    return date
+    min_date = datetime(min_year, 1, 1)
+    max_date = datetime(max_year + 1, 1, 1)
+    delta = random() * (max_date - min_date).total_seconds()
+    return (min_date + timedelta(seconds=delta)).isoformat(" ")
+
+''' sorteio que cai dia 29 de fevereiro
+i,d=0,gen_timestamp()
+while d[5:10] != '02-29' and i < 100000:
+    i, d=i+1,gen_timestamp()
+
+i,d
+'''
+
+
+def gen_ipi():
+    num_as_str = lambda x: ''.join(
+        [str(randint(0, 9)) for i in range(x)])
+    return Decimal("0.%s" % (num_as_str(2)))
 
 
 def gen_city():
@@ -74,4 +92,10 @@ def gen_city():
         [u'Natal', 'RN'],
         [u'Porto Alegre', 'RS'],
         [u'Campo Grande', 'MS']]
-    return random.choice(list_city)
+    return choice(list_city)
+
+
+def gen_city_online():
+    # https://raw.githubusercontent.com/felipefdl/cidades-estados-brasil-json/master/Cidades.json
+    # fazer leitura de json, importar os dados e randomizar numa lista
+    pass
