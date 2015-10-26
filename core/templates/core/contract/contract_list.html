@@ -6,13 +6,21 @@
 
 {% block content %}
 
-    <!-- <form class="navbar-form navbar-right" action="." method="get"> -->
+    <form class="navbar-form navbar-right" action="." method="get">
+        <!-- add -->
+        <!-- <a href="#">
+            <button id="new_register" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar
+            </button>
+        </a> -->
         <!-- search form -->
-        <!-- <div class="form-group">
-	        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
-	        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
-	    </div>
-	</form> -->
+        <div class="form-group">
+            <input id="min_date" name="min_date" type="text" placeholder="Data inicial" class="form-control">
+            <input id="max_date" name="max_date" type="text" placeholder="Data final" class="form-control">
+            <!-- <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control"> -->
+            <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+        </div>
+    </form>
 
 
 	

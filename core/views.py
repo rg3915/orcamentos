@@ -9,6 +9,7 @@ from django.db.models import IntegerField, Count, Case, When
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from django.contrib.auth.models import User
+from datetime import datetime
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
 from .forms import PersonForm, CustomerForm, StatusSearchForm
 from .mixins import LoginRequiredMixin, CounterMixin, FirstnameSearchMixin, DashboardMixin
@@ -136,7 +137,7 @@ def create_proposal(request, **kwargs):
 
 
 @login_required
-def create_contract(request, **kwargs):
+def create_contract_limbo(request, **kwargs):
     f = None
     if request.user.is_authenticated:
         if request.method == 'GET':
@@ -252,6 +253,13 @@ class ContractList(CounterMixin, ListView):
         c = Contract.objects.all()
         if self.request.GET.get('is_canceled', False):
             c = c.filter(is_canceled=True)
+        q = self.request.GET.get('min_date')
+        if q is not None:
+            dmin = self.request.GET.get('min_date')
+            dmax = self.request.GET.get('max_date')
+            min_date = datetime.strptime(dmin, "%d/%m/%Y")
+            max_date = datetime.strptime(dmax, "%d/%m/%Y")
+            c = c.filter(created__gte=min_date, created__lte=max_date)
         return c
 
 

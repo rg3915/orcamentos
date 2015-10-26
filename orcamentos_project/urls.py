@@ -30,8 +30,10 @@ urlpatterns = patterns(
         ProposalDetail.as_view(), name='proposal_detail'),
     url(r'^proposal/edit/(?P<pk>\d+)/$',
         ProposalUpdate.as_view(), name='proposal_edit'),
-    url(r'^proposal/edit/contract/$', 'create_contract',
-        name='create_contract_url'),
+
+    # Create Contract
+    url(r'^proposal/edit/contract/$',
+        'create_contract', name='create_contract_url'),
 
     url(r'^contract/$', ContractList.as_view(), name='contract_list'),
     url(r'^contract/(?P<pk>\d+)/$',

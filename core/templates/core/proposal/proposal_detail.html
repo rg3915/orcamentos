@@ -6,14 +6,15 @@
 
 {% block content %}
 
-    <form class="navbar-form navbar-right" action="{% url 'create_contract_url' %}" method="get">
+    <form class="navbar-form navbar-right" action="." method="get">
         <!-- edit -->
         <a id="edit_proposal" href="{% url 'proposal_edit' pk=proposal.id %}">
             <button type="button" class="btn btn-success">
                 <span class="fa fa-pencil"></span> Editar
             </button>
         </a>
-    	<input name="new_contract" type="submit" class="btn btn-primary" value="{{ proposal.id }}" />
+    	<!-- <input name="new_contract" type="submit" class="btn btn-primary" value="{{ proposal.id }}" /> -->
+    	<a class="btn btn-primary" href="{% url 'create_contract_url' proposal.id %}"><i class="icon-edit icon-white"></i> Criar Contrato</a>
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 		  Atualizar valores
