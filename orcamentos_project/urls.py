@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from core.views import *
+from core.actions import create_proposal, create_contract
 from django.contrib import admin
 
 urlpatterns = patterns(
@@ -16,14 +17,8 @@ urlpatterns = patterns(
 
     url(r'^entry/$', EntryList.as_view(), name='entry_list'),
     url(r'^entry/(?P<pk>\d+)/$', EntryDetail.as_view(), name='entry_detail'),
-    url(r'^entry/teste/$', 'myfunction', name='testeurl'),
     url(r'^entry/json/(?P<pk>\d+)/$',
         'entry_detail_json', name='entry_detail_json'),
-
-    # Create Proposal
-    url(r'^entry/(?P<entry_id>\d+)/proposal/new/$',
-        'create_proposal',
-        name='create_proposal_url'),
 
     url(r'^entry/edit/(?P<pk>\d+)/$',
         EntryUpdate.as_view(), name='entry_edit'),
@@ -34,11 +29,6 @@ urlpatterns = patterns(
         ProposalDetail.as_view(), name='proposal_detail'),
     url(r'^proposal/edit/(?P<pk>\d+)/$',
         ProposalUpdate.as_view(), name='proposal_edit'),
-
-    # Create Contract
-    url(r'^proposal/(?P<proposal_id>\d+)/contract/new/$',
-        'create_contract',
-        name='create_contract_url'),
 
     url(r'^contract/$', ContractList.as_view(), name='contract_list'),
     url(r'^contract/(?P<pk>\d+)/$',
@@ -60,4 +50,18 @@ urlpatterns = patterns(
 
     # url(r'^grappelli/', include('grappelli.urls')),  # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
+)
+
+urlpatterns += patterns(
+    'core.actions',
+
+    # Create Proposal
+    url(r'^entry/(?P<entry_id>\d+)/proposal/new/$',
+        'create_proposal',
+        name='create_proposal_url'),
+
+    # Create Contract
+    url(r'^proposal/(?P<proposal_id>\d+)/contract/new/$',
+        'create_contract',
+        name='create_contract_url'),
 )
