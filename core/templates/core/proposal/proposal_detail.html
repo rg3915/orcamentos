@@ -14,9 +14,9 @@
             </button>
         </a>
     	{% if object.status == 'co' %}
-	    	<a class="btn btn-primary" href="{% url 'create_contract_url' proposal.id %}"><i class="icon-edit icon-white"></i> Criar Contrato</a>
+	    	<a class="btn btn-primary" href="{% url 'create_contract_url' proposal.id %}"><i class="fa fa-plus"></i> Criar Contrato</a>
 	    {% else %}
-	    	<a class="btn btn-primary disabled" href="{% url 'create_contract_url' proposal.id %}"><i class="icon-edit icon-white"></i> Criar Contrato</a>
+	    	<a class="btn btn-primary disabled" href="{% url 'create_contract_url' proposal.id %}"><i class="fa fa-plus"></i> Criar Contrato</a>
     	{% endif %}
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">

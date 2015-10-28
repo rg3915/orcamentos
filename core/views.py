@@ -104,36 +104,30 @@ def entry_detail_json(request, pk):
 
 
 @login_required
-def create_proposal(request, **kwargs):
-    f = None
+def create_proposal(request, entry_id):
     if request.user.is_authenticated:
-        if request.method == 'GET':
-            f = request.GET['new_proposal']
-        if f:
-            employee = Employee.objects.get(pk=request.user.id)
-            nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
-            # entry = Entry.objects.get(pk=kwargs.get('pk', None))
-            entry = Entry.objects.get(pk=f)
-            # print(request.id)
-            obj = Proposal(
-                num_prop=nlp.num_last_prop + 1,
-                type_prop='R',
-                category=entry.category,
-                description=entry.description,
-                work=entry.work,
-                person=entry.person,
-                employee=employee,
-                seller=entry.seller,
-            )
-            obj.save()
-            # Define que foi dado entrada
-            entry.is_entry = True
-            entry.save()
-            # Incrementa o número do último orçamento
-            nlp.num_last_prop += 1
-            nlp.save()
-            print('Orçamento criado com sucesso')
-    return redirect('/proposal/%d' % obj.id)
+        employee = Employee.objects.get(pk=request.user.id)
+        nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
+        entry = Entry.objects.get(pk=entry_id)
+        proposal = Proposal(
+            num_prop=nlp.num_last_prop + 1,
+            type_prop='R',
+            category=entry.category,
+            description=entry.description,
+            work=entry.work,
+            person=entry.person,
+            employee=employee,
+            seller=entry.seller,
+        )
+        proposal.save()
+        # Define que foi dado entrada
+        entry.is_entry = True
+        entry.save()
+        # Incrementa o número do último orçamento
+        nlp.num_last_prop += 1
+        nlp.save()
+        print('Orçamento criado com sucesso')
+    return redirect('/proposal/%d' % proposal.id)
 
 
 @login_required

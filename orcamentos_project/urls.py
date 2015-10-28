@@ -19,8 +19,12 @@ urlpatterns = patterns(
     url(r'^entry/teste/$', 'myfunction', name='testeurl'),
     url(r'^entry/json/(?P<pk>\d+)/$',
         'entry_detail_json', name='entry_detail_json'),
-    url(r'^entry/edit/proposal/$', 'create_proposal',
+
+    # Create Proposal
+    url(r'^entry/(?P<entry_id>\d+)/proposal/new/$',
+        'create_proposal',
         name='create_proposal_url'),
+
     url(r'^entry/edit/(?P<pk>\d+)/$',
         EntryUpdate.as_view(), name='entry_edit'),
     url(r'^entry/add/$', EntryCreate.as_view(), name='entry_add'),
@@ -33,7 +37,8 @@ urlpatterns = patterns(
 
     # Create Contract
     url(r'^proposal/(?P<proposal_id>\d+)/contract/new/$',
-        'create_contract', name='create_contract_url'),
+        'create_contract',
+        name='create_contract_url'),
 
     url(r'^contract/$', ContractList.as_view(), name='contract_list'),
     url(r'^contract/(?P<pk>\d+)/$',

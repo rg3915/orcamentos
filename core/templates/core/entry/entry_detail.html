@@ -6,21 +6,16 @@
 
 {% block content %}
 
-    <form class="navbar-form navbar-right" action="{% url 'create_proposal_url' %}" method="get">
+    <form class="navbar-form navbar-right" action="." method="get">
         <!-- edit -->
-        <a id="edit_entry" href="{% url 'entry_edit' pk=entry.id %}">
+        <a id="edit_entry" href="{% url 'entry_edit' entry.id %}">
             <button type="button" class="btn btn-success">
-                <span class="fa fa-pencil"></span> Editar Entrada
+                <span class="fa fa-pencil"></span> Editar
             </button>
         </a>
-        <!-- add -->
         <!-- <p name="filter_link" class="pull-right"><a href="">Produtos em baixo estoque</a></p> -->
-        <!-- <a name="new_proposal1" href=""> -->
-            <!-- <button type="submit" class="btn btn-primary"> -->
-                <!-- <span class="glyphicon glyphicon-plus"></span> Criar Orçamento -->
-            <!-- </button> -->
-        <!-- </a> -->
-    	<input name="new_proposal" type="submit" class="btn btn-primary" value="{{ entry.id }}" />
+        <!-- add -->
+    	<a class="btn btn-primary" href="{% url 'create_proposal_url' entry.id %}"><i class="fa fa-plus"></i> Criar Orçamento</a>
 	</form>
 
 <div>	
