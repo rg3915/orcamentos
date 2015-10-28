@@ -137,25 +137,21 @@ def create_proposal(request, **kwargs):
 
 
 @login_required
-def create_contract_limbo(request, **kwargs):
-    f = None
+def create_contract(request, proposal_id):
     if request.user.is_authenticated:
-        if request.method == 'GET':
-            f = request.GET['new_contract']
-        if f:
-            proposal = Proposal.objects.get(pk=f)
-            if proposal.status != 'co':
-                return HttpResponse('O status do orçamento deve ser concluido.')
-            else:
-                contractor = proposal.work.customer
-                obj = Contract(
-                    proposal=proposal,
-                    contractor=contractor
-                )
-                obj.save()
-                proposal.status = 'a'
-                proposal.save()
-    return redirect('/contract/%d' % obj.id)
+        proposal = Proposal.objects.get(pk=proposal_id)
+        if proposal.status != 'co':
+            return HttpResponse('O status do orçamento deve ser concluido.')
+        else:
+            contractor = proposal.work.customer
+            contract = Contract(
+                proposal=proposal,
+                contractor=contractor
+            )
+            contract.save()
+            proposal.status = 'a'
+            proposal.save()
+    return redirect('/contract/%d' % contract.id)
 
 
 class EntryDetail(DetailView):

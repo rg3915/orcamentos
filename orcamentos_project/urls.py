@@ -32,7 +32,7 @@ urlpatterns = patterns(
         ProposalUpdate.as_view(), name='proposal_edit'),
 
     # Create Contract
-    url(r'^proposal/edit/contract/$',
+    url(r'^proposal/(?P<proposal_id>\d+)/contract/new/$',
         'create_contract', name='create_contract_url'),
 
     url(r'^contract/$', ContractList.as_view(), name='contract_list'),
