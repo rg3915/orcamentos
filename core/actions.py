@@ -11,12 +11,13 @@ def conclude_proposal(request, proposal_id):
     ''' TODO: Ainda falta pegar o valor do modal '''
     if request.user.is_authenticated:
         proposal = Proposal.objects.get(pk=proposal_id)
+        # Se o status for 'aprovado', então não pode concluir '''
         if proposal.status == 'a':
             return HttpResponse('Este orçamento já virou contrato.')
         else:
-            proposal.date_conclusion = datetime.now()
             proposal.price = 1
             proposal.status = 'co'
+            proposal.date_conclusion = datetime.now()
             proposal.save()
             return redirect('/proposal/%d' % proposal.id)
 
@@ -61,6 +62,7 @@ def create_proposal(request, entry_id):
 def create_contract(request, proposal_id):
     if request.user.is_authenticated:
         proposal = Proposal.objects.get(pk=proposal_id)
+        # Se o status for diferente de 'concluído', então não faz nada
         if proposal.status != 'co':
             return HttpResponse('O status do orçamento deve ser concluido.')
         else:
@@ -70,6 +72,6 @@ def create_contract(request, proposal_id):
                 contractor=contractor
             )
             contract.save()
-            proposal.status = 'a'
+            proposal.status = 'a'  # aprovado
             proposal.save()
     return redirect('/contract/%d' % contract.id)
