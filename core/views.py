@@ -187,10 +187,13 @@ class ContractList(CounterMixin, ListView):
 
     def get_queryset(self):
         c = Contract.objects.all()
-        if self.request.GET.get('is_canceled', False):
+        if self.request.GET.get('is_canceled') == '1':
             c = c.filter(is_canceled=True)
+        elif self.request.GET.get('is_canceled') == '0':
+            c = c.filter(is_canceled=False)
+
         q = self.request.GET.get('min_date')
-        if q is not None:
+        if not q in [None, '']:
             dmin = self.request.GET.get('min_date')
             dmax = self.request.GET.get('max_date')
             min_date = datetime.strptime(dmin, "%d/%m/%Y")

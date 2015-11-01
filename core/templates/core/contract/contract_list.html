@@ -19,13 +19,20 @@
             <input id="max_date" name="max_date" type="text" placeholder="Data final" class="form-control">
             <!-- <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control"> -->
             <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+	        <!-- status search form -->
+        	<ul class="list-inline">
+                <li><a href="{% url 'contract_list' %}"><span class="fa fa-star status-aprovado"></span> Todos</a></li>
+                <li><a href="?is_canceled=0" name="no_canceled"><span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span> Válidos</a></li>
+                <li><a href="?is_canceled=1" name="is_canceled"><span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span> Cancelados</a></li>
+	        </ul>
+
         </div>
     </form>
 
 
 	
 	<div class="page-header">
-		<h2><i class="fa fa-star"></i> Lista de Contratos <small><a href="{% url 'contract_list' %}">Todos</a></small></h2>
+		<h2><i class="fa fa-star"></i> Lista de Contratos</h2>
 	</div>
 
 	<div>
