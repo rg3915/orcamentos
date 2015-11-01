@@ -8,10 +8,18 @@
 
 {% block content %}
 
-<form class="form-horizontal" action="." method="POST">
+<form class="form-horizontal col-sm-6" action="." method="POST">
     <legend>Contrato</legend>
     {% csrf_token %}
-    {{ form.proposal|bootstrap_horizontal }}
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <b>Orçamento</b>
+      </div>
+      <div class="col-sm-2">
+        <p class="lead">{{ object.proposal }}</p>
+      </div>
+    </div>
+
     {{ form.contractor|bootstrap_horizontal }}
     {{ form.is_canceled|bootstrap_horizontal }}
 

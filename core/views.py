@@ -9,6 +9,7 @@ from django.db.models import IntegerField, Count, Case, When
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
 from .forms import PersonForm, CustomerForm, StatusSearchForm, PrioritySearchForm
@@ -192,9 +193,20 @@ class ProposalDetail(DetailView):
     template_name = 'core/proposal/proposal_detail.html'
     model = Proposal
 
+    def get_context_data(self, **kwargs):
+        try:
+            c = Contract.objects.get(proposal=self.object)
+            context = super(ProposalDetail, self).get_context_data(**kwargs)
+            context['contract_id'] = c.id
+        except ObjectDoesNotExist:
+            c = None
+            context = super(ProposalDetail, self).get_context_data(**kwargs)
+            context['contract_id'] = c
+        return context
+
     def post(self, request, *args, **kwargs):
-        novoValor = request.POST['novoValor']
-        return novoValor
+        price = request.POST['price']
+        return price
 
 
 class ProposalUpdate(LoginRequiredMixin, UpdateView):
