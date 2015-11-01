@@ -2,7 +2,32 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from datetime import datetime
 from .models import Entry, Proposal, Contract, Employee, NumLastProposal
+
+
+@login_required
+def conclude_proposal(request, proposal_id):
+    ''' TODO: Ainda falta pegar o valor do modal '''
+    if request.user.is_authenticated:
+        proposal = Proposal.objects.get(pk=proposal_id)
+        if proposal.status == 'a':
+            return HttpResponse('Este orçamento já virou contrato.')
+        else:
+            proposal.date_conclusion = datetime.now()
+            proposal.price = 1
+            proposal.status = 'co'
+            proposal.save()
+            return redirect('/proposal/%d' % proposal.id)
+
+''' v = request.GET.get('novoValor') '''
+''' verifica se o novo valor é positivo '''
+'''        if v <= 0 or v is None:
+            HttpResponse('O valor deve ser positivo.')
+        else:
+            proposal.price = v
+            print(v)
+'''
 
 
 @login_required

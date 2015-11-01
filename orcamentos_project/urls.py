@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from core.views import *
-from core.actions import create_proposal, create_contract
+from core.actions import conclude_proposal, create_proposal, create_contract
 from django.contrib import admin
 
 urlpatterns = patterns(
@@ -54,6 +54,11 @@ urlpatterns = patterns(
 
 urlpatterns += patterns(
     'core.actions',
+
+    # Conclude Proposal
+    url(r'^proposal/(?P<proposal_id>\d+)/ok/$',
+        'conclude_proposal',
+        name='conclude_proposal'),
 
     # Create Proposal
     url(r'^entry/(?P<entry_id>\d+)/proposal/new/$',
