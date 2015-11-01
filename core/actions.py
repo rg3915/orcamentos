@@ -8,27 +8,23 @@ from .models import Entry, Proposal, Contract, Employee, NumLastProposal
 
 @login_required
 def conclude_proposal(request, proposal_id):
-    ''' TODO: Ainda falta pegar o valor do modal '''
     if request.user.is_authenticated:
         proposal = Proposal.objects.get(pk=proposal_id)
-        # Se o status for 'aprovado', então não pode concluir '''
+        ''' Se o status for 'aprovado', então não pode concluir '''
         if proposal.status == 'a':
             return HttpResponse('Este orçamento já virou contrato.')
         else:
-            proposal.price = 1
-            proposal.status = 'co'
-            proposal.date_conclusion = timezone.now()
-            proposal.save()
-            return redirect('/proposal/%d' % proposal.id)
-
-''' v = request.GET.get('novoValor') '''
-''' verifica se o novo valor é positivo '''
-'''        if v <= 0 or v is None:
-            HttpResponse('O valor deve ser positivo.')
-        else:
-            proposal.price = v
-            print(v)
-'''
+            # só falta ver o formato
+            v = request.POST.get('price')
+            ''' verifica se o novo valor é positivo '''
+            if int(v) <= 0 or int(v) is None:
+                return HttpResponse('O valor deve ser positivo.')
+            else:
+                proposal.price = v
+                proposal.status = 'co'
+                proposal.date_conclusion = timezone.now()
+                proposal.save()
+                return redirect('/proposal/%d' % proposal.id)
 
 
 @login_required
@@ -48,10 +44,10 @@ def create_proposal(request, entry_id):
             seller=entry.seller,
         )
         proposal.save()
-        # Define que foi dado entrada
+        ''' Define que foi dado entrada '''
         entry.is_entry = True
         entry.save()
-        # Incrementa o número do último orçamento
+        ''' Incrementa o número do último orçamento '''
         nlp.num_last_prop += 1
         nlp.save()
         print('Orçamento criado com sucesso')
@@ -62,7 +58,7 @@ def create_proposal(request, entry_id):
 def create_contract(request, proposal_id):
     if request.user.is_authenticated:
         proposal = Proposal.objects.get(pk=proposal_id)
-        # Se o status for diferente de 'concluído', então não faz nada
+        ''' Se o status for diferente de 'concluído', então não faz nada '''
         if proposal.status != 'co':
             return HttpResponse('O status do orçamento deve ser concluido.')
         else:

@@ -205,7 +205,7 @@ class ProposalDetail(DetailView):
         return context
 
     def post(self, request, *args, **kwargs):
-        price = request.POST['price']
+        price = request.POST.get['price']
         return price
 
 
