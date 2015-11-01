@@ -20,16 +20,15 @@
 	        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
 	        <!-- status search form -->
         	<ul class="list-inline">
+        		<li><a href="{% url 'proposal_list' %}"><i class="fa fa-list"></i></a></li>
 	        	{% for item, item_display, classes in status %}
-                            <li><a href="?status={{ item }}"><i class="fa fa-fw {{ classes }}"></i></a></li>
+                    <li><a href="?status={{ item }}"><i class="fa fa-fw {{ classes }}"></i></a></li>
 	        	{% endfor %}
 	        </ul>
 	    </div>
 	</form>
 	
-	<div class="page-header">
-		<h2><i class="fa fa-list"></i> Lista de Orçamentos</h2>
-	</div>
+	<h2><i class="fa fa-list"></i> Lista de Orçamentos</h2>
 
 	<div>
 		{% if object_list %}

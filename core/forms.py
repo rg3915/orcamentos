@@ -1,6 +1,6 @@
 from django import forms
 from .models import Person, Customer
-from .lists import gender_list, uf_list
+from .lists import gender_list, uf_list, priority_list
 
 status_list = (
     ('', ''),
@@ -42,3 +42,8 @@ class CustomerForm(forms.ModelForm):
 class StatusSearchForm(forms.Form):
     status = forms.ChoiceField(
         choices=status_list, widget=forms.Select(attrs={'class': 'form-control'}))
+
+
+class PrioritySearchForm(forms.Form):
+    priority = forms.ChoiceField(
+        choices=priority_list, widget=forms.Select(attrs={'class': 'form-control'}))

@@ -11,9 +11,9 @@ from django.views.generic.edit import UpdateView
 from django.contrib.auth.models import User
 from datetime import datetime
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
-from .forms import PersonForm, CustomerForm, StatusSearchForm
+from .forms import PersonForm, CustomerForm, StatusSearchForm, PrioritySearchForm
 from .mixins import LoginRequiredMixin, CounterMixin, FirstnameSearchMixin, DashboardMixin
-from .lists import status_list
+from .lists import status_list, priority_list
 
 
 class Home(DashboardMixin, TemplateView):
@@ -75,8 +75,32 @@ class EntryList(CounterMixin, ListView):
     context_object_name = 'entrys'
     paginate_by = 10
 
+    # def get_context_data(self, **kwargs):
+    #     context = super(EntryList, self).get_context_data(**kwargs)
+    #     context['urgente'] = Entry.objects.filter(priority='u')
+    #     context['alta'] = Entry.objects.filter(priority='a')
+    #     context['normal'] = Entry.objects.filter(priority='n')
+    #     context['baixa'] = Entry.objects.filter(priority='b')
+    #     return context
+
+    def get_context_data(self, **kwargs):
+        priority_classes = {'u': 'fa-flash urgente',
+                            'a': 'fa-arrow-up status-pendente',
+                            'n': 'fa-circle',
+                            'b': 'fa-arrow-down'}
+        context = super(EntryList, self).get_context_data(**kwargs)
+        context.update({'priority_search_form': PrioritySearchForm(), })
+        context['priority'] = [(item, item_display, priority_classes[item])
+                               for item, item_display in priority_list]
+        return context
+
     def get_queryset(self):
         e = Entry.objects.filter(is_entry=False).select_related()
+
+        priority = self.request.GET.get('priority')
+        if priority in ('u', 'a', 'n', 'b'):
+            e = e.filter(priority=priority)
+
         q = self.request.GET.get('search_box')
         priority = self.request.GET.get('priority')
         if priority in ('u',):

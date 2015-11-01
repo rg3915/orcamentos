@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from datetime import datetime
+from django.utils import timezone
 from .models import Entry, Proposal, Contract, Employee, NumLastProposal
 
 
@@ -17,7 +17,7 @@ def conclude_proposal(request, proposal_id):
         else:
             proposal.price = 1
             proposal.status = 'co'
-            proposal.date_conclusion = datetime.now()
+            proposal.date_conclusion = timezone.now()
             proposal.save()
             return redirect('/proposal/%d' % proposal.id)
 

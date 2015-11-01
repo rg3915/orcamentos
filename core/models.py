@@ -177,7 +177,7 @@ class Entry(TimeStampedModel):
     is_entry = models.BooleanField(_('dado entrada'), default=False)
 
     class Meta:
-        ordering = ['created']
+        ordering = ['-priority', 'created']
         verbose_name = 'entrada'
         verbose_name_plural = 'entradas'
 
