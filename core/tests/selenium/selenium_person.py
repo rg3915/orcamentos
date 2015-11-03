@@ -84,5 +84,5 @@ campo_busca.send_keys('SP')  # r['UF']
 campo_busca = ffox.find_element_by_id('id_cep')
 campo_busca.send_keys('01200100')  # r['CEP']
 
-button = ffox.find_element_by_id('id_submit')
+button = ffox.find_element_by_class_name('btn-primary')
 button.click()

@@ -17,7 +17,7 @@ button.click()
 
 # pegar o campo de busca onde podemos digitar algum termo
 campo_busca = ffox.find_element_by_id('id_name_work')
-campo_busca.send_keys('Ed. Faria Lima')
+campo_busca.send_keys('Padaria Vila dos Pães')
 
 campo_busca = ffox.find_element_by_id('id_person')
 campo_busca.send_keys('Regis da Silva')
@@ -43,5 +43,5 @@ campo_busca.send_keys('SP')  # r['UF']
 campo_busca = ffox.find_element_by_id('id_cep')
 campo_busca.send_keys('01200100')  # r['CEP']
 
-button = ffox.find_element_by_id('id_submit')
+button = ffox.find_element_by_class_name('btn-primary')
 button.click()

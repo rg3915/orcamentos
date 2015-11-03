@@ -80,5 +80,6 @@ search.send_keys('SP')  # r['UF']
 search = customer.find_element_by_id('id_cep')
 search.send_keys('01200100')  # r['CEP']
 
-button = customer.find_element_by_id('id_submit')
+# button = customer.find_element_by_id('id_submit')
+button = customer.find_element_by_class_name('btn-primary')
 button.click()
