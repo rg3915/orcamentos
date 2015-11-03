@@ -34,6 +34,13 @@ Cadastro de clientes, obras e contatos.
 
 Para gerar dados randômicos veja o Makefile.
 
+# Comandos personalizados
+
+Este projeto possui comandos personalizados
+
+	$ ./manage.py entradas --urgentes
+
+
 [1]: http://django-extensions.readthedocs.org/en/latest/
 [4]: http://www.python.org.br/wiki/GuiaDeEstilo
 [8]: http://django-notes.blogspot.com.br/2012/07/vizualization.html
