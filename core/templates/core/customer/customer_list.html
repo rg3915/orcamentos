@@ -60,7 +60,14 @@
 		            {% else %}
 		            	<td>---</td>
 		            {% endif %}
-		            <td>{{ customer.get_type_customer_display }}</td>
+		            
+		            {% if customer.type_customer == 'c' %}
+		            	<td><i class="fa fa-circle fa-fw status-concluido"></i> {{ customer.get_type_customer_display }}</td>
+		            {% elif customer.type_customer == 'a'  %}
+		            	<td><i class="fa fa-circle fa-fw status-elab"></i> {{ customer.get_type_customer_display }}</td>
+		            {% else %}
+			            <td><i class="fa fa-circle fa-fw status-pendente"></i> {{ customer.get_type_customer_display }}</td>
+		            {% endif %}
 		        </tr>
 		    {% endfor %}
 		    </tbody>

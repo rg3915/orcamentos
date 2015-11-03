@@ -545,7 +545,7 @@
                                             <tbody>
                                                 {% for entry in entrys %}
                                                     <tr>
-                                                        <td><i class="pull-right fa fa-flash urgente"></i> <a href="#">{{ entry.work }}</a></td>
+                                                        <td><i class="pull-right fa fa-flash urgente"></i> <a href="{% url 'entry_detail' entry.id  %}">{{ entry.work }}</a></td>
                                                         <td>{{ entry.work.customer }}</td>
                                                         <td>{{ entry.created|date:"d/m/Y" }}</td>
                                                     </tr>
@@ -599,7 +599,7 @@
                                     <tbody>
                                         {% for p in proposal_elab %}
                                             <tr>
-                                                <td><a href="#">{{ p.codigo }}</a></td>
+                                                <td><a href="{% url 'proposal_detail' p.id %}">{{ p.codigo }}</a></td>
                                                 <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
                                                 <td>{{ p.work.customer }}</td>
                                                 <td>{{ p.employee }}</td>
@@ -623,7 +623,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading" id="orc_status">
-                            <i class="fa fa-list fa-fw"></i> Orçamentos por Status
+                            <i class="fa fa-list fa-fw"></i> Orçamentos por Status (6 últimos)
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -663,7 +663,7 @@
                                             <tbody>
                                                 {% for p in proposal_list %}
                                                     <tr> <!-- no máximo 6 ou 7 -->
-                                                        <td><a href="#">{{ p.codigo }}</a></td>
+                                                        <td><a href="{% url 'proposal_detail' p.id %}">{{ p.codigo }}</a></td>
                                                         {% if p.status == 'elab' %}
                                                             <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
                                                         {% elif p.status == 'p' %}

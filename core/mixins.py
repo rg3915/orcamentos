@@ -49,11 +49,8 @@ class DashboardMixin(object):
         status = self.request.GET.get('status')
         ''' retorna 6 orçamentos por status '''
         if status in ('c', 'elab', 'p', 'co', 'a'):
-            p = p.filter(status=status)[6:]
-        else:
-            ''' ou retorna os 6 últimos '''
-            p = p[len(p) - 6:]
-        return p
+            p = p.filter(status=status)
+        return p[len(p) - 6:]  # ou retorna os 6 últimos
 
     def proposal_elab(self):
         ''' retorna orçamentos em elaboração '''
