@@ -45,6 +45,17 @@ class DashboardMixin(object):
         return e
 
     def proposal_list(self):
+        p = Proposal.objects.all()
+        status = self.request.GET.get('status')
+        ''' retorna 6 orçamentos por status '''
+        if status in ('c', 'elab', 'p', 'co', 'a'):
+            p = p.filter(status=status)[6:]
+        else:
+            ''' ou retorna os 6 últimos '''
+            p = p[len(p) - 6:]
+        return p
+
+    def proposal_elab(self):
         ''' retorna orçamentos em elaboração '''
         p = Proposal.objects.filter(status='elab')[:6]
         return p

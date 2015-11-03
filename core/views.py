@@ -37,6 +37,7 @@ class Home(DashboardMixin, TemplateView):
         context = super(Home, self).get_context_data(**kwargs)
         context['proposals'] = p
         context['proposal_list'] = self.proposal_list()
+        context['proposal_elab'] = self.proposal_elab()
         context['entrys'] = self.entry_list()
 
         return context

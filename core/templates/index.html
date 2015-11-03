@@ -597,7 +597,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for p in proposal_list %}
+                                        {% for p in proposal_elab %}
                                             <tr>
                                                 <td><a href="#">{{ p.codigo }}</a></td>
                                                 <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
@@ -622,7 +622,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
+                        <div class="panel-heading" id="orc_status">
                             <i class="fa fa-list fa-fw"></i> Orçamentos por Status
                             <div class="pull-right">
                                 <div class="btn-group">
@@ -661,55 +661,41 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr> <!-- no máximo 7 -->
-                                                    <td><a href="#">001.15.0</a></td>
-                                                    <td><i class="fa fa-check fa-fw status-concluido"></i> New Parker</td>
-                                                    <td>Camargo Corrêa</td>
-                                                    <td>Regis</td>
-                                                    <td>01/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">002.15.0</a></td>
-                                                    <td><i class="fa fa-close fa-fw status-cancelado"></i> <strike>Ed. Boulevard</strike></td>
-                                                    <td><strike>Costa Hirota</strike></td>
-                                                    <td><strike>Regis</strike></td>
-                                                    <td>01/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">002.15.1</a></td>
-                                                    <td><i class="fa fa-circle fa-fw status-pendente"></i> Ed. Boulevard</td>
-                                                    <td>Costa Hirota</td>
-                                                    <td>Regis</td>
-                                                    <td>04/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">003.15.0</a></td>
-                                                    <td class="text-info"><i class="fa fa-star fa-fw status-aprovado"></i> Berrini One</td>
-                                                    <td class="text-info">Bueno Netto</td>
-                                                    <td class="text-info">Adailton</td>
-                                                    <td>02/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">004.15.0</a></td>
-                                                    <td class="text-info"><i class="fa fa-star fa-fw status-aprovado"></i> Ed. Timboril</td>
-                                                    <td class="text-info">Adolpho Lindenberg</td>
-                                                    <td class="text-info">Regis</td>
-                                                    <td>03/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">005.15.0</a></td>
-                                                    <td><i class="fa fa-circle fa-fw status-elab"></i> Ed. Nova Faria Lima</td>
-                                                    <td>Hochtief</td>
-                                                    <td>Adailton</td>
-                                                    <td>04/07/2015</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="#">006.15.0</a></td>
-                                                    <td><i class="fa fa-check fa-fw status-concluido"></i> Ed. Morizono</td>
-                                                    <td>Método</td>
-                                                    <td>Regis</td>
-                                                    <td>10/07/2015</td>
-                                                </tr>
+                                                {% for p in proposal_list %}
+                                                    <tr> <!-- no máximo 6 ou 7 -->
+                                                        <td><a href="#">{{ p.codigo }}</a></td>
+                                                        {% if p.status == 'elab' %}
+                                                            <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
+                                                        {% elif p.status == 'p' %}
+                                                            <td><i class="fa fa-circle fa-fw status-pendente"></i> {{ p.work }}</td>
+                                                        {% elif p.status == 'co' %}
+                                                            <td><i class="fa fa-check fa-fw status-concluido"></i> {{ p.work }}</td>
+                                                        {% elif p.status == 'a' %}
+                                                            <td class="text-info"><i class="fa fa-star fa-fw status-aprovado"></i> {{ p.work }}</td>
+                                                        {% elif p.status == 'c' %}
+                                                            <td><i class="fa fa-close fa-fw status-cancelado"></i> <strike>{{ p.work }}</strike></td>
+                                                        {% endif %}
+
+                                                        {% if p.status == 'a' %}
+                                                            <td class="text-info">{{ p.work.customer }}</td>
+                                                        {% elif p.status == 'c' %}
+                                                            <td><strike>{{ p.work.customer }}</strike></td>
+                                                        {% else %}
+                                                            <td>{{ p.work.customer }}</td>
+                                                        {% endif %}
+
+                                                        {% if p.status == 'a' %}
+                                                            <td class="text-info">{{ p.employee }}</td>
+                                                        {% elif p.status == 'c' %}
+                                                            <td><strike>{{ p.employee }}</strike></td>
+                                                        {% else %}
+                                                            <td>{{ p.employee }}</td>
+                                                        {% endif %}
+
+                                                        <td>{{ p.created|date:"d/m/Y" }}</td>
+                                                    </tr>
+                                                {% endfor %}
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -722,33 +708,33 @@
                                 <!-- 3 -->
                                 <div class="col-lg-3">
                                     <div class="list-group">
-                                        <a href="#" class="list-group-item">
+                                        <a href="?status=elab#orc_status" class="list-group-item">
                                             <i class="fa fa-circle fa-fw status-elab"></i> Em Elaboração
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_elab }}</em>
                                             </span>
                                         </a>
-                                        <a href="#" class="list-group-item">
+                                        <a href="?status=p#orc_status" class="list-group-item">
                                             <i class="fa fa-circle fa-fw status-pendente"></i> Pendentes
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_pending }}</em>
                                             </span>
                                         </a>
-                                        <a href="#" class="list-group-item">
+                                        <a href="?status=co#orc_status" class="list-group-item">
                                             <i class="fa fa-check fa-fw status-concluido"></i> Concluidos
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_concluded }}</em>
                                             </span>
                                         </a>
-                                        <a href="#" class="list-group-item">
+                                        <a href="?status=a#orc_status" class="list-group-item">
                                             <i class="fa fa-star fa-fw status-aprovado"></i> Aprovados
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_approved }}</em>
                                             </span>
                                         </a>
-                                        <a href="#" class="list-group-item">
+                                        <a href="?status=c#orc_status" class="list-group-item">
                                             <i class="fa fa-close fa-fw status-cancelado"></i> Cancelados
                                             <span class="pull-right text-muted small"><em>{{ proposals.proposal_canceled }}</em>
                                             </span>
                                         </a>
                                     </div><!-- /.list-group -->
-                                    <a href="#" class="btn btn-default btn-block">Ver todos orçamentos</a>
+                                    <a href="/#orc_status" class="btn btn-default btn-block">Ver todos orçamentos</a>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>

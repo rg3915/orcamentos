@@ -17,7 +17,7 @@ def conclude_proposal(request, proposal_id):
             # só falta ver o formato
             v = request.POST.get('price')
             ''' verifica se o novo valor é positivo '''
-            if int(v) <= 0 or int(v) is None:
+            if float(v) <= 0 or float(v) is None:
                 return HttpResponse('O valor deve ser positivo.')
             else:
                 proposal.price = v

@@ -16,8 +16,9 @@ class ProposalAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     search_fields = (
         'work__name_work', 'work__customer__first_name', 'employee__user__first_name')
-    list_filter = ('status', 'category', 'seller',
-        ('created',DateRangeFilter),
+    list_filter = (
+        'status', 'category', 'seller',
+        ('created', DateRangeFilter),
     )
 
 
