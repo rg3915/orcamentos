@@ -247,7 +247,7 @@ class ContractDetail(DetailView):
 class ContractUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'core/contract/contract_form.html'
     model = Contract
-    fields = '__all__'
+    fields = ('contractor', 'is_canceled')
 
 
 class CustomerList(CounterMixin, FirstnameSearchMixin, ListView):

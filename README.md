@@ -38,7 +38,34 @@ Para gerar dados randômicos veja o Makefile.
 
 Este projeto possui comandos personalizados
 
-	$ ./manage.py entradas --urgentes
+**Lista as entradas urgentes**
+
+	$ ./manage.py entrys --urgent
+
+**Cria orçamento**
+
+	$ ./manage.py create_proposal --user='regis' --entry_id=26
+
+**Concluir orçamento**
+
+	$ ./manage.py conclude_proposal --num=3 --price=14350.09
+
+**Cria contrato**
+
+	$ ./manage.py create_contract --num=1
+
+# Atualizações
+
+* BaseCommand: create_contract
+* BaseCommand: conclude_proposal
+* BaseCommand: create_proposal
+* BaseCommand: entrys urgent
+* actions: create contract
+* actions: conclude proposal
+* actions: create proposal
+* Dashboard
+* selenium
+* shell
 
 
 [1]: http://django-extensions.readthedocs.org/en/latest/
