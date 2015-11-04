@@ -42,6 +42,7 @@ Este projeto possui comandos personalizados
 **Cria entrada**
 
 	$ ./manage.py create_entry --priority='u' --category=1 --work='vila dos pães' --contact='Doris' --description='Lorem ipsum' --seller='regis'
+	$ ./manage.py create_entry --work='tiree' --contact='alvin' --seller='regis'
 
 
 **Lista as entradas urgentes**

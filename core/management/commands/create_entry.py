@@ -6,12 +6,13 @@ from core.models import Entry, Category, Work, Person, Seller
 class Command(BaseCommand):
     option_list = BaseCommand.option_list + (
         make_option('--priority', default='n',
-                    help="Prioridade, default é 'normal'."),
+                    help="Prioridade (opcional), default é 'normal'."),
         make_option('--category', default=1,
-                    help="Categoria, default é 'orçamento'."),
+                    help="Categoria (opcional), default é 'orçamento'."),
         make_option('--work', help='Nome da obra'),
         make_option('--contact', help='Contato da obra'),
-        make_option('--description', default=None, help='Descrição'),
+        make_option('--description', default='',
+                    help='Descrição (opcional)'),
         make_option('--seller', help='Vendedor'),
     )
 

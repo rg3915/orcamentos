@@ -16,3 +16,4 @@ class Command(BaseCommand):
         for e in entrys:
             print(" %d \t %s \t %s" %
                   (e.id, e.created.strftime(u'%d/%m/%Y'), e.work))
+        print("Total: %d entradas" % entrys.count())
