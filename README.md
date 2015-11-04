@@ -38,21 +38,31 @@ Para gerar dados randômicos veja o Makefile.
 
 Este projeto possui comandos personalizados
 
+
+**Cria entrada**
+
+	$ ./manage.py create_entry --priority='u' --category=1 --work='vila dos pães' --contact='Doris' --description='Lorem ipsum' --seller='regis'
+
+
 **Lista as entradas urgentes**
 
-	$ ./manage.py entrys --urgent
+	$ ./manage.py entrys --u
+
 
 **Cria orçamento**
 
-	$ ./manage.py create_proposal --user='regis' --entry_id=26
+	$ ./manage.py create_proposal --user='regis' --id=1
+
 
 **Concluir orçamento**
 
-	$ ./manage.py conclude_proposal --num=3 --price=14350.09
+	$ ./manage.py conclude_proposal --num=1 --price=14350.09
+
 
 **Cria contrato**
 
 	$ ./manage.py create_contract --num=1
+
 
 # Atualizações
 

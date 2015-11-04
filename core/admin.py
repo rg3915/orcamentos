@@ -6,7 +6,8 @@ from .models import Category, Work, Proposal, Contract, NumLastProposal
 
 
 class EntryAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'created', 'is_entry')
+    list_display = ('id', '__str__', 'created', 'is_entry')
+    search_fields = ('work__name_work',)
 
 
 class ProposalAdmin(admin.ModelAdmin):
