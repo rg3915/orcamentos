@@ -56,7 +56,7 @@ class PersonTest(TestCase):
 class CustomerTest(TestCase):
 
     def setUp(self):
-        self.obj = Person(
+        self.obj = Customer(
             gender='M',
             treatment='sr',
             first_name='Adailton',
@@ -96,7 +96,15 @@ class EmployeeTest(TestCase):
 
 
 class NumLastProposalTest(TestCase):
-    pass
+
+    def setUp(self):
+        self.obj = NumLastProposal(
+            num_last_prop=0
+        )
+
+    def test_create(self):
+        self.obj.save()
+        self.assertEqual(1, self.obj.pk)
 
 
 class ProposalTest(TestCase):
@@ -108,7 +116,15 @@ class WorkTest(TestCase):
 
 
 class CategoryTest(TestCase):
-    pass
+
+    def setUp(self):
+        self.obj = Category(
+            category='orçamento'
+        )
+
+    def test_create(self):
+        self.obj.save()
+        self.assertEqual(1, self.obj.pk)
 
 
 class EntryTest(TestCase):
@@ -120,12 +136,12 @@ class SellerTest(TestCase):
 
 
 class OccupationTest(TestCase):
-    pass
 
+    def setUp(self):
+        self.obj = Occupation(
+            occupation='Coordenador'
+        )
 
-class PeopleTest(TestCase):
-    pass
-
-
-class AddressTest(TestCase):
-    pass
+    def test_create(self):
+        self.obj.save()
+        self.assertEqual(1, self.obj.pk)
