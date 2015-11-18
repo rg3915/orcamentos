@@ -67,16 +67,16 @@ Este projeto possui comandos personalizados
 
 # Atualizações
 
-* BaseCommand: create_contract
-* BaseCommand: conclude_proposal
-* BaseCommand: create_proposal
-* BaseCommand: entrys urgent
-* actions: create contract
-* actions: conclude proposal
-* actions: create proposal
+* [BaseCommand: create_contract](https://github.com/rg3915/orcamentos/blob/master/core/management/commands/create_contract.py)
+* [BaseCommand: conclude_proposal](https://github.com/rg3915/orcamentos/blob/master/core/management/commands/conclude_proposal.py)
+* [BaseCommand: create_proposal](https://github.com/rg3915/orcamentos/blob/master/core/management/commands/create_proposal.py)
+* [BaseCommand: entrys urgent](https://github.com/rg3915/orcamentos/blob/master/core/management/commands/entrys.py)
+* [actions: create contract](https://github.com/rg3915/orcamentos/blob/master/core/actions.py#L57-L73)
+* [actions: conclude proposal](https://github.com/rg3915/orcamentos/blob/master/core/actions.py#L9-L27)
+* [actions: create proposal](https://github.com/rg3915/orcamentos/blob/master/core/actions.py#L9-L27)
 * Dashboard
-* selenium
-* shell
+* [selenium](https://github.com/rg3915/orcamentos/tree/master/core/tests/selenium)
+* [shell](https://github.com/rg3915/orcamentos/tree/master/shell)
 
 
 [1]: http://django-extensions.readthedocs.org/en/latest/
