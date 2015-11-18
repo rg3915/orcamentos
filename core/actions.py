@@ -30,7 +30,7 @@ def conclude_proposal(request, proposal_id):
 @login_required
 def create_proposal(request, entry_id):
     if request.user.is_authenticated:
-        employee = Employee.objects.get(pk=request.user.id)
+        employee = Employee.objects.get(user=request.user.id)
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
         entry = Entry.objects.get(pk=entry_id)
         proposal = Proposal(
