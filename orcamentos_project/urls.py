@@ -48,7 +48,7 @@ urlpatterns = patterns(
     url(r'^work/edit/(?P<pk>\d+)/$', WorkUpdate.as_view(), name='work_edit'),
     url(r'^work/add/$', WorkCreate.as_view(), name='work_add'),
 
-    url(r'^grappelli/', include('grappelli.urls')),  # grappelli URLS
+    # url(r'^grappelli/', include('grappelli.urls')),  # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
 )
 
