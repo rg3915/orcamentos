@@ -28,6 +28,20 @@ def conclude_proposal(request, proposal_id):
 
 
 @login_required
+def cancel_proposal(request, proposal_id):
+    if request.user.is_authenticated:
+        proposal = Proposal.objects.get(pk=proposal_id)
+        ''' Se o status for 'aprovado', então não pode concluir '''
+        if proposal.status == 'a':
+            return HttpResponse('Este orçamento já virou contrato.')
+        else:
+            proposal.status = 'c'
+            proposal.date_conclusion = timezone.now()
+            proposal.save()
+            return redirect('/proposal/%d' % proposal.id)
+
+
+@login_required
 def create_proposal(request, entry_id):
     if request.user.is_authenticated:
         employee = Employee.objects.get(user=request.user.id)

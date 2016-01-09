@@ -7,6 +7,12 @@
 {% block content %}
 
     <form class="navbar-form navbar-right" action="." method="get">
+        <!-- cancel - Button trigger modal -->
+        {% if object.status != 'a' %}
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalCancel">
+              <span class="fa fa-close"></span> Cancelar
+            </button>
+        {% endif %}
         <!-- edit -->
         <a id="edit_proposal" href="{% url 'proposal_edit' proposal.id %}">
             <button type="button" class="btn btn-success">
@@ -122,6 +128,28 @@
 
 
 <!-- Modal -->
+<div class="modal fade" id="myModalCancel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cancelar Orçamento</h4>
+      </div>
+    <form action="{% url 'cancel_proposal' proposal.id %}" method="POST">
+      <div class="modal-body">
+        {% csrf_token %}  
+        <h5>Deseja cancelar o orçamento?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button id="id_submit" type="submit" class="btn btn-danger">Cancelar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -143,19 +171,24 @@
     </div>
   </div>
 </div>
- 	<script>
+
+	<script>
+        $(function(){
+          $('#myModal').on('shown.bs.modal', function(){
+            $('#id_price').val("");
+            $('#id_price').focus();
+          });
+          $("#id_submit").click(function(){
+              var v = $('#id_price').val();
+              console.log(v);
+              if (v <= 0) {
+                console.log("O valor deve ser positivo.");
+              };
+          });
+        });
 		$(function(){
-		  $('#myModal').on('shown.bs.modal', function(){
-		    $('#id_price').val("");
-		    $('#id_price').focus();
-		  });
-		  $("#id_submit").click(function(){
-		  	  var v = $('#id_price').val();
-		      console.log(v);
-		      if (v <= 0) {
-		      	console.log("O valor deve ser positivo.");
-		      };
-		  });
+		  $('#myModalCancel').on('shown.bs.modal', function(){});
+		  $("#id_submit").click(function(){});
 		});
 	</script>
 

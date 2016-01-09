@@ -8,19 +8,34 @@
 
 {% block content %}
 
+{% if object.status == 'c' %}
+    <h2 valign="middle">{{ object.codigo }}<i class="fa fa-close fa-fw status-cancelado"></i> {{ object.get_status_display }}</h2>
+{% elif object.status == 'elab' %}
+    <h2 valign="middle">{{ object.codigo }}<i class="fa fa-circle fa-fw status-elab"></i> {{ object.get_status_display }}</h2>
+{% elif object.status == 'p' %}
+    <h2 valign="middle">{{ object.codigo }}<i class="fa fa-circle fa-fw status-pendente"></i> {{ object.get_status_display }}</h2>
+{% elif object.status == 'co' %}
+    <h2 valign="middle">{{ object.codigo }}<i class="fa fa-check fa-fw status-concluido"></i> {{ object.get_status_display }}</h2>
+{% elif object.status == 'a' %}
+    <h2 valign="middle" class="text-info">{{ object.codigo }}<i class="fa fa-star fa-fw status-aprovado"></i> {{ object.get_status_display }}</h2>
+{% endif %}
+
+
 <form class="form-horizontal col-sm-6" action="." method="POST">
     <legend>Orçamento</legend>
     {% csrf_token %}
-    {{ form.num_prop|bootstrap_horizontal }}
+    <!-- {{ form.num_prop|bootstrap_horizontal }} -->
     {{ form.type_prop|bootstrap_horizontal }}
-    {{ form.num_type_prop|bootstrap_horizontal }}
+    <!-- {{ form.num_type_prop|bootstrap_horizontal }} -->
     {{ form.category|bootstrap_horizontal }}
     {{ form.description|bootstrap_horizontal }}
     {{ form.work|bootstrap_horizontal }}
     {{ form.person|bootstrap_horizontal }}
     {{ form.employee|bootstrap_horizontal }}
     {{ form.seller|bootstrap_horizontal }}
-    {{ form.status|bootstrap_horizontal }}
+    {% if object.status != 'a' %}
+        {{ form.status|bootstrap_horizontal }}
+    {% endif %}
     {{ form.date_conclusion|bootstrap_horizontal }}
     {{ form.price|bootstrap_horizontal }}
     {{ form.obs|bootstrap_horizontal }}
