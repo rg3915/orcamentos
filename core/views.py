@@ -76,14 +76,8 @@ class EntryList(CounterMixin, ListView):
     model = Entry
     context_object_name = 'entrys'
     paginate_by = 10
-
-    # def get_context_data(self, **kwargs):
-    #     context = super(EntryList, self).get_context_data(**kwargs)
-    #     context['urgente'] = Entry.objects.filter(priority='u')
-    #     context['alta'] = Entry.objects.filter(priority='a')
-    #     context['normal'] = Entry.objects.filter(priority='n')
-    #     context['baixa'] = Entry.objects.filter(priority='b')
-    #     return context
+    singular = 'entrada'
+    plural = 'entradas'
 
     def get_context_data(self, **kwargs):
         priority_classes = {'u': 'fa-flash urgente',
@@ -94,6 +88,8 @@ class EntryList(CounterMixin, ListView):
         context.update({'priority_search_form': PrioritySearchForm(), })
         context['priority'] = [(item, item_display, priority_classes[item])
                                for item, item_display in priority_list]
+        self.name = self.name_(EntryList.singular, EntryList.plural)
+        context['name'] = self.name
         return context
 
     def get_queryset(self):

@@ -18,6 +18,10 @@ class CounterMixin(object):
         context['count'] = self.get_queryset().count()
         return context
 
+    def name_(self, singular='', plural=''):
+        name = self.singular if self.count == 1 else self.plural
+        return name
+
 
 class FirstnameSearchMixin(object):
 
