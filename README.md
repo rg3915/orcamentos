@@ -1,6 +1,8 @@
+# Orçamentos
+
 Python 3.5 e Django 1.9.1
 
-# Objetivo
+## Objetivo
 
 Sistema para controle de orçamentos.
 
@@ -8,18 +10,21 @@ Controla a sequência numérica dos orçamentos, seus valores e status.
 
 Cadastro de clientes, obras e contatos.
 
-# Baixando e rodando a app
+## Baixando e rodando a app
 
-	git clone https://github.com/rg3915/orcamentos.git
-	virtualenv -p python3 orcamentos
-	cd orcamentos
-	source bin/activate
-	PS1="(`basename \"$VIRTUAL_ENV\"`):/\W$ " # opcional
-	pip install -r requirements.txt
-	make initial
-	./manage.py runserver
+```bash
+git clone https://github.com/rg3915/orcamentos.git
+python -m venv .venv
+source .venv/bin/activate
+cd orcamentos
+PS1="(`basename \"$VIRTUAL_ENV\"`):/\W$ " # opcional
+pip install -r requirements.txt
+make initial
+./manage.py test
+./manage.py runserver
+```
 
-# Convenções
+## Convenções
 
 **Título de entidades**: primeira maiúscula e no singular. Ex: *Person, Employee, Seller, Proposal, Entry*.
 
@@ -29,41 +34,51 @@ Cadastro de clientes, obras e contatos.
 
 **Templates**: usar a mesma convenção. Ex: *person_list.html, person_detail.html, person_create_form.html*.
 
-# Gerando dados randômicos
+## Gerando dados randômicos
 
-Para gerar dados randômicos veja o Makefile.
+Para gerar dados randômicos veja o [Makefile](https://github.com/rg3915/orcamentos/blob/master/Makefile).
 
-# Comandos personalizados
+## Comandos personalizados
 
 Este projeto possui comandos personalizados
 
 
 **Cria entrada**
 
-	$ ./manage.py create_entry --priority='u' --category=1 --work='vila dos pães' --contact='Doris' --description='Lorem ipsum' --seller='regis'
-	$ ./manage.py create_entry --work='tiree' --contact='alvin' --seller='regis'
+```bash
+$ ./manage.py create_entry --priority='u' --category=1 --work='vila dos pães' --contact='Doris' --description='Lorem ipsum' --seller='regis'
+$ ./manage.py create_entry --work='tiree' --contact='alvin' --seller='regis'
+```
 
 
 **Lista as entradas urgentes**
 
-	$ ./manage.py entrys --u
-
+```bash
+$ ./manage.py entrys --u
+```
 
 **Cria orçamento**
 
-	$ ./manage.py create_proposal --user='regis' --id=1
+```bash
+$ ./manage.py create_proposal --user='regis' --id=1
+```
 
 
 **Concluir orçamento**
 
-	$ ./manage.py conclude_proposal --num=1 --price=14350.09
+```bash
+$ ./manage.py conclude_proposal --num=1 --price=14350.09
+```
 
 
 **Cria contrato**
 
-	$ ./manage.py create_contract --num=1
+```bash
+$ ./manage.py create_contract --num=1
+```
 
 
+## [Changelog](https://github.com/rg3915/orcamentos/blob/master/CHANGELOG.md)
 
 
 [1]: http://django-extensions.readthedocs.org/en/latest/
@@ -73,4 +88,3 @@ Este projeto possui comandos personalizados
 [10]: https://bitbucket.org/pavel_calado/tikz-er2/wiki/Home
 [11]: http://grandeportal.blogspot.com.br/2012/06/editando-imagens-no-imagemagick.html
 [12]: http://perso.ensta-paristech.fr/~kielbasi/tikzuml/index.php?lang=en
-
