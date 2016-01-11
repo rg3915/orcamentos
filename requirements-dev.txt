@@ -1,0 +1,6 @@
+-r requirements.txt
+ipython[notebook]
+names==0.3.0
+pydot2==1.0.33
+rstr==2.2.3
+selenium==2.46.0

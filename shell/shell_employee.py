@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from core.models import Employee, Occupation
+from orcamentos.core.models import Employee, Occupation
 
 user = User.objects.get(username='amanda')
 occupation = Occupation.objects.get(pk=3)

@@ -1,4 +1,4 @@
-from core.models import Seller, Employee
+from orcamentos.core.models import Seller, Employee
 
 employee = Employee.objects.get(pk=5)  # jose
 Seller.objects.create(

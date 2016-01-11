@@ -1,4 +1,4 @@
-from core.models import Proposal
+from orcamentos.core.models import Proposal
 
 proposal = Proposal.objects.get(pk=8)
 contractor = proposal.work.customer

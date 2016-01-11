@@ -59,5 +59,9 @@ docs/_build/
 target/
 
 *.sqlite3
+*.env
+*.DS_Store
 
 .venv/
+staticfiles/
+.ipynb_checkpoints/

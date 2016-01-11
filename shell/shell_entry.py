@@ -1,6 +1,6 @@
-import random
-import rstr
-from core.models import Entry, Category, Work, Person, Seller
+from random import randint, choice
+from shell.gen_random_values import gen_string
+from orcamentos.core.models import Entry, Category, Work, Person, Seller
 
 priority_list = (
     ('u'),
@@ -9,19 +9,30 @@ priority_list = (
     ('b'),
 )
 
-REPEAT = 40
+# Return min id of work
+try:
+    min_work_pk = Work.objects.order_by('pk')[0].pk
+except IndexError:
+    min_work_pk = None
 
-for i in range(1, REPEAT + 1):
-    priority = random.choice(priority_list)
-    c = random.randint(1, 8)
+# Return max id of work
+try:
+    max_work_pk = Work.objects.latest('pk').id
+except Work.DoesNotExist:
+    max_work_pk = None
+
+REPEAT = max_work_pk + 1
+
+for i in range(min_work_pk, REPEAT):
+    priority = choice(priority_list)
+    c = randint(1, 8)
     category = Category.objects.get(pk=c)
     work = Work.objects.get(pk=i)
-    p = random.randint(1, 50)
+    p = randint(1, 50)
     person = Person.objects.get(pk=p)
-    s = random.randint(1, 3)
+    s = randint(1, 3)
     seller = Seller.objects.get(pk=s)
-    # regular expressions
-    description = rstr.rstr(rstr.xeger(r'[\w]+'), 10, 20)
+    description = gen_string(30)
     Entry.objects.create(
         priority=priority,
         category=category,

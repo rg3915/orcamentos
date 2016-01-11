@@ -1,4 +1,4 @@
-from core.models import Category
+from orcamentos.core.models import Category
 Category.objects.create(category=u'orçamento')
 Category.objects.create(category=u'concorrência')
 Category.objects.create(category=u'consulta')

@@ -2,7 +2,8 @@ import io
 import random
 import names
 import csv
-from core.models import Work, Person, Customer
+from django.db import IntegrityError
+from orcamentos.core.models import Work, Person, Customer
 from shell.gen_random_values import *
 
 work_list = []
@@ -25,9 +26,9 @@ with open('fixtures/enderecos_.csv', 'r') as f:
 REPEAT = len(work_list)
 
 for i in range(REPEAT):
-    p = random.randint(1, 50)
+    p = randint(1, 50)
     person = Person.objects.get(pk=p)
-    c = random.randint(1, 25)
+    c = randint(1, 25)
     customer = Customer.objects.get(pk=c)
     obj = Work(
         name_work=work_list[i]['name_work'],
@@ -39,6 +40,7 @@ for i in range(REPEAT):
         uf=address_list[i]['uf'],
         cep=address_list[i]['cep'],
     )
-    obj.save()
-
-print('%d Works salvo com sucesso.' % REPEAT)
+    try:
+        obj.save()
+    except IntegrityError:
+        print('Registro existente.')

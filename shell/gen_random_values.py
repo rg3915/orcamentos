@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
+import string
 import rstr
-from datetime import date, datetime, timedelta
 from random import random, randint, choice
+from datetime import date, datetime, timedelta
 from decimal import Decimal
+
+
+def gen_string(max_length):
+    return str(''.join(choice(string.ascii_letters) for i in range(max_length)))
+gen_string.required = ['max_length']
 
 
 def gen_age(min_age=15, max_age=99):

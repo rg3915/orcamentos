@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>Entradas</title>
+{% endblock title %}
+
+{% block content %}
+
+    <form class="navbar-form navbar-right" action="." method="get">
+        <!-- add -->
+        <a href="{% url 'core:entry_add' %}">
+            <button id="new_entry" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar
+            </button>
+        </a>
+        <!-- search form -->
+        <div class="form-group">
+	        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+	        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+	    </div>
+        <!-- priotiry search form -->
+    	<ul class="list-inline">
+    		<li><a href="{% url 'core:entry_list' %}"><i class="fa fa-inbox"></i> Todos</a></li>
+        	{% for item, item_display, classes in priority %}
+                <li><a href="?priority={{ item }}"><i class="fa fa-fw {{ classes }}"></i> {{ item_display }}</a></li>
+        	{% endfor %}
+        </ul>
+	</form>
+	
+	<h2><i class="fa fa-inbox"></i> Lista de Entradas </h2>
+
+	<div>
+		{% if entrys %}
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Obra</th>
+						<th>Cliente</th>
+						<th>Vendedor</th>
+						<th>Prioridade</th>
+						<th>Categoria</th>
+						<th>Descrição</th>
+						<th>Entrada em</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for entry in entrys %}
+					{% if entry.priority == 'u' %}
+						<tr class="danger">
+					{% elif entry.priority == 'a' %}
+						<tr class="warning">
+					{% elif entry.priority == 'n' %}
+						<tr class="info">
+					{% else %}
+						<tr>
+					{% endif %}
+						{% if entry.priority == 'u' %}
+							<td><a href="{{ entry.get_absolute_url }}">{{ entry.work }} <i class="fa fa-flash urgente"></i></a></td>
+						{% else %}
+							<td><a href="{{ entry.get_absolute_url }}">{{ entry.work }}</a></td>
+						{% endif %}
+						<td>{{ entry.work.customer }}</td>
+						<td>{{ entry.seller.employee.user.first_name }}</td>
+						<td>{{ entry.get_priority_display }}</td>
+						<td>{{ entry.category }}</td>
+						<td>{{ entry.description }}</td>
+						<td>{{ entry.created|date:"d/m/Y" }}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<p class="alert alert-warning">Sem itens na lista.</p>
+		{% endif %}
+	</div>
+
+    <hr>
+	<div>
+		<h3><b>Total:</b> {{ entrys|length }} entrada{{ entrys|length|pluralize }}</h3>
+	</div>
+
+<!-- pagination -->
+{% include "pagination.html" %}
+
+{% endblock content %}

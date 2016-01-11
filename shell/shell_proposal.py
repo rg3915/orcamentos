@@ -1,25 +1,37 @@
-import random
+from random import random, randint
 import rstr
-from core.models import Proposal, Category, Work, Person, Employee, Seller, NumLastProposal
-from shell.gen_random_values import gen_date, gen_decimal
+from orcamentos.core.models import Proposal, Category, Work, Person, Employee, Seller, NumLastProposal
+from shell.gen_random_values import gen_string, gen_date, gen_decimal
 
 status_list = ('c', 'elab', 'p', 'co', 'a')
 
 REPEAT = 100
 
+# Return min id of work
+try:
+    min_work_pk = Work.objects.order_by('pk')[0].pk
+except IndexError:
+    min_work_pk = None
+
+# Return max id of work
+try:
+    max_work_pk = Work.objects.latest('pk').id
+except Work.DoesNotExist:
+    max_work_pk = None
+
 for i in range(1, REPEAT + 1):
-    c = random.randint(1, 8)
+    c = randint(1, 8)
     category = Category.objects.get(pk=c)
-    description = rstr.rstr(rstr.xeger(r'[\w]+'), 10, 20)
-    w = random.randint(1, 40)
+    description = gen_string(30)
+    w = randint(min_work_pk, max_work_pk)
     work = Work.objects.get(pk=w)
-    p = random.randint(1, 50)
+    p = randint(1, 50)
     person = Person.objects.get(pk=p)
-    e = random.randint(1, 9)
+    e = randint(1, 9)
     employee = Employee.objects.get(pk=e)
-    s = random.randint(1, 3)
+    s = randint(1, 3)
     seller = Seller.objects.get(pk=s)
-    sl = random.randint(0, 4)
+    sl = randint(0, 4)
     status = status_list[sl]
     if status == 'co' or status == 'a':
         date_conclusion = gen_date(min_year=2015, max_year=2015)

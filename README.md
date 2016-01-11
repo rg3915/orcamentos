@@ -1,5 +1,4 @@
-
-Python 3.4 e Django 1.8.2
+Python 3.5 e Django 1.9.1
 
 # Objetivo
 
@@ -65,18 +64,6 @@ Este projeto possui comandos personalizados
 	$ ./manage.py create_contract --num=1
 
 
-# Atualizações
-
-* [BaseCommand: create_contract](https://github.com/rg3915/orcamentos/blob/master/core/management/commands/create_contract.py)
-* [BaseCommand: conclude_proposal](https://github.com/rg3915/orcamentos/blob/master/core/management/commands/conclude_proposal.py)
-* [BaseCommand: create_proposal](https://github.com/rg3915/orcamentos/blob/master/core/management/commands/create_proposal.py)
-* [BaseCommand: entrys urgent](https://github.com/rg3915/orcamentos/blob/master/core/management/commands/entrys.py)
-* [actions: create contract](https://github.com/rg3915/orcamentos/blob/master/core/actions.py#L57-L73)
-* [actions: conclude proposal](https://github.com/rg3915/orcamentos/blob/master/core/actions.py#L9-L27)
-* [actions: create proposal](https://github.com/rg3915/orcamentos/blob/master/core/actions.py#L9-L27)
-* Dashboard
-* [selenium](https://github.com/rg3915/orcamentos/tree/master/core/tests/selenium)
-* [shell](https://github.com/rg3915/orcamentos/tree/master/shell)
 
 
 [1]: http://django-extensions.readthedocs.org/en/latest/

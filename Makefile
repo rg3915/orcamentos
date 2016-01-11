@@ -1,5 +1,5 @@
 install:
-	pip install -r requirements.txt
+	pip install -r requirements-dev.txt
 
 migrate:
 	./manage.py makemigrations
@@ -48,16 +48,16 @@ shell_contract:
 	./manage.py shell < shell/shell_contract.py
 
 selenium_login:
-	python core/tests/selenium/selenium_login.py
+	python orcamentos/core/tests/selenium/selenium_login.py
 
 selenium_person:
-	python core/tests/selenium/selenium_person.py
+	python orcamentos/core/tests/selenium/selenium_person.py
 
 selenium_customer:
-	python core/tests/selenium/selenium_customer.py
+	python orcamentos/core/tests/selenium/selenium_customer.py
 
 selenium_work:
-	python core/tests/selenium/selenium_work.py
+	python orcamentos/core/tests/selenium/selenium_work.py
 
 backup:
 	./manage.py dumpdata --format=json --indent=2 > fixtures.json
@@ -71,3 +71,5 @@ run:
 initial: install migrate createuser load
 
 initial2: install migrate createuser shell_num_last_proposal shell_user shell_occupation shell_employee shell_seller shell_person shell_customer shell_category shell_work shell_entry shell_proposal shell_contract backup
+
+createdata: shell_num_last_proposal shell_user shell_occupation shell_employee shell_seller shell_person shell_customer shell_category shell_work shell_entry shell_proposal shell_contract

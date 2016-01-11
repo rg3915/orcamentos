@@ -2,7 +2,7 @@ import io
 import random
 import names
 import csv
-from core.models import Customer
+from orcamentos.core.models import Customer
 from shell.gen_random_values import *
 from shell.gen_names import *
 

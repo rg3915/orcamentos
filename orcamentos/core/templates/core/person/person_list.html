@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>Contatos</title>
+{% endblock title %}
+
+{% block content %}
+
+    <form class="navbar-form navbar-right" action="." method="get">
+        <!-- add -->
+        <a href="{% url 'core:person_add' %}">
+            <button id="new_customer" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar
+            </button>
+        </a>
+        <!-- search form -->
+        <div class="form-group">
+	        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+	        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+	    </div>
+	</form>
+	
+	<div class="page-header">
+		<h2><h2><i class="fa fa-user"></i> Lista de Contatos</h2>
+	</div>
+
+	<div>
+		{% if object_list %}
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Email</th>
+						<th>Fone 1</th>
+						<th>Fone 2</th>
+						<th>Fone 3</th>
+						<th>Empresa</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for person in object_list %}
+					<tr>
+						<td><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></td>
+						<td>{{ person.email }}</td>
+						<td>{{ person.phone1 }}</td>
+						<td>{{ person.phone2 }}</td>
+						<td>{{ person.phone3 }}</td>
+						<td>{{ person.company }}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<p class="alert alert-warning">Sem itens na lista.</p>
+		{% endif %}
+	</div>
+
+    <hr>
+	<div>
+		{% if count > 0 %}
+			<h3><b>Total:</b> {{ count }}
+				{% if count == 1 %}
+					contato
+				{% elif count > 1 %}
+					contatos
+				{% endif %}
+			</h3>
+		{% endif %}
+	</div>
+
+<!-- pagination -->
+{% include "pagination.html" %}
+
+{% endblock content %}

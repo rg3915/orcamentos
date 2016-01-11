@@ -1,4 +1,4 @@
-from core.models import User
+from orcamentos.core.models import User
 
 # definindo a senha padrão para todos os usuarios,
 # como o django aceita apenas hash, criei uma senha padrão [password=1] e copiei o hash dela

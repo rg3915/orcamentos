@@ -1,5 +1,5 @@
 # from django.contrib.auth.models import User
-from core.models import Entry, Proposal, Employee, NumLastProposal
+from orcamentos.core.models import Entry, Proposal, Employee, NumLastProposal
 
 employee = Employee.objects.get(pk=8)
 num_last_proposal = NumLastProposal.objects.get(pk=1)

@@ -58,12 +58,6 @@ commissioned(boolean)
 commission
 
 
-**Work(Address)**
-name_work
-person(contato) (FK)
-customer(cliente) (FK)
-
-
 **Entry(TimeStampedModel)**
 priority
 category (FK)
@@ -78,8 +72,8 @@ category
 
 **Work(Address)**
 name_work
-person (FK)
-customer (FK)
+person(contato) (FK)
+customer(cliente) (FK)
 
 **Proposal(TimeStampedModel)**
 num_prop
@@ -103,3 +97,5 @@ is_canceled (FK)
 
 **NumLastProposal**
 num_last_prop
+
+15
