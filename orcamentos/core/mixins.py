@@ -3,22 +3,6 @@ from django.db.models import Q
 from .models import Person, Entry, Proposal, Contract, Customer, Work
 
 
-class LoginRequiredMixin(object):
-
-    @classmethod
-    def as_view(cls, **initkwargs):
-        view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
-        return login_required(view)
-
-
-class CounterMixin(object):
-
-    def get_context_data(self, **kwargs):
-        context = super(CounterMixin, self).get_context_data(**kwargs)
-        context['count'] = self.get_queryset().count()
-        return context
-
-
 class FirstnameSearchMixin(object):
 
     def get_queryset(self):

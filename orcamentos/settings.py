@@ -115,4 +115,4 @@ USE_THOUSAND_SEPARATOR = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-LOGIN_URL = '/admin/login'
+LOGIN_URL = '/admin/login/'

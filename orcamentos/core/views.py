@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q, F
 from django.db.models import IntegerField, Count, Case, When
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
@@ -13,7 +14,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
 from .forms import PersonForm, CustomerForm, StatusSearchForm, PrioritySearchForm
-from .mixins import LoginRequiredMixin, CounterMixin, FirstnameSearchMixin, DashboardMixin
+from .mixins import FirstnameSearchMixin, DashboardMixin
 from .lists import status_list, priority_list
 
 
@@ -47,7 +48,7 @@ def status(request):
     return render(request, 'status.html')
 
 
-class PersonList(CounterMixin, FirstnameSearchMixin, ListView):
+class PersonList(FirstnameSearchMixin, ListView):
     template_name = 'core/person/person_list.html'
     model = Person
     paginate_by = 10
@@ -62,8 +63,6 @@ class PersonCreate(LoginRequiredMixin, CreateView):
     template_name = 'core/person/person_form.html'
     form_class = PersonForm
     success_url = reverse_lazy('person_list')
-    login_url = '/admin/login/'
-    redirect_field_name = 'redirect_to'
 
 
 class PersonUpdate(LoginRequiredMixin, UpdateView):
@@ -73,7 +72,7 @@ class PersonUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('person_list')
 
 
-class EntryList(CounterMixin, ListView):
+class EntryList(ListView):
     template_name = 'core/entry/entry_list.html'
     model = Entry
     context_object_name = 'entrys'
@@ -147,7 +146,7 @@ class EntryUpdate(LoginRequiredMixin, UpdateView,  EntryActionMixin):
     action = 'atualizada'
 
 
-class ProposalList(CounterMixin, ListView):
+class ProposalList(ListView):
     template_name = 'core/proposal/proposal_list.html'
     model = Proposal
     paginate_by = 10
@@ -210,7 +209,7 @@ class ProposalUpdate(LoginRequiredMixin, UpdateView):
     fields = '__all__'
 
 
-class ContractList(CounterMixin, ListView):
+class ContractList(ListView):
     template_name = 'core/contract/contract_list.html'
     model = Contract
     context_object_name = 'contracts'
@@ -244,7 +243,7 @@ class ContractUpdate(LoginRequiredMixin, UpdateView):
     fields = ('contractor', 'is_canceled')
 
 
-class CustomerList(CounterMixin, FirstnameSearchMixin, ListView):
+class CustomerList(FirstnameSearchMixin, ListView):
     template_name = 'core/customer/customer_list.html'
     model = Customer
     paginate_by = 10
@@ -268,7 +267,7 @@ class CustomerUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('core:customer_list')
 
 
-class WorkList(CounterMixin, ListView):
+class WorkList(ListView):
     template_name = 'core/work/work_list.html'
     model = Work
     paginate_by = 10

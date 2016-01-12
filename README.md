@@ -20,8 +20,8 @@ cd orcamentos
 PS1="(`basename \"$VIRTUAL_ENV\"`):/\W$ " # opcional
 pip install -r requirements.txt
 make initial
-./manage.py test
-./manage.py runserver
+python manage.py test
+python manage.py runserver
 ```
 
 ## Convenções
@@ -46,35 +46,35 @@ Este projeto possui comandos personalizados
 **Cria entrada**
 
 ```bash
-$ ./manage.py create_entry --priority='u' --category=1 --work='vila dos pães' --contact='Doris' --description='Lorem ipsum' --seller='regis'
-$ ./manage.py create_entry --work='tiree' --contact='alvin' --seller='regis'
+$ python manage.py create_entry --priority='u' --category=1 --work='vila dos pães' --contact='Doris' --description='Lorem ipsum' --seller='regis'
+$ python manage.py create_entry --work='tiree' --contact='alvin' --seller='regis'
 ```
 
 
 **Lista as entradas urgentes**
 
 ```bash
-$ ./manage.py entrys --u
+$ python manage.py entrys --u
 ```
 
 **Cria orçamento**
 
 ```bash
-$ ./manage.py create_proposal --user='regis' --id=1
+$ python manage.py create_proposal --user='regis' --id=1
 ```
 
 
 **Concluir orçamento**
 
 ```bash
-$ ./manage.py conclude_proposal --num=1 --price=14350.09
+$ python manage.py conclude_proposal --num=1 --price=14350.09
 ```
 
 
 **Cria contrato**
 
 ```bash
-$ ./manage.py create_contract --num=1
+$ python manage.py create_contract --num=1
 ```
 
 
