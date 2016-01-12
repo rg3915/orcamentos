@@ -78,15 +78,7 @@
 
     <hr>
 	<div>
-		{% if count > 0 %}
-			<h3><b>Total:</b> {{ count }}
-				{% if count == 1 %}
-					cliente
-				{% elif count > 1 %}
-					clientes
-				{% endif %}
-			</h3>
-		{% endif %}
+		<h3><b>Total:</b> {{ object_list|length }} cliente{{ object_list|length|pluralize }}</h3>
 	</div>
 
 <!-- pagination -->

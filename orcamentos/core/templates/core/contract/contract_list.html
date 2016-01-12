@@ -75,15 +75,7 @@
 
     <hr>
 	<div>
-		{% if count > 0 %}
-			<h3><b>Total:</b> {{ count }}
-				{% if count == 1 %}
-					contrato
-				{% elif count > 1 %}
-					contratos
-				{% endif %}
-			</h3>
-		{% endif %}
+		<h3><b>Total:</b> {{ contracts|length }} contrato{{ contracts|length|pluralize }}</h3>
 	</div>
 
 <!-- pagination -->

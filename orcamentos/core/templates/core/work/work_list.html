@@ -55,15 +55,7 @@
 
     <hr>
 	<div>
-		{% if count > 0 %}
-			<h3><b>Total:</b> {{ count }}
-				{% if count == 1 %}
-					obra
-				{% elif count > 1 %}
-					obras
-				{% endif %}
-			</h3>
-		{% endif %}
+		<h3><b>Total:</b> {{ object_list|length }} obra{{ object_list|length|pluralize }}</h3>
 	</div>
 
 <!-- pagination -->
