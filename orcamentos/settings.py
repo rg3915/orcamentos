@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'bootstrapform',
     'widget_tweaks',
-    'aggregate_if',
     'daterange_filter',
     # my apps
     'orcamentos.core',

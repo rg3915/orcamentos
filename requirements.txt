@@ -1,7 +1,6 @@
 Django==1.9.1
 argparse==1.2.1
 dj-database-url==0.3.0
-django-aggregate-if==0.5
 django-bootstrap-form==3.2
 django-daterange-filter==1.2.0
 django-extensions==1.6.1
