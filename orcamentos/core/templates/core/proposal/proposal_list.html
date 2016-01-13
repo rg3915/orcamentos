@@ -1,3 +1,4 @@
+{% load core_status_tags %}
 {% extends 'base.html' %}
 
 {% block title %}
@@ -53,6 +54,7 @@
             {% elif proposal.status == 'a' %}
               <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-star fa-fw status-aprovado"></i></a></td>
             {% endif %}
+            <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} {% status_icon proposal.status %} </a></td>
 
             <td>{{ proposal.work }}</td>
             <td>{{ proposal.work.customer }}</td>
