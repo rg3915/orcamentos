@@ -97,7 +97,6 @@ class EntryList(ListView):
             e = e.filter(priority=priority)
 
         q = self.request.GET.get('search_box')
-        priority = self.request.GET.get('priority')
         if priority in ('u',):
             e = e.filter(priority='u')
         if q is not None:
@@ -246,6 +245,7 @@ class ContractUpdate(LoginRequiredMixin, UpdateView):
 class CustomerList(FirstnameSearchMixin, ListView):
     template_name = 'core/customer/customer_list.html'
     model = Customer
+    context_object_name = 'customers'
     paginate_by = 10
 
 

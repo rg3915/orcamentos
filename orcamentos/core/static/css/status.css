@@ -318,14 +318,17 @@
   color: #FFF;
 }
 
+.arquitetura,
 .status-elab {
     color: #44AD41; /*verde*/
 }
 
+.particular,
 .status-pendente {
     color: #FFB819; /*amarelo*/
 }
 
+.construtora, 
 .status-concluido {
     color: #009BDE; /*azul claro*/
 }
@@ -334,10 +337,19 @@
     color: #254DEA; /*#;*/ /*azul*/
 }
 
+.cancelado,
 .status-cancelado {
     color: #CAC8C8; /*DE2121;*/ /*vermelho*/
 }
 
 .urgente {
+    color: #DE2121; /*vermelho*/
+}
+
+.ok {
+    color: #44AD41; /*verde*/
+}
+
+.no {
     color: #DE2121; /*vermelho*/
 }

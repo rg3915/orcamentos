@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-	<title>Proposal Detail</title>
+  <title>Proposal Detail</title>
 {% endblock title %}
 
 {% block content %}
@@ -19,111 +19,106 @@
                 <span class="fa fa-pencil"></span> Editar
             </button>
         </a>
-    	
-    	{% if object.status == 'co' %}
-	    	<a class="btn btn-primary" href="{% url 'core:create_contract_url' proposal.id %}"><i class="fa fa-plus"></i> Criar Contrato</a>
-	    {% elif object.status == 'a' %}
-	    	<a class="btn btn-primary" href="{% url 'core:contract_detail' contract_id %}"><i class="fa fa-star"></i> Visualizar Contrato</a>
-    	{% endif %}
+      
+      {% if object.status == 'co' %}
+        <a class="btn btn-primary" href="{% url 'core:create_contract_url' proposal.id %}"><i class="fa fa-plus"></i> Criar Contrato</a>
+      {% elif object.status == 'a' %}
+        <a class="btn btn-primary" href="{% url 'core:contract_detail' contract_id %}"><i class="fa fa-star"></i> Visualizar Contrato</a>
+      {% endif %}
 
-		{% if object.status != 'a' %}
-<!-- 	        <a href="{% url 'core:conclude_proposal' proposal.id %}">
-	            <button type="button" class="btn btn-primary">
-	                <span class="fa fa-check"></span> Concluir Orçamento
-	            </button>
-	        </a> -->
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-blue" data-toggle="modal" data-target="#myModal">
-		  <span class="fa fa-check"></span> Concluir Orçamento
-		</button>
-		{% endif %}
-	</form>
+    {% if object.status != 'a' %}
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-blue" data-toggle="modal" data-target="#myModal">
+      <span class="fa fa-check"></span> Concluir Orçamento
+    </button>
+    {% endif %}
+  </form>
 
-<div>	
-	<table class="table table-user-information">
-		<tbody>
-			<tr>
-				<td><h1>{{ object.codigo }}</h1></td>
+<div>
+  <table class="table table-user-information">
+    <tbody>
+      <tr>
+        <td><h1>{{ object.codigo }}</h1></td>
 
-				{% if object.status == 'c' %}
-					<td valign="middle"><i class="fa fa-close fa-fw fa-3x status-cancelado"></i> {{ object.get_status_display }}</td>
-				{% elif object.status == 'elab' %}
-					<td valign="middle"><i class="fa fa-circle fa-fw fa-3x status-elab"></i> {{ object.get_status_display }}</td>
-				{% elif object.status == 'p' %}
-					<td valign="middle"><i class="fa fa-circle fa-fw fa-3x status-pendente"></i> {{ object.get_status_display }}</td>
-				{% elif object.status == 'co' %}
-					<td valign="middle"><i class="fa fa-check fa-fw fa-3x status-concluido"></i> {{ object.get_status_display }}</td>
-				{% elif object.status == 'a' %}
-					<td valign="middle" class="text-info"><i class="fa fa-star fa-fw fa-3x status-aprovado"></i> {{ object.get_status_display }}</td>
-				{% endif %}
+        {% if object.status == 'c' %}
+          <td valign="middle"><i class="fa fa-close fa-fw fa-3x status-cancelado"></i> {{ object.get_status_display }}</td>
+        {% elif object.status == 'elab' %}
+          <td valign="middle"><i class="fa fa-circle fa-fw fa-3x status-elab"></i> {{ object.get_status_display }}</td>
+        {% elif object.status == 'p' %}
+          <td valign="middle"><i class="fa fa-circle fa-fw fa-3x status-pendente"></i> {{ object.get_status_display }}</td>
+        {% elif object.status == 'co' %}
+          <td valign="middle"><i class="fa fa-check fa-fw fa-3x status-concluido"></i> {{ object.get_status_display }}</td>
+        {% elif object.status == 'a' %}
+          <td valign="middle" class="text-info"><i class="fa fa-star fa-fw fa-3x status-aprovado"></i> {{ object.get_status_display }}</td>
+        {% endif %}
 
 
-			</tr>
-			<tr>
-				<th class="col-md-3 text-right">Categoria</th>
-				<td>{{ object.category }}</td>
-			</tr>
-			<tr>
-				<th class="col-md-3 text-right">Cliente</th>
-				<td><h2><a href="{{ object.get_customer_url }}">{{ object.cliente }}</a></h2></td>
-			</tr>
-				<th class="col-md-3 text-right">Tipo de cliente</th>
-				<td>{{ object.cliente.get_type_customer_display }}</td>
-			</tr>
-			<tr>
-				<th class="col-md-3 text-right">Obra</th>
-				<td><h2><a href="{{ object.get_work_url }}">{{ object.work }}</a></h2></td>
-			</tr>
-			<tr>
-				<th class="col-md-3 text-right">Endereço</th>
-				<td>{{ object.get_address }} </td>
-			</tr>
-			{% if object.person %}
-				<tr>
-					<th class="col-md-3 text-right">Contato</th>
-					<td><a href="{{ object.get_person_url }}">{{ object.person }}</a></td>
-				</tr>
-				<tr>
-					<th class="col-md-3 text-right"><span class="glyphicon glyphicon-envelope"></span></th>
-					<td><a href="mailto:{{ object.person.email }}">{{ object.person.email }}</a></td>
-				</tr>
-				<tr>
-					<th class="col-md-3 text-right"><span class="glyphicon glyphicon-phone-alt"></span></th>
-					<td>{{ object.person.phone1 }}</td>
-				</tr>
-			{% endif %}
+      </tr>
+      <tr>
+        <th class="col-md-3 text-right">Categoria</th>
+        <td>{{ object.category }}</td>
+      </tr>
+      <tr>
+        <th class="col-md-3 text-right">Cliente</th>
+        <td><h2><a href="{{ object.get_customer_url }}">{{ object.cliente }}</a></h2></td>
+      </tr>
+        <th class="col-md-3 text-right">Tipo de cliente</th>
+        <td>{{ object.cliente.get_type_customer_display }}</td>
+      </tr>
+      <tr>
+        <th class="col-md-3 text-right">Obra</th>
+        <td><h2><a href="{{ object.get_work_url }}">{{ object.work }}</a></h2></td>
+      </tr>
+      <tr>
+        <th class="col-md-3 text-right">Endereço</th>
+        <td>{{ object.get_address }} </td>
+      </tr>
+      {% if object.person %}
+        <tr>
+          <th class="col-md-3 text-right">Contato</th>
+          <td><a href="{{ object.get_person_url }}">{{ object.person }}</a></td>
+        </tr>
+        <tr>
+          <th class="col-md-3 text-right"><span class="glyphicon glyphicon-envelope"></span></th>
+          <td><a href="mailto:{{ object.person.email }}">{{ object.person.email }}</a></td>
+        </tr>
+        <tr>
+          <th class="col-md-3 text-right"><span class="glyphicon glyphicon-phone-alt"></span></th>
+          <td>{{ object.person.phone1 }}</td>
+        </tr>
+      {% endif %}
 
-			{% if object.description %}
-				<tr>
-					<th class="col-md-3 text-right">Descrição</th>
-					<td>{{ object.description }}</td>
-				</tr>
-			{% endif %}
-			<tr>
-				<th class="col-md-3 text-right">Vendedor</th>
-				<td>{{ object.get_seller }}</td>
-			</tr>
-			{% if object.price != 0 %}
-				<tr>
-					<th class="col-md-3 text-right">Valor</th>
-					<td>{{ object.get_price }}</td>
-				</tr>
-			{% endif %}
-			{% if object.date_conclusion %}
-				<tr>
-					<th class="col-md-3 text-right">Conclusão</th>
-					<td>{{ object.date_conclusion }}</td>
-				</tr>
-			{% endif %}
-			{% if object.obs %}
-				<tr>
-					<th class="col-md-3 text-right">Observação</th>
-					<td>{{ object.obs }}</td>
-				</tr>
-			{% endif %}
+      {% if object.description %}
+        <tr>
+          <th class="col-md-3 text-right">Descrição</th>
+          <td>{{ object.description }}</td>
+        </tr>
+      {% endif %}
+      <tr>
+        <th class="col-md-3 text-right">Vendedor</th>
+        <td>{{ object.get_seller }}</td>
+      </tr>
+      {% if object.price != 0 %}
+        <tr>
+          <th class="col-md-3 text-right">Valor</th>
+          <td>{{ object.get_price }}</td>
+        </tr>
+      {% endif %}
+      {% if object.date_conclusion %}
+        <tr>
+          <th class="col-md-3 text-right">Conclusão</th>
+          <td>{{ object.date_conclusion }}</td>
+        </tr>
+      {% endif %}
+      {% if object.obs %}
+        <tr>
+          <th class="col-md-3 text-right">Observação</th>
+          <td>{{ object.obs }}</td>
+        </tr>
+      {% endif %}
 
-		</tbody>
-	</table>
+    </tbody>
+  </table>
 </div>
 
 
@@ -159,7 +154,7 @@
       </div>
     <form action="{% url 'core:conclude_proposal' proposal.id %}" method="POST">
       <div class="modal-body">
-		  {% csrf_token %}	
+      {% csrf_token %}  
           <input id="id_price" name="price" type="text" placeholder="Digite o valor" />
       </div>
       <div class="modal-footer">
@@ -172,7 +167,7 @@
   </div>
 </div>
 
-	<script>
+  <script>
         $(function(){
           $('#myModal').on('shown.bs.modal', function(){
             $('#id_price').val("");
@@ -186,10 +181,10 @@
               };
           });
         });
-		$(function(){
-		  $('#myModalCancel').on('shown.bs.modal', function(){});
-		  $("#id_submit").click(function(){});
-		});
-	</script>
+    $(function(){
+      $('#myModalCancel').on('shown.bs.modal', function(){});
+      $("#id_submit").click(function(){});
+    });
+  </script>
 
 {% endblock content %}
