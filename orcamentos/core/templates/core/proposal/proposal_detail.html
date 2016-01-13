@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load core_status_tags %}
 
 {% block title %}
   <title>Proposal Detail</title>
@@ -40,17 +41,7 @@
       <tr>
         <td><h1>{{ object.codigo }}</h1></td>
 
-        {% if object.status == 'c' %}
-          <td valign="middle"><i class="fa fa-close fa-fw fa-3x status-cancelado"></i> {{ object.get_status_display }}</td>
-        {% elif object.status == 'elab' %}
-          <td valign="middle"><i class="fa fa-circle fa-fw fa-3x status-elab"></i> {{ object.get_status_display }}</td>
-        {% elif object.status == 'p' %}
-          <td valign="middle"><i class="fa fa-circle fa-fw fa-3x status-pendente"></i> {{ object.get_status_display }}</td>
-        {% elif object.status == 'co' %}
-          <td valign="middle"><i class="fa fa-check fa-fw fa-3x status-concluido"></i> {{ object.get_status_display }}</td>
-        {% elif object.status == 'a' %}
-          <td valign="middle" class="text-info"><i class="fa fa-star fa-fw fa-3x status-aprovado"></i> {{ object.get_status_display }}</td>
-        {% endif %}
+        <td valign="middle" class="text-info"><i class="fa fa-fw fa-3x {% status_icon proposal.status %}"></i> {{ object.get_status_display }}</td>
 
 
       </tr>

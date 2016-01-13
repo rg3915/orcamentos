@@ -1,5 +1,5 @@
-{% load core_status_tags %}
 {% extends 'base.html' %}
+{% load core_status_tags %}
 
 {% block title %}
   <title>Orçamentos</title>
@@ -37,24 +37,13 @@
             <th>Vendedor</th>
             <th>Status</th>
             <th class="text-center">Valor</th>
-            <th>Conclusão</th>
+            <th class="text-center">Conclusão</th>
           </tr>
         </thead>
         <tbody>
         {% for proposal in object_list %}
           <tr>
-            {% if proposal.status == 'c' %}
-              <td><a href="{{ proposal.get_absolute_url }}"><strike>{{ proposal.codigo }}</strike> <i class="fa fa-close fa-fw status-cancelado"></i></a></td>
-            {% elif proposal.status == 'elab' %}
-              <td><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-circle fa-fw status-elab"></i></a></td>
-            {% elif proposal.status == 'p' %}
-              <td><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-circle fa-fw status-pendente"></i></a></td>
-            {% elif proposal.status == 'co' %}
-              <td><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-check fa-fw status-concluido"></i></a></td>
-            {% elif proposal.status == 'a' %}
-              <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-star fa-fw status-aprovado"></i></a></td>
-            {% endif %}
-            <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} {% status_icon proposal.status %} </a></td>
+            <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-fw {% status_icon proposal.status %}"></i></a></td>
 
             <td>{{ proposal.work }}</td>
             <td>{{ proposal.work.customer }}</td>
@@ -62,29 +51,15 @@
             <td>{{ proposal.employee.user.first_name }}</td>
             <td>{{ proposal.seller.employee.user.first_name }}</td>
 
-            {% if proposal.status == 'c' %}
-              <td><i class="fa fa-close fa-fw status-cancelado"></i> {{ proposal.get_status_display }}</td>
-            {% elif proposal.status == 'elab' %}
-              <td><i class="fa fa-circle fa-fw status-elab"></i> {{ proposal.get_status_display }}</td>
-            {% elif proposal.status == 'p' %}
-              <td><i class="fa fa-circle fa-fw status-pendente"></i> {{ proposal.get_status_display }}</td>
-            {% elif proposal.status == 'co' %}
-              <td><i class="fa fa-check fa-fw status-concluido"></i> {{ proposal.get_status_display }}</td>
-            {% elif proposal.status == 'a' %}
-              <td class="text-info"><i class="fa fa-star fa-fw status-aprovado"></i> {{ proposal.get_status_display }}</td>
-            {% endif %}
+            <td><i class="fa fa-fw {% status_icon proposal.status %}"></i> {{ proposal.get_status_display }}</td>
 
             {% if proposal.price %}
-              <td>{{ proposal.get_price }}</td>
+              <td class="text-right">{{ proposal.get_price }}</td>
             {% else %}
               <td class="text-center">---</td>
             {% endif %}
 
-            {% if proposal.date_conclusion %}
-              <td>{{ proposal.date_conclusion|date:"d/m/Y" }}</td>
-            {% else %}
-              <td class="text-center">---</td>
-            {% endif %}
+            <td class="text-center">{{ proposal.date_conclusion|date:"d/m/Y"|default:"---" }}</td>
 
           </tr>
         {% endfor %}

@@ -4,7 +4,7 @@ from django.utils.html import mark_safe
 register = template.Library()
 
 
-@register.tag
+@register.simple_tag
 def status_icon(status):
     icons = {
         'c': 'fa-close status-cancelado',
@@ -13,4 +13,4 @@ def status_icon(status):
         'co': 'fa-check status-concluido',
         'a': 'fa-star status-aprovado'
     }
-    return mark_safe('<i> class="{}"</i>'.format(icons[status]))
+    return mark_safe('{}'.format(icons[status]))
