@@ -62,14 +62,14 @@ class PersonDetail(DetailView):
 class PersonCreate(LoginRequiredMixin, CreateView):
     template_name = 'core/person/person_form.html'
     form_class = PersonForm
-    success_url = reverse_lazy('person_list')
+    success_url = reverse_lazy('core:person_list')
 
 
 class PersonUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'core/person/person_form.html'
     model = Person
     form_class = PersonForm
-    success_url = reverse_lazy('person_list')
+    success_url = reverse_lazy('core:person_list')
 
 
 class EntryList(ListView):
@@ -298,4 +298,4 @@ class WorkUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'core/work/work_form.html'
     model = Work
     fields = '__all__'
-    success_url = reverse_lazy('work_list')
+    success_url = reverse_lazy('core:work_list')

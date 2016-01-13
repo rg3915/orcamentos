@@ -22,11 +22,7 @@
     <img src="{% static "img/person128.png" %}" class="img-square" />
   </div>
   <div class="col-md-offset-3 column">
-    {% if object.treatment %}
-      <h1>{{ object.get_treatment_display }} {{ object.full_name }}</h1>
-    {% else %}
-      <h1>{{ object.full_name }}</h1>
-    {% endif %}
+    <h1>{{ object.full_name }}</h1>
     {% if object.email %}
       <h4><span class="glyphicon glyphicon-envelope"></span><a href="#"> {{ object.email }}</a></h4>
     {% endif %}

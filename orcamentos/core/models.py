@@ -67,10 +67,7 @@ class People(TimeStampedModel, Address):
         abstract = True
 
     def __str__(self):
-        if self.last_name:
-            return self.first_name + " " + self.last_name
-        else:
-            return self.first_name
+        return ' '.join(filter(None, [self.get_treatment_display(), self.first_name, self.last_name]))
 
     full_name = property(__str__)
 
