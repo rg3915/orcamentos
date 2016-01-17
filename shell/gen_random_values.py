@@ -30,11 +30,9 @@ def gen_ncm():
 
 
 def gen_phone():
-    # gera um telefone no formato (xx) xxxx-xxxx
-    return '{0} {1}-{2}'.format(
-        rstr.rstr('1234567890', 2),
-        rstr.rstr('1234567890', 4),
-        rstr.rstr('1234567890', 4))
+    # gera um telefone no formato (xx) xxxxx-xxxx
+    digits_ = str(''.join(choice(string.digits) for i in range(11)))
+    return '{} 9{}-{}'.format(digits_[:2], digits_[3:7], digits_[7:])
 
 
 def gen_decimal(max_digits=5, decimal_places=2):
