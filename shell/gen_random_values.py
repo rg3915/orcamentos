@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import string
-import rstr
 from random import random, randint, choice
 from datetime import date, datetime, timedelta
 from decimal import Decimal
@@ -16,22 +15,26 @@ def gen_age(min_age=15, max_age=99):
     return randint(min_age, max_age)
 
 
+def gen_digits(max_length):
+    return str(''.join(choice(string.digits) for i in range(max_length)))
+
+
 def gen_doc(doc='cpf'):
     if doc == 'cpf':
-        return rstr.rstr('1234567890', 11)
+        return gen_digits(11)
     elif doc == 'cnpj':
-        return rstr.rstr('1234567890', 14)
+        return gen_digits(14)
     elif doc == 'rg':
-        return rstr.rstr('1234567890', 10)
+        return gen_digits(10)
 
 
 def gen_ncm():
-    return rstr.rstr('123456789', 8)
+    return gen_digits(8)
 
 
 def gen_phone():
     # gera um telefone no formato (xx) xxxxx-xxxx
-    digits_ = str(''.join(choice(string.digits) for i in range(11)))
+    digits_ = gen_digits(11)
     return '{} 9{}-{}'.format(digits_[:2], digits_[3:7], digits_[7:])
 
 

@@ -1,5 +1,4 @@
 from random import random, randint
-import rstr
 from orcamentos.core.models import Proposal, Category, Work, Person, Employee, Seller, NumLastProposal
 from shell.gen_random_values import gen_string, gen_date, gen_decimal
 
