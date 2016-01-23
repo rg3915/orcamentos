@@ -60,7 +60,7 @@ selenium_work:
 	python orcamentos/core/tests/selenium/selenium_work.py
 
 backup:
-	./manage.py dumpdata --format=json --indent=2 > fixtures.json
+	./manage.py dumpdata core --format=json --indent=2 > fixtures.json
 
 load:
 	./manage.py loaddata fixtures.json
