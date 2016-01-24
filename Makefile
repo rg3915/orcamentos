@@ -59,6 +59,9 @@ selenium_customer:
 selenium_work:
 	python orcamentos/core/tests/selenium/selenium_work.py
 
+selenium_all_pages:
+	python orcamentos/core/tests/selenium/selenium_all_pages.py
+
 backup:
 	./manage.py dumpdata core --format=json --indent=2 > fixtures.json
 
