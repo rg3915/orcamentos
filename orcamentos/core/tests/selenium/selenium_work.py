@@ -1,4 +1,6 @@
 import time
+import csv
+from random import randint, choice
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -17,16 +19,27 @@ search.send_keys('1')
 button = page.find_element_by_xpath("//input[@type='submit']")
 button.click()
 
+address_list = []
+
+''' Lendo os dados de enderecos_.csv '''
+with open('fixtures/enderecos_.csv', 'r') as f:
+    r = csv.DictReader(f)
+    for dct in r:
+        address_list.append(dct)
+    f.close()
+
+INDEX = randint(0, 146)
+
 fields = [
-    ['id_name_work', 'Padaria Vila dos Pães'],
+    ['id_name_work', 'Obra ' + str(randint(1, 5))],
     ['id_person', 'Sr. Regis da Silva'],
     ['id_customer', 'Hochtief'],
-    ['id_address', 'Rua Verde, 132'],
-    ['id_complement', 'Apto 303'],
-    ['id_district', 'Centro'],
-    ['id_city', u'São Paulo'],
-    ['id_uf', 'SP'],
-    ['id_cep', '01200100'],
+    ['id_address', address_list[INDEX]['address']],
+    ['id_complement', ''],
+    ['id_district', address_list[INDEX]['district']],
+    ['id_city', address_list[INDEX]['city']],
+    ['id_uf', address_list[INDEX]['city']],
+    ['id_cep', address_list[INDEX]['cep']],
 ]
 
 for field in fields:

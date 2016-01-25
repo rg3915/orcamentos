@@ -20,7 +20,7 @@ button.click()
 fields = [
     ['id_priority', 'Normal'],
     ['id_category', 'orçamento'],
-    ['id_work', 'Padaria Vila dos Pães'],
+    ['id_work', 'Obra'],
     ['id_person', 'Sr. Regis da Silva'],
     ['id_description', 'Contém projetos e planilha.'],
     ['id_seller', 'regis'],
