@@ -11,7 +11,7 @@ campo_busca = page.find_element_by_id('id_username')
 campo_busca.send_keys('admin')
 
 campo_busca = page.find_element_by_id('id_password')
-campo_busca.send_keys('djangoadmin')
+campo_busca.send_keys('demodemo')
 
 # button = page.findElement(By.cssSelector("input[type='submit']"))
 button = page.find_element_by_xpath("//input[@type='submit']")

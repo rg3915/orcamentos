@@ -1,89 +1,72 @@
-# -*- coding: utf-8 -*-
+import time
+from random import randint
+from gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
+from gen_random_values import gen_cpf, gen_timestamp, gen_phone
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-# from generate_random_values import *
-# from list_firstname import get_firstname
-# from list_lastname import get_lastname
-# from list_cep import get_cep
-# from list_email import get_email
-# from cep import Correios
 
-page = webdriver.Chrome(
-    executable_path='/home/rg3915/Downloads/chromedriver')
 # page = webdriver.Firefox()
+page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
+page.maximize_window()
+time.sleep(0.5)
 page.get('http://localhost:8000/person/add/')
 
-# pegar o campo de busca onde podemos digitar algum termo
 search = page.find_element_by_id('id_username')
-search.send_keys('admin')
+search.send_keys('regis')
 
 search = page.find_element_by_id('id_password')
-search.send_keys('admin')
+search.send_keys('1')
 
 button = page.find_element_by_xpath("//input[@type='submit']")
 button.click()
 
-# nome = get_firstname()
-# email = nome.lower() + get_email()
+g = randint(0, 1)
 
-# ncep = get_cep()
-# c = Correios()
-# r = c.consulta(ncep, primeiro=True)
+if g:
+    gender = 'id_gender_1'
+    dict_ = gen_female_first_name()
+else:
+    gender = 'id_gender_0'
+    dict_ = gen_male_first_name()
 
-# pegar o campo de busca onde podemos digitar algum termo
-campo_busca = page.find_element_by_id('id_treatment')
-campo_busca.send_keys('sr')
+treatment = dict_['treatment']
+first_name = dict_['first_name']
+last_name = gen_last_name()
+print(first_name, last_name)
 
-campo_busca = page.find_element_by_id('id_first_name')
-campo_busca.send_keys('Bianca')
+email = '{}.{}@example.com'.format(first_name[0].lower(), last_name.lower())
 
-campo_busca = page.find_element_by_id('id_last_name')
-campo_busca.send_keys('Soares')  # get_lastname()
+search = page.find_element_by_id(gender)
+search.click()
 
-campo_busca = page.find_element_by_id('id_company')
-campo_busca.send_keys('Soan')
+fields = [
+    ['id_treatment', treatment],
+    ['id_first_name', first_name],
+    ['id_last_name', last_name],
+    ['id_company', 'Soan'],
+    ['id_department', 'Financeiro'],
+    ['id_occupation', 'Estagiário'],
+    ['id_email', email],
+    ['id_phone1', gen_phone()],
+    ['id_phone2', gen_phone()],
+    ['id_phone3', gen_phone()],
+    ['id_cpf', gen_cpf()],
+    ['id_rg', '73552210'],
+    ['id_address', 'Rua Verde, 132'],
+    ['id_complement', 'Apto 303'],
+    ['id_district', 'Centro'],
+    ['id_city', 'São Paulo'],
+    ['id_uf', 'SP'],
+    ['id_cep', '01200100'],
+]
 
-campo_busca = page.find_element_by_id('id_department')
-campo_busca.send_keys('Financeiro')
+for field in fields:
+    search = page.find_element_by_id(field[0])
+    search.send_keys(field[1])
 
-campo_busca = page.find_element_by_id('id_occupation')
-campo_busca.send_keys('Estagiário')
 
-campo_busca = page.find_element_by_id('id_email')
-campo_busca.send_keys('bianca@soan.com')
-
-campo_busca = page.find_element_by_id('id_phone1')
-campo_busca.send_keys('10 1234-5678')  # str(generate_phone())
-
-campo_busca = page.find_element_by_id('id_phone2')
-campo_busca.send_keys('10 1234-5679')
-
-campo_busca = page.find_element_by_id('id_phone3')
-campo_busca.send_keys('10 1234-5680')
-
-campo_busca = page.find_element_by_id('id_cpf')
-campo_busca.send_keys('11156358329')  # str(generate_cpf())
-
-campo_busca = page.find_element_by_id('id_rg')
-campo_busca.send_keys('73552210')
-
-campo_busca = page.find_element_by_id('id_address')
-campo_busca.send_keys('Rua Verde, 132')  # r['Logradouro']
-
-campo_busca = page.find_element_by_id('id_complement')
-campo_busca.send_keys('Apto 303')
-
-campo_busca = page.find_element_by_id('id_district')
-campo_busca.send_keys('Centro')  # r['Bairro']
-
-campo_busca = page.find_element_by_id('id_city')
-campo_busca.send_keys(u'São Paulo')  # r['Localidade']
-
-campo_busca = page.find_element_by_id('id_uf')
-campo_busca.send_keys('SP')  # r['UF']
-
-campo_busca = page.find_element_by_id('id_cep')
-campo_busca.send_keys('01200100')  # r['CEP']
-
+# button = page.find_element_by_id('id_submit')
 button = page.find_element_by_class_name('btn-primary')
 button.click()
+
+page.quit()

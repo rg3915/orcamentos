@@ -50,6 +50,10 @@ shell_contract:
 selenium_login:
 	python orcamentos/core/tests/selenium/selenium_login.py
 
+selenium_entry:
+	python orcamentos/core/tests/selenium/selenium_work.py
+	python orcamentos/core/tests/selenium/selenium_entry.py
+
 selenium_person:
 	python orcamentos/core/tests/selenium/selenium_person.py
 

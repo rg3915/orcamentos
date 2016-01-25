@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
 page.maximize_window()
 time.sleep(0.5)
-page.get('http://localhost:8000/work/add/')
+page.get('http://localhost:8000/entry/add/')
 
 search = page.find_element_by_id('id_username')
 search.send_keys('regis')
@@ -18,15 +18,12 @@ button = page.find_element_by_xpath("//input[@type='submit']")
 button.click()
 
 fields = [
-    ['id_name_work', 'Padaria Vila dos Pães'],
+    ['id_priority', 'Normal'],
+    ['id_category', 'orçamento'],
+    ['id_work', 'Padaria Vila dos Pães'],
     ['id_person', 'Sr. Regis da Silva'],
-    ['id_customer', 'Hochtief'],
-    ['id_address', 'Rua Verde, 132'],
-    ['id_complement', 'Apto 303'],
-    ['id_district', 'Centro'],
-    ['id_city', u'São Paulo'],
-    ['id_uf', 'SP'],
-    ['id_cep', '01200100'],
+    ['id_description', 'Contém projetos e planilha.'],
+    ['id_seller', 'regis'],
 ]
 
 for field in fields:

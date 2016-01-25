@@ -77,6 +77,7 @@
     <hr>
 	<div>
         <h3><b>Total:</b> {{ entrys|length }} entrada{{ entrys|length|pluralize }}</h3>
+        <h3>{{ page_obj.paginator.count }}</h3>
 	</div>
 
 <!-- pagination -->
