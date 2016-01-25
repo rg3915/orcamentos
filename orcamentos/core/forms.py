@@ -1,5 +1,5 @@
 from django import forms
-from .models import Person, Customer
+from .models import Person, Customer, Proposal
 from .lists import gender_list, uf_list, priority_list
 
 status_list = (
@@ -37,6 +37,17 @@ class CustomerForm(forms.ModelForm):
 
     def clean_cnpj(self):
         return self.cleaned_data['cnpj'] or None
+
+
+class ProposalForm(forms.ModelForm):
+    num_prop = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
+    num_type_prop = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
+
+    class Meta:
+        model = Proposal
+        fields = '__all__'
 
 
 class StatusSearchForm(forms.Form):

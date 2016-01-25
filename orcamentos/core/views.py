@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime
 from .models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
-from .forms import PersonForm, CustomerForm, StatusSearchForm, PrioritySearchForm
+from .forms import PersonForm, CustomerForm, ProposalForm, StatusSearchForm, PrioritySearchForm
 from .mixins import FirstnameSearchMixin, DashboardMixin
 from .lists import status_list, priority_list
 
@@ -205,7 +205,7 @@ class ProposalDetail(DetailView):
 class ProposalUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'core/proposal/proposal_form.html'
     model = Proposal
-    fields = '__all__'
+    form_class = ProposalForm
 
 
 class ContractList(ListView):
