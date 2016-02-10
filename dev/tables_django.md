@@ -17,7 +17,7 @@
 **People(TimeStampedModel, Address)**
 * gender (list)
 * treatment (list)
-* slug
+* slug *
 * photo
 * birthday
 * company
@@ -33,30 +33,30 @@
 * phone_type (list)
 
 **Person(People)**
-* first_name
+* first_name *
 * last_name
 * email
 * occupation (FK)
 
 **Customer(People)**
-* first_name
+* first_name *
 * last_name
 * email
 * cnpj
 * ie
-* customer_type
+* customer_type *
 
 **Employee(People)**
-* user(o2o)
+* user(o2o) *
 * occupation (FK)
 * date_entry
 * date_release
 
 **Occupation**
-* occupation
+* occupation *
 
 **Seller**
-* employee (FK)
+* employee (FK) *
 * internal(boolean)
 * commissioned(boolean)
 * commission
@@ -67,36 +67,36 @@
 **Entry(TimeStampedModel)**
 * priority (list)
 * category (list)
-* work (FK)
-* person(contato) (FK)
+* work (FK) *
+* person(contato) (FK) *
 * description
 * seller (FK)
 * is_entry(boolean)
 
 **Work(Address)**
-* name_work
+* name_work *
 * person(contato) (FK)
-* customer(cliente) (FK)
+* customer(cliente) (FK) *
 
 **Proposal(TimeStampedModel)**
-* num_prop
-* prop_type ('R','OP')
-* num_type_prop (0,1,2,...)
+* num_prop *
+* prop_type ('R','OP') *
+* num_type_prop (0,1,2,...) *
 * category (list)
 * description
-* work (FK)
+* work (FK) *
 * person(contato) (FK)
-* employee (FK)
+* employee (FK) *
 * seller (FK)
-* status (list)
+* status (list) *
 * date_conclusion
 * price
 * obs
 
 **Contract**
-* proposal (o2o)
-* contractor (FK)
+* proposal (o2o) *
+* contractor (FK) *
 * is_canceled (FK)
 
 **NumLastProposal**
-* num_last_prop
+* num_last_prop *

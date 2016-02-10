@@ -7,15 +7,15 @@ from orcamentos.core.lists import *
 class Entry(TimeStampedModel):
     priority = models.CharField(
         'prioridade', max_length=10, choices=PRIORITY, default=NORMAL)
-    category = models.PositiveIntegerField('categoria', default=1)
+    category = models.PositiveIntegerField(
+        'categoria', choices=CATEGORY, default=1)
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='entry_work')
     person = models.ForeignKey(
         'crm.Person', verbose_name='contato', related_name='entry_person')
-    description = models.TextField(
-        'descrição', max_length=100, null=True, blank=True)
+    description = models.TextField('descrição', blank=True)
     seller = models.ForeignKey(
-        'crm.Seller', verbose_name='vendedor', related_name='entry_seller')
+        'crm.Seller', verbose_name='vendedor', related_name='entry_seller', null=True, blank=True)
     is_entry = models.BooleanField('dado entrada', default=False)
 
     class Meta:
@@ -34,7 +34,7 @@ class Work(Address):
     name_work = models.CharField('obra', max_length=100, unique=True)
     slug = models.SlugField('slug')
     person = models.ForeignKey(
-        'crm.Person', verbose_name='contato', related_name='work_person')
+        'crm.Person', verbose_name='contato', related_name='work_person', null=True, blank=True)
     customer = models.ForeignKey(
         'crm.Customer', verbose_name='cliente', related_name='work_customer')
 
@@ -53,27 +53,27 @@ class Work(Address):
 class Proposal(TimeStampedModel):
     num_prop = models.PositiveIntegerField(u'número')
     prop_type = models.CharField(
-        u'tipo de orçamento', max_length=20, choices=PROP_TYPE, null=True, blank=True)
+        u'tipo de orçamento', max_length=20, choices=PROP_TYPE)
     num_prop_type = models.PositiveIntegerField(
         u'número da revisão', default=0)
-    category = models.PositiveIntegerField('categoria', default=1)
-    description = models.CharField(
-        u'descrição', max_length=100, null=True, blank=True)
+    category = models.PositiveIntegerField(
+        'categoria', choices=CATEGORY, default=1)
+    description = models.TextField(u'descrição', blank=True)
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='proposal_work')
     person = models.ForeignKey(
-        'crm.Person', verbose_name='contato', related_name='proposal_person')
+        'crm.Person', verbose_name='contato', related_name='proposal_person', null=True, blank=True)
     employee = models.ForeignKey(
         'crm.Employee', verbose_name=u'orçamentista', related_name='proposal_employee')
     seller = models.ForeignKey(
-        'crm.Seller', verbose_name='vendedor', related_name='proposal_seller')
+        'crm.Seller', verbose_name='vendedor', related_name='proposal_seller', null=True, blank=True)
     status = models.CharField(
         max_length=4, choices=STATUS, default='elab')
     date_conclusion = models.DateTimeField(
         u'data de conclusão', null=True, blank=True)
     price = models.DecimalField(
         'valor', max_digits=9, decimal_places=2, default=0)
-    obs = models.TextField(u'observação', null=True, blank=True)
+    obs = models.TextField(u'observação', blank=True)
 
     class Meta:
         ordering = ['id']

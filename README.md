@@ -32,7 +32,7 @@ python manage.py runserver
 
 **Funções**: nomes compostos minúsculos e separados com underline. Ex: *is_entry* ([PEP 8][4]).
 
-**Templates**: usar a mesma convenção. Ex: *person_list.html, person_detail.html, person_create_form.html*.
+**Templates**: usar a mesma convenção. Ex: *person_list.html, person_detail.html, person_form.html*.
 
 ## Gerando dados randômicos
 
