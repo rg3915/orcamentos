@@ -3,5 +3,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'', include('orcamentos.core.urls', namespace='core')),
+    url(r'^crm/', include('orcamentos.crm.urls', namespace='crm')),
+    url(r'^proposal/', include('orcamentos.proposal.urls', namespace='proposal')),
     url(r'^admin/', admin.site.urls),
 ]

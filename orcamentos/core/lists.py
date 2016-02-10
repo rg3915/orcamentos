@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-gender_list = [('M', 'masculino'), ('F', 'feminino')]
+GENDER = [('M', 'masculino'), ('F', 'feminino')]
 
-treatment_list = (
+TREATMENT = (
     ('a', 'Arq.'),
     ('aa', 'Arqa.'),
     ('d', 'Dona'),
@@ -16,7 +16,62 @@ treatment_list = (
     ('srta', 'Srta.'),
 )
 
-uf_list = (
+PHONE_TYPE = (
+    ('pri', 'principal'),
+    ('com', 'comercial'),
+    ('res', 'residencial'),
+    ('cel', 'celular'),
+    ('cl', 'Claro'),
+    ('oi', 'Oi'),
+    ('t', 'Tim'),
+    ('v', 'Vivo'),
+    ('n', 'Nextel'),
+    ('fax', 'fax'),
+    ('o', 'outros'),
+)
+
+CUSTOMER_TYPE = (
+    ('c', 'construtora'),
+    ('a', 'arquitetura'),
+    ('p', 'particular')
+)
+
+URGENTE = 1
+ALTA = 2
+NORMAL = 3
+BAIXA = 4
+PRIORITY = (
+    (URGENTE, 'Urgente'),
+    (ALTA, 'Alta'),
+    (NORMAL, 'Normal'),
+    (BAIXA, 'Baixa'),
+)
+
+PROP_TYPE = (
+    ('R', 'R'),
+    ('OP', 'OP')
+)
+
+STATUS = (
+    ('c', 'cancelado'),
+    ('elab', 'em elaboração'),
+    ('p', 'pendente'),
+    ('co', 'concluido'),
+    ('a', 'aprovado')
+)
+
+CATEGORY = (
+    (1, 'orçamento'),
+    (2, 'concorrência'),
+    (3, 'consulta'),
+    (4, 'cotação'),
+    (5, 'extra'),
+    (6, 'global'),
+    (7, 'particular'),
+    (8, 'outros'),
+)
+
+UF_LIST = (
     ('AC', 'Acre'),
     ('AL', 'Alagoas'),
     ('AM', 'Amazonas'),
@@ -44,30 +99,4 @@ uf_list = (
     ('SE', 'Sergipe'),
     ('SP', u'São Paulo'),
     ('TO', 'Tocantins'),
-)
-
-type_customer_list = (
-    ('c', 'construtora'),
-    ('a', 'arquitetura'),
-    ('p', 'particular')
-)
-
-priority_list = (
-    ('u', 'Urgente'),
-    ('a', 'Alta'),
-    ('n', 'Normal'),
-    ('b', 'Baixa'),
-)
-
-type_prop_list = (
-    ('R', 'R'),
-    ('OP', 'OP')
-)
-
-status_list = (
-    ('c', 'cancelado'),
-    ('elab', 'em elaboração'),
-    ('p', 'pendente'),
-    ('co', 'concluido'),
-    ('a', 'aprovado')
 )

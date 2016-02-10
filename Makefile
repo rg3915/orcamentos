@@ -2,11 +2,14 @@ install:
 	pip install -r requirements-dev.txt
 
 migrate:
-	./manage.py makemigrations
+	./manage.py makemigrations crm proposal
 	./manage.py migrate
 
+test:
+	python manage.py test -n
+
 mer:
-	./manage.py graph_models -e -g -l dot -o modelling/orcamentos.png core
+	./manage.py graph_models -e -g -l dot -o dev/orcamentos.png core
 
 createuser:
 	./manage.py createsuperuser --username='admin' --email=''

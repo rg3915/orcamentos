@@ -1,6 +1,7 @@
 # import json
 # from django.core import serializers
 from django.shortcuts import render
+from django.shortcuts import resolve_url as r
 # from django.http import HttpResponse
 # from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,42 +12,11 @@ from django.views.generic.edit import UpdateView
 from django.contrib.auth.models import User
 # from django.core.exceptions import ObjectDoesNotExist
 # from datetime import datetime
-# from orcamentos.core.models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
-# from orcamentos.core.forms import PersonForm, CustomerForm, ProposalForm, StatusSearchForm, PrioritySearchForm
+from orcamentos.proposal.models import Entry, Proposal, Contract, Work
 # from orcamentos.core.mixins import FirstnameSearchMixin, DashboardMixin
-from orcamentos.core.lists import STATUS, PRIORITY
+# from orcamentos.core.lists import STATUS, PRIORITY
 
-
-# class Home(DashboardMixin, TemplateView):
-class Home(TemplateView):
-    template_name = 'index.html'
-
-    # def get_context_data(self, **kwargs):
-    #     p = Proposal.objects.aggregate(
-    #         proposals=Count('pk'),
-    #         proposal_elab=Count(
-    #             Case(When(status='elab', then=1), output_field=IntegerField())),
-    #         proposal_pending=Count(
-    #             Case(When(status='p', then=1), output_field=IntegerField())),
-    #         proposal_concluded=Count(
-    #             Case(When(status='co', then=1), output_field=IntegerField())),
-    #         proposal_approved=Count(
-    #             Case(When(status='a', then=1), output_field=IntegerField())),
-    #         proposal_canceled=Count(
-    #             Case(When(status='c', then=1), output_field=IntegerField())),
-    #     )
-    #     context = super(Home, self).get_context_data(**kwargs)
-    #     context['proposals'] = p
-    #     context['proposal_list'] = self.proposal_list()
-    #     context['proposal_elab'] = self.proposal_elab()
-    #     context['entrys'] = self.entry_list()
-
-    #     return context
-
-
-# def status(request):
-#     return render(request, 'status.html')
-
+entry_list = ListView.as_view(model=Entry)
 
 # class EntryList(ListView):
 #     template_name = 'core/entry/entry_list.html'
@@ -87,6 +57,7 @@ class Home(TemplateView):
 #     s = serializers.serialize("json", data)
 #     return HttpResponse(s)
 
+entry_detail = DetailView.as_view(model=Entry)
 
 # class EntryDetail(DetailView):
 #     template_name = 'core/entry/entry_detail.html'
@@ -120,6 +91,8 @@ class Home(TemplateView):
 #     fields = '__all__'
 #     action = 'atualizada'
 
+
+proposal_list = ListView.as_view(model=Proposal)
 
 # class ProposalList(ListView):
 #     template_name = 'core/proposal/proposal_list.html'
@@ -157,6 +130,7 @@ class Home(TemplateView):
 #                 Q(seller__employee__user__first_name__startswith=q))
 #         return p
 
+proposal_detail = DetailView.as_view(model=Proposal)
 
 # class ProposalDetail(DetailView):
 #     template_name = 'core/proposal/proposal_detail.html'
@@ -183,6 +157,7 @@ class Home(TemplateView):
 #     model = Proposal
 #     form_class = ProposalForm
 
+contract_list = ListView.as_view(model=Contract)
 
 # class ContractList(ListView):
 #     template_name = 'core/contract/contract_list.html'
@@ -206,6 +181,7 @@ class Home(TemplateView):
 #             c = c.filter(created__gte=min_date, created__lte=max_date)
 #         return c
 
+contract_detail = DetailView.as_view(model=Contract)
 
 # class ContractDetail(DetailView):
 #     template_name = 'core/contract/contract_detail.html'
@@ -217,6 +193,7 @@ class Home(TemplateView):
 #     model = Contract
 #     fields = ('contractor', 'is_canceled')
 
+work_list = ListView.as_view(model=Work)
 
 # class WorkList(ListView):
 #     template_name = 'core/work/work_list.html'
@@ -232,6 +209,7 @@ class Home(TemplateView):
 #                 Q(customer__first_name__icontains=q))
 #         return w
 
+work_detail = DetailView.as_view(model=Work)
 
 # class WorkDetail(DetailView):
 #     template_name = 'core/work/work_detail.html'
