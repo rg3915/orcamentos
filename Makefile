@@ -9,7 +9,7 @@ test:
 	python manage.py test -n
 
 mer:
-	./manage.py graph_models -e -g -l dot -o dev/orcamentos.png core
+	./manage.py graph_models -a -g -o dev/orcamentos.png
 
 createuser:
 	./manage.py createsuperuser --username='admin' --email=''

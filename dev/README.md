@@ -73,3 +73,25 @@ Válido somente para *obras* **novas**.
 Requer JavaScript
 
 ![alt text](img/03cadastro_rapido.png)
+
+## Gráficos do modelo
+
+```bash
+sudo apt-get install graphviz libgraphviz-dev pkg-config
+pip install pygraphviz
+git clone https://github.com/nlhepler/pydot
+cd pydot
+python setup.py install
+cd ..
+rm -rf pydot
+pip install django-extensions
+pip install pyparsing
+```
+
+Para gerar o gráfico
+
+```bash
+./manage.py graph_models -a -g -o dev/orcamentos.png
+```
+
+![alt text](orcamentos1.png)
