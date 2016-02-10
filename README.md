@@ -12,16 +12,33 @@ Cadastro de clientes, obras e contatos.
 
 ## Baixando e rodando a app
 
+Baixe e rode o `setup.sh`.
+
+```
+wget https://raw.githubusercontent.com/rg3915/orcamentos/master/setup.sh
+source setup.sh
+```
+
+Ou siga o passo a passo.
+
+1. Clone o repositório.
+2. Crie um virtualenv com Python 3.5
+3. Ative o virtualenv.
+4. Instale as dependências.
+5. Configure a instância com o .env
+6. Carregue os dados no banco
+7. Execute os testes.
+
 ```bash
 git clone https://github.com/rg3915/orcamentos.git
+cd orcamentos
 python -m venv .venv
 source .venv/bin/activate
-cd orcamentos
 PS1="(`basename \"$VIRTUAL_ENV\"`):/\W$ " # opcional
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
+cp contrib/env-sample .env
 make initial
 python manage.py test
-python manage.py runserver
 ```
 
 ## Convenções

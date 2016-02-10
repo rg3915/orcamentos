@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from django.shortcuts import resolve_url as r
 from django.test import TestCase
