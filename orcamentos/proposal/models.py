@@ -53,7 +53,7 @@ class Work(Address):
 class Proposal(TimeStampedModel):
     num_prop = models.PositiveIntegerField(u'número')
     prop_type = models.CharField(
-        u'tipo de orçamento', max_length=20, choices=PROP_TYPE)
+        u'tipo de orçamento', max_length=20, choices=PROP_TYPE, default='R')
     num_prop_type = models.PositiveIntegerField(
         u'número da revisão', default=0)
     category = models.PositiveIntegerField(

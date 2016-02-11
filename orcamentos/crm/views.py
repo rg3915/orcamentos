@@ -1,12 +1,11 @@
-# from django.shortcuts import render
 from django.shortcuts import resolve_url as r
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from orcamentos.crm.models import Person, Customer
 from orcamentos.crm.forms import PersonForm, CustomerForm
 
+# FirstnameSearchMixin
 person_list = ListView.as_view(model=Person, paginate_by=10)
-# class PersonList(FirstnameSearchMixin, ListView):
 
 person_detail = DetailView.as_view(model=Person)
 

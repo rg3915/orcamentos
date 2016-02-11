@@ -8,7 +8,7 @@
 
     <form class="navbar-form navbar-right" action="." method="get">
         <!-- edit -->
-        <a id="edit_contract" href="{ url 'proposal:contract_edit' pk=contract.id %}">
+        <a id="edit_contract" href="{% url 'proposal:contract_edit' pk=contract.id %}">
             <button type="button" class="btn btn-success">
                 <span class="fa fa-pencil"></span> Editar
             </button>

@@ -25,8 +25,8 @@
     <legend>Orçamento</legend>
     {% csrf_token %}
     {{ form.num_prop|bootstrap_horizontal }}
-    {{ form.type_prop|bootstrap_horizontal }}
-    {{ form.num_type_prop|bootstrap_horizontal }}
+    {{ form.prop_type|bootstrap_horizontal }}
+    {{ form.num_prop_type|bootstrap_horizontal }}
     {{ form.category|bootstrap_horizontal }}
     {{ form.description|bootstrap_horizontal }}
     {{ form.work|bootstrap_horizontal }}

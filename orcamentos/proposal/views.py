@@ -12,7 +12,7 @@ from django.views.generic.edit import UpdateView
 # from django.core.exceptions import ObjectDoesNotExist
 # from datetime import datetime
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work
-from orcamentos.proposal.forms import EntryForm, ProposalForm, WorkForm
+from orcamentos.proposal.forms import EntryForm, ProposalForm, ContractForm, WorkForm
 # from orcamentos.core.mixins import FirstnameSearchMixin, DashboardMixin
 # from orcamentos.core.lists import STATUS, PRIORITY
 
@@ -82,10 +82,7 @@ entry_create = CreateView.as_view(model=Entry, form_class=EntryForm)
 
 
 # class EntryUpdate(LoginRequiredMixin, UpdateView,  EntryActionMixin):
-#     template_name = 'core/entry/entry_form.html'
-#     model = Entry
-#     fields = '__all__'
-#     action = 'atualizada'
+entry_update = UpdateView.as_view(model=Entry, form_class=EntryForm)
 
 
 proposal_list = ListView.as_view(model=Proposal)
@@ -147,11 +144,9 @@ proposal_detail = DetailView.as_view(model=Proposal)
 #         price = request.POST.get['price']
 #         return price
 
+# LoginRequiredMixin
+proposal_update = UpdateView.as_view(model=Proposal, form_class=ProposalForm)
 
-# class ProposalUpdate(LoginRequiredMixin, UpdateView):
-#     template_name = 'core/proposal/proposal_form.html'
-#     model = Proposal
-#     form_class = ProposalForm
 
 contract_list = ListView.as_view(model=Contract, paginate_by=10)
 
@@ -179,10 +174,8 @@ contract_list = ListView.as_view(model=Contract, paginate_by=10)
 
 contract_detail = DetailView.as_view(model=Contract)
 
-# class ContractUpdate(LoginRequiredMixin, UpdateView):
-#     template_name = 'core/contract/contract_form.html'
-#     model = Contract
-#     fields = ('contractor', 'is_canceled')
+# LoginRequiredMixin
+contract_update = UpdateView.as_view(model=Contract, form_class=ContractForm)
 
 work_list = ListView.as_view(model=Work, paginate_by=10)
 
@@ -204,15 +197,4 @@ work_detail = DetailView.as_view(model=Work)
 
 work_create = CreateView.as_view(model=Work, form_class=WorkForm)
 
-# class WorkCreate(LoginRequiredMixin, CreateView):
-#     template_name = 'core/work/work_form.html'
-#     model = Work
-#     fields = '__all__'
-#     success_url = reverse_lazy('core:work_list')
-
-
-# class WorkUpdate(LoginRequiredMixin, UpdateView):
-#     template_name = 'core/work/work_form.html'
-#     model = Work
-#     fields = '__all__'
-#     success_url = reverse_lazy('core:work_list')
+work_update = UpdateView.as_view(model=Work, form_class=WorkForm)

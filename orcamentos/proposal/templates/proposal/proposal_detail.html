@@ -15,7 +15,7 @@
             </button>
         {% endif %}
         <!-- edit -->
-        <a id="edit_proposal" href=" url 'proposal:proposal_edit' proposal.id ">
+        <a id="edit_proposal" href="{% url 'proposal:proposal_edit' proposal.id %}">
             <button type="button" class="btn btn-success">
                 <span class="fa fa-pencil"></span> Editar
             </button>

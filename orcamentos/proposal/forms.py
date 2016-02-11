@@ -23,13 +23,13 @@ class ContractForm(forms.ModelForm):
 
     class Meta:
         model = Contract
-        fields = '__all__'
+        fields = ('contractor', 'is_canceled')
 
 
 class ProposalForm(forms.ModelForm):
     num_prop = forms.IntegerField(
         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
-    num_type_prop = forms.IntegerField(
+    num_prop_type = forms.IntegerField(
         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
 
     class Meta:

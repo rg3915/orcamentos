@@ -32,6 +32,6 @@ class EntryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Entry, EntryAdmin)
-# admin.site.register(Proposal, ProposalAdmin)
-# admin.site.register(Contract, ContractAdmin)
+admin.site.register(Proposal)
+admin.site.register(Contract)
 admin.site.register(Work)

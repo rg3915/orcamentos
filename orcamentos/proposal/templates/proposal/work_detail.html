@@ -10,7 +10,7 @@
 
 	<form class="navbar-form navbar-right" action="." method="get">
 	    <!-- edit -->
-	    <a href=" url 'proposal:work_edit' pk=work.id ">
+	    <a href="{% url 'proposal:work_edit' work.slug %}">
 	        <button id="edit_work" type="button" class="btn btn-success">
 	            <span class="fa fa-pencil"></span> Editar
 	        </button>
