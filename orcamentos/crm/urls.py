@@ -4,9 +4,9 @@ from orcamentos.crm import views as c
 
 person_patterns = [
     url(r'^$', c.person_list, name='person_list'),
+    url(r'^add/$', c.person_create, name='person_add'),
     url(r'^(?P<slug>[\w-]+)/$', c.person_detail, name='person_detail'),
     # url(r'^(?P<pk>\d+)/edit/$', c.PersonUpdate.as_view(), name='person_edit'),
-    url(r'^add/$', c.person_create, name='person_add'),
 ]
 
 customer_patterns = [
