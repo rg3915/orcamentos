@@ -5,8 +5,8 @@ from orcamentos.core.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS
 
 
 class Entry(TimeStampedModel):
-    priority = models.CharField(
-        'prioridade', max_length=10, choices=PRIORITY, default=NORMAL)
+    priority = models.PositiveIntegerField(
+        'prioridade', choices=PRIORITY, default=NORMAL)
     category = models.PositiveIntegerField(
         'categoria', choices=CATEGORY, default=1)
     work = models.ForeignKey(

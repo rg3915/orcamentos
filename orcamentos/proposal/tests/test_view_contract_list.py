@@ -1,5 +1,5 @@
-from django.shortcuts import resolve_url as r
 from django.test import TestCase
+from django.shortcuts import resolve_url as r
 from .test_base import BaseContractTest
 
 
@@ -26,5 +26,4 @@ class ContractListGetEmpty(TestCase):
 
     def test_get_empty(self):
         response = self.client.get(r('proposal:contract_list'))
-
         self.assertContains(response, 'Sem itens na lista.')
