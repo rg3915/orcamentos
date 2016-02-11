@@ -21,6 +21,15 @@ class CustomerDetailGet(TestCase):
     def test_template(self):
         self.assertTemplateUsed(self.resp, 'crm/customer_detail.html')
 
+    def test_html(self):
+        contents = [
+            (1, 'Editar'),
+        ]
+
+        for count, expected in contents:
+            with self.subTest():
+                self.assertContains(self.resp, expected, count)
+
     def test_context(self):
         ''' Customer must be in context '''
         customer = self.resp.context['customer']
