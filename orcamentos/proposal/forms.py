@@ -1,5 +1,5 @@
 from django import forms
-from orcamentos.proposal.models import Entry, Proposal, Work
+from orcamentos.proposal.models import Contract, Entry, Proposal, Work
 from orcamentos.core.lists import PRIORITY
 
 STATUS = (
@@ -16,6 +16,13 @@ class EntryForm(forms.ModelForm):
 
     class Meta:
         model = Entry
+        fields = '__all__'
+
+
+class ContractForm(forms.ModelForm):
+
+    class Meta:
+        model = Contract
         fields = '__all__'
 
 
