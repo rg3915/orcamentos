@@ -20,7 +20,7 @@
 	    </div>
         <!-- priotiry search form -->
     	<ul class="list-inline">
-    		<li><a href="{ url 'proposal:entry_list' %}"><i class="fa fa-inbox"></i> Todos</a></li>
+    		<li><a href="{% url 'proposal:entry_list' %}"><i class="fa fa-inbox"></i> Todos</a></li>
         	{% for item, item_display, classes in priority %}
                 <li><a href="?priority={{ item }}"><i class="fa fa-fw {{ classes }}"></i> {{ item_display }}</a></li>
         	{% endfor %}
@@ -30,7 +30,7 @@
 	<h2><i class="fa fa-inbox"></i> Lista de Entradas </h2>
 
 	<div>
-		{% if entrys %}
+		{% if entry_list %}
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -44,7 +44,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				{% for entry in entrys %}
+				{% for entry in entry_list %}
 					{% if entry.priority == 'u' %}
 						<tr class="danger">
 					{% elif entry.priority == 'a' %}
@@ -76,11 +76,10 @@
 
     <hr>
 	<div>
-        <h3><b>Total:</b> {{ entrys|length }} entrada{{ entrys|length|pluralize }}</h3>
+        <h3><b>Total:</b> {{ entry_list|length }} entrada{{ entry_list|length|pluralize }}</h3>
         <h3>{{ page_obj.paginator.count }}</h3>
 	</div>
 
 <!-- pagination -->
-{% include "pagination.html" %}
 
 {% endblock content %}

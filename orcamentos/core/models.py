@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.urlresolvers import reverse_lazy
 # List of values for use in choices
 from .lists import UF_LIST
 

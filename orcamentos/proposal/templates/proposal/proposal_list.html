@@ -25,7 +25,7 @@
   <h2><i class="fa fa-list"></i> Lista de Orçamentos</h2>
 
   <div>
-    {% if object_list %}
+    {% if proposal_list %}
       <table class="table table-striped">
         <thead>
           <tr>
@@ -41,7 +41,7 @@
           </tr>
         </thead>
         <tbody>
-        {% for proposal in object_list %}
+        {% for proposal in proposal_list %}
           <tr>
             <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-fw {% status_icon proposal.status %}"></i></a></td>
 
@@ -72,7 +72,7 @@
 
     <hr>
   <div>
-    <h3><b>Total:</b> {{ object_list|length }} orçamento{{ object_list|length|pluralize }}</h3>
+    <h3><b>Total:</b> {{ proposal_list|length }} orçamento{{ proposal_list|length|pluralize }}</h3>
   </div>
 
 <!-- pagination -->

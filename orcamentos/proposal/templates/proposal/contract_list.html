@@ -24,7 +24,7 @@
 <h2><i class="fa fa-star"></i> Lista de Contratos</h2>
 
 <div>
-{% if contracts %}
+{% if contract_list %}
   <table class="table table-striped">
     <thead>
       <tr>
@@ -38,13 +38,13 @@
       </tr>
     </thead>
     <tbody>
-    {% for contract in contracts %}
+    {% for contract in contract_list %}
       {% if contract.is_canceled %}
         <tr class="danger">
       {% else %}
         <tr>
       {% endif %}
-          <td><a href="{{ contract.get_absolute_url }}">{{ contract.proposal }}</a></td>
+          <!-- <td><a href=" contract.get_absolute_url ">{{ contract.proposal }}</a></td> -->
 
           <td>{{ contract.proposal.work }}</td>
           <td>{{ contract.proposal.work.customer }}</td>
@@ -67,7 +67,7 @@
 
 <hr>
 <div>
-<h3><b>Total:</b> {{ contracts|length }} contrato{{ contracts|length|pluralize }}</h3>
+<h3><b>Total:</b> {{ contract_list|length }} contrato{{ contract_list|length|pluralize }}</h3>
 </div>
 
 <!-- pagination -->

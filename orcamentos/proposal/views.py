@@ -1,7 +1,6 @@
 # import json
 # from django.core import serializers
-from django.shortcuts import render
-from django.shortcuts import resolve_url as r
+# from django.shortcuts import resolve_url as r
 # from django.http import HttpResponse
 # from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,14 +8,14 @@ from django.shortcuts import resolve_url as r
 # from django.db.models import IntegerField, Count, Case, When
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 # from django.core.exceptions import ObjectDoesNotExist
 # from datetime import datetime
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work
 # from orcamentos.core.mixins import FirstnameSearchMixin, DashboardMixin
 # from orcamentos.core.lists import STATUS, PRIORITY
 
-entry_list = ListView.as_view(model=Entry)
+entry_list = ListView.as_view(model=Entry, paginate_by=10)
 
 # class EntryList(ListView):
 #     template_name = 'core/entry/entry_list.html'
@@ -58,10 +57,6 @@ entry_list = ListView.as_view(model=Entry)
 #     return HttpResponse(s)
 
 entry_detail = DetailView.as_view(model=Entry)
-
-# class EntryDetail(DetailView):
-#     template_name = 'core/entry/entry_detail.html'
-#     model = Entry
 
 
 # class EntryActionMixin(object):
@@ -157,7 +152,7 @@ proposal_detail = DetailView.as_view(model=Proposal)
 #     model = Proposal
 #     form_class = ProposalForm
 
-contract_list = ListView.as_view(model=Contract)
+contract_list = ListView.as_view(model=Contract, paginate_by=10)
 
 # class ContractList(ListView):
 #     template_name = 'core/contract/contract_list.html'
@@ -183,17 +178,12 @@ contract_list = ListView.as_view(model=Contract)
 
 contract_detail = DetailView.as_view(model=Contract)
 
-# class ContractDetail(DetailView):
-#     template_name = 'core/contract/contract_detail.html'
-#     model = Contract
-
-
 # class ContractUpdate(LoginRequiredMixin, UpdateView):
 #     template_name = 'core/contract/contract_form.html'
 #     model = Contract
 #     fields = ('contractor', 'is_canceled')
 
-work_list = ListView.as_view(model=Work)
+work_list = ListView.as_view(model=Work, paginate_by=10)
 
 # class WorkList(ListView):
 #     template_name = 'core/work/work_list.html'
@@ -210,10 +200,6 @@ work_list = ListView.as_view(model=Work)
 #         return w
 
 work_detail = DetailView.as_view(model=Work)
-
-# class WorkDetail(DetailView):
-#     template_name = 'core/work/work_detail.html'
-#     model = Work
 
 
 # class WorkCreate(LoginRequiredMixin, CreateView):

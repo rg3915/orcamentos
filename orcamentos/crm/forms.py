@@ -1,5 +1,5 @@
 from django import forms
-from orcamentos.core.lists import GENDER, PRIORITY
+from orcamentos.core.lists import GENDER
 from orcamentos.crm.models import Person, Customer
 
 

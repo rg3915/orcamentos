@@ -1,5 +1,6 @@
 from django import forms
 from orcamentos.proposal.models import Proposal
+from orcamentos.core.lists import PRIORITY
 
 STATUS = (
     ('', ''),

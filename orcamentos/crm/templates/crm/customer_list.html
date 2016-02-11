@@ -8,7 +8,7 @@
 
 <form class="navbar-form navbar-right" action="." method="get">
 <!-- add -->
-<a href="{% url 'core:customer_add' %}">
+<a href="{ url 'crm:customer_add' %}">
   <button id="new_customer" type="button" class="btn btn-primary">
     <span class="glyphicon glyphicon-plus"></span> Adicionar
   </button>
@@ -24,7 +24,7 @@
 <h2><i class="fa fa-users"></i> Lista de Clientes</h2>
 </div>
 
-{% if customers %}
+{% if customer_list %}
 <table class="table table-striped">
   <thead>
     <tr>
@@ -37,14 +37,14 @@
     </tr>
   </thead>
   <tbody>
-  {% for customer in customers %}
+  {% for customer in customer_list %}
     <tr>
-      <td><a href="{{ customer.get_absolute_url }}">{{ customer.full_name }}</a></td>
+      <td><a href=" customer.get_absolute_url "> customer.full_name </a></td>
       <td>{{ customer.email|default:"---" }}</td>
       <td>{{ customer.phone1|default:"---" }}</td>
       <td>{{ customer.company|default:"---" }}</td>
       <td>{{ customer.department|default:"---" }}</td>
-      <td><i class="fa fa-circle fa-fw {{ customer.get_type_customer_display }}"></i> {{ customer.get_type_customer_display }}</td>
+      <td><i class="fa fa-circle fa-fw {{ customer.get_customer_type_display }}"></i> {{ customer.get_customer_type_display }}</td>
     </tr>
   {% endfor %}
   </tbody>
@@ -55,7 +55,7 @@
 
 <hr>
 <div>
-<h3><b>Total:</b> {{ customers|length }} cliente{{ customers|length|pluralize }}</h3>
+<h3><b>Total:</b> {{ customer_list|length }} cliente{{ customer_list|length|pluralize }}</h3>
 </div>
 
 <!-- pagination -->

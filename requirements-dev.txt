@@ -1,4 +1,5 @@
 -r requirements.txt
+flake8==2.5.2
 names==0.3.0
 pydot2==1.0.33
 pyparsing==2.0.7

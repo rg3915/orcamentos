@@ -1,26 +1,10 @@
-from datetime import datetime
 from django.shortcuts import resolve_url as r
 from django.test import TestCase
-from orcamentos.crm.models import Person, Customer, Occupation
 from orcamentos.proposal.models import Work
-from orcamentos.crm.tests.data import PERSON_DICT, CUSTOMER_DICT
-from orcamentos.proposal.tests.data import WORK_DICT
+from .test_base import BaseWorkTest
 
 
-class WorkTest(TestCase):
-
-    def setUp(self):
-        self.occupation = Occupation.objects.create(occupation='Gerente')
-
-        self.person = Person.objects.create(
-            occupation=self.occupation, **PERSON_DICT)
-
-        self.customer = Customer.objects.create(**CUSTOMER_DICT)
-
-        self.obj = Work.objects.create(
-            person=self.person,
-            customer=self.customer,
-            **WORK_DICT)
+class WorkTest(BaseWorkTest, TestCase):
 
     def test_create(self):
         self.assertTrue(Work.objects.exists())

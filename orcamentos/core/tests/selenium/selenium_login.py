@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.common.keys import Keys
 
 page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
 # page = webdriver.Firefox()

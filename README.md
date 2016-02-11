@@ -98,6 +98,12 @@ $ python manage.py create_contract --num=1
 ## [Changelog](https://github.com/rg3915/orcamentos/blob/master/CHANGELOG.md)
 
 
+### Auto Flake
+
+```bash
+autoflake --in-place --remove-unused-variables file.py
+```
+
 [1]: http://django-extensions.readthedocs.org/en/latest/
 [4]: http://www.python.org.br/wiki/GuiaDeEstilo
 [8]: http://django-notes.blogspot.com.br/2012/07/vizualization.html

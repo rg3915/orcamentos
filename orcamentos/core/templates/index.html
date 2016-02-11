@@ -230,7 +230,7 @@
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
-                    <li><a href="{% url 'admin:index' %}"><span class="fa fa-drupal"></span></a></li>
+                    <li><a href="{ url 'admin:index' %}"><span class="fa fa-drupal"></span></a></li>
                 </li>
                 <!-- /.dropdown -->
             </ul>
@@ -257,7 +257,7 @@
                         <li><a href="{% url 'crm:customer_list' %}"><i class="fa fa-users"></i> Clientes</a></li>
                         <li><a href="{% url 'proposal:work_list' %}"><i class="fa fa-home"></i> Obras</a></li>
                         <li><a href="{% url 'crm:person_list' %}"><i class="fa fa-user"></i> Contatos</a></li>
-                        <li><a href="{% url 'admin:index' %}"><span class="fa fa-drupal"></span> Admin</a></li>
+                        <li><a href="{ url 'admin:index' %}"><span class="fa fa-drupal"></span> Admin</a></li>
                         <!-- <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
@@ -545,7 +545,7 @@
                                             <tbody>
                                                 {% for entry in entrys %}
                                                     <tr>
-                                                        <td><i class="pull-right fa fa-flash urgente"></i> <a href="{% url 'proposal:entry_detail' entry.id  %}">{{ entry.work }}</a></td>
+                                                        <td><i class="pull-right fa fa-flash urgente"></i> <a href="{ url 'proposal:entry_detail' entry.id  %}">{{ entry.work }}</a></td>
                                                         <td>{{ entry.work.customer }}</td>
                                                         <td>{{ entry.created|date:"d/m/Y" }}</td>
                                                     </tr>
@@ -599,7 +599,7 @@
                                     <tbody>
                                         {% for p in proposal_elab %}
                                             <tr>
-                                                <td><a href="{% url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
+                                                <td><a href="{ url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
                                                 <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
                                                 <td>{{ p.work.customer }}</td>
                                                 <td>{{ p.employee }}</td>
@@ -663,7 +663,7 @@
                                             <tbody>
                                                 {% for p in proposal_list %}
                                                     <tr> <!-- no máximo 6 ou 7 -->
-                                                        <td><a href="{% url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
+                                                        <td><a href="{ url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
                                                         {% if p.status == 'elab' %}
                                                             <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
                                                         {% elif p.status == 'p' %}

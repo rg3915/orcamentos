@@ -4,7 +4,7 @@ from random import randint, choice
 from gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
 from gen_random_values import gen_cpf, gen_rg, gen_digits, gen_phone
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.common.keys import Keys
 
 # page = webdriver.Firefox()
 page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')

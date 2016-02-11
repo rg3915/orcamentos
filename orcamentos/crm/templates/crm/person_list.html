@@ -8,7 +8,7 @@
 
 <form class="navbar-form navbar-right" action="." method="get">
     <!-- add -->
-    <a href="{% url 'core:person_add' %}">
+    <a href="{ url 'crm:person_add' %}">
         <button id="new_customer" type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus"></span> Adicionar
         </button>
@@ -25,7 +25,7 @@
 </div>
 
 <div>
-{% if object_list %}
+{% if person_list %}
   <table class="table table-striped">
     <thead>
       <tr>
@@ -38,7 +38,7 @@
       </tr>
     </thead>
     <tbody>
-    {% for person in object_list %}
+    {% for person in person_list %}
       <tr>
         <td><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></td>
         <td>{{ person.email }}</td>
@@ -57,7 +57,7 @@
 
 <hr>
 <div>
-<h3><b>Total:</b> {{ object_list|length }} contato{{ object_list|length|pluralize }}</h3>
+<h3><b>Total:</b> {{ person_list|length }} contato{{ person_list|length|pluralize }}</h3>
 </div>
 
 <!-- pagination -->

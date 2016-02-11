@@ -93,31 +93,6 @@ def gen_ipi():
     return Decimal("0.%s" % (num_as_str(2)))
 
 
-def gen_city():
-    list_city = [
-        [u'São Paulo', 'SP'],
-        [u'Belém', 'PA'],
-        [u'Rio de Janeiro', 'RJ'],
-        [u'Goiânia', 'GO'],
-        [u'Salvador', 'BA'],
-        [u'Guarulhos', 'SP'],
-        [u'Brasília', 'DF'],
-        [u'Campinas', 'SP'],
-        [u'Fortaleza', 'CE'],
-        [u'São Luís', 'MA'],
-        [u'Belo Horizonte', 'MG'],
-        [u'São Gonçalo', 'RJ'],
-        [u'Manaus', 'AM'],
-        [u'Maceió', 'AL'],
-        [u'Curitiba', 'PR'],
-        [u'Duque de Caxias', 'RJ'],
-        [u'Recife', 'PE'],
-        [u'Natal', 'RN'],
-        [u'Porto Alegre', 'RS'],
-        [u'Campo Grande', 'MS']]
-    return choice(list_city)
-
-
 def connect(url):
     return requests.get(url)
 

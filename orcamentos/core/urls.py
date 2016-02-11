@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from orcamentos.core.views import Home
-# import orcamentos.core.actions as a
 
 
 urlpatterns = [
