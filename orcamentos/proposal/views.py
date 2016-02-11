@@ -12,6 +12,7 @@ from django.views.generic.edit import UpdateView
 # from django.core.exceptions import ObjectDoesNotExist
 # from datetime import datetime
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work
+from orcamentos.proposal.forms import EntryForm, ProposalForm, WorkForm
 # from orcamentos.core.mixins import FirstnameSearchMixin, DashboardMixin
 # from orcamentos.core.lists import STATUS, PRIORITY
 
@@ -72,11 +73,11 @@ entry_detail = DetailView.as_view(model=Entry)
 #         return super(EntryActionMixin, self).form_valid(form)
 
 
+entry_create = CreateView.as_view(model=Entry, form_class=EntryForm)
+
 # class EntryCreate(LoginRequiredMixin, CreateView, EntryActionMixin):
 #     template_name = 'core/entry/entry_form.html'
 #     model = Entry
-#     fields = '__all__'
-#     success_url = reverse_lazy('core:entry_list')
 #     action = 'criada'
 
 
@@ -201,6 +202,7 @@ work_list = ListView.as_view(model=Work, paginate_by=10)
 
 work_detail = DetailView.as_view(model=Work)
 
+work_create = CreateView.as_view(model=Work, form_class=WorkForm)
 
 # class WorkCreate(LoginRequiredMixin, CreateView):
 #     template_name = 'core/work/work_form.html'

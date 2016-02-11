@@ -1,5 +1,5 @@
 from django import forms
-from orcamentos.proposal.models import Proposal
+from orcamentos.proposal.models import Entry, Proposal, Work
 from orcamentos.core.lists import PRIORITY
 
 STATUS = (
@@ -12,6 +12,13 @@ STATUS = (
 )
 
 
+class EntryForm(forms.ModelForm):
+
+    class Meta:
+        model = Entry
+        fields = '__all__'
+
+
 class ProposalForm(forms.ModelForm):
     num_prop = forms.IntegerField(
         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
@@ -20,6 +27,13 @@ class ProposalForm(forms.ModelForm):
 
     class Meta:
         model = Proposal
+        fields = '__all__'
+
+
+class WorkForm(forms.ModelForm):
+
+    class Meta:
+        model = Work
         fields = '__all__'
 
 

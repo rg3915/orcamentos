@@ -8,7 +8,7 @@
 
     <form class="navbar-form navbar-right" action="." method="get">
         <!-- add -->
-        <a href="{ url 'proposal:entry_add' %}">
+        <a href="{% url 'proposal:entry_add' %}">
             <button id="new_entry" type="button" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span> Adicionar
             </button>
@@ -76,10 +76,12 @@
 
     <hr>
 	<div>
-        <h3><b>Total:</b> {{ entry_list|length }} entrada{{ entry_list|length|pluralize }}</h3>
-        <h3>{{ page_obj.paginator.count }}</h3>
+        <h3>{{ entry_list|length }} entrada{{ entry_list|length|pluralize }}</h3>
+        <h4><b>Total:</b> {{ page_obj.paginator.count }} entrada{{ page_obj.paginator.count|pluralize }}</h4>
 	</div>
 
 <!-- pagination -->
+{% include "pagination.html" %}
+
 
 {% endblock content %}

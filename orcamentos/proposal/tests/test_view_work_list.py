@@ -14,6 +14,15 @@ class ProposalListGet(BaseWorkTest, TestCase):
     def test_template(self):
         self.assertTemplateUsed(self.resp, 'proposal/work_list.html')
 
+    def test_html(self):
+        contents = [
+            (1, 'Adicionar'),
+        ]
+
+        for count, expected in contents:
+            with self.subTest():
+                self.assertContains(self.resp, expected, count)
+
     def test_context(self):
         variables = ['work_list']
 

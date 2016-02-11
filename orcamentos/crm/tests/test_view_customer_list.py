@@ -16,6 +16,15 @@ class CustomerListGet(TestCase):
     def test_template(self):
         self.assertTemplateUsed(self.resp, 'crm/customer_list.html')
 
+    def test_html(self):
+        contents = [
+            (1, 'Adicionar'),
+        ]
+
+        for count, expected in contents:
+            with self.subTest():
+                self.assertContains(self.resp, expected, count)
+
     # def test_html(self):
     #     contents = [
     #         (1, 'Mike Smith'),
@@ -35,6 +44,12 @@ class CustomerListGet(TestCase):
         for key in variables:
             with self.subTest():
                 self.assertIn(key, self.resp.context)
+
+    def test_full_name(self):
+        ''' Must have full name '''
+        expected = ' '.join(filter(None, ['Arq.', CUSTOMER_DICT[
+                            'first_name'], CUSTOMER_DICT['last_name']]))
+        self.assertEqual(expected, self.obj.full_name)
 
 
 class CustomerListGetEmpty(TestCase):

@@ -14,6 +14,15 @@ class EntryListGet(BaseEntryTest, TestCase):
     def test_template(self):
         self.assertTemplateUsed(self.resp, 'proposal/entry_list.html')
 
+    def test_html(self):
+        contents = [
+            (1, 'Adicionar'),
+        ]
+
+        for count, expected in contents:
+            with self.subTest():
+                self.assertContains(self.resp, expected, count)
+
     def test_context(self):
         variables = ['entry_list']
 

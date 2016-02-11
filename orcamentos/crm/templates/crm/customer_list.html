@@ -39,7 +39,7 @@
   <tbody>
   {% for customer in customer_list %}
     <tr>
-      <td><a href=" customer.get_absolute_url "> customer.full_name </a></td>
+      <td><a href="{{ customer.get_absolute_url }}">{{ customer.full_name }}</a></td>
       <td>{{ customer.email|default:"---" }}</td>
       <td>{{ customer.phone1|default:"---" }}</td>
       <td>{{ customer.company|default:"---" }}</td>

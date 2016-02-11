@@ -16,12 +16,27 @@ class PersonListGet(TestCase):
     def test_template(self):
         self.assertTemplateUsed(self.resp, 'crm/person_list.html')
 
+    def test_html(self):
+        contents = [
+            (1, 'Adicionar'),
+        ]
+
+        for count, expected in contents:
+            with self.subTest():
+                self.assertContains(self.resp, expected, count)
+
     def test_context(self):
         variables = ['person_list']
 
         for key in variables:
             with self.subTest():
                 self.assertIn(key, self.resp.context)
+
+    def test_full_name(self):
+        ''' Must have full name '''
+        expected = ' '.join(filter(None, ['Sr.', PERSON_DICT[
+                            'first_name'], PERSON_DICT['last_name']]))
+        self.assertEqual(expected, self.obj.full_name)
 
 
 class PersonListGetEmpty(TestCase):
