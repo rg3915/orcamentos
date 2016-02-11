@@ -91,7 +91,7 @@ class Employee(People):
     def __str__(self):
         return str(self.user)
 
-User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
+# User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
 
 
 class Occupation(models.Model):

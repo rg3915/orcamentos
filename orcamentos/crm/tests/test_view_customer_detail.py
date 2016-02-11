@@ -11,6 +11,9 @@ class CustomerDetailGet(TestCase):
         self.resp = self.client.get(
             r('crm:customer_detail', slug='mike-smith'))
 
+    def test_create(self):
+        self.assertTrue(Customer.objects.exists())
+
     def test_get(self):
         ''' GET shuld return status 200 '''
         self.assertEqual(200, self.resp.status_code)

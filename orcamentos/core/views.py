@@ -1,20 +1,6 @@
-# import json
-# from django.core import serializers
 from django.shortcuts import render
-# from django.http import HttpResponse
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.mixins import LoginRequiredMixin
-# from django.db.models import Q, F
-# from django.db.models import IntegerField, Count, Case, When
-from django.views.generic import CreateView, TemplateView, ListView, DetailView
-from django.views.generic.edit import UpdateView
+from django.views.generic import TemplateView
 from django.contrib.auth.models import User
-# from django.core.exceptions import ObjectDoesNotExist
-# from datetime import datetime
-# from orcamentos.core.models import Person, Entry, Proposal, Contract, Customer, Work, Employee, NumLastProposal, Category
-# from orcamentos.core.forms import PersonForm, CustomerForm, ProposalForm, StatusSearchForm, PrioritySearchForm
-# from orcamentos.core.mixins import FirstnameSearchMixin, DashboardMixin
-from orcamentos.core.lists import STATUS, PRIORITY
 
 
 # class Home(DashboardMixin, TemplateView):
@@ -44,5 +30,5 @@ class Home(TemplateView):
     #     return context
 
 
-# def status(request):
-#     return render(request, 'status.html')
+def status(request):
+    return render(request, 'status.html')

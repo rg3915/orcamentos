@@ -1,9 +1,9 @@
 # from django.shortcuts import render
-# from django.shortcuts import resolve_url as r
-from django.views.generic import CreateView, TemplateView, ListView, DetailView
+from django.shortcuts import resolve_url as r
+from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from orcamentos.crm.models import Person, Customer
-from orcamentos.crm.forms import PersonForm, CustomerForm
+from orcamentos.crm.forms import PersonForm
 
 
 person_list = ListView.as_view(model=Person, paginate_by=10)
@@ -14,10 +14,7 @@ person_detail = DetailView.as_view(model=Person)
 
 
 # class PersonCreate(LoginRequiredMixin, CreateView):
-# person_create = CreateView.as_view(
-#     model=Person,
-#     form_class=PersonForm,
-#     success_url=r('crm:person_list'))
+person_create = CreateView.as_view(model=Person, form_class=PersonForm)
 
 
 # # class PersonUpdate(LoginRequiredMixin, UpdateView):
