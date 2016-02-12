@@ -9,7 +9,10 @@ class CustomerForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = '__all__'
+        fields = ['gender', 'treatment', 'first_name', 'last_name', 'slug',
+                  'photo', 'birthday', 'company', 'department', 'email',
+                  'cpf', 'rg', 'cnpj', 'ie', 'customer_type', 'address',
+                  'complement', 'district', 'city', 'uf', 'cep', 'active']
 
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None

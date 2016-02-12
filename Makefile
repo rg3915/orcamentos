@@ -60,7 +60,7 @@ selenium_person:
 	python orcamentos/core/tests/selenium/selenium_person.py
 
 selenium_customer:
-	python orcamentos/core/tests/selenium/selenium_customer.py
+	python selenium/selenium_customer.py
 
 selenium_work:
 	python orcamentos/core/tests/selenium/selenium_work.py

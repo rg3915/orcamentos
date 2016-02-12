@@ -11,26 +11,7 @@
 <form class="form-horizontal col-sm-6" action="." method="POST">
     <legend>Cliente</legend>
     {% csrf_token %}
-	{{ form.gender|bootstrap_horizontal }}
-	{{ form.treatment|bootstrap_horizontal }}
-	{{ form.first_name|bootstrap_horizontal }}
-	{{ form.last_name|bootstrap_horizontal }}
-	{{ form.company|bootstrap_horizontal }}
-	{{ form.department|bootstrap_horizontal }}
-	{{ form.email|bootstrap_horizontal }}
-	{{ form.cpf|bootstrap_horizontal }}
-	{{ form.rg|bootstrap_horizontal }}
-	{{ form.cnpj|bootstrap_horizontal }}
-	{{ form.ie|bootstrap_horizontal }}
-	{{ form.customer_type|bootstrap_horizontal }}
-	{{ form.address|bootstrap_horizontal }}
-	{{ form.complement|bootstrap_horizontal }}
-	{{ form.district|bootstrap_horizontal }}
-	{{ form.city|bootstrap_horizontal }}
-	{{ form.uf|bootstrap_horizontal }}
-	{{ form.cep|bootstrap_horizontal }}
-	{{ form.active|bootstrap_horizontal }}
-
+	{{ form|bootstrap }}
 	<div class="form-group">
       <div class="col-sm-10 col-sm-offset-2">
         <button type="submit" id="id_submit" class="btn btn-primary">Salvar</button>

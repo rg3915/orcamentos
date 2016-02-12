@@ -14,8 +14,9 @@ class People(TimeStampedModel, Address):
     birthday = models.DateTimeField('nascimento', null=True, blank=True)
     company = models.CharField('empresa', max_length=50, blank=True)
     department = models.CharField('departamento', max_length=50, blank=True)
-    cpf = models.CharField('CPF', max_length=11, unique=True, blank=True)
-    rg = models.CharField('RG', max_length=11, blank=True)
+    cpf = models.CharField(
+        'CPF', max_length=11, unique=True, null=True, blank=True)
+    rg = models.CharField('RG', max_length=11, null=True, blank=True)
     active = models.BooleanField('ativo', default=True)
     blocked = models.BooleanField('bloqueado', default=False)
 
@@ -58,7 +59,8 @@ class Customer(People):
     first_name = models.CharField('nome', max_length=50)
     last_name = models.CharField('sobrenome', max_length=50, blank=True)
     email = models.EmailField(null=True, blank=True)
-    cnpj = models.CharField('CNPJ', max_length=14, unique=True, blank=True)
+    cnpj = models.CharField('CNPJ', max_length=14,
+                            unique=True, null=True, blank=True)
     ie = models.CharField(u'inscrição estadual', max_length=12, blank=True)
     customer_type = models.CharField(
         'tipo', max_length=1, choices=CUSTOMER_TYPE)
