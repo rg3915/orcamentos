@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.http import HttpResponseRedirect
+from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.models import User
-
+from .forms import UserForm
 
 # class Home(DashboardMixin, TemplateView):
+
+
 class Home(TemplateView):
     template_name = 'index.html'
 
@@ -28,6 +31,17 @@ class Home(TemplateView):
     #     context['entrys'] = self.entry_list()
 
     #     return context
+
+
+def registration(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            new_user = User.objects.create_user(**form.cleaned_data)
+            return render(request, 'index.html')
+    else:
+        form = UserForm()
+    return render(request, 'core/registration_form.html', {'form': form})
 
 
 def status(request):

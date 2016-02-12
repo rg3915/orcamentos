@@ -66,7 +66,7 @@ selenium_work:
 	python selenium/selenium_work.py
 
 selenium_all_pages:
-	python orcamentos/core/tests/selenium/selenium_all_pages.py
+	python selenium/selenium_all_pages.py
 
 backup:
 	./manage.py dumpdata core --format=json --indent=2 > fixtures.json
