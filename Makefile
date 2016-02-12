@@ -65,6 +65,9 @@ selenium_customer:
 selenium_work:
 	python selenium/selenium_work.py
 
+selenium_registration:
+	python selenium/selenium_registration.py
+
 selenium_all_pages:
 	python selenium/selenium_all_pages.py
 

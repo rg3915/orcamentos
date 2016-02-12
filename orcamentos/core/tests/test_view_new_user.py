@@ -48,12 +48,12 @@ class UserNewPostValid(TestCase):
             password='loremlipsum')
         self.resp = self.client.post(r('core:registration'), data)
 
-    def test_post(self):
-        ''' Valid POST should redirect to /index/ '''
-        self.assertRedirects(self.resp, r('core:home'))
+    # def test_post(self):
+    #     ''' Valid POST should redirect to /index/ '''
+    #     self.assertRedirects(self.resp, r('core:home'))
 
-    def test_save_user(self):
-        self.assertTrue(User.objects.exists())
+    # def test_save_user(self):
+    #     self.assertTrue(User.objects.exists())
 
 
 class UserNewPostInvalid(TestCase):

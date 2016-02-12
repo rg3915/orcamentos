@@ -1,4 +1,6 @@
 from django.db import models
+from django.dispatch import receiver
+from django.db.models import signals
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
 from orcamentos.core.models import TimeStampedModel, Address
@@ -95,7 +97,13 @@ class Employee(People):
     def __str__(self):
         return str(self.user)
 
-# User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
+
+@receiver(signals.post_save, sender=User)
+def create_employee(sender, instance, created, **kwargs):
+    # Create employee
+    if created:
+        Employee.objects.get_or_create(user=instance, slug=str(instance))
+        print('Instance: ' + str(instance))
 
 
 class Occupation(models.Model):

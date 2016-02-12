@@ -3,6 +3,7 @@ from orcamentos.crm.models import Person, Occupation, Customer, Employee, Seller
 from orcamentos.crm.forms import CustomerForm
 
 
+@admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'photo_img', 'email', 'customer_type', 'active')
     search_fields = ('first_name', 'last_name',)
@@ -22,8 +23,12 @@ class CustomerAdmin(admin.ModelAdmin):
     photo_img.allow_tags = True
     photo_img.short_description = 'foto'
 
+
+@admin.register(Employee)
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'slug', 'active')
+    search_fields = ('first_name', 'last_name',)
+
 admin.site.register(Person)
 admin.site.register(Occupation)
-admin.site.register(Customer, CustomerAdmin)
-admin.site.register(Employee)
 admin.site.register(Seller)
