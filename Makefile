@@ -51,10 +51,10 @@ shell_contract:
 	./manage.py shell < shell/shell_contract.py
 
 selenium_login:
-	python orcamentos/core/tests/selenium/selenium_login.py
+	python selenium/selenium_login.py
 
 selenium_entry:
-	python orcamentos/core/tests/selenium/selenium_entry.py
+	python selenium/selenium_entry.py
 
 selenium_person:
 	python selenium/selenium_person.py
