@@ -30,10 +30,8 @@
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Foto</th>
         <th>Email</th>
-        <th>Fone 1</th>
-        <th>Fone 2</th>
-        <th>Fone 3</th>
         <th>Empresa</th>
       </tr>
     </thead>
@@ -41,10 +39,8 @@
     {% for person in person_list %}
       <tr>
         <td><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></td>
+        <td><img src="{{ person.photo|default:'https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png' }}" class="img-square" style="height: 20px;" /></td>
         <td>{{ person.email }}</td>
-        <td>{{ person.phone1 }}</td>
-        <td>{{ person.phone2 }}</td>
-        <td>{{ person.phone3 }}</td>
         <td>{{ person.company }}</td>
       </tr>
     {% endfor %}

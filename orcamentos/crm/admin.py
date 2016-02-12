@@ -1,5 +1,5 @@
 from django.contrib import admin
-from orcamentos.crm.models import Person, Customer, Employee, Seller
+from orcamentos.crm.models import Person, Occupation, Customer, Employee, Seller
 
 
 class CustomerAdmin(admin.ModelAdmin):
@@ -13,6 +13,7 @@ class CustomerAdmin(admin.ModelAdmin):
     photo_img.short_description = 'foto'
 
 admin.site.register(Person)
+admin.site.register(Occupation)
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Employee)
 admin.site.register(Seller)

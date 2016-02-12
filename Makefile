@@ -57,7 +57,7 @@ selenium_entry:
 	python orcamentos/core/tests/selenium/selenium_entry.py
 
 selenium_person:
-	python orcamentos/core/tests/selenium/selenium_person.py
+	python selenium/selenium_person.py
 
 selenium_customer:
 	python selenium/selenium_customer.py
