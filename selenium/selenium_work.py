@@ -7,17 +7,17 @@ from selenium import webdriver
 # page = webdriver.Firefox()
 page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
 page.maximize_window()
-time.sleep(0.5)
-page.get('http://localhost:8000/work/add/')
+# time.sleep(0.5)
+# page.get('http://localhost:8000/work/add/')
 
-search = page.find_element_by_id('id_username')
-search.send_keys('regis')
+# search = page.find_element_by_id('id_username')
+# search.send_keys('regis')
 
-search = page.find_element_by_id('id_password')
-search.send_keys('1')
+# search = page.find_element_by_id('id_password')
+# search.send_keys('1')
 
-button = page.find_element_by_xpath("//input[@type='submit']")
-button.click()
+# button = page.find_element_by_xpath("//input[@type='submit']")
+# button.click()
 
 address_list = []
 

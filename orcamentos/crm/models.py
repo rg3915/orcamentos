@@ -8,12 +8,13 @@ from orcamentos.core.lists import GENDER, TREATMENT, PHONE_TYPE, CUSTOMER_TYPE
 class People(TimeStampedModel, Address):
     gender = models.CharField(u'gênero', max_length=1, choices=GENDER)
     treatment = models.CharField(
-        'tratamento', max_length=4, choices=TREATMENT, blank=True)
+        'tratamento', max_length=4, choices=TREATMENT, null=True, blank=True)
     slug = models.SlugField('slug')
     photo = models.URLField('foto', null=True, blank=True)
     birthday = models.DateTimeField('nascimento', null=True, blank=True)
-    company = models.CharField('empresa', max_length=50, blank=True)
-    department = models.CharField('departamento', max_length=50, blank=True)
+    company = models.CharField('empresa', max_length=50, null=True, blank=True)
+    department = models.CharField(
+        'departamento', max_length=50, null=True, blank=True)
     cpf = models.CharField(
         'CPF', max_length=11, unique=True, null=True, blank=True)
     rg = models.CharField('RG', max_length=11, null=True, blank=True)
