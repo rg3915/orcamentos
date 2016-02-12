@@ -26,8 +26,9 @@ class CustomerAdmin(admin.ModelAdmin):
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'slug', 'active')
+    list_display = ('__str__', 'slug', 'date_entry', 'date_release', 'active')
     search_fields = ('first_name', 'last_name',)
+    date_hierarchy = 'date_entry'
 
 admin.site.register(Person)
 admin.site.register(Occupation)

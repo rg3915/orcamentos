@@ -102,7 +102,8 @@ class Employee(People):
 def create_employee(sender, instance, created, **kwargs):
     # Create employee
     if created:
-        Employee.objects.get_or_create(user=instance, slug=str(instance))
+        Employee.objects.get_or_create(
+            user=instance, slug=str(instance), date_entry=instance.date_joined)
         print('Instance: ' + str(instance))
 
 
