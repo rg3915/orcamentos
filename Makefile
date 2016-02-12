@@ -63,7 +63,7 @@ selenium_customer:
 	python selenium/selenium_customer.py
 
 selenium_work:
-	python orcamentos/core/tests/selenium/selenium_work.py
+	python selenium/selenium_work.py
 
 selenium_all_pages:
 	python orcamentos/core/tests/selenium/selenium_all_pages.py

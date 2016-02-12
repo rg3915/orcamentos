@@ -7,8 +7,8 @@ from selenium import webdriver
 # page = webdriver.Firefox()
 page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
 page.maximize_window()
-# time.sleep(0.5)
-# page.get('http://localhost:8000/work/add/')
+time.sleep(0.5)
+page.get('http://localhost:8000/proposal/work/add/')
 
 # search = page.find_element_by_id('id_username')
 # search.send_keys('regis')
@@ -22,7 +22,7 @@ page.maximize_window()
 address_list = []
 
 ''' Lendo os dados de enderecos_.csv '''
-with open('fixtures/enderecos_.csv', 'r') as f:
+with open('fix/enderecos_.csv', 'r') as f:
     r = csv.DictReader(f)
     for dct in r:
         address_list.append(dct)
@@ -30,8 +30,11 @@ with open('fixtures/enderecos_.csv', 'r') as f:
 
 INDEX = randint(0, 146)
 
+name_work = 'Obra ' + str(randint(1, 5))
+
 fields = [
-    ['id_name_work', 'Obra ' + str(randint(1, 5))],
+    ['id_name_work', name_work],
+    ['id_slug', name_work.replace(' ', '-')],
     ['id_person', 'Sr. Regis da Silva'],
     ['id_customer', 'Hochtief'],
     ['id_address', address_list[INDEX]['address']],
