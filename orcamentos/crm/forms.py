@@ -1,11 +1,13 @@
 from django import forms
-from orcamentos.core.lists import GENDER
+from orcamentos.core.lists import GENDER, CUSTOMER_TYPE
 from orcamentos.crm.models import Customer, Person
 
 
 class CustomerForm(forms.ModelForm):
     gender = forms.ChoiceField(
         label='Sexo', choices=GENDER, initial='M', widget=forms.RadioSelect)
+    customer_type = forms.ChoiceField(
+        label='Tipo', choices=CUSTOMER_TYPE, initial='p', widget=forms.RadioSelect)
 
     class Meta:
         model = Customer

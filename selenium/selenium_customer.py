@@ -88,7 +88,6 @@ fields = [
     ['id_rg', gen_rg()],
     ['id_cnpj', gen_digits(14)],
     ['id_ie', gen_digits(12)],
-    ['id_customer_type', 'particular'],
     ['id_address', address_list[INDEX]['address']],
     ['id_complement', 'Apto 303'],
     ['id_district', address_list[INDEX]['district']],
@@ -100,7 +99,6 @@ fields = [
 for field in fields:
     search = page.find_element_by_id(field[0])
     search.send_keys(field[1])
-
 
 # button = page.find_element_by_id('id_submit')
 button = page.find_element_by_class_name('btn-primary')

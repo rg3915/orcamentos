@@ -1,10 +1,20 @@
 from django.contrib import admin
 from orcamentos.crm.models import Person, Occupation, Customer, Employee, Seller
+from orcamentos.crm.forms import CustomerForm
 
 
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'photo_img', 'email', 'customer_type', 'active')
     search_fields = ('first_name', 'last_name',)
+    form = CustomerForm
+    # fieldsets = (
+    #     (None, {
+    #         'fields': ('gender', 'treatment', 'first_name', 'last_name', 'slug',
+    #                    'photo', 'birthday', 'company', 'department', 'email',
+    #                    'cpf', 'rg', 'cnpj', 'ie', 'customer_type', 'address',
+    #                    'complement', 'district', 'city', 'uf', 'cep', 'active')
+    #     }),
+    # )
 
     def photo_img(self, obj):
         return '<img width="32px" src="{}" />'.format(obj.photo)

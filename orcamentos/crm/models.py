@@ -6,7 +6,8 @@ from orcamentos.core.lists import GENDER, TREATMENT, PHONE_TYPE, CUSTOMER_TYPE
 
 
 class People(TimeStampedModel, Address):
-    gender = models.CharField(u'gênero', max_length=1, choices=GENDER)
+    gender = models.CharField(u'gênero', max_length=1,
+                              choices=GENDER, null=True, blank=True)
     treatment = models.CharField(
         'tratamento', max_length=4, choices=TREATMENT, null=True, blank=True)
     slug = models.SlugField('slug')
