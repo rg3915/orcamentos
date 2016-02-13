@@ -1,4 +1,4 @@
-from orcamentos.core.models import Occupation
+from orcamentos.crm.models import Occupation
 Occupation.objects.create(occupation=u'Arquiteto')
 Occupation.objects.create(occupation=u'Coordenador')
 Occupation.objects.create(occupation=u'Diretor')
