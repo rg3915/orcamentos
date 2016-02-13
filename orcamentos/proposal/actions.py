@@ -69,20 +69,20 @@ def create_proposal(request, entry_id):
     return redirect(r('proposal:proposal_detail', proposal.pk))
 
 
-# @login_required
-# def create_contract(request, proposal_id):
-#     if request.user.is_authenticated:
-#         proposal = Proposal.objects.get(pk=proposal_id)
-#         ''' Se o status for diferente de 'concluído', então não faz nada '''
-#         if proposal.status != 'co':
-#             return HttpResponse('O status do orçamento deve ser concluido.')
-#         else:
-#             contractor = proposal.work.customer
-#             contract = Contract(
-#                 proposal=proposal,
-#                 contractor=contractor
-#             )
-#             contract.save()
-#             proposal.status = 'a'  # aprovado
-#             proposal.save()
-#     return redirect(r('core:contract_detail', contract.pk))
+@login_required
+def create_contract(request, proposal_id):
+    if request.user.is_authenticated:
+        proposal = Proposal.objects.get(pk=proposal_id)
+        ''' Se o status for diferente de 'concluído', então não faz nada '''
+        if proposal.status != 'co':
+            return HttpResponse('O status do orçamento deve ser concluido.')
+        else:
+            contractor = proposal.work.customer
+            contract = Contract(
+                proposal=proposal,
+                contractor=contractor
+            )
+            contract.save()
+            proposal.status = 'a'  # aprovado
+            proposal.save()
+    return redirect(r('proposal:contract_detail', contract.pk))

@@ -8,23 +8,30 @@ entry_patterns = [
     # url(r'^(?P<pk>\d+)/json/$', p.entry_detail_json, name='entry_detail_json'),
     url(r'^(?P<pk>\d+)/edit/$', p.entry_update, name='entry_edit'),
     url(r'^add/$', p.entry_create, name='entry_add'),
+
     # Create Proposal
-    url(r'^(?P<entry_id>\d+)/new/$', a.create_proposal, name='create_proposal_url'),
+    url(r'^(?P<entry_id>\d+)/proposal/new/$',
+        a.create_proposal,
+        name='create_proposal_url'),
 ]
 
 proposal_patterns = [
     url(r'^$', p.proposal_list, name='proposal_list'),
     url(r'^(?P<pk>\d+)/$', p.proposal_detail, name='proposal_detail'),
     url(r'^(?P<pk>\d+)/edit/$', p.proposal_update, name='proposal_edit'),
+
     # Conclude Proposal
     url(r'^(?P<proposal_id>\d+)/ok/$',
-        a.conclude_proposal, name='conclude_proposal'),
+        a.conclude_proposal,
+        name='conclude_proposal'),
     # Cancel Proposal
     url(r'^(?P<proposal_id>\d+)/cancel/$',
-        a.cancel_proposal, name='cancel_proposal'),
-    # # Create Contract
-    # url(r'^(?P<proposal_id>\d+)/contract/new/$',
-    #     a.create_contract, name='create_contract_url'),
+        a.cancel_proposal,
+        name='cancel_proposal'),
+    # Create Contract
+    url(r'^(?P<proposal_id>\d+)/contract/new/$',
+        a.create_contract,
+        name='create_contract_url'),
 ]
 
 contract_patterns = [
