@@ -45,16 +45,16 @@
 				</thead>
 				<tbody>
 				{% for entry in entry_list %}
-					{% if entry.priority == 'u' %}
+					{% if entry.priority == 'a1' %}
 						<tr class="danger">
-					{% elif entry.priority == 'a' %}
+					{% elif entry.priority == 'a2' %}
 						<tr class="warning">
-					{% elif entry.priority == 'n' %}
+					{% elif entry.priority == 'a3' %}
 						<tr class="info">
 					{% else %}
 						<tr>
 					{% endif %}
-						{% if entry.priority == 'u' %}
+						{% if entry.priority == 'a1' %}
 							<td><a href="{{ entry.get_absolute_url }}">{{ entry.work }} <i class="fa fa-flash urgente"></i></a></td>
 						{% else %}
 							<td><a href="{{ entry.get_absolute_url }}">{{ entry.work }}</a></td>

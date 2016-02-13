@@ -6,10 +6,10 @@ from orcamentos.core.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS
 
 
 class Entry(TimeStampedModel):
-    priority = models.PositiveIntegerField(
-        'prioridade', choices=PRIORITY, default=NORMAL)
-    category = models.PositiveIntegerField(
-        'categoria', choices=CATEGORY, default=1)
+    priority = models.CharField(
+        'prioridade', max_length=2, choices=PRIORITY, default=NORMAL)
+    category = models.CharField(
+        'categoria', max_length=4, choices=CATEGORY, default='or')
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='entry_work')
     person = models.ForeignKey(
@@ -57,8 +57,8 @@ class Proposal(TimeStampedModel):
         u'tipo de orçamento', max_length=20, choices=PROP_TYPE, default='R')
     num_prop_type = models.PositiveIntegerField(
         u'número da revisão', default=0)
-    category = models.PositiveIntegerField(
-        'categoria', choices=CATEGORY, default=1)
+    category = models.CharField(
+        'categoria', max_length=4, choices=CATEGORY, default='or')
     description = models.TextField(u'descrição', blank=True)
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='proposal_work')

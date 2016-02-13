@@ -58,6 +58,7 @@ CUSTOMER_DICT = {
 EMPLOYEE_DICT = {
     'gender': 'M',
     'treatment': 'sr',
+    'slug': 'regis',
     'company': 'Acme',
     'department': 'Tecnologia',
     'cpf': '28586897337',

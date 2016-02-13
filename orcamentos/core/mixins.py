@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from orcamentos.core.lists import URGENTE
 from orcamentos.crm.models import Person, Customer
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work
 
@@ -22,11 +23,11 @@ class DashboardMixin(object):
         return Entry.objects.filter(is_entry=False).count()
 
     def entrys_urgent(self):
-        return Entry.objects.filter(is_entry=False, priority=1).count()
+        return Entry.objects.filter(is_entry=False, priority=URGENTE).count()
 
     def entry_list(self):
         ''' Retorna entradas urgentes '''
-        e = Entry.objects.filter(is_entry=False, priority=1)[:7]
+        e = Entry.objects.filter(is_entry=False, priority=URGENTE)[:7]
         return e
 
     def proposal_list(self):

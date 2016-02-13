@@ -1,21 +1,19 @@
 from django.core import serializers
-# from django.shortcuts import resolve_url as r
 from django.http import HttpResponse
-# from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.mixins import LoginRequiredMixin
-# from django.db.models import Q, F
-# from django.db.models import IntegerField, Count, Case, When
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
-# from django.contrib.auth.models import User
 # from django.core.exceptions import ObjectDoesNotExist
-# from datetime import datetime
-from orcamentos.proposal.models import Entry, Proposal, Contract, Work
-from orcamentos.proposal.forms import EntryForm, ProposalForm, ContractForm, WorkForm
-# from orcamentos.core.mixins import FirstnameSearchMixin, DashboardMixin
-# from orcamentos.core.lists import STATUS, PRIORITY
+from .models import Entry, Proposal, Contract, Work
+from .mixins import EntryMixin
+from .forms import EntryForm, ProposalForm, ContractForm, WorkForm
 
-entry_list = ListView.as_view(model=Entry, paginate_by=10)
+# entry_list = ListView.as_view(model=Entry, paginate_by=10)
+
+
+class EntryList(EntryMixin, ListView):
+    model = Entry
+    paginate_by = 10
 
 # class EntryList(ListView):
 #     template_name = 'core/entry/entry_list.html'

@@ -1,13 +1,9 @@
 from random import randint, choice
 from shell.gen_random_values import gen_string
 from orcamentos.core.models import Entry, Category, Work, Person, Seller
+from orcamentos.core.lists import URGENTE, ALTA, NORMAL, BAIXA
 
-priority_list = (
-    ('u'),
-    ('a'),
-    ('n'),
-    ('b'),
-)
+priority_list = ((URGENTE), (ALTA), (NORMAL), (BAIXA))
 
 # Return min id of work
 try:

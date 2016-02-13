@@ -9,8 +9,8 @@ USER_DICT = {
 }
 
 ENTRY_DICT = {
-    'priority': 3,
-    'category': 1,
+    'priority': 'a3',
+    'category': 'or',
     'description': 'Lorem ipsum dolor sit amet.',
     'is_entry': True,
 }
@@ -19,7 +19,7 @@ PROPOSAL_DICT = {
     'num_prop': 1,
     'prop_type': 'R',
     'num_prop_type': 0,
-    'category': 1,
+    'category': 'or',
     'description': 'Lorem ipsum dolor sit amet.',
     'date_conclusion': timezone.now(),
     'price': 9999.99,
