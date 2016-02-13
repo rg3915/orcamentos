@@ -20,9 +20,9 @@ proposal_patterns = [
     # # Conclude Proposal
     # url(r'^(?P<proposal_id>\d+)/ok/$',
     #     a.conclude_proposal, name='conclude_proposal'),
-    # # Cancel Proposal
-    # url(r'^(?P<proposal_id>\d+)/cancel/$',
-    #     a.cancel_proposal, name='cancel_proposal'),
+    # Cancel Proposal
+    url(r'^(?P<proposal_id>\d+)/cancel/$',
+        a.cancel_proposal, name='cancel_proposal'),
     # # Create Contract
     # url(r'^(?P<proposal_id>\d+)/contract/new/$',
     #     a.create_contract, name='create_contract_url'),
