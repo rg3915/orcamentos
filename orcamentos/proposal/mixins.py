@@ -1,7 +1,7 @@
 from django.db.models import Q
 from .models import Entry, Proposal, Work
 from .forms import PrioritySearchForm, StatusSearchForm
-from orcamentos.core.lists import STATUS, PRIORITY, URGENTE, ALTA, NORMAL, BAIXA
+from orcamentos.utils.lists import STATUS, PRIORITY, URGENTE, ALTA, NORMAL, BAIXA
 
 
 class EntryMixin(object):

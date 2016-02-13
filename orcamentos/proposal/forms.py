@@ -1,6 +1,6 @@
 from django import forms
 from orcamentos.proposal.models import Contract, Entry, Proposal, Work
-from orcamentos.core.lists import PRIORITY
+from orcamentos.utils.lists import PRIORITY
 
 STATUS = (
     ('', ''),

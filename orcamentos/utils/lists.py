@@ -71,6 +71,24 @@ CATEGORY = (
     ('ou', 'outros'),
 )
 
+COMPANY_LIST = (
+    ('Acme'),
+    ('Cyberdyne'),
+    ('Ghostbusters'),
+    ('Globex'),
+    ('Gringotes'),
+    ('ILM'),
+    ('Oscorp'),
+    ('RG Solutions'),
+    ('Stark'),
+    ('Tabajara'),
+    ('Teknotronic'),
+    ('Tivit'),
+    ('Wayne'),
+    ('Wonka'),
+)
+
+
 UF_LIST = (
     ('AC', 'Acre'),
     ('AL', 'Alagoas'),

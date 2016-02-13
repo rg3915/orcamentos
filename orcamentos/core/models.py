@@ -1,6 +1,6 @@
 from django.db import models
 # List of values for use in choices
-from .lists import UF_LIST
+from orcamentos.utils.lists import UF_LIST
 
 
 class TimeStampedModel(models.Model):

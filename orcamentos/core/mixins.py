@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from orcamentos.core.lists import URGENTE
 from orcamentos.crm.models import Person, Customer
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work
+from orcamentos.utils.lists import URGENTE
 
 
 class FirstnameSearchMixin(object):
