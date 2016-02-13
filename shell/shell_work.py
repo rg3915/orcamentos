@@ -3,21 +3,22 @@ import random
 import names
 import csv
 from django.db import IntegrityError
-from orcamentos.core.models import Work, Person, Customer
-from shell.gen_random_values import *
+from orcamentos.crm.models import Person, Customer
+from orcamentos.proposal.models import Work
+from orcamentos.utils.gen_random_values import *
 
 work_list = []
 address_list = []
 
 ''' Lendo os dados de obras_.csv '''
-with open('fixtures/obras_.csv', 'r') as f:
+with open('fix/obras_.csv', 'r') as f:
     r = csv.DictReader(f)
     for dct in r:
         work_list.append(dct)
     f.close()
 
 ''' Lendo os dados de enderecos_.csv '''
-with open('fixtures/enderecos_.csv', 'r') as f:
+with open('fix/enderecos_.csv', 'r') as f:
     r = csv.DictReader(f)
     for dct in r:
         address_list.append(dct)
@@ -44,3 +45,6 @@ for i in range(REPEAT):
         obj.save()
     except IntegrityError:
         print('Registro existente.')
+
+
+# done
