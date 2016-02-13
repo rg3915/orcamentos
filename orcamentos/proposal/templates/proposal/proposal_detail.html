@@ -141,7 +141,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Concluir Orçamento</h4>
       </div>
-    <form action="{ url 'proposal:conclude_proposal' proposal.id %}" method="POST">
+    <form action="{% url 'proposal:conclude_proposal' proposal.id %}" method="POST">
       <div class="modal-body">
       {% csrf_token %}  
           <input id="id_price" name="price" type="text" placeholder="Digite o valor" />
