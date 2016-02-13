@@ -200,4 +200,4 @@ for field in fields:
 button = page.find_element_by_class_name('btn-primary')
 button.click()
 
-# page.quit()
+page.quit()
