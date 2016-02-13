@@ -89,28 +89,29 @@ class Proposal(TimeStampedModel):
     def get_absolute_url(self):
         return r('proposal:proposal_detail', pk=self.pk)
 
-    # def get_price(self):
-    #     return u"R$ %s" % number_format(self.price, 2)
+    def get_price(self):
+        return u"R$ %s" % number_format(self.price, 2)
 
-    # def get_customer(self):
-    #     return self.work.customer
-    # cliente = property(get_customer)
+    def get_customer(self):
+        return self.work.customer
+    cliente = property(get_customer)
 
-    # def get_customer_url(self):
-    #     return u'/customer/%i' % self.work.customer.id
+    def get_customer_url(self):
+        return u'/customer/%i' % self.work.customer.id
 
-    # def get_work_url(self):
-    #     return u'/work/%i' % self.work.id
+    def get_work_url(self):
+        return u'/work/%i' % self.work.id
 
-    # def get_person_url(self):
-    #     return u'/person/%i' % self.person.id
+    def get_person_url(self):
+        return u'/person/%i' % self.person.id
 
-    # def get_seller(self):
-    #     return self.seller.employee.user.first_name
+    def get_seller(self):
+        if self.seller:
+            return self.seller.employee.user.first_name
 
-    # def get_address(self):
-    #     return u'%s, %s, %s - %s' % (self.work.address, self.work.district,
-    #                                  self.work.city, self.work.uf)
+    def get_address(self):
+        if self.work.address:
+            return '{}, {}, {} - {}'.format(self.work.address, self.work.district, self.work.city, self.work.uf)
 
 
 class Contract(TimeStampedModel):

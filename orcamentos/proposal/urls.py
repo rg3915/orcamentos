@@ -1,5 +1,6 @@
 from django.conf.urls import include, url
 from orcamentos.proposal import views as p
+from orcamentos.proposal import actions as a
 
 entry_patterns = [
     url(r'^$', p.entry_list, name='entry_list'),
@@ -8,7 +9,8 @@ entry_patterns = [
     url(r'^(?P<pk>\d+)/edit/$', p.entry_update, name='entry_edit'),
     url(r'^add/$', p.entry_create, name='entry_add'),
     # Create Proposal
-    # url(r'^(?P<entry_id>\d+)/proposal/new/$', a.create_proposal, name='create_proposal_url'),
+    url(r'^(?P<entry_id>\d+)/proposal/new/$',
+        a.create_proposal, name='create_proposal_url'),
 ]
 
 proposal_patterns = [

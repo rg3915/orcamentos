@@ -47,14 +47,14 @@
       </tr>
       <tr>
         <th class="col-md-3 text-right">Categoria</th>
-        <td>{{ object.category }}</td>
+        <td>{{ object.get_category_display }}</td>
       </tr>
       <tr>
         <th class="col-md-3 text-right">Cliente</th>
         <td><h2><a href="{{ object.get_customer_url }}">{{ object.cliente }}</a></h2></td>
       </tr>
         <th class="col-md-3 text-right">Tipo de cliente</th>
-        <td>{{ object.cliente.get_type_customer_display }}</td>
+        <td>{{ object.cliente.get_customer_type_display }}</td>
       </tr>
       <tr>
         <th class="col-md-3 text-right">Obra</th>
@@ -62,7 +62,7 @@
       </tr>
       <tr>
         <th class="col-md-3 text-right">Endereço</th>
-        <td>{{ object.get_address }} </td>
+        <td>{{ object.get_address|default:"---" }} </td>
       </tr>
       {% if object.person %}
         <tr>
@@ -79,15 +79,13 @@
         </tr>
       {% endif %}
 
-      {% if object.description %}
-        <tr>
-          <th class="col-md-3 text-right">Descrição</th>
-          <td>{{ object.description }}</td>
-        </tr>
-      {% endif %}
+      <tr>
+        <th class="col-md-3 text-right">Descrição</th>
+        <td>{{ object.description|default:"---" }}</td>
+      </tr>
       <tr>
         <th class="col-md-3 text-right">Vendedor</th>
-        <td>{{ object.get_seller }}</td>
+        <td>{{ object.get_seller|default:"---" }}</td>
       </tr>
       {% if object.price != 0 %}
         <tr>
