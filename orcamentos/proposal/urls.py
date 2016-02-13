@@ -5,7 +5,7 @@ from orcamentos.proposal import actions as a
 entry_patterns = [
     url(r'^$', p.entry_list, name='entry_list'),
     url(r'^(?P<pk>\d+)/$', p.entry_detail, name='entry_detail'),
-    # url(r'^(?P<pk>\d+)/json/$', p.entry_detail_json, name='entry_detail_json'),
+    url(r'^(?P<pk>\d+)/json/$', p.entry_detail_json, name='entry_detail_json'),
     url(r'^(?P<pk>\d+)/edit/$', p.entry_update, name='entry_edit'),
     url(r'^add/$', p.entry_create, name='entry_add'),
 

@@ -1,7 +1,6 @@
-# import json
-# from django.core import serializers
+from django.core import serializers
 # from django.shortcuts import resolve_url as r
-# from django.http import HttpResponse
+from django.http import HttpResponse
 # from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.mixins import LoginRequiredMixin
 # from django.db.models import Q, F
@@ -52,10 +51,10 @@ entry_list = ListView.as_view(model=Entry, paginate_by=10)
 #         return e
 
 
-# def entry_detail_json(request, pk):
-#     data = Entry.objects.filter(pk=pk)
-#     s = serializers.serialize("json", data)
-#     return HttpResponse(s)
+def entry_detail_json(request, pk):
+    data = Entry.objects.filter(pk=pk)
+    s = serializers.serialize("json", data)
+    return HttpResponse(s)
 
 entry_detail = DetailView.as_view(model=Entry)
 
