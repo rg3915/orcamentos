@@ -42,10 +42,12 @@ class Phone(models.Model):
 
 class Person(People):
     first_name = models.CharField('nome', max_length=50)
-    last_name = models.CharField('sobrenome', max_length=50, blank=True)
+    last_name = models.CharField(
+        'sobrenome', max_length=50, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     occupation = models.ForeignKey(
-        'Occupation', verbose_name='cargo', related_name='person_occupation', null=True, blank=True)
+        'Occupation', verbose_name='cargo', related_name='person_occupation',
+        null=True, blank=True)
 
     class Meta:
         ordering = ['first_name']
@@ -61,11 +63,13 @@ class Person(People):
 
 class Customer(People):
     first_name = models.CharField('nome', max_length=50)
-    last_name = models.CharField('sobrenome', max_length=50, blank=True)
+    last_name = models.CharField(
+        'sobrenome', max_length=50, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
-    cnpj = models.CharField('CNPJ', max_length=14,
-                            unique=True, null=True, blank=True)
-    ie = models.CharField(u'inscrição estadual', max_length=12, blank=True)
+    cnpj = models.CharField(
+        'CNPJ', max_length=14, unique=True, null=True, blank=True)
+    ie = models.CharField(
+        u'inscrição estadual', max_length=12, null=True, blank=True)
     customer_type = models.CharField(
         'tipo', max_length=1, choices=CUSTOMER_TYPE)
 
@@ -84,7 +88,8 @@ class Customer(People):
 class Employee(People):
     user = models.OneToOneField(User)
     occupation = models.ForeignKey(
-        'Occupation', verbose_name='cargo', related_name='employee_occupation', null=True, blank=True)
+        'Occupation', verbose_name='cargo', related_name='employee_occupation',
+        null=True, blank=True)
     date_entry = models.DateTimeField('data de entrada', null=True, blank=True)
     date_release = models.DateTimeField(
         u'data de saída', null=True, blank=True)
@@ -98,13 +103,13 @@ class Employee(People):
         return str(self.user)
 
 
-# @receiver(signals.post_save, sender=User)
-# def create_employee(sender, instance, created, **kwargs):
-#     # Create employee
-#     if created:
-#         Employee.objects.get_or_create(
-#             user=instance, slug=str(instance), date_entry=instance.date_joined)
-#         print('Instance: ' + str(instance))
+@receiver(signals.post_save, sender=User)
+def create_employee(sender, instance, created, **kwargs):
+    # Create employee
+    if created:
+        Employee.objects.get_or_create(
+            user=instance, slug=str(instance), date_entry=instance.date_joined)
+        print('Instance: ' + str(instance))
 
 
 class Occupation(models.Model):

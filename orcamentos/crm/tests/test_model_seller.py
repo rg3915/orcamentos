@@ -7,7 +7,12 @@ from .data import USER_DICT, EMPLOYEE_DICT, SELLER_DICT
 class SellerTest(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create(**USER_DICT)
+        self.user = User.objects.create(
+            username='pedro',
+            first_name='Pedro',
+            last_name='Joe',
+            email='pedro@example.com',
+            password='dfmvtpwa',)
         self.occupation = Occupation.objects.create(occupation='Gerente')
         self.employee = Employee.objects.create(
             user=self.user,
