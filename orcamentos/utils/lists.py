@@ -71,6 +71,17 @@ CATEGORY = (
     ('ou', 'outros'),
 )
 
+OCCUPATION_LIST = (
+    u'Arquiteto',
+    u'Coordenador',
+    u'Diretor',
+    u'Engenheiro',
+    u'Estagiário',
+    u'Gerente',
+    u'Orçamentista',
+    u'Vendedor',
+)
+
 COMPANY_LIST = (
     ('Acme'),
     ('Cyberdyne'),
