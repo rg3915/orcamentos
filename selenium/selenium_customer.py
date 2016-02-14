@@ -2,7 +2,7 @@ import time
 import csv
 from random import randint, choice
 from gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
-from gen_random_values import gen_cpf, gen_rg, gen_phone
+from gen_random_values import gen_cpf, gen_rg, gen_digits, gen_phone
 from selenium import webdriver
 # from selenium.webdriver.common.keys import Keys
 
@@ -10,16 +10,16 @@ from selenium import webdriver
 page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
 page.maximize_window()
 time.sleep(0.5)
-page.get('http://localhost:8000/person/add/')
+page.get('http://localhost:8000/crm/customer/add/')
 
-search = page.find_element_by_id('id_username')
-search.send_keys('regis')
+# search = page.find_element_by_id('id_username')
+# search.send_keys('regis')
 
-search = page.find_element_by_id('id_password')
-search.send_keys('1')
+# search = page.find_element_by_id('id_password')
+# search.send_keys('1')
 
-button = page.find_element_by_xpath("//input[@type='submit']")
-button.click()
+# button = page.find_element_by_xpath("//input[@type='submit']")
+# button.click()
 
 g = randint(0, 1)
 
@@ -36,6 +36,10 @@ last_name = gen_last_name()
 print(first_name, last_name)
 
 email = '{}.{}@example.com'.format(first_name[0].lower(), last_name.lower())
+
+slug = '{}-{}'.format(first_name.lower(), last_name.lower())
+
+photo = 'http://icons.iconarchive.com/icons/icons-land/vista-people/256/Office-Customer-Male-Light-icon.png'
 
 company_list = (
     ('Acme'),
@@ -60,7 +64,7 @@ department_list = (
 address_list = []
 
 ''' Lendo os dados de enderecos_.csv '''
-with open('fixtures/enderecos_.csv', 'r') as f:
+with open('fix/enderecos_.csv', 'r') as f:
     r = csv.DictReader(f)
     for dct in r:
         address_list.append(dct)
@@ -75,17 +79,17 @@ fields = [
     ['id_treatment', treatment],
     ['id_first_name', first_name],
     ['id_last_name', last_name],
+    ['id_slug', slug],
+    ['id_photo', photo],
     ['id_company', choice(company_list)],
     ['id_department', choice(department_list)],
-    ['id_occupation', 'Estagiário'],
     ['id_email', email],
-    ['id_phone1', gen_phone()],
-    ['id_phone2', gen_phone()],
-    ['id_phone3', gen_phone()],
     ['id_cpf', gen_cpf()],
     ['id_rg', gen_rg()],
+    ['id_cnpj', gen_digits(14)],
+    ['id_ie', gen_digits(12)],
     ['id_address', address_list[INDEX]['address']],
-    ['id_complement', str(randint(1, 30)) + 'º andar'],
+    ['id_complement', 'Apto 303'],
     ['id_district', address_list[INDEX]['district']],
     ['id_city', address_list[INDEX]['city']],
     ['id_uf', address_list[INDEX]['city']],  # deixa city mesmo

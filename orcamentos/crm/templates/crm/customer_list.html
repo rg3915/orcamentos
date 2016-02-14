@@ -29,6 +29,7 @@
   <thead>
     <tr>
       <th>Nome</th>
+      <th>Foto</th>
       <th>e-mail</th>
       <th>Telefone</th>
       <th>Empresa</th>
@@ -40,6 +41,7 @@
   {% for customer in customer_list %}
     <tr>
       <td><a href="{{ customer.get_absolute_url }}">{{ customer.full_name }}</a></td>
+      <td><img src="{{ customer.photo|default:'https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png' }}" class="img-square" style="height: 20px;" /></td>
       <td>{{ customer.email|default:"---" }}</td>
       <td>{{ customer.phone1|default:"---" }}</td>
       <td>{{ customer.company|default:"---" }}</td>

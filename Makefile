@@ -51,22 +51,25 @@ shell_contract:
 	./manage.py shell < shell/shell_contract.py
 
 selenium_login:
-	python orcamentos/core/tests/selenium/selenium_login.py
+	python selenium/selenium_login.py
 
 selenium_entry:
-	python orcamentos/core/tests/selenium/selenium_entry.py
+	python selenium/selenium_entry.py
 
 selenium_person:
-	python orcamentos/core/tests/selenium/selenium_person.py
+	python selenium/selenium_person.py
 
 selenium_customer:
-	python orcamentos/core/tests/selenium/selenium_customer.py
+	python selenium/selenium_customer.py
 
 selenium_work:
-	python orcamentos/core/tests/selenium/selenium_work.py
+	python selenium/selenium_work.py
+
+selenium_registration:
+	python selenium/selenium_registration.py
 
 selenium_all_pages:
-	python orcamentos/core/tests/selenium/selenium_all_pages.py
+	python selenium/selenium_all_pages.py
 
 backup:
 	./manage.py dumpdata core --format=json --indent=2 > fixtures.json

@@ -36,10 +36,10 @@ CUSTOMER_TYPE = (
     ('p', 'particular')
 )
 
-URGENTE = 1
-ALTA = 2
-NORMAL = 3
-BAIXA = 4
+URGENTE = 'a1'
+ALTA = 'a2'
+NORMAL = 'a3'
+BAIXA = 'a4'
 PRIORITY = (
     (URGENTE, 'Urgente'),
     (ALTA, 'Alta'),
@@ -61,15 +61,33 @@ STATUS = (
 )
 
 CATEGORY = (
-    (1, 'orçamento'),
-    (2, 'concorrência'),
-    (3, 'consulta'),
-    (4, 'cotação'),
-    (5, 'extra'),
-    (6, 'global'),
-    (7, 'particular'),
-    (8, 'outros'),
+    ('or', 'orçamento'),
+    ('cc', 'concorrência'),
+    ('cn', 'consulta'),
+    ('ct', 'cotação'),
+    ('e', 'extra'),
+    ('g', 'global'),
+    ('p', 'particular'),
+    ('ou', 'outros'),
 )
+
+COMPANY_LIST = (
+    ('Acme'),
+    ('Cyberdyne'),
+    ('Ghostbusters'),
+    ('Globex'),
+    ('Gringotes'),
+    ('ILM'),
+    ('Oscorp'),
+    ('RG Solutions'),
+    ('Stark'),
+    ('Tabajara'),
+    ('Teknotronic'),
+    ('Tivit'),
+    ('Wayne'),
+    ('Wonka'),
+)
+
 
 UF_LIST = (
     ('AC', 'Acre'),

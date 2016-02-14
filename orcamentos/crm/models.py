@@ -1,21 +1,26 @@
 from django.db import models
+from django.dispatch import receiver
+from django.db.models import signals
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
 from orcamentos.core.models import TimeStampedModel, Address
-from orcamentos.core.lists import GENDER, TREATMENT, PHONE_TYPE, CUSTOMER_TYPE
+from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, CUSTOMER_TYPE
 
 
 class People(TimeStampedModel, Address):
-    gender = models.CharField(u'gênero', max_length=1, choices=GENDER)
+    gender = models.CharField(u'gênero', max_length=1,
+                              choices=GENDER, null=True, blank=True)
     treatment = models.CharField(
-        'tratamento', max_length=4, choices=TREATMENT, blank=True)
+        'tratamento', max_length=4, choices=TREATMENT, null=True, blank=True)
     slug = models.SlugField('slug')
     photo = models.URLField('foto', null=True, blank=True)
     birthday = models.DateTimeField('nascimento', null=True, blank=True)
-    company = models.CharField('empresa', max_length=50, blank=True)
-    department = models.CharField('departamento', max_length=50, blank=True)
-    cpf = models.CharField('CPF', max_length=11, unique=True, blank=True)
-    rg = models.CharField('RG', max_length=11, blank=True)
+    company = models.CharField('empresa', max_length=50, null=True, blank=True)
+    department = models.CharField(
+        'departamento', max_length=50, null=True, blank=True)
+    cpf = models.CharField(
+        'CPF', max_length=11, unique=True, null=True, blank=True)
+    rg = models.CharField('RG', max_length=11, null=True, blank=True)
     active = models.BooleanField('ativo', default=True)
     blocked = models.BooleanField('bloqueado', default=False)
 
@@ -58,7 +63,8 @@ class Customer(People):
     first_name = models.CharField('nome', max_length=50)
     last_name = models.CharField('sobrenome', max_length=50, blank=True)
     email = models.EmailField(null=True, blank=True)
-    cnpj = models.CharField('CNPJ', max_length=14, unique=True, blank=True)
+    cnpj = models.CharField('CNPJ', max_length=14,
+                            unique=True, null=True, blank=True)
     ie = models.CharField(u'inscrição estadual', max_length=12, blank=True)
     customer_type = models.CharField(
         'tipo', max_length=1, choices=CUSTOMER_TYPE)
@@ -91,7 +97,14 @@ class Employee(People):
     def __str__(self):
         return str(self.user)
 
-# User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
+
+# @receiver(signals.post_save, sender=User)
+# def create_employee(sender, instance, created, **kwargs):
+#     # Create employee
+#     if created:
+#         Employee.objects.get_or_create(
+#             user=instance, slug=str(instance), date_entry=instance.date_joined)
+#         print('Instance: ' + str(instance))
 
 
 class Occupation(models.Model):

@@ -1,14 +1,15 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
+from django.utils.formats import number_format
 from orcamentos.core.models import TimeStampedModel, Address
-from orcamentos.core.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS
+from orcamentos.utils.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS
 
 
 class Entry(TimeStampedModel):
-    priority = models.PositiveIntegerField(
-        'prioridade', choices=PRIORITY, default=NORMAL)
-    category = models.PositiveIntegerField(
-        'categoria', choices=CATEGORY, default=1)
+    priority = models.CharField(
+        'prioridade', max_length=2, choices=PRIORITY, default=NORMAL)
+    category = models.CharField(
+        'categoria', max_length=4, choices=CATEGORY, default='or')
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='entry_work')
     person = models.ForeignKey(
@@ -56,8 +57,8 @@ class Proposal(TimeStampedModel):
         u'tipo de orçamento', max_length=20, choices=PROP_TYPE, default='R')
     num_prop_type = models.PositiveIntegerField(
         u'número da revisão', default=0)
-    category = models.PositiveIntegerField(
-        'categoria', choices=CATEGORY, default=1)
+    category = models.CharField(
+        'categoria', max_length=4, choices=CATEGORY, default='or')
     description = models.TextField(u'descrição', blank=True)
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='proposal_work')
@@ -89,28 +90,29 @@ class Proposal(TimeStampedModel):
     def get_absolute_url(self):
         return r('proposal:proposal_detail', pk=self.pk)
 
-    # def get_price(self):
-    #     return u"R$ %s" % number_format(self.price, 2)
+    def get_price(self):
+        return u"R$ %s" % number_format(self.price, 2)
 
-    # def get_customer(self):
-    #     return self.work.customer
-    # cliente = property(get_customer)
+    def get_customer(self):
+        return self.work.customer
+    cliente = property(get_customer)
 
-    # def get_customer_url(self):
-    #     return u'/customer/%i' % self.work.customer.id
+    def get_customer_url(self):
+        return u'/customer/%i' % self.work.customer.id
 
-    # def get_work_url(self):
-    #     return u'/work/%i' % self.work.id
+    def get_work_url(self):
+        return u'/work/%i' % self.work.id
 
-    # def get_person_url(self):
-    #     return u'/person/%i' % self.person.id
+    def get_person_url(self):
+        return u'/person/%i' % self.person.id
 
-    # def get_seller(self):
-    #     return self.seller.employee.user.first_name
+    def get_seller(self):
+        if self.seller:
+            return self.seller.employee.user.first_name
 
-    # def get_address(self):
-    #     return u'%s, %s, %s - %s' % (self.work.address, self.work.district,
-    #                                  self.work.city, self.work.uf)
+    def get_address(self):
+        if self.work.address:
+            return '{}, {}, {} - {}'.format(self.work.address, self.work.district, self.work.city, self.work.uf)
 
 
 class Contract(TimeStampedModel):
