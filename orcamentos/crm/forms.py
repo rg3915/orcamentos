@@ -1,4 +1,6 @@
 from django import forms
+
+from orcamentos.crm.validate import validate_documents
 from orcamentos.utils.lists import GENDER, CUSTOMER_TYPE
 from orcamentos.crm.models import Customer, Person
 
@@ -20,7 +22,11 @@ class CustomerForm(forms.ModelForm):
         return self.cleaned_data['cpf'] or None
 
     def clean_cnpj(self):
-        return self.cleaned_data['cnpj'] or None
+        if not self.cleaned_data['cnpj']:
+            return None
+        else:
+            validate_documents.cnpj(self.cleaned_data['cnpj'])
+            return self.cleaned_data['cnpj']
 
 
 class PersonForm(forms.ModelForm):
