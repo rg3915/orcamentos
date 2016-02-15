@@ -65,3 +65,4 @@ target/
 .venv/
 staticfiles/
 .ipynb_checkpoints/
+.idea/

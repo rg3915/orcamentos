@@ -98,13 +98,11 @@ class Employee(People):
         return str(self.user)
 
 
-# @receiver(signals.post_save, sender=User)
-# def create_employee(sender, instance, created, **kwargs):
-#     # Create employee
-#     if created:
-#         Employee.objects.get_or_create(
-#             user=instance, slug=str(instance), date_entry=instance.date_joined)
-#         print('Instance: ' + str(instance))
+@receiver(signals.post_save, sender=User)
+def on_create_employee(sender, instance, created, **kwargs):
+    """It will be called after creation of a new user"""
+    if created:
+        print('Instance: ' + str(instance))
 
 
 class Occupation(models.Model):
