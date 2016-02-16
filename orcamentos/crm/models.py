@@ -5,6 +5,7 @@ from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
 from orcamentos.core.models import TimeStampedModel, Address
 from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, CUSTOMER_TYPE
+from orcamentos.crm.validate.validate_documents import cnpj
 
 
 class People(TimeStampedModel, Address):
@@ -64,7 +65,7 @@ class Customer(People):
     last_name = models.CharField('sobrenome', max_length=50, blank=True)
     email = models.EmailField(null=True, blank=True)
     cnpj = models.CharField('CNPJ', max_length=14,
-                            unique=True, null=True, blank=True)
+                            unique=True, null=True, blank=True, validators=[cnpj])
     ie = models.CharField(u'inscrição estadual', max_length=12, blank=True)
     customer_type = models.CharField(
         'tipo', max_length=1, choices=CUSTOMER_TYPE)
