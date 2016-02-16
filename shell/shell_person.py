@@ -7,7 +7,6 @@ from orcamentos.utils.lists import COMPANY_LIST
 from orcamentos.utils.gen_random_values import *
 from orcamentos.utils.gen_names import *
 
-
 address_list = []
 REPEAT = 48
 
@@ -17,6 +16,17 @@ with open('fix/enderecos_.csv', 'r') as f:
     for dct in r:
         address_list.append(dct)
     f.close()
+
+if not Occupation.objects.all().count():
+    Occupation.objects.create(occupation=u'Arquiteto')
+    Occupation.objects.create(occupation=u'Coordenador')
+    Occupation.objects.create(occupation=u'Diretor')
+    Occupation.objects.create(occupation=u'Engenheiro')
+    Occupation.objects.create(occupation=u'Estagiário')
+    Occupation.objects.create(occupation=u'Gerente')
+    Occupation.objects.create(occupation=u'Orçamentista')
+    Occupation.objects.create(occupation=u'Vendedor')
+
 
 occupation = Occupation.objects.get(pk=1)
 obj = Person(

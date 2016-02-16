@@ -1,9 +1,5 @@
 from orcamentos.crm.models import Occupation
-Occupation.objects.create(occupation=u'Arquiteto')
-Occupation.objects.create(occupation=u'Coordenador')
-Occupation.objects.create(occupation=u'Diretor')
-Occupation.objects.create(occupation=u'Engenheiro')
-Occupation.objects.create(occupation=u'Estagiário')
-Occupation.objects.create(occupation=u'Gerente')
-Occupation.objects.create(occupation=u'Orçamentista')
-Occupation.objects.create(occupation=u'Vendedor')
+from orcamentos.utils.lists import CUSTOMER_TYPE, COMPANY_LIST, OCCUPATION_LIST
+
+obj = [Occupation(occupation=val) for val in OCCUPATION_LIST]
+Occupation.objects.bulk_create(obj)

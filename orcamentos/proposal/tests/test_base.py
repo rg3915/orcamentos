@@ -2,14 +2,19 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from orcamentos.crm.models import Person, Customer, Employee, Occupation, Seller
 from orcamentos.proposal.models import Entry, Work, Proposal, Contract
-from orcamentos.crm.tests.data import USER_DICT, PERSON_DICT, CUSTOMER_DICT, EMPLOYEE_DICT, SELLER_DICT
+from orcamentos.crm.tests.data import PERSON_DICT, CUSTOMER_DICT, EMPLOYEE_DICT, SELLER_DICT
 from orcamentos.proposal.tests.data import ENTRY_DICT, WORK_DICT, PROPOSAL_DICT
 
 
 class BaseEntryTest(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create(**USER_DICT)
+        self.user = User.objects.create(
+            username='regis',
+            first_name='Regis',
+            last_name='da Silva',
+            email='regis@example.com',
+            password='wpxysntq',)
 
         self.occupation = Occupation.objects.create(occupation='Gerente')
 
@@ -38,7 +43,12 @@ class BaseEntryTest(TestCase):
 class BaseProposalTest(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create(**USER_DICT)
+        self.user = User.objects.create(
+            username='daniel',
+            first_name='Daniel',
+            last_name='Sousa',
+            email='daniel@example.com',
+            password='pkwltxsa',)
 
         self.occupation = Occupation.objects.create(occupation='Gerente')
 
@@ -68,7 +78,13 @@ class BaseProposalTest(TestCase):
 class BaseContractTest(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create(**USER_DICT)
+        self.user = User.objects.create(
+            username='jose',
+            first_name='Jose',
+            last_name='Maria',
+            email='jose@example.com',
+            password='dklhgtmr',
+        )
 
         self.occupation = Occupation.objects.create(occupation='Gerente')
 

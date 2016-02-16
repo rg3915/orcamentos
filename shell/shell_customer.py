@@ -2,40 +2,24 @@ import io
 import random
 import names
 import csv
-from orcamentos.core.models import Customer
-from shell.gen_random_values import *
-from shell.gen_names import *
+from orcamentos.crm.models import Customer
+from orcamentos.utils.lists import CUSTOMER_TYPE, COMPANY_LIST
+from orcamentos.utils.gen_random_values import *
+from orcamentos.utils.gen_names import *
 
-type_customer = (
-    ('c', 'construtora'),
-    ('a', 'arquitetura'),
-    ('p', 'particular')
-)
-
-
-company_list = (
-    ('Acme'),
-    ('Cyberdyne'),
-    ('Globex'),
-    ('Gringotes'),
-    ('ILM'),
-    ('Oscorp'),
-    ('Tivit'),
-    ('Wayne'),
-)
 
 customer_list = []
 address_list = []
 
 ''' Lendo os dados de clientes_.csv '''
-with open('fixtures/clientes_.csv', 'r') as f:
+with open('fix/clientes_.csv', 'r') as f:
     r = csv.DictReader(f)
     for dct in r:
         customer_list.append(dct)
     f.close()
 
 ''' Lendo os dados de enderecos_.csv '''
-with open('fixtures/enderecos_.csv', 'r') as f:
+with open('fix/enderecos_.csv', 'r') as f:
     r = csv.DictReader(f)
     for dct in r:
         address_list.append(dct)
@@ -52,33 +36,30 @@ for i in range(REPEAT):
         treatment = gen_female_first_name()['treatment']
         first_name = gen_female_first_name()['first_name']
     last_name = names.get_last_name()
-    phone1 = gen_phone()
-    phone2 = gen_phone()
-    phone3 = gen_phone()
     if i < 17:
         gender = 'M'
         treatment = None
         first_name = customer_list[i]['first_name']
         last_name = None
         company = None
-        type_customer = customer_list[i]['type_customer']
+        customer_type = customer_list[i]['customer_type']
         email = None
     else:
         gender = g
-        company = random.choice(company_list)
+        company = random.choice(COMPANY_LIST)
         # department=''
-        type_customer = 'p'
-        email = first_name[0].lower() + \
-            '.' + last_name.lower() + '@example.com'
-    if type_customer == 'p':
-        cpf = gen_doc()
-        rg = gen_doc(9)
+        customer_type = 'p'
+        email = first_name[0].lower() + '.' + \
+            last_name.lower() + '@example.com'
+    if customer_type == 'p':
+        cpf = gen_cpf()
+        rg = gen_rg()
         cnpj = None
         ie = None
     else:
         cpf = None
         rg = None
-        cnpj = gen_doc(14)
+        cnpj = gen_digits(14)
         ie = 'isento'
     Customer.objects.create(
         gender=g,
@@ -88,10 +69,7 @@ for i in range(REPEAT):
         company=company,
         # department='',
         email=email,
-        phone1=phone1,
-        phone2=phone2,
-        phone3=phone3,
-        type_customer=type_customer,
+        customer_type=customer_type,
         cpf=cpf,
         rg=rg,
         cnpj=cnpj,
@@ -104,4 +82,5 @@ for i in range(REPEAT):
         active=True,
     )
 
-print('%d Customers salvo com sucesso.' % REPEAT)
+# print('%d Customers salvo com sucesso.' % REPEAT)
+# done

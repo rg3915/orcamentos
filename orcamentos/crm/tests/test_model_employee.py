@@ -8,7 +8,12 @@ from .data import USER_DICT, EMPLOYEE_DICT
 class EmployeeTest(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create(**USER_DICT)
+        self.user = User.objects.create(
+            username='abel',
+            first_name='Abel',
+            last_name='Lima',
+            email='abel@example.com',
+            password='wplysntw',)
         self.occupation = Occupation.objects.create(occupation='Gerente')
         self.obj = Employee.objects.get(user=self.user)
 

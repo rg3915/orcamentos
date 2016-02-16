@@ -1,12 +1,5 @@
 from django.utils import timezone
 
-USER_DICT = {
-    'username': 'regis',
-    'first_name': 'Regis',
-    'last_name': 'da Silva',
-    'email': 'regis@example.com',
-    'password': 'demodemo',
-}
 
 ENTRY_DICT = {
     'priority': 'a3',
