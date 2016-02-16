@@ -1,23 +1,15 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 from orcamentos.crm.models import Employee, Occupation, Seller
-from .data import USER_DICT, EMPLOYEE_DICT, SELLER_DICT
+from .data import USER_DICT, SELLER_DICT
 
 
 class SellerTest(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create(
-            username='pedro',
-            first_name='Pedro',
-            last_name='Joe',
-            email='pedro@example.com',
-            password='dfmvtpwa',)
+        self.user = User.objects.create(**USER_DICT)
         self.occupation = Occupation.objects.create(occupation='Gerente')
-        self.employee = Employee.objects.create(
-            user=self.user,
-            occupation=self.occupation,
-            **EMPLOYEE_DICT)
+        self.employee = Employee.objects.get(user=self.user)
         self.obj = Seller.objects.create(employee=self.employee, **SELLER_DICT)
 
     def test_create(self):

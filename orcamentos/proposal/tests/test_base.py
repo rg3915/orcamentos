@@ -23,10 +23,7 @@ class BaseEntryTest(TestCase):
 
         self.customer = Customer.objects.create(**CUSTOMER_DICT)
 
-        self.employee = Employee.objects.create(
-            user=self.user,
-            occupation=self.occupation,
-            **EMPLOYEE_DICT)
+        self.employee = Employee.objects.get(user=self.user)
 
         self.seller = Seller.objects.create(
             employee=self.employee, **SELLER_DICT)
@@ -60,10 +57,7 @@ class BaseProposalTest(TestCase):
 
         self.customer = Customer.objects.create(**CUSTOMER_DICT)
 
-        self.employee = Employee.objects.create(
-            user=self.user,
-            occupation=self.occupation,
-            **EMPLOYEE_DICT)
+        self.employee = Employee.objects.get(user=self.user)
 
         self.seller = Seller.objects.create(
             employee=self.employee, **SELLER_DICT)
@@ -99,10 +93,7 @@ class BaseContractTest(TestCase):
 
         self.customer = Customer.objects.create(**CUSTOMER_DICT)
 
-        self.employee = Employee.objects.create(
-            user=self.user,
-            occupation=self.occupation,
-            **EMPLOYEE_DICT)
+        self.employee = Employee.objects.get(user=self.user)
 
         self.seller = Seller.objects.create(
             employee=self.employee, **SELLER_DICT)

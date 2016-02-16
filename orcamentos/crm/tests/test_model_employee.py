@@ -2,23 +2,15 @@ from datetime import datetime
 from django.test import TestCase
 from django.contrib.auth.models import User
 from orcamentos.crm.models import Employee, Occupation
-from .data import USER_DICT, EMPLOYEE_DICT
+from .data import USER_DICT
 
 
 class EmployeeTest(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create(
-            username='abel',
-            first_name='Abel',
-            last_name='Lima',
-            email='abel@example.com',
-            password='wplysntw',)
+        self.user = User.objects.create(**USER_DICT)
         self.occupation = Occupation.objects.create(occupation='Gerente')
-        self.obj = Employee.objects.create(
-            user=self.user,
-            occupation=self.occupation,
-            **EMPLOYEE_DICT)
+        self.obj = Employee.objects.get(user=self.user)
 
     def test_create(self):
         self.assertTrue(Employee.objects.exists())
