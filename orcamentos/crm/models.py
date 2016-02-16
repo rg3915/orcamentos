@@ -85,9 +85,9 @@ class Employee(People):
     user = models.OneToOneField(User)
     occupation = models.ForeignKey(
         'Occupation', verbose_name='cargo', related_name='employee_occupation', null=True, blank=True)
-    date_entry = models.DateTimeField('data de entrada', null=True, blank=True)
+    date_entry = models.DateTimeField('data de entrada', null=True, blank=True, auto_now=True)
     date_release = models.DateTimeField(
-        u'data de saída', null=True, blank=True)
+        u'data de saída', null=True, blank=True, auto_now=True)
 
     class Meta:
         ordering = ['user__first_name']
@@ -102,7 +102,7 @@ class Employee(People):
 def on_create_employee(sender, instance, created, **kwargs):
     """It will be called after creation of a new user"""
     if created:
-        print('Instance: ' + str(instance))
+        Employee.objects.get_or_create(user=instance)
 
 
 class Occupation(models.Model):

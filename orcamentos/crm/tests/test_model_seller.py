@@ -9,10 +9,7 @@ class SellerTest(TestCase):
     def setUp(self):
         self.user = User.objects.create(**USER_DICT)
         self.occupation = Occupation.objects.create(occupation='Gerente')
-        self.employee = Employee.objects.create(
-            user=self.user,
-            occupation=self.occupation,
-            **EMPLOYEE_DICT)
+        self.employee = Employee.objects.get(user=self.user)
         self.obj = Seller.objects.create(employee=self.employee, **SELLER_DICT)
 
     def test_create(self):

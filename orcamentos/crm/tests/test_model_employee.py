@@ -10,10 +10,7 @@ class EmployeeTest(TestCase):
     def setUp(self):
         self.user = User.objects.create(**USER_DICT)
         self.occupation = Occupation.objects.create(occupation='Gerente')
-        self.obj = Employee.objects.create(
-            user=self.user,
-            occupation=self.occupation,
-            **EMPLOYEE_DICT)
+        self.obj = Employee.objects.get(user=self.user)
 
     def test_create(self):
         self.assertTrue(Employee.objects.exists())
