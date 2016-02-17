@@ -1,6 +1,16 @@
 from django.contrib import admin
-from orcamentos.crm.models import Person, Occupation, Customer, Employee, Seller
-from orcamentos.crm.forms import CustomerForm
+from orcamentos.crm.models import Person, Occupation, Customer, Phone, Employee, Seller
+from orcamentos.crm.forms import CustomerForm, EmployeeAdminForm
+
+
+class PhoneInline(admin.TabularInline):
+    model = Phone
+    extra = 1
+
+
+@admin.register(Person)
+class PersonAdmin(admin.ModelAdmin):
+    inlines = [PhoneInline]
 
 
 @admin.register(Customer)
@@ -26,10 +36,11 @@ class CustomerAdmin(admin.ModelAdmin):
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'slug', 'date_entry', 'date_release', 'active')
+    list_display = ('__str__', 'slug', 'date_joined',
+                    'date_release', 'is_staff', 'active')
     search_fields = ('first_name', 'last_name',)
-    date_hierarchy = 'date_entry'
+    date_hierarchy = 'date_joined'
+    form = EmployeeAdminForm
 
-admin.site.register(Person)
 admin.site.register(Occupation)
 admin.site.register(Seller)
