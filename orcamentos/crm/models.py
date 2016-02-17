@@ -1,6 +1,4 @@
 from django.db import models
-from django.dispatch import receiver
-from django.db.models import signals
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
 from orcamentos.core.models import TimeStampedModel, Address
@@ -85,29 +83,20 @@ class Customer(People):
         return r('crm:customer_detail', slug=self.slug)
 
 
-class Employee(People):
-    user = models.OneToOneField(User)
+class Employee(People, User):
     occupation = models.ForeignKey(
         'Occupation', verbose_name='cargo', related_name='employee_occupation',
         null=True, blank=True)
-    date_entry = models.DateTimeField('data de entrada', null=True, blank=True, auto_now=True)
     date_release = models.DateTimeField(
-        u'data de saída', null=True, blank=True, auto_now=True)
+        u'data de saída', null=True, blank=True)
 
     class Meta:
-        ordering = ['user__first_name']
+        ordering = ['username']
         verbose_name = u'funcionário'
         verbose_name_plural = u'funcionários'
 
     def __str__(self):
-        return str(self.user)
-
-
-@receiver(signals.post_save, sender=User)
-def create_employee(sender, instance, created, **kwargs):
-    """It will be called after creation of a new user"""
-    if created:
-        Employee.objects.get_or_create(user=instance)
+        return str(self.username)
 
 
 class Occupation(models.Model):

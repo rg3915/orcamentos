@@ -1,8 +1,8 @@
 from django import forms
-
+# from django.contrib.auth.models import User
 from orcamentos.crm.validate import validate_documents
 from orcamentos.utils.lists import GENDER, CUSTOMER_TYPE
-from orcamentos.crm.models import Customer, Person
+from orcamentos.crm.models import Customer, Person, Employee
 
 
 class CustomerForm(forms.ModelForm):
@@ -31,11 +31,38 @@ class CustomerForm(forms.ModelForm):
 
 class PersonForm(forms.ModelForm):
     gender = forms.ChoiceField(
-        label='Sexo', choices=GENDER, initial='M', widget=forms.RadioSelect)
+        label='Sexo', choices=GENDER, widget=forms.RadioSelect)
 
     class Meta:
         model = Person
         fields = '__all__'
+
+    def clean_cpf(self):
+        return self.cleaned_data['cpf'] or None
+
+
+class EmployeeForm(forms.ModelForm):
+    password = forms.CharField(label='Senha', widget=forms.PasswordInput)
+
+    class Meta:
+        model = Employee
+        fields = ['username', 'email', 'password']
+
+    def clean_cpf(self):
+        return self.cleaned_data['cpf'] or None
+
+
+class EmployeeAdminForm(forms.ModelForm):
+    gender = forms.ChoiceField(
+        label='Sexo', choices=GENDER, initial='M', widget=forms.RadioSelect)
+
+    class Meta:
+        model = Employee
+        fields = ['username', 'slug', 'gender', 'first_name', 'last_name',
+                  'is_staff', 'email', 'photo', 'birthday', 'department',
+                  'cpf', 'rg', 'occupation', 'address', 'complement', 'district',
+                  'city', 'uf', 'cep', 'date_joined', 'date_release',
+                  'active', 'blocked']
 
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None

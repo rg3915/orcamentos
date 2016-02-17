@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView, CreateView
-from django.contrib.auth.models import User
 from django.db.models import Q, IntegerField, Count, Case, When
 from orcamentos.crm.models import Person, Customer
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work
-from .forms import UserForm
 from .mixins import DashboardMixin
 
 
@@ -33,17 +31,6 @@ class Home(DashboardMixin, TemplateView):
         context['entrys'] = self.entry_list()
 
         return context
-
-
-def registration(request):
-    if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            new_user = User.objects.create_user(**form.cleaned_data)
-            return render(request, 'index.html')
-    else:
-        form = UserForm()
-    return render(request, 'core/registration_form.html', {'form': form})
 
 
 def status(request):

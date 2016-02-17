@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
 from orcamentos.crm.models import Person, Customer, Employee, Occupation, Seller
 from orcamentos.proposal.models import Entry, Work, Proposal, Contract
 from orcamentos.crm.tests.data import PERSON_DICT, CUSTOMER_DICT, EMPLOYEE_DICT, SELLER_DICT
