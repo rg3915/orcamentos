@@ -22,7 +22,7 @@ class Command(BaseCommand):
         work = Work.objects.get(name_work__icontains=work)
         person = Person.objects.get(first_name__icontains=contact)
         seller = Seller.objects.get(
-            employee__user__first_name__icontains=seller)
+            employee__first_name__icontains=seller)
         Entry.objects.create(
             priority=priority,
             category=category,

@@ -9,14 +9,15 @@ class Entry(TimeStampedModel):
     priority = models.CharField(
         'prioridade', max_length=2, choices=PRIORITY, default=NORMAL)
     category = models.CharField(
-        'categoria', max_length=4, choices=CATEGORY, default='or')
+        'categoria', max_length=4, choices=CATEGORY, default='orc')
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='entry_work')
     person = models.ForeignKey(
         'crm.Person', verbose_name='contato', related_name='entry_person')
     description = models.TextField('descrição', blank=True)
     seller = models.ForeignKey(
-        'crm.Seller', verbose_name='vendedor', related_name='entry_seller', null=True, blank=True)
+        'crm.Seller', verbose_name='vendedor', related_name='entry_seller',
+        null=True, blank=True)
     is_entry = models.BooleanField('dado entrada', default=False)
 
     class Meta:
@@ -35,7 +36,8 @@ class Work(Address):
     name_work = models.CharField('obra', max_length=100, unique=True)
     slug = models.SlugField('slug')
     person = models.ForeignKey(
-        'crm.Person', verbose_name='contato', related_name='work_person', null=True, blank=True)
+        'crm.Person', verbose_name='contato', related_name='work_person',
+        null=True, blank=True)
     customer = models.ForeignKey(
         'crm.Customer', verbose_name='cliente', related_name='work_customer')
 
@@ -63,11 +65,14 @@ class Proposal(TimeStampedModel):
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='proposal_work')
     person = models.ForeignKey(
-        'crm.Person', verbose_name='contato', related_name='proposal_person', null=True, blank=True)
+        'crm.Person', verbose_name='contato', related_name='proposal_person',
+        null=True, blank=True)
     employee = models.ForeignKey(
-        'crm.Employee', verbose_name=u'orçamentista', related_name='proposal_employee')
+        'crm.Employee', verbose_name=u'orçamentista',
+        related_name='proposal_employee')
     seller = models.ForeignKey(
-        'crm.Seller', verbose_name='vendedor', related_name='proposal_seller', null=True, blank=True)
+        'crm.Seller', verbose_name='vendedor', related_name='proposal_seller',
+        null=True, blank=True)
     status = models.CharField(
         max_length=4, choices=STATUS, default='elab')
     date_conclusion = models.DateTimeField(
@@ -106,9 +111,9 @@ class Proposal(TimeStampedModel):
     def get_person_url(self):
         return u'/person/%i' % self.person.id
 
-    def get_seller(self):
-        if self.seller:
-            return self.seller.employee.user.first_name
+    # def get_seller(self):
+    #     if self.seller:
+    #         return self.seller.employee.user.first_name
 
     def get_address(self):
         if self.work.address:

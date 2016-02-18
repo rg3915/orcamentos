@@ -61,7 +61,7 @@ STATUS = (
 )
 
 CATEGORY = (
-    ('or', 'orçamento'),
+    ('orc', 'orçamento'),
     ('cc', 'concorrência'),
     ('cn', 'consulta'),
     ('ct', 'cotação'),

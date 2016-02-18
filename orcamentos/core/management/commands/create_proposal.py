@@ -10,7 +10,7 @@ class Command(BaseCommand):
     )
 
     def handle(self, user, id, *args, **kwargs):
-        employee = Employee.objects.get(user__first_name__icontains=user)
+        employee = Employee.objects.get(first_name__icontains=user)
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
         entry = Entry.objects.get(pk=id)
         if entry.is_entry == True:

@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView, CreateView
-from django.db.models import Q, IntegerField, Count, Case, When
-from orcamentos.crm.models import Person, Customer
-from orcamentos.proposal.models import Entry, Proposal, Contract, Work
+from django.views.generic import TemplateView
+from django.db.models import IntegerField, Count, Case, When
+from orcamentos.proposal.models import Proposal
 from .mixins import DashboardMixin
 
 

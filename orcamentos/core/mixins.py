@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from orcamentos.crm.models import Person, Customer
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work

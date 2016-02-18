@@ -94,4 +94,4 @@ Para gerar o gráfico
 ./manage.py graph_models -a -g -o dev/orcamentos.png
 ```
 
-![alt text](orcamentos1.png)
+![alt text](orcamentos2.png)

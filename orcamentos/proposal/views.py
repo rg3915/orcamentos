@@ -1,9 +1,8 @@
 from django.core import serializers
 from django.http import HttpResponse
 # from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, TemplateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
-# from django.core.exceptions import ObjectDoesNotExist
 from .models import Entry, Proposal, Contract, Work
 from .mixins import EntryMixin, ProposalMixin, WorkMixin
 from .forms import EntryForm, ProposalForm, ContractForm, WorkForm

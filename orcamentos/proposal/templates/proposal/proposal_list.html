@@ -48,8 +48,8 @@
             <td>{{ proposal.work }}</td>
             <td>{{ proposal.work.customer }}</td>
             <td>{{ proposal.get_category_display }}</td>
-            <td>{{ proposal.employee.user.first_name }}</td>
-            <td>{{ proposal.seller.employee.user.first_name }}</td>
+            <td>{{ proposal.employee.first_name }}</td>
+            <td>{{ proposal.seller.employee.first_name }}</td>
 
             <td><i class="fa fa-fw {% status_icon proposal.status %}"></i> {{ proposal.get_status_display }}</td>
 

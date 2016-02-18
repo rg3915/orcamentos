@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.shortcuts import resolve_url as r
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
-from orcamentos.crm.models import Person, Customer, Employee
+from orcamentos.crm.models import Person, Customer
 from orcamentos.crm.forms import PersonForm, CustomerForm, EmployeeForm
 
 # FirstnameSearchMixin
@@ -34,8 +33,8 @@ def employee_create(request):
             e = form.save(commit=False)
             e.slug = e.username
             e.is_staff = True
+            e.set_password(form.cleaned_data['password'])
             e.save()
-            # Employee.objects.create_user(**form.cleaned_data, slug=e.slug)
             return render(request, 'index.html')
     else:
         form = EmployeeForm()

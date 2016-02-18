@@ -120,7 +120,7 @@ class Seller(models.Model):
         u'comissão', max_digits=6, decimal_places=2, default=0.01)
 
     class Meta:
-        ordering = ['employee__user__first_name']
+        ordering = ['employee__first_name']
         verbose_name = 'vendedor'
         verbose_name_plural = 'vendedores'
 
