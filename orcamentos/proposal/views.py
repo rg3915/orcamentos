@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Entry, Proposal, Contract, Work
-from .mixins import EntryMixin, ProposalMixin, WorkMixin
+from .mixins import EntryMixin, ProposalMixin, ContractMixin, WorkMixin
 from .forms import EntryForm, ProposalForm, ContractForm, WorkForm
 
 
@@ -68,29 +68,10 @@ proposal_detail = DetailView.as_view(model=Proposal)
 proposal_update = UpdateView.as_view(model=Proposal, form_class=ProposalForm)
 
 
-contract_list = ListView.as_view(model=Contract, paginate_by=10)
+class ContractList(ContractMixin, ListView):
+    model = Contract
+    paginate_by = 10
 
-# class ContractList(ListView):
-#     template_name = 'core/contract/contract_list.html'
-#     model = Contract
-#     context_object_name = 'contracts'
-#     paginate_by = 10
-
-#     def get_queryset(self):
-#         c = Contract.objects.all()
-#         if self.request.GET.get('is_canceled') == '1':
-#             c = c.filter(is_canceled=True)
-#         elif self.request.GET.get('is_canceled') == '0':
-#             c = c.filter(is_canceled=False)
-
-#         q = self.request.GET.get('min_date')
-#         if not q in [None, '']:
-#             dmin = self.request.GET.get('min_date')
-#             dmax = self.request.GET.get('max_date')
-#             min_date = datetime.strptime(dmin, "%d/%m/%Y")
-#             max_date = datetime.strptime(dmax, "%d/%m/%Y")
-#             c = c.filter(created__gte=min_date, created__lte=max_date)
-#         return c
 
 contract_detail = DetailView.as_view(model=Contract)
 

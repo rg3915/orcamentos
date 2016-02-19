@@ -8,8 +8,13 @@
 
 <form class="navbar-form navbar-right" action="." method="get">
     <div class="form-group">
+      <div class='input-group date' id='min_datetimepicker'>
         <input id="min_date" name="min_date" type="text" placeholder="Data inicial" class="form-control">
-        <input id="max_date" name="max_date" type="text" placeholder="Data final" class="form-control">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+        <input id="max_date" name="max_date" type="text" placeholder="Data final" class="form-control" value="{{ data_atual|date:'d/m/Y' }}">
         <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
       <!-- status search form -->
       <ul class="list-inline text-right">
@@ -71,5 +76,11 @@
 
 <!-- pagination -->
 {% include "pagination.html" %}
+
+<script type="text/javascript">
+  $(function () {
+    $('#min_datetimepicker').datetimepicker();
+  });
+</script>
 
 {% endblock content %}

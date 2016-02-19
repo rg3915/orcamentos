@@ -35,7 +35,7 @@ proposal_patterns = [
 ]
 
 contract_patterns = [
-    url(r'^$', p.contract_list, name='contract_list'),
+    url(r'^$', p.ContractList.as_view(), name='contract_list'),
     url(r'^(?P<pk>\d+)/$', p.contract_detail, name='contract_detail'),
     url(r'^(?P<pk>\d+)/edit/$', p.contract_update, name='contract_edit'),
 ]

@@ -1,5 +1,6 @@
+from datetime import datetime
 from django.db.models import Q
-from .models import Entry, Proposal, Work
+from .models import Entry, Proposal, Contract, Work
 from .forms import PrioritySearchForm, StatusSearchForm
 from orcamentos.utils.lists import STATUS, PRIORITY, URGENTE, ALTA, NORMAL, BAIXA
 
@@ -68,6 +69,31 @@ class ProposalMixin(object):
                 Q(employee__first_name__startswith=q) |
                 Q(seller__employee__first_name__startswith=q))
         return p
+
+
+class ContractMixin(object):
+
+    def get_context_data(self, **kwargs):
+        context = super(ContractMixin, self).get_context_data(**kwargs)
+        context['data_atual'] = datetime.now()
+        return context
+
+    def get_queryset(self):
+        super(ContractMixin, self).get_queryset()
+        c = Contract.objects.all()
+        if self.request.GET.get('is_canceled') == '1':
+            c = c.filter(is_canceled=True)
+        elif self.request.GET.get('is_canceled') == '0':
+            c = c.filter(is_canceled=False)
+
+        q = self.request.GET.get('min_date')
+        if not q in [None, '']:
+            dmin = self.request.GET.get('min_date')
+            dmax = self.request.GET.get('max_date')
+            min_date = datetime.strptime(dmin, "%d/%m/%Y")
+            max_date = datetime.strptime(dmax, "%d/%m/%Y")
+            c = c.filter(created__gte=min_date, created__lte=max_date)
+        return c
 
 
 class WorkMixin(object):
