@@ -46,10 +46,8 @@
 * ie
 * customer_type *
 
-**Employee(People)**
-* user(o2o) *
+**Employee(People, User)**
 * occupation (FK)
-* date_entry
 * date_release
 
 **Occupation**
