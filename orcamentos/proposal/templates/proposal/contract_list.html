@@ -8,15 +8,19 @@
 
 <form class="navbar-form navbar-right" action="." method="get">
     <div class="form-group">
-      <!-- http://www.malot.fr/bootstrap-datetimepicker/demo.php -->
-      <div class='input-group date form_datetime' id='min_datetimepicker'>
+      <div class='input-group date form_datetime' id='min_datepicker'>
         <input id="min_date" name="min_date" type="text" placeholder="Data inicial" class="form-control">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>
       </div>
+      <div class='input-group date form_datetime' id='max_datepicker'>
         <input id="max_date" name="max_date" type="text" placeholder="Data final" class="form-control" value="{{ data_atual|date:'d/m/Y' }}">
-        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+      <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
       <!-- status search form -->
       <ul class="list-inline text-right">
             <li><a href="{% url 'proposal:contract_list' %}"><span class="fa fa-star status-aprovado"></span> Todos</a></li>
@@ -79,12 +83,14 @@
 {% include "pagination.html" %}
 
 <script type="text/javascript">
-  $(".form_datetime").datetimepicker({
-    format: "dd/MM/yyyy"
+$(document).ready(function(){
+  $('#min_datepicker').datepicker({
+    language: "pt-BR"
   });
-  // $(function () {
-  //   $('#min_datetimepicker').datetimepicker();
-  // });
+  $('#max_datepicker').datepicker({
+    language: "pt-BR"
+  });
+})
 </script>
 
 {% endblock content %}
