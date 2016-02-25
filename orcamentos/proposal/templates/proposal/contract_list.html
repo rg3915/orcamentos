@@ -8,7 +8,8 @@
 
 <form class="navbar-form navbar-right" action="." method="get">
     <div class="form-group">
-      <div class='input-group date' id='min_datetimepicker'>
+      <!-- http://www.malot.fr/bootstrap-datetimepicker/demo.php -->
+      <div class='input-group date form_datetime' id='min_datetimepicker'>
         <input id="min_date" name="min_date" type="text" placeholder="Data inicial" class="form-control">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
@@ -78,9 +79,12 @@
 {% include "pagination.html" %}
 
 <script type="text/javascript">
-  $(function () {
-    $('#min_datetimepicker').datetimepicker();
+  $(".form_datetime").datetimepicker({
+    format: "dd/MM/yyyy"
   });
+  // $(function () {
+  //   $('#min_datetimepicker').datetimepicker();
+  // });
 </script>
 
 {% endblock content %}
