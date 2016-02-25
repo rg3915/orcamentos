@@ -3,38 +3,160 @@
 {% load bootstrap %}
 
 {% block title %}
-	<title>Person Form</title>
+    <title>Person Form</title>
 {% endblock title %}
 
 {% block content %}
 
-<form class="form-horizontal col-sm-6" action="." method="POST">
-    <legend>Novo Contato</legend>
-    {% csrf_token %}
-	{{ form.gender|bootstrap_horizontal }}
-	{{ form.treatment|bootstrap_horizontal }}
-	{{ form.first_name|bootstrap_horizontal }}
-	{{ form.last_name|bootstrap_horizontal }}
-    {{ form.slug|bootstrap_horizontal }}
-    {{ form.photo|bootstrap_horizontal }}
-	{{ form.company|bootstrap_horizontal }}
-	{{ form.department|bootstrap_horizontal }}
-	{{ form.occupation|bootstrap_horizontal }}
-	{{ form.email|bootstrap_horizontal }}
-	{{ form.cpf|bootstrap_horizontal }}
-	{{ form.rg|bootstrap_horizontal }}
-	{{ form.address|bootstrap_horizontal }}
-	{{ form.complement|bootstrap_horizontal }}
-	{{ form.district|bootstrap_horizontal }}
-	{{ form.city|bootstrap_horizontal }}
-	{{ form.uf|bootstrap_horizontal }}
-	{{ form.cep|bootstrap_horizontal }}
+<style>
+  .form-inline .form-group { margin-right:10px; }
+  .well-primary {
+  color: rgb(255, 255, 255);
+  background-color: rgb(66, 139, 202);
+  border-color: rgb(53, 126, 189);
+  }
+  .glyphicon { margin-right:5px; }
+</style>
 
-	<div class="form-group">
-      <div class="col-sm-10 col-sm-offset-2">
-        <button type="submit" class="btn btn-primary">Salvar</button>
+<form action="." method="POST">
+    {% csrf_token %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="fa fa-user"></span> Contato</a> </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.gender|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.treatment|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.first_name|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.last_name|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.email|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.slug|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.company|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.department|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.occupation|bootstrap }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="fa fa-file-text-o"></span> Documentos</a> </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.photo|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.cpf|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.rg|bootstrap }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="fa fa-map-marker"></span> Endereço</a> </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.address|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.complement|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.district|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.city|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.uf|bootstrap }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.cep|bootstrap }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-</form>
+  </div>
 
+    <div class="form-group">
+      <div class="col-sm-10 col-sm-offset-2">
+        <button type="submit" id="id_submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+</div>
+</form>
 {% endblock content %}

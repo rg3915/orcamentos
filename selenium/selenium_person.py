@@ -79,16 +79,38 @@ fields = [
     ['id_treatment', treatment],
     ['id_first_name', first_name],
     ['id_last_name', last_name],
+    ['id_email', email],
     ['id_slug', slug],
-    ['id_photo', photo],
     ['id_company', choice(company_list)],
     ['id_department', choice(department_list)],
-    ['id_occupation', 'Estagiário'],
-    ['id_email', email],
+    ['id_occupation', 'Arquiteto'],
+]
+
+for field in fields:
+    search = page.find_element_by_id(field[0])
+    search.send_keys(field[1])
+    time.sleep(0.5)
+
+button = page.find_element_by_link_text('Documentos')
+button.click()
+
+fields = [
+    ['id_photo', photo],
     ['id_cpf', gen_cpf()],
     ['id_rg', gen_rg()],
+]
+
+for field in fields:
+    search = page.find_element_by_id(field[0])
+    search.send_keys(field[1])
+    time.sleep(0.5)
+
+button = page.find_element_by_link_text('Endereço')
+button.click()
+
+fields = [
     ['id_address', address_list[INDEX]['address']],
-    ['id_complement', str(randint(1, 30)) + 'º andar'],
+    ['id_complement', 'Apto 303'],
     ['id_district', address_list[INDEX]['district']],
     ['id_city', address_list[INDEX]['city']],
     ['id_uf', address_list[INDEX]['city']],  # deixa city mesmo
@@ -98,6 +120,8 @@ fields = [
 for field in fields:
     search = page.find_element_by_id(field[0])
     search.send_keys(field[1])
+    time.sleep(0.5)
+
 
 # button = page.find_element_by_id('id_submit')
 button = page.find_element_by_class_name('btn-primary')
