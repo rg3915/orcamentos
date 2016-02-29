@@ -3,11 +3,13 @@ from django.contrib import admin
 from .models import Entry, Proposal, Contract, Work, NumLastProposal
 
 
+@admin.register(Entry)
 class EntryAdmin(admin.ModelAdmin):
     list_display = ('id', '__str__', 'created', 'is_entry')
     search_fields = ('work__name_work',)
 
 
+@admin.register(Proposal)
 class ProposalAdmin(admin.ModelAdmin):
     list_display = (
         '__str__', 'work', 'cliente', 'category', 'employee', 'seller',
@@ -22,6 +24,7 @@ class ProposalAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(Contract)
 class ContractAdmin(admin.ModelAdmin):
     list_display = (
         '__str__', 'contractor', 'created', 'is_canceled')
@@ -32,8 +35,5 @@ class ContractAdmin(admin.ModelAdmin):
     list_filter = ('is_canceled', 'proposal__seller')
 
 
-admin.site.register(Entry, EntryAdmin)
-admin.site.register(Proposal)
-admin.site.register(Contract)
 admin.site.register(Work)
 admin.site.register(NumLastProposal)
