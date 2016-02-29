@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.db.models import Q
+from django.core.exceptions import ObjectDoesNotExist
 from .models import Entry, Proposal, Contract, Work
 from .forms import PrioritySearchForm, StatusSearchForm
 from orcamentos.utils.lists import STATUS, PRIORITY, URGENTE, ALTA, NORMAL, BAIXA
@@ -69,6 +70,26 @@ class ProposalMixin(object):
                 Q(employee__first_name__startswith=q) |
                 Q(seller__employee__first_name__startswith=q))
         return p
+
+
+class ProposalDetailMixin(object):
+
+    def get_context_data(self, **kwargs):
+        try:
+            c = Contract.objects.get(proposal=self.object)
+            context = super(ProposalDetailMixin,
+                            self).get_context_data(**kwargs)
+            context['contract_id'] = c.id
+        except ObjectDoesNotExist:
+            c = None
+            context = super(ProposalDetailMixin,
+                            self).get_context_data(**kwargs)
+            context['contract_id'] = c
+        return context
+
+    def post(self, request, *args, **kwargs):
+        price = request.POST.get['price']
+        return price
 
 
 class ContractMixin(object):

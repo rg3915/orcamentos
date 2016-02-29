@@ -24,7 +24,7 @@
       {% if object.status == 'co' %}
         <a class="btn btn-primary" href="{% url 'proposal:create_contract_url' proposal.id %}"><i class="fa fa-plus"></i> Criar Contrato</a>
       {% elif object.status == 'a' %}
-        <a class="btn btn-primary" href="{ url 'proposal:contract_detail' contract_id %}"><i class="fa fa-star"></i> Visualizar Contrato</a>
+        <a class="btn btn-primary" href="{% url 'proposal:contract_detail' contract_id %}"><i class="fa fa-star"></i> Visualizar Contrato</a>
       {% endif %}
 
     {% if object.status != 'a' %}
@@ -156,24 +156,24 @@
   </div>
 </div>
 
-  <script>
-        $(function(){
-          $('#myModal').on('shown.bs.modal', function(){
-            $('#id_price').val("");
-            $('#id_price').focus();
-          });
-          $("#id_submit").click(function(){
-              var v = $('#id_price').val();
-              console.log(v);
-              if (v <= 0) {
-                console.log("O valor deve ser positivo.");
-              };
-          });
+<script>
+      $(function(){
+        $('#myModal').on('shown.bs.modal', function(){
+          $('#id_price').val("");
+          $('#id_price').focus();
         });
-    $(function(){
-      $('#myModalCancel').on('shown.bs.modal', function(){});
-      $("#id_submit").click(function(){});
-    });
-  </script>
+        $("#id_submit").click(function(){
+            var v = $('#id_price').val();
+            console.log(v);
+            if (v <= 0) {
+              console.log("O valor deve ser positivo.");
+            };
+        });
+      });
+  $(function(){
+    $('#myModalCancel').on('shown.bs.modal', function(){});
+    $("#id_submit").click(function(){});
+  });
+</script>
 
 {% endblock content %}

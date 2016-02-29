@@ -17,7 +17,7 @@ entry_patterns = [
 
 proposal_patterns = [
     url(r'^$', p.ProposalList.as_view(), name='proposal_list'),
-    url(r'^(?P<pk>\d+)/$', p.proposal_detail, name='proposal_detail'),
+    url(r'^(?P<pk>\d+)/$', p.ProposalDetail.as_view(), name='proposal_detail'),
     url(r'^(?P<pk>\d+)/edit/$', p.proposal_update, name='proposal_edit'),
 
     # Conclude Proposal
