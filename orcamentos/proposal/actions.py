@@ -14,10 +14,8 @@ def conclude_proposal(request, proposal_id):
         if proposal.status == 'a':
             return HttpResponse('Este orçamento já virou contrato.')
         else:
-            # só falta ver o formato
             v = request.POST.get('price')
-            v = v.replace(',', '.')
-            print(v)
+            v = v.replace(',', '.')  # transforma no formato 0.00
             ''' verifica se o novo valor é positivo '''
             if float(v) <= 0 or float(v) is None:
                 return HttpResponse('O valor deve ser positivo.')
@@ -57,7 +55,7 @@ def create_proposal(request, entry_id):
             work=entry.work,
             person=entry.person,
             employee=employee,
-            seller=entry.seller,
+            # seller=entry.seller,
         )
         proposal.save()
         ''' Define que foi dado entrada '''

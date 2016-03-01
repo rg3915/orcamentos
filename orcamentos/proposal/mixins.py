@@ -67,8 +67,7 @@ class ProposalMixin(object):
                 Q(work__name_work__icontains=q) |
                 Q(work__customer__first_name__icontains=q) |
                 Q(category__startswith=q) |
-                Q(employee__first_name__startswith=q) |
-                Q(seller__employee__first_name__startswith=q))
+                Q(employee__first_name__startswith=q))
         return p
 
 

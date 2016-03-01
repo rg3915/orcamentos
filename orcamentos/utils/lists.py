@@ -36,6 +36,11 @@ CUSTOMER_TYPE = (
     ('p', 'particular')
 )
 
+PERSON_TYPE = (
+    ('c', 'cliente'),
+    ('p', 'contato'),
+)
+
 URGENTE = 'a1'
 ALTA = 'a2'
 NORMAL = 'a3'

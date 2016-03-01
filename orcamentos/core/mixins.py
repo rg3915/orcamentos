@@ -1,5 +1,5 @@
 from django.db.models import Q
-from orcamentos.crm.models import Person, Customer
+from orcamentos.crm.models import Person
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work
 from orcamentos.utils.lists import URGENTE
 
@@ -51,8 +51,8 @@ class DashboardMixin(object):
     def contracts_canceled(self):
         return Contract.objects.filter(is_canceled=True).count()
 
-    def customers(self):
-        return Customer.objects.all().count()
+    # def customers(self):
+    #     return Customer.objects.all().count()
 
     def works(self):
         return Work.objects.all().count()

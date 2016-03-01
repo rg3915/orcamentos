@@ -15,9 +15,9 @@ class Entry(TimeStampedModel):
     person = models.ForeignKey(
         'crm.Person', verbose_name='contato', related_name='entry_person')
     description = models.TextField('descrição', blank=True)
-    seller = models.ForeignKey(
-        'crm.Seller', verbose_name='vendedor', related_name='entry_seller',
-        null=True, blank=True)
+    # seller = models.ForeignKey(
+    #     'crm.Seller', verbose_name='vendedor', related_name='entry_seller',
+    #     null=True, blank=True)
     is_entry = models.BooleanField('dado entrada', default=False)
 
     class Meta:
@@ -39,7 +39,7 @@ class Work(Address):
         'crm.Person', verbose_name='contato', related_name='work_person',
         null=True, blank=True)
     customer = models.ForeignKey(
-        'crm.Customer', verbose_name='cliente', related_name='work_customer')
+        'crm.Person', verbose_name='cliente', related_name='work_customer')
 
     class Meta:
         ordering = ['name_work']
@@ -70,9 +70,9 @@ class Proposal(TimeStampedModel):
     employee = models.ForeignKey(
         'crm.Employee', verbose_name=u'orçamentista',
         related_name='proposal_employee')
-    seller = models.ForeignKey(
-        'crm.Seller', verbose_name='vendedor', related_name='proposal_seller',
-        null=True, blank=True)
+    # seller = models.ForeignKey(
+    #     'crm.Seller', verbose_name='vendedor', related_name='proposal_seller',
+    #     null=True, blank=True)
     status = models.CharField(
         max_length=4, choices=STATUS, default='elab')
     date_conclusion = models.DateTimeField(
@@ -111,9 +111,10 @@ class Proposal(TimeStampedModel):
     def get_person_url(self):
         return u'/person/%i' % self.person.id
 
-    def get_seller(self):
-        if self.seller:
-            return '{} {}'.format(self.seller.employee.first_name, self.seller.employee.last_name)
+    # def get_seller(self):
+    #     if self.seller:
+    # return '{} {}'.format(self.seller.employee.first_name,
+    # self.seller.employee.last_name)
 
     def get_employee(self):
         return '{} {}'.format(self.employee.first_name, self.employee.last_name)
@@ -127,7 +128,7 @@ class Contract(TimeStampedModel):
     proposal = models.OneToOneField(
         'Proposal', verbose_name=u'orçamento', related_name='contract_proposal')
     contractor = models.ForeignKey(
-        'crm.Customer', verbose_name=u'contratante', related_name='contract_customer')
+        'crm.Person', verbose_name=u'contratante', related_name='contract_person')
     is_canceled = models.BooleanField('cancelado', default=False)
 
     class Meta:

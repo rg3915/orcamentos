@@ -74,8 +74,8 @@ EMPLOYEE_DICT = {
     'date_release': timezone.now(),
 }
 
-SELLER_DICT = {
-    'internal': True,
-    'commissioned': True,
-    'commission': 0.01,
-}
+# SELLER_DICT = {
+#     'internal': True,
+#     'commissioned': True,
+#     'commission': 0.01,
+# }
