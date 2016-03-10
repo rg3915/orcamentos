@@ -38,8 +38,7 @@ class Work(Address):
     person = models.ForeignKey(
         'crm.Person', verbose_name='contato', related_name='work_person',
         null=True, blank=True)
-    customer = models.ForeignKey(
-        'crm.Person', verbose_name='cliente', related_name='work_customer')
+    # customer = models.ForeignKey('crm.Person', verbose_name='cliente', related_name='work_customer')
 
     class Meta:
         ordering = ['name_work']
@@ -98,12 +97,12 @@ class Proposal(TimeStampedModel):
     def get_price(self):
         return u"R$ %s" % number_format(self.price, 2)
 
-    def get_customer(self):
-        return self.work.customer
-    cliente = property(get_customer)
+    # def get_customer(self):
+    #     return self.work.customer
+    # cliente = property(get_customer)
 
-    def get_customer_url(self):
-        return u'/customer/%i' % self.work.customer.id
+    # def get_customer_url(self):
+    #     return u'/customer/%i' % self.work.customer.id
 
     def get_work_url(self):
         return u'/work/%i' % self.work.id

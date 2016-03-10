@@ -12,11 +12,12 @@ class EntryAdmin(admin.ModelAdmin):
 @admin.register(Proposal)
 class ProposalAdmin(admin.ModelAdmin):
     list_display = (
-        '__str__', 'work', 'cliente', 'category', 'employee',
+        # '__str__', 'work', 'cliente', 'category', 'employee',
+        '__str__', 'work', 'category', 'employee',
         'status', 'created', 'price')
     date_hierarchy = 'created'
     search_fields = (
-        'work__name_work', 'work__customer__first_name',
+        'work__name_work',  # 'work__customer__first_name',
         'employee__first_name')
     list_filter = (
         'status', 'category',  # 'seller',
@@ -30,7 +31,7 @@ class ContractAdmin(admin.ModelAdmin):
         '__str__', 'contractor', 'created', 'is_canceled')
     date_hierarchy = 'created'
     search_fields = (
-        'proposal__work__name_work', 'proposal__work__customer__first_name',
+        'proposal__work__name_work',  # 'proposal__work__customer__first_name',
         'proposal__employee__first_name')
     list_filter = ('is_canceled', )  # 'proposal__seller')
 

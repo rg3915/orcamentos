@@ -27,9 +27,9 @@ class HomeTest(TestCase):
         expected = 'href="{}"'.format(r('proposal:contract_list'))
         self.assertContains(self.response, expected)
 
-    def test_customer_link(self):
-        expected = 'href="{}"'.format(r('crm:customer_list'))
-        self.assertContains(self.response, expected)
+    # def test_customer_link(self):
+    #     expected = 'href="{}"'.format(r('crm:customer_list'))
+    #     self.assertContains(self.response, expected)
 
     def test_work_link(self):
         expected = 'href="{}"'.format(r('proposal:work_list'))

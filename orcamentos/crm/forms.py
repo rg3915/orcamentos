@@ -1,6 +1,6 @@
 from django import forms
-from orcamentos.crm.validate import validate_documents
-from orcamentos.utils.lists import GENDER, CUSTOMER_TYPE
+# from orcamentos.crm.validate import validate_documents
+from orcamentos.utils.lists import GENDER  # , CUSTOMER_TYPE
 from orcamentos.crm.models import Person, Employee
 
 

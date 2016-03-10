@@ -41,7 +41,7 @@ class DashboardMixin(object):
 
     def proposal_elab(self):
         ''' retorna 6 últimos orçamentos em elaboração '''
-        p = Proposal.objects.filter(status='elab')
+        #   p = Proposal.objects.filter(status='elab')
         # if p:
         #     return p[len(p) - 6:]
 

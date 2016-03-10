@@ -15,7 +15,7 @@
         </span>
       </div>
       <div class='input-group date form_datetime' id='max_datepicker'>
-        <input id="max_date" name="max_date" type="text" placeholder="Data final" class="form-control" value="{{ data_atual|date:'d/m/Y' }}">
+        <input id="max_date" name="max_date" type="text" placeholder="Data final" class="form-control" value="{{ date_now|date:'d/m/Y' }}">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>
@@ -56,7 +56,7 @@
       {% endif %}
           <td><a href="{{ contract.get_absolute_url }}">{{ contract.proposal }}</a></td>
           <td>{{ contract.proposal.work }}</td>
-          <td>{{ contract.proposal.work.customer }}</td>
+          <td>{ contract.proposal.work.customer }}</td>
           <td>{{ contract.proposal.seller.employee.user.first_name }}</td>
           <td class="text-right">{{ contract.proposal.get_price }}</td>
           <td>{{ contract.created|date:"d/m/Y" }}</td>

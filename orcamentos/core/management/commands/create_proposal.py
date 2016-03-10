@@ -13,7 +13,7 @@ class Command(BaseCommand):
         employee = Employee.objects.get(first_name__icontains=user)
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
         entry = Entry.objects.get(pk=id)
-        if entry.is_entry == True:
+        if entry.is_entry:
             print('Já foi dado entrada.')
         else:
             proposal = Proposal(

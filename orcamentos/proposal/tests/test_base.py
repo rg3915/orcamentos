@@ -1,7 +1,8 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
 from orcamentos.crm.models import Person, Customer, Employee, Occupation, Seller
 from orcamentos.proposal.models import Entry, Work, Proposal, Contract
-from orcamentos.crm.tests.data import PERSON_DICT, CUSTOMER_DICT, EMPLOYEE_DICT, SELLER_DICT
+from orcamentos.crm.tests.data import PERSON_DICT, CUSTOMER_DICT, SELLER_DICT
 from orcamentos.proposal.tests.data import ENTRY_DICT, WORK_DICT, PROPOSAL_DICT
 
 
@@ -24,8 +25,7 @@ class BaseEntryTest(TestCase):
 
         self.employee = Employee.objects.get(user=self.user)
 
-        self.seller = Seller.objects.create(
-            employee=self.employee, **SELLER_DICT)
+        # self.seller = Seller.objects.create(employee=self.employee, **SELLER_DICT)
 
         self.work = Work.objects.create(
             person=self.person,

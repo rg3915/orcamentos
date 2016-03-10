@@ -1,6 +1,6 @@
 from django import forms
-from orcamentos.proposal.models import Contract, Entry, Proposal, Work
-from orcamentos.utils.lists import PRIORITY
+from .models import Contract, Entry, Proposal, Work
+from orcamentos.utils.lists import PRIORITY, NORMAL
 
 STATUS = (
     ('', ''),
@@ -13,43 +13,48 @@ STATUS = (
 
 
 class EntryForm(forms.ModelForm):
+    priority = forms.ChoiceField(
+        label='Prioridade',
+        choices=PRIORITY,
+        initial=NORMAL,
+        widget=forms.RadioSelect)
 
     class Meta:
         model = Entry
-        fields = '__all__'
+        exclude = ('is_entry',)
 
 
-class ContractForm(forms.ModelForm):
+# class ContractForm(forms.ModelForm):
 
-    class Meta:
-        model = Contract
-        fields = ('contractor', 'is_canceled')
-
-
-class ProposalForm(forms.ModelForm):
-    num_prop = forms.IntegerField(
-        widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
-    num_prop_type = forms.IntegerField(
-        widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
-    price = forms.DecimalField(localize=True)
-
-    class Meta:
-        model = Proposal
-        fields = '__all__'
+#     class Meta:
+#         model = Contract
+#         fields = ('contractor', 'is_canceled')
 
 
-class WorkForm(forms.ModelForm):
+# class ProposalForm(forms.ModelForm):
+#     num_prop = forms.IntegerField(
+#         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
+#     num_prop_type = forms.IntegerField(
+#         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
+#     price = forms.DecimalField(localize=True)
 
-    class Meta:
-        model = Work
-        fields = '__all__'
+#     class Meta:
+#         model = Proposal
+#         fields = '__all__'
 
 
-class StatusSearchForm(forms.Form):
-    status = forms.ChoiceField(
-        choices=STATUS, widget=forms.Select(attrs={'class': 'form-control'}))
+# class WorkForm(forms.ModelForm):
+
+#     class Meta:
+#         model = Work
+#         fields = '__all__'
 
 
-class PrioritySearchForm(forms.Form):
-    priority = forms.ChoiceField(
-        choices=PRIORITY, widget=forms.Select(attrs={'class': 'form-control'}))
+# class StatusSearchForm(forms.Form):
+#     status = forms.ChoiceField(
+#         choices=STATUS, widget=forms.Select(attrs={'class': 'form-control'}))
+
+
+# class PrioritySearchForm(forms.Form):
+#     priority = forms.ChoiceField(
+# choices=PRIORITY, widget=forms.Select(attrs={'class': 'form-control'}))

@@ -2,6 +2,7 @@ from django.db import models
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
 from orcamentos.core.models import TimeStampedModel, Address
+# from .managers import CustomerManager
 from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, PERSON_TYPE, CUSTOMER_TYPE
 
 
@@ -47,6 +48,8 @@ class Person(People):
         'cliente ou contato', max_length=1, choices=PERSON_TYPE)
     customer_type = models.CharField(
         'tipo de cliente', max_length=1, choices=CUSTOMER_TYPE, null=True, blank=True)
+
+    # objects = CustomerManager()
 
     class Meta:
         ordering = ['first_name']
