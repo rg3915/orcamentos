@@ -49,8 +49,6 @@ class Person(People):
     customer_type = models.CharField(
         'tipo de cliente', max_length=1, choices=CUSTOMER_TYPE, null=True, blank=True)
 
-    # objects = CustomerManager()
-
     class Meta:
         ordering = ['first_name']
         verbose_name = 'contato'
@@ -68,6 +66,15 @@ class PhonePerson(models.Model):
     person = models.ForeignKey('Person')
     phone_type = models.CharField(
         'tipo', max_length=3, choices=PHONE_TYPE, default='pri')
+
+
+class Customer(Person):
+    objects = EmployeeManager()
+
+    class Meta:
+        proxy = True
+        verbose_name = 'cliente'
+        verbose_name_plural = 'clientes'
 
 
 class Employee(People, User):

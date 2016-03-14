@@ -11,8 +11,6 @@ class PhonePersonInline(admin.TabularInline):
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     inlines = [PhonePersonInline]
-    # @admin.register(Customer)
-    # class CustomerAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'photo_img', 'email', 'customer_type', 'active')
     search_fields = ('first_name', 'last_name',)
     form = PersonForm
@@ -27,6 +25,20 @@ class PersonAdmin(admin.ModelAdmin):
 class PhoneEmployeeInline(admin.TabularInline):
     model = PhoneEmployee
     extra = 0
+
+
+@admin.register(Customer)
+class CustomerAdmin(PersonAdmin):
+    objects = CustomerManager()
+    form = PersonForm
+
+    def get_queryset(self, request):
+        q = super(CustomerAdmin, self).get_queryset(request)
+        return q.filter(person_type='c')
+
+    def save_model(self, request, obj, form, change):
+        obj.person_type = 'c'
+        super(CustomerAdmin, self).save_model(request, obj, form, change)
 
 
 @admin.register(Employee)
