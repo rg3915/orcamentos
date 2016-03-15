@@ -2,7 +2,7 @@ from django.db import models
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
 from orcamentos.core.models import TimeStampedModel, Address
-# from .managers import CustomerManager
+from .managers import CustomerManager
 from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, PERSON_TYPE, CUSTOMER_TYPE
 
 
@@ -69,7 +69,7 @@ class PhonePerson(models.Model):
 
 
 class Customer(Person):
-    objects = EmployeeManager()
+    objects = CustomerManager()
 
     class Meta:
         proxy = True

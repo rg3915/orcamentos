@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Person, Occupation, PhonePerson, Employee, PhoneEmployee
-from .forms import PersonForm, EmployeeAdminForm
+from .models import Person, Occupation, PhonePerson, Customer, Employee, PhoneEmployee
+from .managers import CustomerManager
+from .forms import PersonForm, EmployeeAdminForm, CustomerForm
 
 
 class PhonePersonInline(admin.TabularInline):
@@ -11,9 +12,18 @@ class PhonePersonInline(admin.TabularInline):
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     inlines = [PhonePersonInline]
+    prepopulated_fields = {'slug': ('first_name', 'last_name')}
     list_display = ('__str__', 'photo_img', 'email', 'customer_type', 'active')
     search_fields = ('first_name', 'last_name',)
     form = PersonForm
+
+    def get_queryset(self, request):
+        q = super(PersonAdmin, self).get_queryset(request)
+        return q.filter(person_type='p')
+
+    # def save_model(self, request, obj, form, change):
+    #     obj.person_type = 'p'
+    #     super(PersonAdmin, self).save_model(request, obj, form, change)
 
     def photo_img(self, obj):
         return '<img width="32px" src="{}" />'.format(obj.photo)
@@ -30,10 +40,11 @@ class PhoneEmployeeInline(admin.TabularInline):
 @admin.register(Customer)
 class CustomerAdmin(PersonAdmin):
     objects = CustomerManager()
-    form = PersonForm
+    prepopulated_fields = {'slug': ('first_name', 'last_name')}
+    form = CustomerForm
 
     def get_queryset(self, request):
-        q = super(CustomerAdmin, self).get_queryset(request)
+        q = super(PersonAdmin, self).get_queryset(request)
         return q.filter(person_type='c')
 
     def save_model(self, request, obj, form, change):
