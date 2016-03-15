@@ -21,10 +21,6 @@ class PersonAdmin(admin.ModelAdmin):
         q = super(PersonAdmin, self).get_queryset(request)
         return q.filter(person_type='p')
 
-    # def save_model(self, request, obj, form, change):
-    #     obj.person_type = 'p'
-    #     super(PersonAdmin, self).save_model(request, obj, form, change)
-
     def photo_img(self, obj):
         return '<img width="32px" src="{}" />'.format(obj.photo)
 

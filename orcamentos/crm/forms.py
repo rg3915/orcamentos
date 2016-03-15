@@ -25,6 +25,9 @@ class CustomerForm(forms.ModelForm):
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None
 
+    def clean_cnpj(self):
+        return self.cleaned_data['cnpj'] or None
+
 
 class PersonForm(forms.ModelForm):
     gender = forms.ChoiceField(
