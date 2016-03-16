@@ -39,7 +39,7 @@ class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
         fields = ['gender', 'treatment', 'first_name', 'last_name', 'slug',
-                  'photo', 'birthday', 'company', 'department', 'email',
+                  'photo', 'birthday', 'occupation', 'company', 'department', 'email',
                   'cpf', 'rg', 'cnpj', 'ie', 'person_type', 'customer_type',
                   'address', 'complement', 'district', 'city', 'uf', 'cep',
                   'active', 'blocked']

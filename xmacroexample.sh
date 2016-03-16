@@ -11,7 +11,7 @@ EOF
 
 ### shell.txt ###
 cat << EOF > temp/shell.txt
-String manage shell
+String ./manage.py shell
 KeyStrPress Return KeyStrRelease Return
 EOF
 ### shell.txt ###

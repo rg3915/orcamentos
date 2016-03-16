@@ -254,7 +254,7 @@
                         <li><a href="#"><span class="fa fa-magic fa-flip-horizontal"></span> Cadastro rápido</a></li>
                         <li><a href="{% url 'proposal:proposal_list' %}"><i class="fa fa-list"></i> Orçamentos<span class="pull-right label label-success small"><em>{{ proposals.proposal_elab }}</em></span></a></li>
                         <li><a href="{% url 'proposal:contract_list' %}"><i class="fa fa-star"></i> Contratos<span class="pull-right label label-danger small"><em>{{ view.contracts_canceled }}</em></span></a></li>
-                        <li><a href="{ url 'crm:customer_list' %}"><i class="fa fa-users"></i> Clientes</a></li>
+                        <li><a href="{% url 'crm:customer_list' %}"><i class="fa fa-users"></i> Clientes</a></li>
                         <li><a href="{% url 'proposal:work_list' %}"><i class="fa fa-home"></i> Obras</a></li>
                         <li><a href="{% url 'crm:person_list' %}"><i class="fa fa-user"></i> Contatos</a></li>
                         <li><a href="{ url 'admin:index' %}"><span class="fa fa-drupal"></span> Admin</a></li>
@@ -436,19 +436,19 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <a href="{ url 'crm:customer_list' %}">
+                                    <a href="{% url 'crm:customer_list' %}">
                                         <i class="fa fa-users fa-3x fa-inverse"></i>
                                     </a>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="large">{ view.customers }}</div>
+                                    <div class="large">{{ view.customers }}</div>
                                     <div>Clientes</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left"><a href="{ url 'crm:customer_list' %}">Detalhes</a></span>
+                                <span class="pull-left"><a href="{% url 'crm:customer_list' %}">Detalhes</a></span>
                                 <span class="pull-right"><i class="fa fa-plus-circle"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -489,7 +489,7 @@
                                     </a>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="large">{ view.persons }}</div>
+                                    <div class="large">{{ view.persons }}</div>
                                     <div>Contatos</div>
                                 </div>
                             </div>

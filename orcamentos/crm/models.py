@@ -2,7 +2,7 @@ from django.db import models
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
 from orcamentos.core.models import TimeStampedModel, Address
-from .managers import CustomerManager
+from .managers import CustomerManager, PersonManager
 from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, PERSON_TYPE, CUSTOMER_TYPE
 
 
@@ -49,6 +49,8 @@ class Person(People):
     customer_type = models.CharField(
         'tipo de cliente', max_length=1, choices=CUSTOMER_TYPE, null=True, blank=True)
 
+    objects = PersonManager()
+
     class Meta:
         ordering = ['first_name']
         verbose_name = 'contato'
@@ -75,6 +77,9 @@ class Customer(Person):
         proxy = True
         verbose_name = 'cliente'
         verbose_name_plural = 'clientes'
+
+    def get_absolute_url(self):
+        return r('crm:customer_detail', slug=self.slug)
 
 
 class Employee(People, User):

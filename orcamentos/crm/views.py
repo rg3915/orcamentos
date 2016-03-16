@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
-from orcamentos.crm.models import Person
-from orcamentos.crm.forms import PersonForm, EmployeeForm
+from orcamentos.core.mixins import FirstnameSearchMixin
+from .models import Person, Customer
+from .forms import PersonForm, EmployeeForm, CustomerForm
 
-# FirstnameSearchMixin
-person_list = ListView.as_view(model=Person, paginate_by=10)
+
+class PersonList(FirstnameSearchMixin, ListView):
+    model = Person
+    paginate_by = 10
+
 
 person_detail = DetailView.as_view(model=Person)
 
@@ -15,15 +19,18 @@ person_create = CreateView.as_view(model=Person, form_class=PersonForm)
 # LoginRequiredMixin
 person_update = UpdateView.as_view(model=Person, form_class=PersonForm)
 
-# customer_list = ListView.as_view(model=Customer, paginate_by=10)
 
-# customer_detail = DetailView.as_view(model=Customer)
+class CustomerList(FirstnameSearchMixin, ListView):
+    model = Customer
+    paginate_by = 10
 
-# # LoginRequiredMixin
-# customer_create = CreateView.as_view(model=Customer, form_class=CustomerForm)
+customer_detail = DetailView.as_view(model=Customer)
 
-# # LoginRequiredMixin
-# customer_update = UpdateView.as_view(model=Customer, form_class=CustomerForm)
+# LoginRequiredMixin
+customer_create = CreateView.as_view(model=Customer, form_class=CustomerForm)
+
+# LoginRequiredMixin
+customer_update = UpdateView.as_view(model=Customer, form_class=CustomerForm)
 
 
 def employee_create(request):
