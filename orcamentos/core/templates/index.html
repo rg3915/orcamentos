@@ -546,7 +546,7 @@
                                                 {% for entry in entrys %}
                                                     <tr>
                                                         <td><i class="pull-right fa fa-flash urgente"></i> <a href="{% url 'proposal:entry_detail' entry.id  %}">{{ entry.work }}</a></td>
-                                                        <td>{ entry.work.customer }}</td>
+                                                        <td>{{ entry.work.customer }}</td>
                                                         <td>{{ entry.created|date:"d/m/Y" }}</td>
                                                     </tr>
                                                 {% endfor %}
