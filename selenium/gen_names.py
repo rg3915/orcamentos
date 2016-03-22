@@ -2,9 +2,9 @@ import random
 import names
 
 """ List of values for use in choices in models. """
-treatment_male_list = ('a', 'dr', 'e', 'p', 'sr',)
+treatment_male_list = ('Arq.', 'Dr.', 'Eng.', 'Prof.', 'Sr.',)
 
-treatment_female_list = ('aa', 'd', 'ea', 'pa', 'sra', 'srta',)
+treatment_female_list = ('Arqa.', 'Dona', u'Engª.', 'Profa.', 'Sra.', 'Srta.',)
 
 
 def gen_male_first_name():

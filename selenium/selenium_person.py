@@ -4,7 +4,7 @@ from random import randint, choice
 from gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
 from gen_random_values import gen_cpf, gen_rg, gen_phone
 from selenium import webdriver
-# from selenium.webdriver.common.keys import Keys
+from lists import company_list, department_list
 
 # page = webdriver.Firefox()
 page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
@@ -12,14 +12,7 @@ page.maximize_window()
 time.sleep(0.5)
 page.get('http://localhost:8000/crm/person/add/')
 
-# search = page.find_element_by_id('id_username')
-# search.send_keys('regis')
-
-# search = page.find_element_by_id('id_password')
-# search.send_keys('1')
-
-# button = page.find_element_by_xpath("//input[@type='submit']")
-# button.click()
+INDEX = randint(0, 146)
 
 g = randint(0, 1)
 
@@ -41,26 +34,6 @@ slug = '{}-{}'.format(first_name.lower(), last_name.lower())
 
 photo = 'http://icons.iconarchive.com/icons/icons-land/vista-people/256/Office-Customer-Male-Light-icon.png'
 
-company_list = (
-    ('Acme'),
-    ('Cyberdyne'),
-    ('Globex'),
-    ('Gringotes'),
-    ('ILM'),
-    ('Oscorp'),
-    ('Tivit'),
-    ('Wayne'),
-)
-
-department_list = (
-    ('Administrativo'),
-    ('Contábil'),
-    ('Engenharia'),
-    ('Expedição'),
-    ('Financeiro'),
-    ('Suprimentos'),
-)
-
 address_list = []
 
 ''' Lendo os dados de enderecos_.csv '''
@@ -72,8 +45,6 @@ with open('fix/enderecos_.csv', 'r') as f:
 
 search = page.find_element_by_id(gender)
 search.click()
-
-INDEX = randint(0, 146)
 
 fields = [
     ['id_treatment', treatment],
@@ -89,7 +60,7 @@ fields = [
 for field in fields:
     search = page.find_element_by_id(field[0])
     search.send_keys(field[1])
-    time.sleep(0.5)
+    # time.sleep(0.5)
 
 button = page.find_element_by_link_text('Documentos')
 button.click()
@@ -103,7 +74,7 @@ fields = [
 for field in fields:
     search = page.find_element_by_id(field[0])
     search.send_keys(field[1])
-    time.sleep(0.5)
+    # time.sleep(0.5)
 
 button = page.find_element_by_link_text('Endereço')
 button.click()
@@ -120,7 +91,7 @@ fields = [
 for field in fields:
     search = page.find_element_by_id(field[0])
     search.send_keys(field[1])
-    time.sleep(0.5)
+    # time.sleep(0.5)
 
 
 # button = page.find_element_by_id('id_submit')
