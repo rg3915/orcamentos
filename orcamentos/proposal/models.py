@@ -38,7 +38,8 @@ class Work(Address):
     person = models.ForeignKey(
         'crm.Person', verbose_name='contato', related_name='work_person',
         null=True, blank=True)
-    # customer = models.ForeignKey('crm.Person', verbose_name='cliente', related_name='work_customer')
+    customer = models.ForeignKey(
+        'crm.Person', verbose_name='cliente', related_name='work_customer')
 
     class Meta:
         ordering = ['name_work']

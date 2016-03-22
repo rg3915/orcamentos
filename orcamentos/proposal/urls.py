@@ -6,7 +6,7 @@ entry_patterns = [
     url(r'^$', p.EntryList.as_view(), name='entry_list'),
     url(r'^(?P<pk>\d+)/$', p.entry_detail, name='entry_detail'),
     url(r'^(?P<pk>\d+)/json/$', p.entry_detail_json, name='entry_detail_json'),
-    # url(r'^(?P<pk>\d+)/edit/$', p.entry_update, name='entry_edit'),
+    url(r'^(?P<pk>\d+)/edit/$', p.entry_update, name='entry_edit'),
     url(r'^add/$', p.entry_create, name='entry_add'),
 
     # Create Proposal
@@ -42,8 +42,8 @@ contract_patterns = [
 
 work_patterns = [
     url(r'^$', p.WorkList.as_view(), name='work_list'),
-    # url(r'^add/$', p.work_create, name='work_add'),
-    # url(r'^(?P<slug>[\w-]+)/edit/$', p.work_update, name='work_edit'),
+    url(r'^add/$', p.work_create, name='work_add'),
+    url(r'^(?P<slug>[\w-]+)/edit/$', p.work_update, name='work_edit'),
     url(r'^(?P<slug>[\w-]+)/$', p.work_detail, name='work_detail'),
 ]
 

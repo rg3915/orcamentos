@@ -5,7 +5,7 @@ from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Entry, Proposal, Contract, Work
 # from .mixins import EntryMixin, ProposalMixin, ProposalDetailMixin, ContractMixin, WorkMixin
-from .forms import EntryForm  # , ProposalForm, ContractForm, WorkForm
+from .forms import EntryForm, ProposalForm, ContractForm, WorkForm
 
 
 class EntryList(ListView):
@@ -23,7 +23,7 @@ entry_detail = DetailView.as_view(model=Entry)
 
 entry_create = CreateView.as_view(model=Entry, form_class=EntryForm)
 
-# entry_update = UpdateView.as_view(model=Entry, form_class=EntryForm)
+entry_update = UpdateView.as_view(model=Entry, form_class=EntryForm)
 
 
 class ProposalList(ListView):
@@ -61,6 +61,6 @@ class WorkList(ListView):
 
 work_detail = DetailView.as_view(model=Work)
 
-# work_create = CreateView.as_view(model=Work, form_class=WorkForm)
+work_create = CreateView.as_view(model=Work, form_class=WorkForm)
 
-# work_update = UpdateView.as_view(model=Work, form_class=WorkForm)
+work_update = UpdateView.as_view(model=Work, form_class=WorkForm)

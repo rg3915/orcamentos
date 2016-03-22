@@ -24,37 +24,37 @@ class EntryForm(forms.ModelForm):
         exclude = ('is_entry',)
 
 
-# class ContractForm(forms.ModelForm):
+class ContractForm(forms.ModelForm):
 
-#     class Meta:
-#         model = Contract
-#         fields = ('contractor', 'is_canceled')
-
-
-# class ProposalForm(forms.ModelForm):
-#     num_prop = forms.IntegerField(
-#         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
-#     num_prop_type = forms.IntegerField(
-#         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
-#     price = forms.DecimalField(localize=True)
-
-#     class Meta:
-#         model = Proposal
-#         fields = '__all__'
+    class Meta:
+        model = Contract
+        fields = ('contractor', 'is_canceled')
 
 
-# class WorkForm(forms.ModelForm):
+class ProposalForm(forms.ModelForm):
+    num_prop = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
+    num_prop_type = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
+    price = forms.DecimalField(localize=True)
 
-#     class Meta:
-#         model = Work
-#         fields = '__all__'
+    class Meta:
+        model = Proposal
+        fields = '__all__'
 
 
-# class StatusSearchForm(forms.Form):
-#     status = forms.ChoiceField(
-#         choices=STATUS, widget=forms.Select(attrs={'class': 'form-control'}))
+class WorkForm(forms.ModelForm):
+
+    class Meta:
+        model = Work
+        fields = '__all__'
 
 
-# class PrioritySearchForm(forms.Form):
-#     priority = forms.ChoiceField(
-# choices=PRIORITY, widget=forms.Select(attrs={'class': 'form-control'}))
+class StatusSearchForm(forms.Form):
+    status = forms.ChoiceField(
+        choices=STATUS, widget=forms.Select(attrs={'class': 'form-control'}))
+
+
+class PrioritySearchForm(forms.Form):
+    priority = forms.ChoiceField(
+        choices=PRIORITY, widget=forms.Select(attrs={'class': 'form-control'}))
