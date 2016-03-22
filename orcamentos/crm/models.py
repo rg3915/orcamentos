@@ -2,7 +2,7 @@ from django.db import models
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
 from orcamentos.core.models import TimeStampedModel, Address
-from .managers import CustomerManager, PersonManager
+from .managers import CustomerManager, PersonManager, SellerManager
 from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, PERSON_TYPE, CUSTOMER_TYPE
 
 
@@ -119,3 +119,12 @@ class Occupation(models.Model):
 
     def __str__(self):
         return self.occupation
+
+
+class Seller(Employee):
+    objects = SellerManager()
+
+    class Meta:
+        proxy = True
+        verbose_name = 'vendedor'
+        verbose_name_plural = 'vendedores'

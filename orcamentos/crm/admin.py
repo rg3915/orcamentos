@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Person, Occupation, PhonePerson, Customer, Employee, PhoneEmployee
-from .managers import CustomerManager
+from .models import Person, Occupation, PhonePerson, Customer, Employee, \
+    PhoneEmployee, Seller
+from .managers import CustomerManager, SellerManager
 from .forms import PersonForm, EmployeeAdminForm, CustomerForm
 
 
@@ -50,5 +51,17 @@ class EmployeeAdmin(admin.ModelAdmin):
     search_fields = ('first_name', 'last_name',)
     date_hierarchy = 'date_joined'
     form = EmployeeAdminForm
+
+
+@admin.register(Seller)
+class SellerAdmin(PersonAdmin):
+    objects = SellerManager()
+    inlines = [PhoneEmployeeInline]
+    list_display = ('__str__', 'email', 'occupation',
+                    'active', 'internal', 'commissioned')
+
+    def save_model(self, request, obj, form, change):
+        obj.occupation = 'Vendedor'
+        super(SellerAdmin, self).save_model(request, obj, form, change)
 
 admin.site.register(Occupation)
