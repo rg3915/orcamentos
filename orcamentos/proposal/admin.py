@@ -2,7 +2,6 @@ from daterange_filter.filter import DateRangeFilter
 from django.contrib import admin
 from .models import Entry, Proposal, Contract, Work, NumLastProposal
 from .forms import EntryForm
-from orcamentos.utils.lists import STATUS_LIST
 
 
 @admin.register(Entry)
