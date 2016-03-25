@@ -204,7 +204,7 @@ with open('fix/enderecos_.csv', 'r') as f:
 
 INDEX = randint(0, 146)
 
-name_work = 'Obra ' + str(randint(1, 5))
+name_work = 'Obra ' + str(randint(1, 10))
 
 fields = [
     ['id_name_work', name_work],
