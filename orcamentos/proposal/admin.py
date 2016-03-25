@@ -1,12 +1,15 @@
 from daterange_filter.filter import DateRangeFilter
 from django.contrib import admin
 from .models import Entry, Proposal, Contract, Work, NumLastProposal
+from .forms import EntryForm
+from orcamentos.utils.lists import STATUS_LIST
 
 
 @admin.register(Entry)
 class EntryAdmin(admin.ModelAdmin):
-    list_display = ('id', '__str__', 'created')
+    list_display = ('id', '__str__', 'num_prop', 'status', 'created')
     search_fields = ('work__name_work',)
+    form = EntryForm
 
 
 @admin.register(Proposal)

@@ -3,7 +3,7 @@
 # from django.core.exceptions import ObjectDoesNotExist
 # from .models import Entry, Proposal, Contract, Work
 # from .forms import PrioritySearchForm, StatusSearchForm
-# from orcamentos.utils.lists import STATUS, PRIORITY, URGENTE, ALTA, NORMAL, BAIXA
+# from orcamentos.utils.lists import STATUS_LIST, PRIORITY, URGENTE, ALTA, NORMAL, BAIXA
 
 
 # class EntryMixin(object):

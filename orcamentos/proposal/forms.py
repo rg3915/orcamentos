@@ -2,6 +2,7 @@ from django import forms
 from .models import Contract, Entry, Proposal, Work
 from orcamentos.utils.lists import PRIORITY, NORMAL
 
+
 STATUS = (
     ('', ''),
     ('c', 'cancelado'),
@@ -21,7 +22,7 @@ class EntryForm(forms.ModelForm):
 
     class Meta:
         model = Entry
-        exclude = ('is_entry',)
+        exclude = ('status',)
 
 
 class ContractForm(forms.ModelForm):

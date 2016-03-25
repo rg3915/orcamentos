@@ -3,7 +3,7 @@ from django.shortcuts import resolve_url as r
 from django.utils.formats import number_format
 from orcamentos.core.models import TimeStampedModel, Address
 from .managers import EntryManager
-from orcamentos.utils.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS
+from orcamentos.utils.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS_LIST
 
 
 class Work(Address):
@@ -50,7 +50,7 @@ class Proposal(TimeStampedModel):
         'crm.Seller', verbose_name='vendedor', related_name='proposal_seller',
         null=True, blank=True)
     status = models.CharField(
-        max_length=4, choices=STATUS, default='elab')
+        max_length=4, choices=STATUS_LIST, default='elab')
     date_conclusion = models.DateTimeField(
         u'data de conclusão', null=True, blank=True)
     price = models.DecimalField(
@@ -103,6 +103,7 @@ class Proposal(TimeStampedModel):
 
 
 class Entry(Proposal):
+    ''' Entrada é todo orçamento com num_prop = 0 '''
     objects = EntryManager()
 
     class Meta:
@@ -116,6 +117,10 @@ class Entry(Proposal):
 
     def get_absolute_url(self):
         return r('proposal:entry_detail', pk=self.pk)
+
+    def save(self):
+        self.status = 'n'  # não iniciado
+        super(Entry, self).save()
 
 
 class Contract(TimeStampedModel):

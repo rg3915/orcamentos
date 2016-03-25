@@ -57,8 +57,9 @@ PROP_TYPE = (
     ('OP', 'OP')
 )
 
-STATUS = (
+STATUS_LIST = (
     ('c', 'cancelado'),
+    ('n', 'não iniciado'),
     ('elab', 'em elaboração'),
     ('p', 'pendente'),
     ('co', 'concluido'),
