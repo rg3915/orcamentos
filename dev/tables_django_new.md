@@ -60,15 +60,6 @@
 
 ### App: Proposal
 
-**Entry(TimeStampedModel)**
-* priority (list)
-* category (list)
-* work (FK) *
-* person(contato) (FK) *
-* description
-* seller (FK)
-* is_entry(boolean)
-
 **Work(Address)**
 * name_work *
 * person(contato) (FK)
@@ -76,6 +67,7 @@
 
 **Proposal(TimeStampedModel)**
 * num_prop *
+* priority (list)
 * prop_type ('R','OP') *
 * num_type_prop (0,1,2,...) *
 * category (list)

@@ -2,34 +2,8 @@ from django.db import models
 from django.shortcuts import resolve_url as r
 from django.utils.formats import number_format
 from orcamentos.core.models import TimeStampedModel, Address
+from .managers import EntryManager
 from orcamentos.utils.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS
-
-
-class Entry(TimeStampedModel):
-    priority = models.CharField(
-        'prioridade', max_length=2, choices=PRIORITY, default=NORMAL)
-    category = models.CharField(
-        'categoria', max_length=4, choices=CATEGORY, default='orc')
-    work = models.ForeignKey(
-        'Work', verbose_name='obra', related_name='entry_work')
-    person = models.ForeignKey(
-        'crm.Person', verbose_name='contato', related_name='entry_person')
-    description = models.TextField('descrição', blank=True)
-    seller = models.ForeignKey(
-        'crm.Seller', verbose_name='vendedor', related_name='entry_seller',
-        null=True, blank=True)
-    is_entry = models.BooleanField('dado entrada', default=False)
-
-    class Meta:
-        ordering = ['priority', 'created']
-        verbose_name = 'entrada'
-        verbose_name_plural = 'entradas'
-
-    def __str__(self):
-        return str(self.work)
-
-    def get_absolute_url(self):
-        return r('proposal:entry_detail', pk=self.pk)
 
 
 class Work(Address):
@@ -54,7 +28,9 @@ class Work(Address):
 
 
 class Proposal(TimeStampedModel):
-    num_prop = models.PositiveIntegerField(u'número')
+    num_prop = models.PositiveIntegerField(u'número', default=0)
+    priority = models.CharField(
+        'prioridade', max_length=2, choices=PRIORITY, default=NORMAL)
     prop_type = models.CharField(
         u'tipo de orçamento', max_length=20, choices=PROP_TYPE, default='R')
     num_prop_type = models.PositiveIntegerField(
@@ -69,7 +45,7 @@ class Proposal(TimeStampedModel):
         null=True, blank=True)
     employee = models.ForeignKey(
         'crm.Employee', verbose_name=u'orçamentista',
-        related_name='proposal_employee')
+        related_name='proposal_employee', null=True, blank=True)
     seller = models.ForeignKey(
         'crm.Seller', verbose_name='vendedor', related_name='proposal_seller',
         null=True, blank=True)
@@ -126,6 +102,22 @@ class Proposal(TimeStampedModel):
                 self.work.city, self.work.uf)
 
 
+class Entry(Proposal):
+    objects = EntryManager()
+
+    class Meta:
+        proxy = True
+        ordering = ['priority', 'created']
+        verbose_name = 'entrada'
+        verbose_name_plural = 'entradas'
+
+    def __str__(self):
+        return str(self.work)
+
+    def get_absolute_url(self):
+        return r('proposal:entry_detail', pk=self.pk)
+
+
 class Contract(TimeStampedModel):
     proposal = models.OneToOneField(
         'Proposal', verbose_name=u'orçamento', related_name='contract_proposal')
@@ -146,7 +138,7 @@ class Contract(TimeStampedModel):
 
 
 class NumLastProposal(models.Model):
-    num_last_prop = models.PositiveIntegerField(u'número')
+    num_last_prop = models.PositiveIntegerField(u'número', default=0)
 
     class Meta:
         verbose_name = u'número último orçamento'
