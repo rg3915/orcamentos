@@ -19,14 +19,14 @@ class FirstnameSearchMixin(object):
 class DashboardMixin(object):
 
     def entrys(self):
-        return Entry.objects.filter(is_entry=False).count()
+        return Entry.objects.filter(num_prop=0).count()
 
     def entrys_urgent(self):
-        return Entry.objects.filter(is_entry=False, priority=URGENTE).count()
+        return Entry.objects.filter(num_prop=0, priority=URGENTE).count()
 
     def entry_list(self):
         ''' Retorna entradas urgentes '''
-        e = Entry.objects.filter(is_entry=False, priority=URGENTE)[:7]
+        e = Entry.objects.filter(num_prop=0, priority=URGENTE)[:7]
         return e
 
     def proposal_list(self):
