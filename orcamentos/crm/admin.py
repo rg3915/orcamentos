@@ -59,6 +59,9 @@ class SellerAdmin(PersonAdmin):
     inlines = [PhoneEmployeeInline]
     list_display = ('__str__', 'email', 'occupation',
                     'internal', 'commissioned', 'active')
+    search_fields = ('first_name', 'last_name',)
+    date_hierarchy = 'date_joined'
+    form = EmployeeAdminForm
 
     def save_model(self, request, obj, form, change):
         obj.occupation = 'Vendedor'
