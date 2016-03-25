@@ -46,7 +46,7 @@ class CustomerAdmin(PersonAdmin):
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
     inlines = [PhoneEmployeeInline]
-    list_display = ('__str__', 'slug', 'date_joined',
+    list_display = ('__str__', 'slug', 'occupation', 'date_joined',
                     'date_release', 'is_staff', 'active')
     search_fields = ('first_name', 'last_name',)
     date_hierarchy = 'date_joined'
@@ -58,7 +58,7 @@ class SellerAdmin(PersonAdmin):
     objects = SellerManager()
     inlines = [PhoneEmployeeInline]
     list_display = ('__str__', 'email', 'occupation',
-                    'active', 'internal', 'commissioned')
+                    'internal', 'commissioned', 'active')
 
     def save_model(self, request, obj, form, change):
         obj.occupation = 'Vendedor'

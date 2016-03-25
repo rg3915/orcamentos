@@ -15,9 +15,9 @@ class Entry(TimeStampedModel):
     person = models.ForeignKey(
         'crm.Person', verbose_name='contato', related_name='entry_person')
     description = models.TextField('descrição', blank=True)
-    # seller = models.ForeignKey(
-    #     'crm.Seller', verbose_name='vendedor', related_name='entry_seller',
-    #     null=True, blank=True)
+    seller = models.ForeignKey(
+        'crm.Seller', verbose_name='vendedor', related_name='entry_seller',
+        null=True, blank=True)
     is_entry = models.BooleanField('dado entrada', default=False)
 
     class Meta:
@@ -70,9 +70,9 @@ class Proposal(TimeStampedModel):
     employee = models.ForeignKey(
         'crm.Employee', verbose_name=u'orçamentista',
         related_name='proposal_employee')
-    # seller = models.ForeignKey(
-    #     'crm.Seller', verbose_name='vendedor', related_name='proposal_seller',
-    #     null=True, blank=True)
+    seller = models.ForeignKey(
+        'crm.Seller', verbose_name='vendedor', related_name='proposal_seller',
+        null=True, blank=True)
     status = models.CharField(
         max_length=4, choices=STATUS, default='elab')
     date_conclusion = models.DateTimeField(
@@ -111,17 +111,19 @@ class Proposal(TimeStampedModel):
     def get_person_url(self):
         return u'/person/%i' % self.person.id
 
-    # def get_seller(self):
-    #     if self.seller:
-    # return '{} {}'.format(self.seller.employee.first_name,
-    # self.seller.employee.last_name)
+    def get_seller(self):
+        if self.seller:
+            return '{} {}'.format(self.seller.employee.first_name,
+                                  self.seller.employee.last_name)
 
     def get_employee(self):
         return '{} {}'.format(self.employee.first_name, self.employee.last_name)
 
     def get_address(self):
         if self.work.address:
-            return '{}, {}, {} - {}'.format(self.work.address, self.work.district, self.work.city, self.work.uf)
+            return '{}, {}, {} - {}'.format(
+                self.work.address, self.work.district,
+                self.work.city, self.work.uf)
 
 
 class Contract(TimeStampedModel):

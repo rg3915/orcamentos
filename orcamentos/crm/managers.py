@@ -16,4 +16,5 @@ class PersonManager(models.Manager):
 class SellerManager(models.Manager):
 
     def get_queryset(self):
-        return super(SellerManager, self).get_queryset().filter(occupation='Vendedor')
+        return super(SellerManager, self).get_queryset()\
+            .filter(occupation__occupation='Vendedor')
