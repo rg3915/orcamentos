@@ -37,7 +37,7 @@ class ProposalDetail(DetailView):
 
 
 # LoginRequiredMixin
-# proposal_update = UpdateView.as_view(model=Proposal, form_class=ProposalForm)
+proposal_update = UpdateView.as_view(model=Proposal, form_class=ProposalForm)
 
 
 class ContractList(ListView):
