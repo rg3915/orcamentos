@@ -84,6 +84,10 @@
         <td>{{ object.description|default:"---" }}</td>
       </tr>
       <tr>
+        <th class="col-md-3 text-right">Funcionário</th>
+        <td>{{ object.get_employee|default:"---" }}</td>
+      </tr>
+      <tr>
         <th class="col-md-3 text-right">Vendedor</th>
         <td>{{ object.get_seller|default:"---" }}</td>
       </tr>
