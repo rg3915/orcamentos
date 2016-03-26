@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
+from django.template.defaultfilters import slugify
 from django.utils.formats import number_format
 from orcamentos.core.models import TimeStampedModel, Address
 from .managers import EntryManager, ProposalManager
@@ -8,7 +9,7 @@ from orcamentos.utils.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS
 
 class Work(Address):
     name_work = models.CharField('obra', max_length=100, unique=True)
-    slug = models.SlugField('slug')
+    slug = models.SlugField('slug', blank=True)
     person = models.ForeignKey(
         'crm.Person', verbose_name='contato', related_name='work_person',
         null=True, blank=True)
@@ -25,6 +26,10 @@ class Work(Address):
 
     def get_absolute_url(self):
         return r('proposal:work_detail', slug=self.slug)
+
+    def save(self):
+        self.slug = slugify(self.name_work)
+        super(Work, self).save()
 
 
 class Proposal(TimeStampedModel):

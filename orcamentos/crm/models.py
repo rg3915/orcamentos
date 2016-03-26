@@ -87,11 +87,6 @@ class Customer(Person):
     def get_absolute_url(self):
         return r('crm:customer_detail', slug=self.slug)
 
-    def save(self):
-        self.fullname = '{} {}'.format(self.first_name, self.last_name)
-        self.slug = slugify(self.fullname)
-        super(Customer, self).save()
-
 
 class Employee(People, User):
     occupation = models.ForeignKey(
