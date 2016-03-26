@@ -1,8 +1,11 @@
-from orcamentos.core.models import User
+from orcamentos.crm.models import User
 
-# definindo a senha padrão para todos os usuarios,
-# como o django aceita apenas hash, criei uma senha padrão [password=1] e copiei o hash dela
-# ou seja, para acessar cada uma das contas use como senha 1
+'''
+Definindo a senha padrão para todos os usuarios,
+como o django aceita apenas hash, criei uma senha padrão [password=1] e copiei
+o hash dela ou seja, para acessar cada uma das contas use como senha 1.
+'''
+
 hashpass = 'pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA='
 
 User.objects.create(
