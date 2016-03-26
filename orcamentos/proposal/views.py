@@ -5,7 +5,7 @@ from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Entry, Proposal, Contract, Work
 from .mixins import EntryMixin, ProposalMixin, ProposalDetailMixin, \
-    ContractMixin  # , WorkMixin
+    ContractMixin, WorkMixin
 from .forms import EntryForm, ProposalForm, ContractForm, WorkForm
 
 
@@ -50,8 +50,7 @@ contract_detail = DetailView.as_view(model=Contract)
 contract_update = UpdateView.as_view(model=Contract, form_class=ContractForm)
 
 
-class WorkList(ListView):
-    # class WorkList(WorkMixin, ListView):
+class WorkList(WorkMixin, ListView):
     model = Work
     paginate_by = 10
 

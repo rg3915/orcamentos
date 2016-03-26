@@ -119,14 +119,14 @@ class ContractMixin(object):
         return c
 
 
-# class WorkMixin(object):
+class WorkMixin(object):
 
-#     def get_queryset(self):
-#         super(WorkMixin, self).get_queryset()
-#         w = Work.objects.all().select_related()
-#         q = self.request.GET.get('search_box')
-#         if q is not None:
-#             w = w.filter(
-#                 Q(name_work__icontains=q))  # |
-#             #   Q(customer__first_name__icontains=q))
-#         return w
+    def get_queryset(self):
+        super(WorkMixin, self).get_queryset()
+        w = Work.objects.all().select_related()
+        q = self.request.GET.get('search_box')
+        if q is not None:
+            w = w.filter(
+                Q(name_work__icontains=q) |
+                Q(customer__first_name__icontains=q))
+        return w
