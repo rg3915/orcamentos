@@ -52,7 +52,7 @@
 			{% endif %}
             <tr>
                 <th class="col-md-3 text-right">Vendedor</th>
-                <td>{{ object.seller }}</td>
+                <td>{{ object.seller|default:"---" }}</td>
             </tr>
 
 		</tbody>

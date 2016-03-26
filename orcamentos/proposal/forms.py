@@ -12,7 +12,8 @@ class EntryForm(forms.ModelForm):
 
     class Meta:
         model = Entry
-        exclude = ('status',)
+        fields = ['priority', 'category', 'work',
+                  'person', 'seller', 'description']
 
 
 class ContractForm(forms.ModelForm):
