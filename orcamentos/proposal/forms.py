@@ -24,10 +24,12 @@ class ContractForm(forms.ModelForm):
 
 class ProposalForm(forms.ModelForm):
     num_prop = forms.IntegerField(
+        label='Número',
         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
     num_prop_type = forms.IntegerField(
+        label='Número da revisão',
         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
-    price = forms.DecimalField(localize=True)
+    price = forms.DecimalField(label='Valor', localize=True)
 
     class Meta:
         model = Proposal
