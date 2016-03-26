@@ -43,12 +43,13 @@
         <tbody>
         {% for proposal in proposal_list %}
           <tr>
-            <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-fw {% status_icon proposal.status %}"></i></a></td>
-
+            <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-fw {% status_icon proposal.status %}"></i>
+            </a></td>
+            
             <td>{{ proposal.work }}</td>
-            <td>{ proposal.work.customer }}</td>
+            <td>{{ proposal.work.customer }}</td>
             <td>{{ proposal.get_category_display }}</td>
-            <td>{{ proposal.get_employee }}</td>
+            <td>{ proposal.get_employee }}</td>
             <td>{{ proposal.get_seller }}</td>
 
             <td><i class="fa fa-fw {% status_icon proposal.status %}"></i> {{ proposal.get_status_display }}</td>
