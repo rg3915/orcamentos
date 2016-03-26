@@ -56,8 +56,8 @@
       {% endif %}
           <td><a href="{{ contract.get_absolute_url }}">{{ contract.proposal }}</a></td>
           <td>{{ contract.proposal.work }}</td>
-          <td>{ contract.proposal.work.customer }}</td>
-          <td>{{ contract.proposal.seller.employee.user.first_name }}</td>
+          <td>{{ contract.proposal.work.customer }}</td>
+          <td>{{ contract.proposal.get_seller }}</td>
           <td class="text-right">{{ contract.proposal.get_price }}</td>
           <td>{{ contract.created|date:"d/m/Y" }}</td>
           {% if contract.is_canceled %}

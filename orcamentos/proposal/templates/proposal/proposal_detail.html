@@ -22,7 +22,7 @@
         </a>
       
       {% if object.status == 'co' %}
-        <a class="btn btn-primary" href="{ url 'proposal:create_contract_url' proposal.id %}"><i class="fa fa-plus"></i> Criar Contrato</a>
+        <a class="btn btn-primary" href="{% url 'proposal:create_contract_url' proposal.id %}"><i class="fa fa-plus"></i> Criar Contrato</a>
       {% elif object.status == 'a' %}
         <a class="btn btn-primary" href="{% url 'proposal:contract_detail' contract_id %}"><i class="fa fa-star"></i> Visualizar Contrato</a>
       {% endif %}

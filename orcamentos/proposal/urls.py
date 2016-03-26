@@ -28,10 +28,10 @@ proposal_patterns = [
     url(r'^(?P<proposal_id>\d+)/cancel/$',
         a.cancel_proposal,
         name='cancel_proposal'),
-    # # Create Contract
-    # url(r'^(?P<proposal_id>\d+)/contract/new/$',
-    #     a.create_contract,
-    #     name='create_contract_url'),
+    # Create Contract
+    url(r'^(?P<proposal_id>\d+)/contract/new/$',
+        a.create_contract,
+        name='create_contract_url'),
 ]
 
 contract_patterns = [
