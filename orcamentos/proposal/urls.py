@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from orcamentos.proposal import views as p
-# from orcamentos.proposal import actions as a
+from orcamentos.proposal import actions as a
 
 entry_patterns = [
     url(r'^$', p.EntryList.as_view(), name='entry_list'),
@@ -24,10 +24,10 @@ proposal_patterns = [
     # url(r'^(?P<proposal_id>\d+)/ok/$',
     #     a.conclude_proposal,
     #     name='conclude_proposal'),
-    # # Cancel Proposal
-    # url(r'^(?P<proposal_id>\d+)/cancel/$',
-    #     a.cancel_proposal,
-    #     name='cancel_proposal'),
+    # Cancel Proposal
+    url(r'^(?P<proposal_id>\d+)/cancel/$',
+        a.cancel_proposal,
+        name='cancel_proposal'),
     # # Create Contract
     # url(r'^(?P<proposal_id>\d+)/contract/new/$',
     #     a.create_contract,

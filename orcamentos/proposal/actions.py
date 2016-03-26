@@ -1,9 +1,9 @@
-# from django.shortcuts import redirect, resolve_url as r
-# from django.http import HttpResponse
-# from django.contrib.auth.decorators import login_required
-# from django.utils import timezone
-# from orcamentos.crm.models import Employee
-# from orcamentos.proposal.models import Entry, Proposal, Contract, NumLastProposal
+from django.shortcuts import redirect, resolve_url as r
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from orcamentos.crm.models import Employee
+from orcamentos.proposal.models import Entry, Proposal, Contract, NumLastProposal
 
 
 # @login_required
@@ -28,17 +28,17 @@
 
 
 # @login_required
-# def cancel_proposal(request, proposal_id):
-#     if request.user.is_authenticated:
-#         proposal = Proposal.objects.get(pk=proposal_id)
-#         ''' Se o status for 'aprovado', então não pode concluir '''
-#         if proposal.status == 'a':
-#             return HttpResponse('Este orçamento já virou contrato.')
-#         else:
-#             proposal.status = 'c'
-#             proposal.date_conclusion = timezone.now()
-#             proposal.save()
-#             return redirect(r('proposal:proposal_detail', proposal.pk))
+def cancel_proposal(request, proposal_id):
+    if request.user.is_authenticated:
+        proposal = Proposal.objects.get(pk=proposal_id)
+        ''' Se o status for 'aprovado', então não pode concluir '''
+        if proposal.status == 'a':
+            return HttpResponse('Este orçamento já virou contrato.')
+        else:
+            proposal.status = 'c'
+            proposal.date_conclusion = timezone.now()
+            proposal.save()
+            return redirect(r('proposal:proposal_detail', proposal.pk))
 
 
 # @login_required
