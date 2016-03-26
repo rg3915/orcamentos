@@ -39,10 +39,10 @@ class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
         fields = ['gender', 'treatment', 'first_name', 'last_name', 'slug',
-                  'photo', 'birthday', 'occupation', 'company', 'department', 'email',
-                  'cpf', 'rg', 'cnpj', 'ie', 'person_type', 'customer_type',
-                  'address', 'complement', 'district', 'city', 'uf', 'cep',
-                  'active', 'blocked']
+                  'photo', 'birthday', 'occupation', 'company', 'department',
+                  'email', 'cpf', 'rg', 'cnpj', 'ie', 'person_type',
+                  'customer_type', 'address', 'complement', 'district',
+                  'city', 'uf', 'cep', 'active', 'blocked']
 
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None
@@ -70,9 +70,9 @@ class EmployeeAdminForm(forms.ModelForm):
         model = Employee
         fields = ['username', 'slug', 'gender', 'first_name', 'last_name',
                   'is_staff', 'email', 'photo', 'birthday', 'department',
-                  'cpf', 'rg', 'occupation', 'address', 'complement', 'district',
-                  'city', 'uf', 'cep', 'date_joined', 'date_release',
-                  'active', 'blocked']
+                  'cpf', 'rg', 'occupation', 'address', 'complement',
+                  'district', 'city', 'uf', 'cep', 'date_joined',
+                  'date_release', 'active', 'blocked']
 
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None

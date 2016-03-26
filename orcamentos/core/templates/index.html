@@ -601,7 +601,7 @@
                                             <tr>
                                                 <td><a href="{ url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
                                                 <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
-                                                <td>{ p.work.customer }}</td>
+                                                <td>{{ p.work.customer }}</td>
                                                 <td>{{ p.employee }}</td>
                                                 <td>{{ p.created|date:"d/m/Y" }}</td>
                                             </tr>
@@ -677,11 +677,11 @@
                                                         {% endif %}
 
                                                         {% if p.status == 'a' %}
-                                                            <td class="text-info">{ p.work.customer }}</td>
+                                                            <td class="text-info">{{ p.work.customer }}</td>
                                                         {% elif p.status == 'c' %}
-                                                            <td><strike>{ p.work.customer }}</strike></td>
+                                                            <td><strike>{{ p.work.customer }}</strike></td>
                                                         {% else %}
-                                                            <td>{ p.work.customer }}</td>
+                                                            <td>{{ p.work.customer }}</td>
                                                         {% endif %}
 
                                                         {% if p.status == 'a' %}
