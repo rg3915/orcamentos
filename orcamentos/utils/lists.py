@@ -57,6 +57,14 @@ PROP_TYPE = (
     ('OP', 'OP')
 )
 
+STATUS_FILTER = (
+    ('c', 'cancelado'),
+    ('elab', 'em elaboração'),
+    ('p', 'pendente'),
+    ('co', 'concluido'),
+    ('a', 'aprovado')
+)
+
 STATUS_LIST = (
     ('c', 'cancelado'),
     ('n', 'não iniciado'),

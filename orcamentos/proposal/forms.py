@@ -1,16 +1,6 @@
 from django import forms
 from .models import Contract, Entry, Proposal, Work
-from orcamentos.utils.lists import PRIORITY, NORMAL
-
-
-STATUS = (
-    ('', ''),
-    ('c', 'cancelado'),
-    ('elab', 'em elaboração'),
-    ('p', 'pendente'),
-    ('co', 'concluido'),
-    ('a', 'aprovado')
-)
+from orcamentos.utils.lists import PRIORITY, NORMAL, STATUS_FILTER
 
 
 class EntryForm(forms.ModelForm):
@@ -53,7 +43,7 @@ class WorkForm(forms.ModelForm):
 
 class StatusSearchForm(forms.Form):
     status = forms.ChoiceField(
-        choices=STATUS, widget=forms.Select(attrs={'class': 'form-control'}))
+        choices=STATUS_FILTER, widget=forms.Select(attrs={'class': 'form-control'}))
 
 
 class PrioritySearchForm(forms.Form):
