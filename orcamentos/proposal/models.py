@@ -2,7 +2,7 @@ from django.db import models
 from django.shortcuts import resolve_url as r
 from django.utils.formats import number_format
 from orcamentos.core.models import TimeStampedModel, Address
-from .managers import EntryManager
+from .managers import EntryManager, ProposalManager
 from orcamentos.utils.lists import PRIORITY, NORMAL, CATEGORY, PROP_TYPE, STATUS_LIST
 
 
@@ -28,6 +28,7 @@ class Work(Address):
 
 
 class Proposal(TimeStampedModel):
+    ''' Orçamento é todo orçamento com num_prop > 0 '''
     num_prop = models.PositiveIntegerField(u'número', default=0)
     priority = models.CharField(
         'prioridade', max_length=2, choices=PRIORITY, default=NORMAL)
@@ -56,6 +57,8 @@ class Proposal(TimeStampedModel):
     price = models.DecimalField(
         'valor', max_digits=9, decimal_places=2, default=0)
     obs = models.TextField(u'observação', blank=True)
+
+    objects = ProposalManager()
 
     class Meta:
         ordering = ['id']

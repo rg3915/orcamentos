@@ -7,6 +7,7 @@ register = template.Library()
 @register.simple_tag
 def status_icon(status):
     icons = {
+        'n': '',
         'c': 'fa-close status-cancelado',
         'elab': 'fa-circle status-elab',
         'p': 'fa-circle status-pendente',

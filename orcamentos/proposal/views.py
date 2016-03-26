@@ -4,12 +4,12 @@ from django.http import HttpResponse
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Entry, Proposal, Contract, Work
-# from .mixins import EntryMixin, ProposalMixin, ProposalDetailMixin, ContractMixin, WorkMixin
+# , ProposalDetailMixin, ContractMixin, WorkMixin
+from .mixins import EntryMixin, ProposalMixin
 from .forms import EntryForm, ProposalForm, ContractForm, WorkForm
 
 
-class EntryList(ListView):
-    # class EntryList(EntryMixin, ListView):
+class EntryList(EntryMixin, ListView):
     model = Entry
     paginate_by = 10
 
@@ -26,8 +26,7 @@ entry_create = CreateView.as_view(model=Entry, form_class=EntryForm)
 entry_update = UpdateView.as_view(model=Entry, form_class=EntryForm)
 
 
-class ProposalList(ListView):
-    # class ProposalList(ProposalMixin, ListView):
+class ProposalList(ProposalMixin, ListView):
     model = Proposal
     paginate_by = 10
 
