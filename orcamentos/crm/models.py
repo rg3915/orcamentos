@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 from orcamentos.core.models import TimeStampedModel, Address
 from .managers import CustomerManager, PersonManager, SellerManager
 from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, PERSON_TYPE, CUSTOMER_TYPE
@@ -11,7 +12,7 @@ class People(TimeStampedModel, Address):
                               choices=GENDER, null=True, blank=True)
     treatment = models.CharField(
         'tratamento', max_length=4, choices=TREATMENT, null=True, blank=True)
-    slug = models.SlugField('slug')
+    slug = models.SlugField('slug', blank=True)
     photo = models.URLField('foto', null=True, blank=True)
     birthday = models.DateTimeField('nascimento', null=True, blank=True)
     company = models.CharField('empresa', max_length=50, null=True, blank=True)
@@ -62,6 +63,11 @@ class Person(People):
     def get_absolute_url(self):
         return r('crm:person_detail', slug=self.slug)
 
+    def save(self):
+        self.fullname = '{} {}'.format(self.first_name, self.last_name)
+        self.slug = slugify(self.fullname)
+        super(Person, self).save()
+
 
 class PhonePerson(models.Model):
     phone = models.CharField('telefone', max_length=20, blank=True)
@@ -80,6 +86,11 @@ class Customer(Person):
 
     def get_absolute_url(self):
         return r('crm:customer_detail', slug=self.slug)
+
+    def save(self):
+        self.fullname = '{} {}'.format(self.first_name, self.last_name)
+        self.slug = slugify(self.fullname)
+        super(Customer, self).save()
 
 
 class Employee(People, User):
