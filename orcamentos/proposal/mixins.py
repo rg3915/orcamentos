@@ -71,24 +71,25 @@ class ProposalMixin(object):
         return p
 
 
-# class ProposalDetailMixin(object):
+class ProposalDetailMixin(object):
+    ''' Retorna o id do contrato caso exista para visualizar o contrato '''
 
-#     def get_context_data(self, **kwargs):
-#         try:
-#             c = Contract.objects.get(proposal=self.object)
-#             context = super(ProposalDetailMixin,
-#                             self).get_context_data(**kwargs)
-#             context['contract_id'] = c.id
-#         except ObjectDoesNotExist:
-#             c = None
-#             context = super(ProposalDetailMixin,
-#                             self).get_context_data(**kwargs)
-#             context['contract_id'] = c
-#         return context
+    def get_context_data(self, **kwargs):
+        try:
+            c = Contract.objects.get(proposal=self.object)
+            context = super(ProposalDetailMixin,
+                            self).get_context_data(**kwargs)
+            context['contract_id'] = c.id
+        except ObjectDoesNotExist:
+            c = None
+            context = super(ProposalDetailMixin,
+                            self).get_context_data(**kwargs)
+            context['contract_id'] = c
+        return context
 
-#     def post(self, request, *args, **kwargs):
-#         price = request.POST.get['price']
-#         return price
+    def post(self, request, *args, **kwargs):
+        price = request.POST.get['price']
+        return price
 
 
 # class ContractMixin(object):
