@@ -49,7 +49,7 @@ class ContractList(ListView):
 contract_detail = DetailView.as_view(model=Contract)
 
 # LoginRequiredMixin
-# contract_update = UpdateView.as_view(model=Contract, form_class=ContractForm)
+contract_update = UpdateView.as_view(model=Contract, form_class=ContractForm)
 
 
 class WorkList(ListView):
