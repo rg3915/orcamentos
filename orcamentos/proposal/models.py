@@ -94,9 +94,12 @@ class Proposal(TimeStampedModel):
         if self.seller:
             return '{} {}'.format(self.seller.employee.first_name,
                                   self.seller.employee.last_name)
+        return ''
 
     def get_employee(self):
-        return '{} {}'.format(self.employee.first_name, self.employee.last_name)
+        if self.employee:
+            return '{} {}'.format(self.employee.first_name, self.employee.last_name)
+        return ''
 
     def get_address(self):
         if self.work.address:
