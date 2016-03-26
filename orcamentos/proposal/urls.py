@@ -10,9 +10,9 @@ entry_patterns = [
     url(r'^add/$', p.entry_create, name='entry_add'),
 
     # Create Proposal
-    # url(r'^(?P<entry_id>\d+)/proposal/new/$',
-    #     a.create_proposal,
-    #     name='create_proposal_url'),
+    url(r'^(?P<entry_id>\d+)/proposal/new/$',
+        a.create_proposal,
+        name='create_proposal_url'),
 ]
 
 proposal_patterns = [

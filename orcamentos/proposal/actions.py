@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, resolve_url as r
 from django.http import HttpResponse
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from orcamentos.crm.models import Employee
@@ -41,31 +42,28 @@ def cancel_proposal(request, proposal_id):
             return redirect(r('proposal:proposal_detail', proposal.pk))
 
 
-# @login_required
-# def create_proposal(request, entry_id):
-#     if request.user.is_authenticated:
-#         employee = Employee.objects.get(user_ptr=request.user.id)
-#         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
-#         entry = Entry.objects.get(pk=entry_id)
-#         proposal = Proposal(
-#             num_prop=nlp.num_last_prop + 1,
-#             prop_type='R',
-#             category=entry.category,
-#             description=entry.description,
-#             work=entry.work,
-#             person=entry.person,
-#             employee=employee,
-#             # seller=entry.seller,
-#         )
-#         proposal.save()
-#         ''' Define que foi dado entrada '''
-#         entry.is_entry = True
-#         entry.save()
-#         ''' Incrementa o número do último orçamento '''
-#         nlp.num_last_prop += 1
-#         nlp.save()
-#         print('Orçamento criado com sucesso')
-#     return redirect(r('proposal:proposal_detail', proposal.pk))
+@login_required
+def create_proposal(request, entry_id):
+    if request.user.is_authenticated:
+        employee = Employee.objects.get(user_ptr=request.user.id)
+        try:
+            nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
+        except ObjectDoesNotExist:
+            NumLastProposal.objects.create(num_last_prop=0)
+            nlp = NumLastProposal.objects.get(pk=1)
+        proposal = Entry.objects.filter(pk=entry_id)
+        proposal.update(
+            num_prop=nlp.num_last_prop + 1,
+            employee=employee,
+            status='elab'
+        )
+        ''' Incrementa o número do último orçamento '''
+        nlp.num_last_prop += 1
+        nlp.save()
+        # Pega o pk do orçamento atual
+        proposal = Proposal.objects.get(pk=entry_id)
+        print('Orçamento criado com sucesso')
+    return redirect(r('proposal:proposal_detail', proposal.pk))
 
 
 # @login_required
