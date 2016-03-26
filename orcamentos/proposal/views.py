@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Entry, Proposal, Contract, Work
-# \ ContractMixin, WorkMixin
-from .mixins import EntryMixin, ProposalMixin, ProposalDetailMixin
+from .mixins import EntryMixin, ProposalMixin, ProposalDetailMixin, \
+    ContractMixin  # , WorkMixin
 from .forms import EntryForm, ProposalForm, ContractForm, WorkForm
 
 
@@ -39,8 +39,7 @@ class ProposalDetail(ProposalDetailMixin, DetailView):
 proposal_update = UpdateView.as_view(model=Proposal, form_class=ProposalForm)
 
 
-class ContractList(ListView):
-    # class ContractList(ContractMixin, ListView):
+class ContractList(ContractMixin, ListView):
     model = Contract
     paginate_by = 10
 

@@ -92,29 +92,31 @@ class ProposalDetailMixin(object):
         return price
 
 
-# class ContractMixin(object):
+class ContractMixin(object):
 
-#     def get_context_data(self, **kwargs):
-#         context = super(ContractMixin, self).get_context_data(**kwargs)
-#         context['date_now'] = datetime.now()
-#         return context
+    def get_context_data(self, **kwargs):
+        # Retorna a data atual
+        context = super(ContractMixin, self).get_context_data(**kwargs)
+        context['date_now'] = datetime.now()
+        return context
 
-#     def get_queryset(self):
-#         super(ContractMixin, self).get_queryset()
-#         c = Contract.objects.all()
-#         if self.request.GET.get('is_canceled') == '1':
-#             c = c.filter(is_canceled=True)
-#         elif self.request.GET.get('is_canceled') == '0':
-#             c = c.filter(is_canceled=False)
+    def get_queryset(self):
+        # Filtra contratos cancelados ou não
+        super(ContractMixin, self).get_queryset()
+        c = Contract.objects.all()
+        if self.request.GET.get('is_canceled') == '1':
+            c = c.filter(is_canceled=True)
+        elif self.request.GET.get('is_canceled') == '0':
+            c = c.filter(is_canceled=False)
 
-#         q = self.request.GET.get('min_date')
-#         if not q in [None, '']:
-#             dmin = self.request.GET.get('min_date')
-#             dmax = self.request.GET.get('max_date')
-#             min_date = datetime.strptime(dmin, "%d/%m/%Y")
-#             max_date = datetime.strptime(dmax, "%d/%m/%Y")
-#             c = c.filter(created__gte=min_date, created__lte=max_date)
-#         return c
+        q = self.request.GET.get('min_date')
+        if not q in [None, '']:
+            dmin = self.request.GET.get('min_date')
+            dmax = self.request.GET.get('max_date')
+            min_date = datetime.strptime(dmin, "%d/%m/%Y")
+            max_date = datetime.strptime(dmax, "%d/%m/%Y")
+            c = c.filter(created__gte=min_date, created__lte=max_date)
+        return c
 
 
 # class WorkMixin(object):
