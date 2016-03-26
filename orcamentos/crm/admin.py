@@ -46,7 +46,7 @@ class CustomerAdmin(PersonAdmin):
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
     inlines = [PhoneEmployeeInline]
-    list_display = ('__str__', 'slug', 'occupation', 'date_joined',
+    list_display = ('username', '__str__', 'slug', 'occupation', 'date_joined',
                     'date_release', 'is_staff', 'active')
     search_fields = ('first_name', 'last_name',)
     date_hierarchy = 'date_joined'

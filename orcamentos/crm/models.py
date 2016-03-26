@@ -104,9 +104,6 @@ class Employee(People, User):
         verbose_name = u'funcionário'
         verbose_name_plural = u'funcionários'
 
-    def __str__(self):
-        return str(self.username)
-
 
 class PhoneEmployee(models.Model):
     phone = models.CharField('telefone', max_length=20, blank=True)
