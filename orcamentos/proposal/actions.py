@@ -7,28 +7,28 @@ from orcamentos.crm.models import Employee
 from orcamentos.proposal.models import Entry, Proposal, Contract, NumLastProposal
 
 
-# @login_required
-# def conclude_proposal(request, proposal_id):
-#     if request.user.is_authenticated:
-#         proposal = Proposal.objects.get(pk=proposal_id)
-#         ''' Se o status for 'aprovado', então não pode concluir '''
-#         if proposal.status == 'a':
-#             return HttpResponse('Este orçamento já virou contrato.')
-#         else:
-#             v = request.POST.get('price')
-#             v = v.replace(',', '.')  # transforma no formato 0.00
-#             ''' verifica se o novo valor é positivo '''
-#             if float(v) <= 0 or float(v) is None:
-#                 return HttpResponse('O valor deve ser positivo.')
-#             else:
-#                 proposal.price = v
-#                 proposal.status = 'co'
-#                 proposal.date_conclusion = timezone.now()
-#                 proposal.save()
-#                 return redirect(r('proposal:proposal_detail', proposal.pk))
+@login_required
+def conclude_proposal(request, proposal_id):
+    if request.user.is_authenticated:
+        proposal = Proposal.objects.get(pk=proposal_id)
+        ''' Se o status for 'aprovado', então não pode concluir '''
+        if proposal.status == 'a':
+            return HttpResponse('Este orçamento já virou contrato.')
+        else:
+            v = request.POST.get('price')
+            v = v.replace(',', '.')  # transforma no formato 0.00
+            ''' verifica se o novo valor é positivo '''
+            if float(v) <= 0 or float(v) is None:
+                return HttpResponse('O valor deve ser positivo.')
+            else:
+                proposal.price = v
+                proposal.status = 'co'
+                proposal.date_conclusion = timezone.now()
+                proposal.save()
+                return redirect(r('proposal:proposal_detail', proposal.pk))
 
 
-# @login_required
+@login_required
 def cancel_proposal(request, proposal_id):
     if request.user.is_authenticated:
         proposal = Proposal.objects.get(pk=proposal_id)

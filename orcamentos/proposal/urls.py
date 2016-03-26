@@ -21,9 +21,9 @@ proposal_patterns = [
     url(r'^(?P<pk>\d+)/edit/$', p.proposal_update, name='proposal_edit'),
 
     # # Conclude Proposal
-    # url(r'^(?P<proposal_id>\d+)/ok/$',
-    #     a.conclude_proposal,
-    #     name='conclude_proposal'),
+    url(r'^(?P<proposal_id>\d+)/ok/$',
+        a.conclude_proposal,
+        name='conclude_proposal'),
     # Cancel Proposal
     url(r'^(?P<proposal_id>\d+)/cancel/$',
         a.cancel_proposal,
