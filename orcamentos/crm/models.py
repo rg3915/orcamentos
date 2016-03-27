@@ -46,7 +46,7 @@ class Person(People):
         'Occupation', verbose_name='cargo', related_name='person_occupation',
         null=True, blank=True)
     person_type = models.CharField(
-        'cliente ou contato', max_length=1, choices=PERSON_TYPE)
+        'cliente ou contato', max_length=1, choices=PERSON_TYPE, default='p')
     customer_type = models.CharField(
         'tipo de cliente', max_length=1, choices=CUSTOMER_TYPE, null=True, blank=True)
 

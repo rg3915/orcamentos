@@ -29,9 +29,6 @@ shell_person:
 shell_customer:
 	./manage.py shell < shell/shell_customer.py
 
-shell_category:
-	./manage.py shell < shell/shell_category.py
-
 shell_work:
 	./manage.py shell < shell/shell_work.py
 
