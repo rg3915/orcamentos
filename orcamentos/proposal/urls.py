@@ -18,7 +18,7 @@ entry_patterns = [
 proposal_patterns = [
     url(r'^$', p.ProposalList.as_view(), name='proposal_list'),
     url(r'^(?P<pk>\d+)/$', p.ProposalDetail.as_view(), name='proposal_detail'),
-    url(r'^(?P<pk>\d+)/edit/$', p.proposal_update, name='proposal_edit'),
+    url(r'^(?P<pk>\d+)/edit/$', p.ProposalUpdate.as_view(), name='proposal_edit'),
 
     # # Conclude Proposal
     url(r'^(?P<proposal_id>\d+)/ok/$',
@@ -37,7 +37,7 @@ proposal_patterns = [
 contract_patterns = [
     url(r'^$', p.ContractList.as_view(), name='contract_list'),
     url(r'^(?P<pk>\d+)/$', p.contract_detail, name='contract_detail'),
-    url(r'^(?P<pk>\d+)/edit/$', p.contract_update, name='contract_edit'),
+    url(r'^(?P<pk>\d+)/edit/$', p.ContractUpdate.as_view(), name='contract_edit'),
 ]
 
 work_patterns = [

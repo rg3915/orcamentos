@@ -1,6 +1,6 @@
 from django.core import serializers
 from django.http import HttpResponse
-# from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Entry, Proposal, Contract, Work
@@ -35,8 +35,9 @@ class ProposalDetail(ProposalDetailMixin, DetailView):
     model = Proposal
 
 
-# LoginRequiredMixin
-proposal_update = UpdateView.as_view(model=Proposal, form_class=ProposalForm)
+class ProposalUpdate(LoginRequiredMixin, UpdateView):
+    model = Proposal
+    form_class = ProposalForm
 
 
 class ContractList(ContractMixin, ListView):
@@ -46,8 +47,10 @@ class ContractList(ContractMixin, ListView):
 
 contract_detail = DetailView.as_view(model=Contract)
 
-# LoginRequiredMixin
-contract_update = UpdateView.as_view(model=Contract, form_class=ContractForm)
+
+class ContractUpdate(LoginRequiredMixin, UpdateView):
+    model = Contract
+    form_class = ContractForm
 
 
 class WorkList(WorkMixin, ListView):

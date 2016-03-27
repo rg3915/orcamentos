@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from orcamentos.core.mixins import FirstnameSearchMixin
@@ -13,11 +14,15 @@ class PersonList(FirstnameSearchMixin, ListView):
 
 person_detail = DetailView.as_view(model=Person)
 
-# LoginRequiredMixin
-person_create = CreateView.as_view(model=Person, form_class=PersonForm)
 
-# LoginRequiredMixin
-person_update = UpdateView.as_view(model=Person, form_class=PersonForm)
+class PersonCreate(LoginRequiredMixin, CreateView):
+    model = Person
+    form_class = PersonForm
+
+
+class PersonUpdate(LoginRequiredMixin, UpdateView):
+    model = Person
+    form_class = PersonForm
 
 
 class CustomerList(FirstnameSearchMixin, ListView):
@@ -26,11 +31,15 @@ class CustomerList(FirstnameSearchMixin, ListView):
 
 customer_detail = DetailView.as_view(model=Customer)
 
-# LoginRequiredMixin
-customer_create = CreateView.as_view(model=Customer, form_class=CustomerForm)
 
-# LoginRequiredMixin
-customer_update = UpdateView.as_view(model=Customer, form_class=CustomerForm)
+class CustomerCreate(LoginRequiredMixin, CreateView):
+    model = Customer
+    form_class = CustomerForm
+
+
+class CustomerUpdate(LoginRequiredMixin, UpdateView):
+    model = Customer
+    form_class = CustomerForm
 
 
 def employee_create(request):

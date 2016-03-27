@@ -73,6 +73,6 @@ run:
 
 initial: install migrate createuser load
 
-initial2: install migrate createuser shell_employee shell_person shell_customer shell_work shell_entry shell_proposal shell_contract backup
+initial2: install migrate createuser shell_employee shell_person shell_customer shell_work shell_entry shell_proposal shell_contract
 
 createdata: shell_employee shell_person shell_customer shell_work shell_entry shell_proposal shell_contract
