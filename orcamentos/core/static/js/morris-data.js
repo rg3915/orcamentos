@@ -48,27 +48,6 @@ $(function() {
     });
 
     Morris.Donut({
-        element: 'morris-donut-chart',
-        data: [{
-            label: "Em Elaboração",
-            value: 5
-        }, {
-            label: "Pendentes",
-            value: 12
-        }, {
-            label: "Concluidos",
-            value: 127
-        }, {
-            label: "Aprovados",
-            value: 23
-        }, {
-            label: "Cancelados",
-            value: 30
-        }],
-        resize: true
-    });
-
-    Morris.Donut({
         element: 'morris-donut-chart-contratos-aprov-cancel',
         data: [{
             label: "Aprovados",

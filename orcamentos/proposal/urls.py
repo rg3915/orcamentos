@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from orcamentos.proposal import views as p
 from orcamentos.proposal import actions as a
+from orcamentos.proposal import graphics as g
 
 entry_patterns = [
     url(r'^$', p.EntryList.as_view(), name='entry_list'),
@@ -32,6 +33,8 @@ proposal_patterns = [
     url(r'^(?P<proposal_id>\d+)/contract/new/$',
         a.create_contract,
         name='create_contract_url'),
+
+    url(r'^proposal_per_status_json/$', g.proposal_per_status_json)
 ]
 
 contract_patterns = [
