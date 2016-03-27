@@ -599,7 +599,7 @@
                                     <tbody>
                                         {% for p in proposal_elab %}
                                             <tr>
-                                                <td><a href="{ url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
+                                                <td><a href="{% url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
                                                 <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
                                                 <td>{{ p.work.customer }}</td>
                                                 <td>{{ p.employee }}</td>
@@ -663,7 +663,7 @@
                                             <tbody>
                                                 {% for p in proposal_list %}
                                                     <tr> <!-- no máximo 6 ou 7 -->
-                                                        <td><a href="{ url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
+                                                        <td><a href="{% url 'proposal:proposal_detail' p.id %}">{{ p.codigo }}</a></td>
                                                         {% if p.status == 'elab' %}
                                                             <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
                                                         {% elif p.status == 'p' %}

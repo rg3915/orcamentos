@@ -35,16 +35,16 @@ class DashboardMixin(object):
         ''' Retorna 6 orçamentos por status '''
         if status in ('c', 'elab', 'p', 'co', 'a'):
             p = p.filter(status=status)
-        # if p:
-        #     p = p[len(p) - 6:]  # ou retorna os 6 últimos
+        if len(p) > 6:
+            p = p[len(p) - 6:]  # ou retorna os 6 últimos
         return p
 
     def proposal_elab(self):
         ''' retorna 6 últimos orçamentos em elaboração '''
         p = Proposal.objects.filter(status='elab')
-        if p:
-            return p
-            # return p[len(p) - 6:]
+        if len(p) > 6:
+            return p[len(p) - 6:]
+        return p
 
     def contracts(self):
         return Contract.objects.all().count()
