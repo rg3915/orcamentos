@@ -1,6 +1,7 @@
 from random import choice
 from django.db import IntegrityError
-from orcamentos.core.models import Contract, Proposal, Customer
+from orcamentos.crm.models import Customer
+from orcamentos.proposal.models import Contract, Proposal
 
 REPEAT = Proposal.objects.filter(status='a')
 
@@ -14,3 +15,6 @@ for i in REPEAT:
             is_canceled=choice((True, False)))
     except IntegrityError:
         print('Registro existente.')
+
+
+# done

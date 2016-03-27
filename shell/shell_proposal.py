@@ -4,7 +4,7 @@ from orcamentos.crm.models import Person, Employee, Seller
 from orcamentos.proposal.models import Proposal, Work, NumLastProposal
 from orcamentos.utils.gen_random_values import gen_string, gen_decimal
 
-status_list = ('c', 'elab', 'p', 'co')
+status_list = ('c', 'elab', 'p', 'co', 'a')
 
 REPEAT = 60
 
@@ -21,7 +21,6 @@ except Work.DoesNotExist:
     max_work_pk = None
 
 for i in range(1, REPEAT + 1):
-    c = randint(1, 8)
     description = gen_string(30)
     w = randint(min_work_pk, max_work_pk)
     work = Work.objects.get(pk=w)
@@ -39,9 +38,9 @@ for i in range(1, REPEAT + 1):
     seller = Seller.objects.get(pk=s)
     # escolhe um status
     status = choice(status_list)
-    if status == 'co':
+    if status == 'co' or status == 'a':
         date_conclusion = timezone.now()
-        price = gen_decimal(9, 2)
+        price = gen_decimal(8, 2)
     else:
         date_conclusion = None
         price = 0
