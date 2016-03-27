@@ -30,7 +30,7 @@ echo "${green}>>> Creating .env${reset}"
 cp contrib/env-sample .env
 
 echo "${green}>>> Load data...${reset}"
-make initial
+make initial2
 
 echo "${green}>>> Running tests...${reset}"
 python manage.py test
