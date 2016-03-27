@@ -1,9 +1,9 @@
-import io
 import random
 import names
 import csv
+from django.template.defaultfilters import slugify
 from orcamentos.crm.models import Person, Occupation
-from orcamentos.utils.lists import COMPANY_LIST
+from orcamentos.utils.lists import COMPANY_LIST, OCCUPATION_LIST
 from orcamentos.utils.gen_random_values import *
 from orcamentos.utils.gen_names import *
 
@@ -18,23 +18,21 @@ with open('fix/enderecos_.csv', 'r') as f:
     f.close()
 
 if not Occupation.objects.all().count():
-    Occupation.objects.create(occupation=u'Arquiteto')
-    Occupation.objects.create(occupation=u'Coordenador')
-    Occupation.objects.create(occupation=u'Diretor')
-    Occupation.objects.create(occupation=u'Engenheiro')
-    Occupation.objects.create(occupation=u'Estagiário')
-    Occupation.objects.create(occupation=u'Gerente')
-    Occupation.objects.create(occupation=u'Orçamentista')
-    Occupation.objects.create(occupation=u'Vendedor')
+    obj = [Occupation(occupation=val) for val in OCCUPATION_LIST]
+    Occupation.objects.bulk_create(obj)
 
+
+photo = 'http://icons.iconarchive.com/icons/icons-land/vista-people/256/Office-Customer-Male-Light-icon.png'
 
 occupation = Occupation.objects.get(pk=1)
 obj = Person(
+    person_type='p',
     gender='M',
     treatment='sr',
     first_name='Regis',
     last_name='da Silva',
     slug='regis-da-silva',
+    photo=photo,
     company='RG Solutions',
     department=u'Orçamentos',
     occupation=occupation,
@@ -53,11 +51,13 @@ obj.save()
 
 occupation = Occupation.objects.get(pk=4)
 obj = Person(
+    person_type='p',
     gender='M',
     treatment='sr',
     first_name='Adailton',
     last_name='do Nascimento',
     slug='adailton-do-nascimento',
+    photo=photo,
     company='RG Solutions',
     department='Developer',
     occupation=occupation,
@@ -75,7 +75,7 @@ obj = Person(
 obj.save()
 
 for i in range(REPEAT):
-    occupation_id = random.randint(1, 1)
+    occupation_id = random.randint(1, 8)
     occupation = Occupation.objects.get(pk=occupation_id)
     g = random.choice(['M', 'F'])
     if g == 'M':
@@ -88,12 +88,15 @@ for i in range(REPEAT):
     company = random.choice(COMPANY_LIST)
     cpf = gen_cpf()
     rg = gen_rg()
+    slug = slugify('{} {}'.format(first_name, last_name))
     obj = Person(
+        person_type='p',
         gender=g,
         treatment=treatment,
         first_name=first_name,
         last_name=last_name,
-        slug=first_name.lower() + '-' + last_name.lower(),
+        slug=slug,
+        photo=photo,
         company=company,
         occupation=occupation,
         email=first_name[0].lower() + '.' + last_name.lower() + '@example.com',
@@ -107,5 +110,6 @@ for i in range(REPEAT):
         active=True,
     )
     obj.save()
+
 
 print('%d Persons salvo com sucesso.' % REPEAT)
