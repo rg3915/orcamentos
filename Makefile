@@ -63,7 +63,7 @@ selenium_all_pages:
 	python selenium/selenium_all_pages.py
 
 backup:
-	./manage.py dumpdata core --format=json --indent=2 > fixtures.json
+	./manage.py dumpdata core crm proposal --format=json --indent=2 > fixtures.json
 
 load:
 	./manage.py loaddata fixtures.json
@@ -75,4 +75,4 @@ initial: install migrate createuser load
 
 initial2: install migrate createuser shell_num_last_proposal shell_user shell_occupation shell_employee shell_seller shell_person shell_customer shell_category shell_work shell_entry shell_proposal shell_contract backup
 
-createdata: shell_num_last_proposal shell_employee shell_person shell_customer shell_work shell_entry shell_proposal shell_contract
+createdata: shell_employee shell_person shell_customer shell_work shell_entry shell_proposal shell_contract
