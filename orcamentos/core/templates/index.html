@@ -257,7 +257,7 @@
                         <li><a href="{% url 'crm:customer_list' %}"><i class="fa fa-users"></i> Clientes</a></li>
                         <li><a href="{% url 'proposal:work_list' %}"><i class="fa fa-home"></i> Obras</a></li>
                         <li><a href="{% url 'crm:person_list' %}"><i class="fa fa-user"></i> Contatos</a></li>
-                        <li><a href="{ url 'admin:index' %}"><span class="fa fa-drupal"></span> Admin</a></li>
+                        <li><a href="{% url 'admin:index' %}"><span class="fa fa-drupal"></span> Admin</a></li>
                         <!-- <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
@@ -545,7 +545,11 @@
                                             <tbody>
                                                 {% for entry in entrys %}
                                                     <tr>
-                                                        <td><i class="pull-right fa fa-flash urgente"></i> <a href="{% url 'proposal:entry_detail' entry.id  %}">{{ entry.work }}</a></td>
+                                                        {% if entry.priority == 'a1' %}
+                                                            <td><i class="pull-right fa fa-flash urgente"></i> <a href="{% url 'proposal:entry_detail' entry.id  %}">{{ entry.work }}</a></td>
+                                                        {% else %}
+                                                            <td><i class="pull-right"></i> <a href="{% url 'proposal:entry_detail' entry.id  %}">{{ entry.work }}</a></td>
+                                                        {% endif %}
                                                         <td>{{ entry.work.customer }}</td>
                                                         <td>{{ entry.created|date:"d/m/Y" }}</td>
                                                     </tr>

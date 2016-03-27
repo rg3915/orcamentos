@@ -26,8 +26,12 @@ class DashboardMixin(object):
 
     def entry_list(self):
         ''' Retorna entradas urgentes '''
-        e = Entry.objects.filter(num_prop=0, priority=URGENTE)[:7]
-        return e
+        entry_urgent = Entry.objects.filter(num_prop=0, priority=URGENTE)[:7]
+        ''' Ou as demais '''
+        if entry_urgent:
+            return entry_urgent
+        else:
+            return Entry.objects.filter(num_prop=0)[:7]
 
     def proposal_list(self):
         p = Proposal.objects.all()
