@@ -46,9 +46,10 @@ class CustomerAdmin(PersonAdmin):
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
     inlines = [PhoneEmployeeInline]
-    list_display = ('username', '__str__', 'slug', 'occupation', 'date_joined',
+    list_display = ('username', '__str__', 'occupation', 'date_joined',
                     'date_release', 'is_staff', 'active')
     search_fields = ('first_name', 'last_name',)
+    list_filter = ('occupation',)
     date_hierarchy = 'date_joined'
     form = EmployeeAdminForm
 
@@ -60,6 +61,7 @@ class SellerAdmin(PersonAdmin):
     list_display = ('__str__', 'email', 'occupation',
                     'internal', 'commissioned', 'active')
     search_fields = ('first_name', 'last_name',)
+    list_filter = ('internal', 'active')
     date_hierarchy = 'date_joined'
     form = EmployeeAdminForm
 

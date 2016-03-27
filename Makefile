@@ -17,17 +17,11 @@ createuser:
 shell_num_last_proposal:
 	./manage.py shell < shell/shell_num_last_proposal.py
 
-shell_user:
-	./manage.py shell < shell/shell_user.py
-
 shell_occupation:
 	./manage.py shell < shell/shell_occupation.py
 
 shell_employee:
 	./manage.py shell < shell/shell_employee.py
-
-shell_seller:
-	./manage.py shell < shell/shell_seller.py
 
 shell_person:
 	./manage.py shell < shell/shell_person.py
@@ -84,4 +78,4 @@ initial: install migrate createuser load
 
 initial2: install migrate createuser shell_num_last_proposal shell_user shell_occupation shell_employee shell_seller shell_person shell_customer shell_category shell_work shell_entry shell_proposal shell_contract backup
 
-createdata: shell_num_last_proposal shell_user shell_occupation shell_employee shell_seller shell_person shell_customer shell_category shell_work shell_entry shell_proposal shell_contract
+createdata: shell_num_last_proposal shell_occupation shell_employee shell_person shell_customer shell_category shell_work shell_entry shell_proposal shell_contract

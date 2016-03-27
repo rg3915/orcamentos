@@ -13,9 +13,9 @@ o hash dela ou seja, para acessar cada uma das contas use como senha 1.
 hashpass = 'pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA='
 
 
-def get_occupation(pk):
+def get_occupation(occupation_name):
     try:
-        occupation = Occupation.objects.get(pk=pk)
+        occupation = Occupation.objects.get(occupation=occupation_name)
     except ObjectDoesNotExist:
         print(colored(
             "\n\nPrimeiro crie os cargos. Digite 'make shell_occupation'.\n", 'red'))
@@ -28,7 +28,7 @@ employees = {
         'username': 'amanda',
         'first_name': 'Amanda',
         'last_name': 'Santos',
-        'occupation_id': 3,
+        'occupation': 'Diretor',
         'gender': 'F',
         'treatment': 'aa',
         'company': 'Tivit',
@@ -45,7 +45,7 @@ employees = {
         'username': 'caio',
         'first_name': 'Caio',
         'last_name': 'Silva Oliveira',
-        'occupation_id': 4,
+        'occupation': 'Engenheiro',
         'gender': 'M',
         'treatment': 'e',
         'company': 'Tivit',
@@ -62,7 +62,7 @@ employees = {
         'username': 'rebeca',
         'first_name': 'Rebeca',
         'last_name': 'Araujo Costa',
-        'occupation_id': 6,
+        'occupation': 'Orçamentista',
         'gender': 'F',
         'treatment': '',
         'company': 'Titanium',
@@ -79,7 +79,7 @@ employees = {
         'username': 'douglas',
         'first_name': 'Douglas',
         'last_name': 'Cardoso Rodrigues',
-        'occupation_id': 6,
+        'occupation': 'Gerente',
         'gender': 'M',
         'treatment': '',
         'company': 'Titanium',
@@ -96,7 +96,7 @@ employees = {
         'username': 'jose',
         'first_name': 'José',
         'last_name': 'Carlos Frederico',
-        'occupation_id': 2,
+        'occupation': 'Vendedor',
         'gender': 'M',
         'treatment': 'sr',
         'company': 'Bot',
@@ -113,7 +113,7 @@ employees = {
         'username': 'alice',
         'first_name': 'Alice',
         'last_name': 'Cunha Santos',
-        'occupation_id': 6,
+        'occupation': 'Orçamentista',
         'gender': 'F',
         'treatment': 'srta',
         'company': 'Plan',
@@ -130,7 +130,7 @@ employees = {
         'username': 'carla',
         'first_name': 'Carla',
         'last_name': 'Azevedo Santos',
-        'occupation_id': 1,
+        'occupation': 'Arquiteto',
         'gender': 'F',
         'treatment': 'srta',
         'company': 'Plan',
@@ -147,7 +147,7 @@ employees = {
         'username': 'regis',
         'first_name': 'Regis',
         'last_name': 'da Silva Santos',
-        'occupation_id': 5,
+        'occupation': 'Vendedor',
         'gender': 'M',
         'treatment': '',
         'company': 'RG Solutions',
@@ -160,11 +160,28 @@ employees = {
         'city': 'São Paulo',
         'uf': 'SP',
         'cep': '01727389'},
+    'fernando': {
+        'username': 'fernando',
+        'first_name': 'Fernando',
+        'last_name': 'Souza',
+        'occupation': 'Orçamentista',
+        'gender': 'F',
+        'treatment': '',
+        'company': 'RG Solutions',
+        'department': 'TI',
+        'cpf': '20095419180',
+        'rg': '400467851',
+        'address': 'Rua Gomes de Carvalho, 100',
+        'complement': '10º andar',
+        'district': 'Vila Olímpia',
+        'city': 'São Paulo',
+        'uf': 'SP',
+        'cep': '04547001'},
     'adailton': {
         'username': 'adailton',
         'first_name': 'Adailton',
         'last_name': 'do Nascimento',
-        'occupation_id': 6,
+        'occupation': 'Vendedor',
         'gender': 'M',
         'treatment': '',
         'company': 'RG Solutions',
@@ -191,7 +208,7 @@ for k in employees:
         email=employees[k]['username'] + '@example.com',
         is_staff=True,
         password=hashpass,
-        occupation=get_occupation(employees[k]['occupation_id']),
+        occupation=get_occupation(employees[k]['occupation']),
         gender=employees[k]['gender'],
         treatment=employees[k]['treatment'],
         company=employees[k]['company'],
