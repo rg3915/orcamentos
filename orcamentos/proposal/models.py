@@ -42,7 +42,7 @@ class Proposal(TimeStampedModel):
     num_prop_type = models.PositiveIntegerField(
         u'número da revisão', default=0)
     category = models.CharField(
-        'categoria', max_length=4, choices=CATEGORY, default='or')
+        'categoria', max_length=4, choices=CATEGORY, default='orc')
     description = models.TextField(u'descrição', blank=True)
     work = models.ForeignKey(
         'Work', verbose_name='obra', related_name='proposal_work')

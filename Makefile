@@ -75,4 +75,4 @@ initial: install migrate createuser load
 
 initial2: install migrate createuser shell_num_last_proposal shell_user shell_occupation shell_employee shell_seller shell_person shell_customer shell_category shell_work shell_entry shell_proposal shell_contract backup
 
-createdata: shell_num_last_proposal shell_occupation shell_employee shell_person shell_customer shell_category shell_work shell_entry shell_proposal shell_contract
+createdata: shell_num_last_proposal shell_employee shell_person shell_customer shell_work shell_entry shell_proposal shell_contract

@@ -1,9 +1,10 @@
-from random import randint, choice
-from shell.gen_random_values import gen_string
-from orcamentos.core.models import Entry, Category, Work, Person, Seller
-from orcamentos.core.lists import URGENTE, ALTA, NORMAL, BAIXA
+from random import choice
+from orcamentos.utils.gen_random_values import gen_string
+from orcamentos.crm.models import Person, Seller
+from orcamentos.proposal.models import Entry, Work
+from orcamentos.utils.lists import URGENTE, ALTA, NORMAL, BAIXA
 
-priority_list = ((URGENTE), (ALTA), (NORMAL), (BAIXA))
+priority_list = (URGENTE, ALTA, NORMAL, BAIXA)
 
 # Return min id of work
 try:
@@ -11,31 +12,36 @@ try:
 except IndexError:
     min_work_pk = None
 
+
 # Return max id of work
 try:
     max_work_pk = Work.objects.latest('pk').id
 except Work.DoesNotExist:
     max_work_pk = None
 
+
 REPEAT = max_work_pk + 1
 
 for i in range(min_work_pk, REPEAT):
     priority = choice(priority_list)
-    c = randint(1, 8)
-    category = Category.objects.get(pk=c)
     work = Work.objects.get(pk=i)
-    p = randint(1, 50)
+    # obtem todos os pk de contatos
+    person_pks = [pk[0] for pk in Person.objects.all().values_list('pk')]
+    p = choice(person_pks)
     person = Person.objects.get(pk=p)
-    s = randint(1, 3)
-    seller = Seller.objects.get(pk=s)
+    # obtem todos os pk de vendedores
+    seller_pks = [pk[0] for pk in Seller.objects.all().values_list('pk')]
+    c = choice(seller_pks)
+    seller = Seller.objects.get(pk=c)
     description = gen_string(30)
-    Entry.objects.create(
+    obj = Entry(
         priority=priority,
-        category=category,
         work=work,
         person=person,
         description=description,
         seller=seller,
     )
+    obj.save()
 
-print('%d Entrys salvo com sucesso.' % REPEAT)
+
+# done
