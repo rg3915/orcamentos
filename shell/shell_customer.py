@@ -1,9 +1,9 @@
-import io
 import random
 import names
 import csv
+from django.template.defaultfilters import slugify
 from orcamentos.crm.models import Customer
-from orcamentos.utils.lists import CUSTOMER_TYPE, COMPANY_LIST
+from orcamentos.utils.lists import COMPANY_LIST
 from orcamentos.utils.gen_random_values import *
 from orcamentos.utils.gen_names import *
 
@@ -27,6 +27,8 @@ with open('fix/enderecos_.csv', 'r') as f:
 
 REPEAT = len(customer_list) + 8
 
+photo = 'http://icons.iconarchive.com/icons/icons-land/vista-people/256/Office-Customer-Male-Light-icon.png'
+
 for i in range(REPEAT):
     g = random.choice(['M', 'F'])
     if g == 'M':
@@ -47,7 +49,6 @@ for i in range(REPEAT):
     else:
         gender = g
         company = random.choice(COMPANY_LIST)
-        # department=''
         customer_type = 'p'
         email = first_name[0].lower() + '.' + \
             last_name.lower() + '@example.com'
@@ -61,13 +62,16 @@ for i in range(REPEAT):
         rg = None
         cnpj = gen_digits(14)
         ie = 'isento'
-    Customer.objects.create(
+    slug = slugify('{} {}'.format(first_name, last_name))
+    obj = Customer(
+        person_type='c',
         gender=g,
         treatment=treatment,
         first_name=first_name,
         last_name=last_name,
+        slug=slug,
+        photo=photo,
         company=company,
-        # department='',
         email=email,
         customer_type=customer_type,
         cpf=cpf,
@@ -79,8 +83,8 @@ for i in range(REPEAT):
         city=address_list[i]['city'],
         uf=address_list[i]['uf'],
         cep=address_list[i]['cep'],
-        active=True,
     )
+    obj.save()
 
-# print('%d Customers salvo com sucesso.' % REPEAT)
+
 # done
