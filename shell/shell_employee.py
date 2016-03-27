@@ -1,8 +1,6 @@
-import sys
-from termcolor import colored
-from django.core.exceptions import ObjectDoesNotExist
 from django.template.defaultfilters import slugify
 from orcamentos.crm.models import Employee, Occupation
+from orcamentos.utils.lists import OCCUPATION_LIST
 
 '''
 Definindo a senha padrão para todos os usuarios,
@@ -12,14 +10,14 @@ o hash dela ou seja, para acessar cada uma das contas use como senha 1.
 
 hashpass = 'pbkdf2_sha256$12000$Pe4addAsDo1D$xEtHWLnSIVkEppr4pbK69SBhuLwWsSHdXyhkCZBNktA='
 
+# Primeiro verifica se existe os cargos, caso contrário os grava.
+if not Occupation.objects.all().count():
+    obj = [Occupation(occupation=val) for val in OCCUPATION_LIST]
+    Occupation.objects.bulk_create(obj)
+
 
 def get_occupation(occupation_name):
-    try:
-        occupation = Occupation.objects.get(occupation=occupation_name)
-    except ObjectDoesNotExist:
-        print(colored(
-            "\n\nPrimeiro crie os cargos. Digite 'make shell_occupation'.\n", 'red'))
-        sys.exit(1)
+    occupation = Occupation.objects.get(occupation=occupation_name)
     return occupation
 
 
