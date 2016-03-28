@@ -21,6 +21,7 @@ $(function() {
             xkey: 'uf',
             ykeys: ['quant'],
             labels: ['quant'],
+            colors: ['#254DEA', '#CAC8C8', '#009BDE', '#44AD41', '#FFB819'],
             hideHover: 'auto',
             resize: true,
         });
