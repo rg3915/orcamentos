@@ -47,19 +47,6 @@ $(function() {
         resize: true
     });
 
-    Morris.Donut({
-        element: 'morris-donut-chart-contratos-aprov-cancel',
-        data: [{
-            label: "Aprovados",
-            value: 23
-        }, {
-            label: "Cancelados",
-            value: 8
-        }],
-        colors: ['#254DEA', '#DE2121'],
-        resize: true
-    });
-
     Morris.Bar({
         element: 'morris-bar-chart',
         data: [{
