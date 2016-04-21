@@ -14,15 +14,15 @@ class Command(BaseCommand):
         employee = Employee.objects.get(first_name__icontains=user)
         nlp = NumLastProposal.objects.get(pk=1)  # sempre pk=1
         proposal = Entry.objects.filter(pk=id)
-        # if proposal.num_prop:
-        # print('Já foi dado entrada.')
-        # else:
-        proposal.update(
-            num_prop=nlp.num_last_prop + 1,
-            employee=employee,
-            status='elab'
-        )
-        ''' Incrementa o número do último orçamento '''
-        nlp.num_last_prop += 1
-        nlp.save()
-        print('Orçamento criado com sucesso')
+        if not proposal:
+            print('Já foi dado entrada.')
+        else:
+            proposal.update(
+                num_prop=nlp.num_last_prop + 1,
+                employee=employee,
+                status='elab'
+            )
+            ''' Incrementa o número do último orçamento '''
+            nlp.num_last_prop += 1
+            nlp.save()
+            print('Orçamento criado com sucesso')
