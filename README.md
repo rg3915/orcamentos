@@ -71,7 +71,7 @@ $ python manage.py create_entry --work='tiree' --contact='alvin' --seller='regis
 **Lista as entradas urgentes**
 
 ```bash
-$ python manage.py entrys --u
+$ python manage.py entrys -u
 ```
 
 **Cria orçamento**

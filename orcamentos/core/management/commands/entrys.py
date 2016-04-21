@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from optparse import make_option
-from orcamentos.core.models import Entry
+from orcamentos.proposal.models import Entry
 
 
 class Command(BaseCommand):
@@ -10,9 +10,9 @@ class Command(BaseCommand):
     )
 
     def handle(self, u=False, *args, **kwargs):
-        entrys = Entry.objects.filter(is_entry=False).order_by('created')
+        entrys = Entry.objects.order_by('created')
         if u:
-            entrys = entrys.filter(priority='u')
+            entrys = entrys.filter(priority='a1')
         for e in entrys:
             print(" %d \t %s \t %s" %
                   (e.id, e.created.strftime(u'%d/%m/%Y'), e.work))
