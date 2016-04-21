@@ -5,6 +5,7 @@ from orcamentos.proposal.models import Entry, NumLastProposal
 
 
 class Command(BaseCommand):
+    help = ''' Cria orçamento. '''
     option_list = BaseCommand.option_list + (
         make_option('--user', help='Nome do usuário'),
         make_option('--id', help='id da entrada'),

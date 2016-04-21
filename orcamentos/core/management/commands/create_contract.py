@@ -4,6 +4,7 @@ from orcamentos.proposal.models import Proposal, Contract
 
 
 class Command(BaseCommand):
+    help = ''' Cria contrato. '''
     option_list = BaseCommand.option_list + (
         make_option('--num', help='número do orçamento'),
     )

@@ -4,6 +4,7 @@ from orcamentos.proposal.models import Entry
 
 
 class Command(BaseCommand):
+    help = ''' Lista as entradas. '''
     option_list = BaseCommand.option_list + (
         make_option('-u', default=False, action="store_true",
                     help="Entradas urgentes"),

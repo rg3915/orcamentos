@@ -5,6 +5,7 @@ from orcamentos.proposal.models import Proposal
 
 
 class Command(BaseCommand):
+    help = ''' Conclui orçamento. '''
     option_list = BaseCommand.option_list + (
         make_option('--num', help='número do orçamento'),
         make_option('--price', help='preço'),
