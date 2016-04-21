@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from optparse import make_option
 from django.utils import timezone
-from orcamentos.core.models import Proposal
+from orcamentos.proposal.models import Proposal
 
 
 class Command(BaseCommand):
