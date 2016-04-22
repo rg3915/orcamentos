@@ -138,7 +138,7 @@ class Contract(TimeStampedModel):
     proposal = models.OneToOneField(
         'Proposal', verbose_name=u'orçamento', related_name='contract_proposal')
     contractor = models.ForeignKey(
-        'crm.Person', verbose_name=u'contratante', related_name='contract_person')
+        'crm.Customer', verbose_name=u'contratante', related_name='contract_person')
     is_canceled = models.BooleanField('cancelado', default=False)
 
     class Meta:
