@@ -319,26 +319,31 @@
 }
 
 .arquitetura,
-.status-elab {
+.status-elab,
+.verde {
     color: #44AD41; /*verde*/
 }
 
 .particular,
-.status-pendente {
+.status-pendente,
+.amarelo {
     color: #FFB819; /*amarelo*/
 }
 
 .construtora, 
-.status-concluido {
+.status-concluido,
+.azul-claro {
     color: #009BDE; /*azul claro*/
 }
 
-.status-aprovado {
+.status-aprovado,
+.azul {
     color: #254DEA; /*#;*/ /*azul*/
 }
 
 .cancelado,
-.status-cancelado {
+.status-cancelado,
+.vermelho {
     color: #CAC8C8; /*DE2121;*/ /*vermelho*/
 }
 
