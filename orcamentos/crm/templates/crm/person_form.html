@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load bootstrap %}
+{% load bootstrap widget_tweaks %}
 
 {% block title %}
     <title>Person Form</title>
@@ -62,7 +62,14 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    {{ form.slug|bootstrap }}
+                    <div class="form-group">
+                      <label class="control-label">
+                        {{ form.slug.label }} <a href="#" data-toggle="popover" title="Slug" data-content="É um texto em minúsculo e separado por traços. Ex: lorem-ipsum-amet."><i class="fa fa-question-circle status-concluido"></i></a>
+                      </label>
+                      <div class="">
+                        {{ form.slug|attr:"class:form-control" }} {{ form.slug.errors }}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -164,4 +171,10 @@
     </div>
 </div>
 </form>
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+  });
+</script>
 {% endblock content %}

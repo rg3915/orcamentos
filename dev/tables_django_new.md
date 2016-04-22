@@ -62,6 +62,7 @@
 
 **Work(Address)**
 * name_work *
+* slug *
 * person(contato) (FK)
 * customer(cliente) (FK) *
 
