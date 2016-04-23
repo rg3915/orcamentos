@@ -25,11 +25,13 @@ class Work(Address):
         return self.name_work
 
     def get_absolute_url(self):
-        return r('proposal:work_detail', slug=self.slug)
+        if self.slug:
+            return r('proposal:work_detail', slug=self.slug)
 
     def save(self):
-        self.slug = slugify(self.name_work)
-        super(Work, self).save()
+        if not self.slug:
+            self.slug = slugify(self.name_work)
+            super(Work, self).save()
 
 
 class Proposal(TimeStampedModel):

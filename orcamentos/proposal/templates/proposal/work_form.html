@@ -105,9 +105,9 @@
 
 <script>
   $(document).ready(function(){
-    $('[data-toggle="popover"]').popover({
-      container: 'body'
-    });
+    $('[data-toggle="popover"]').popover();
+
+    $('#id_slug').slugify('#id_name_work');
   });
 </script>
 {% endblock content %}

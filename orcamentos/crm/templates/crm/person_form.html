@@ -175,6 +175,8 @@
 <script>
   $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
+
+    $('#id_slug').slugify('#id_first_name');
   });
 </script>
 {% endblock content %}
