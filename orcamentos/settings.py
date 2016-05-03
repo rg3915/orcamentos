@@ -33,8 +33,8 @@ INSTALLED_APPS = [
     'daterange_filter',
     # my apps
     'orcamentos.core',
-    # 'orcamentos.crm',
-    # 'orcamentos.proposal',
+    'orcamentos.crm',
+    'orcamentos.proposal',
 ]
 
 MIDDLEWARE_CLASSES = [
