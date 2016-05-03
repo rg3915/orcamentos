@@ -384,7 +384,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary" data-step="5" data-intro="Veja aqui os seus orçamentos." data-position='top'>
                         <a href="/proposal/proposal/?status=elab"><span class="label label-success">{{ proposals.proposal_elab }}</span></a>
                         <div class="panel-heading">
                             <div class="row">
@@ -409,7 +409,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <div class="panel panel-contrato">
+                    <div class="panel panel-contrato" data-step="6" data-intro="Veja aqui os seus contratos." data-position='top'>
                         <a href="/proposal/contract/?is_canceled=1"><span class="label label-danger">{{ view.contracts_canceled }}</span></a>
                         <div class="panel-heading">
                             <div class="row">
@@ -510,7 +510,7 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" data-step="7" data-intro="Veja aqui suas entradas urgentes." data-position='right'>
                         <div class="panel-heading">
                             <i class="fa fa-inbox fa-fw status-pendente"></i> <a href="/proposal/entry/?priority=a1">Entradas urgentes</a> <a href="/proposal/entry/?priority=a1"><span class="label label-danger">{{ view.entrys_urgent }}</span></a>
                             <div class="pull-right">
@@ -566,7 +566,7 @@
                     <!-- /.panel -->
                 </div>
                 <div class="col-lg-6">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" data-step="8" data-intro="Veja aqui seus orçamentos em elaboração." data-position='left'>
                         <div class="panel-heading">
                             <i class="fa fa-circle status-elab"></i> <a href="/proposal/?status=elab">Orçamentos em elaboração</a> <a href="/proposal/?status=elab"><span class="label label-success">{{ proposals.proposal_elab }}</span></a>
                             <div class="pull-right">
@@ -627,7 +627,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" data-step="9" data-intro="Veja aqui orçamentos por status." data-position='left'>
                         <div class="panel-heading" id="orc_status">
                             <i class="fa fa-list fa-fw"></i> Orçamentos por Status (6 últimos)
                             <div class="pull-right">
@@ -750,7 +750,7 @@
                     </div>
                     <!-- /.panel -->
 
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" data-step="10" data-intro="Veja aqui o resultado dos seus contratos." data-position='top'>
                         <div class="panel-heading">
                             <i class="fa fa-star fa-fw status-aprovado"></i> Contratos
                             <div class="pull-right">
@@ -790,7 +790,7 @@
                     <!-- /.panel -->
 
                     
-                    <div class="panel panel-default">
+                    <!-- <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-star fa-fw status-aprovado"></i> Valor total fechado por mês
                             <div class="pull-right">
@@ -812,11 +812,11 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <!-- <div class="panel-body">
                             <div id="morris-area-chart"></div>
-                        </div>
+                        </div> -->
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->

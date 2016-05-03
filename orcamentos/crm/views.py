@@ -51,7 +51,7 @@ def employee_create(request):
             e.is_staff = True
             e.set_password(form.cleaned_data['password'])
             e.save()
-            return render(request, 'index.html')
+            return render(request, 'dashboard.html')
     else:
         form = EmployeeForm()
     return render(request, 'crm/employee_form.html', {'form': form})

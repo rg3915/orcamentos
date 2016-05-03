@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.db.models import IntegerField, Count, Case, When
 from orcamentos.proposal.models import Proposal
@@ -7,6 +7,8 @@ from .mixins import DashboardMixin
 
 
 def home(request):
+    if request.user.is_authenticated():
+        return redirect('core:dashboard')
     return render(request, 'index.html')
 
 
