@@ -77,11 +77,6 @@ DATABASES = {
     'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
 }
 
-MIGRATION_MODULES = {
-    'crm': 'crm.migrations_django',
-    'proposal': 'proposal.migrations_django',
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
