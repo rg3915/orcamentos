@@ -1,0 +1,28 @@
+{% extends "base_initial.html" %}
+
+{% load static from staticfiles %}
+
+{% block style %}
+  <!-- Custom CSS -->
+  <link href="{% static "css/rgscale.css" %}" rel="stylesheet">
+{% endblock style %}
+
+{% block nocontent %}
+
+  <!-- Intro Header -->
+  <header class="intro">
+      <div class="intro-body">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                      <h3>Bem vindo ao controle de orçamentos!</h3>
+                      <a href="{% url 'core:dashboard' %}" class="page-scroll">
+                          <button class="btn btn-lg btn-dark-blue">Próximo</button>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+
+{% endblock nocontent %}

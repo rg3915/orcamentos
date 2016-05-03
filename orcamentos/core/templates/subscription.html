@@ -1,0 +1,53 @@
+{% extends "base_initial.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+  <title>Registration</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="page-header">
+  <h2>Vamos começar?</h2>
+</div>
+
+<form class="form-horizontal" action="." method="POST">
+  {% csrf_token %}
+  <ul class="errorlist nonfield"></ul>
+  {{ form.non_fields_errors }}
+  <div class="form-group">
+    <label class="control-label col-sm-2 col-lg-2">
+      {{ form.username.label }}
+    </label>
+    <div class="col-sm-4 col-lg-4">
+      {{ form.username|attr:"class:form-control" }} {{ form.username.errors }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2 col-lg-2">
+      {{ form.email.label }}
+    </label>
+    <div class="col-sm-4 col-lg-4">
+      {{ form.email|attr:"class:form-control" }} {{ form.email.errors }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2 col-lg-2">
+      {{ form.password.label }}
+    </label>
+    <div class="col-sm-4 col-lg-4 controls">
+      {{ form.password|attr:"class:form-control" }} {{ form.password.errors }}
+    </div>
+  </div>
+
+  <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-2">
+        <p><b>Atenção:</b> Você não receberá nenhum e-mail.</p>
+        <button type="submit" class="btn btn-primary">Cadastrar-se</button></br>
+        <a href="#">Já tenho cadastro</a>
+      </div>
+    </div>
+</form>
+
+{% endblock content %}

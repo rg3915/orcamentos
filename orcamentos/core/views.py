@@ -2,11 +2,35 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.db.models import IntegerField, Count, Case, When
 from orcamentos.proposal.models import Proposal
+from orcamentos.crm.forms import EmployeeForm
 from .mixins import DashboardMixin
 
 
-class Home(DashboardMixin, TemplateView):
-    template_name = 'index.html'
+def home(request):
+    return render(request, 'index.html')
+
+
+def welcome(request):
+    return render(request, 'welcome.html')
+
+
+def subscription(request):
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            e = form.save(commit=False)
+            e.slug = e.username
+            e.is_staff = True
+            e.set_password(form.cleaned_data['password'])
+            e.save()
+            return render(request, 'welcome.html')
+    else:
+        form = EmployeeForm()
+    return render(request, 'subscription.html', {'form': form})
+
+
+class Dashboard(DashboardMixin, TemplateView):
+    template_name = 'dashboard.html'
 
     def get_context_data(self, **kwargs):
         p = Proposal.objects.aggregate(
@@ -22,7 +46,7 @@ class Home(DashboardMixin, TemplateView):
             proposal_canceled=Count(
                 Case(When(status='c', then=1), output_field=IntegerField())),
         )
-        context = super(Home, self).get_context_data(**kwargs)
+        context = super(Dashboard, self).get_context_data(**kwargs)
         context['proposals'] = p
         context['proposal_list'] = self.proposal_list()
         context['proposal_elab'] = self.proposal_elab()
