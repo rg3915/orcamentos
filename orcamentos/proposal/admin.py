@@ -38,4 +38,3 @@ class ContractAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Work)
-admin.site.register(NumLastProposal)
