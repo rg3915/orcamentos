@@ -25,7 +25,7 @@ def subscription(request):
             e.is_staff = True
             e.set_password(form.cleaned_data['password'])
             e.save()
-            return render(request, 'welcome.html')
+            return redirect('core:welcome')
     else:
         form = EmployeeForm()
     return render(request, 'subscription.html', {'form': form})
