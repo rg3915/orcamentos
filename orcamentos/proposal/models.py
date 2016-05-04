@@ -29,9 +29,8 @@ class Work(Address):
             return r('proposal:work_detail', slug=self.slug)
 
     def save(self):
-        if not self.slug:
-            self.slug = slugify(self.name_work)
-            super(Work, self).save()
+        self.slug = slugify(self.name_work)
+        super(Work, self).save()
 
 
 class Proposal(TimeStampedModel):

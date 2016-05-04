@@ -2,7 +2,7 @@ import time
 import csv
 from random import randint, choice
 from gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
-from gen_random_values import gen_digits, gen_cpf, gen_rg, gen_phone
+from gen_random_values import gen_digits, gen_cpf, gen_rg
 from selenium import webdriver
 from lists import company_list, department_list
 
@@ -11,6 +11,15 @@ page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
 page.maximize_window()
 time.sleep(0.5)
 page.get('http://localhost:8000/crm/person/add/')
+
+search = page.find_element_by_id('id_username')
+search.send_keys('regis')
+
+search = page.find_element_by_id('id_password')
+search.send_keys('1')
+
+button = page.find_element_by_xpath("//input[@type='submit']")
+button.click()
 
 INDEX = randint(0, 146)
 
@@ -208,7 +217,7 @@ name_work = 'Obra ' + str(randint(1, 10))
 
 fields = [
     ['id_name_work', name_work],
-    ['id_slug', name_work.replace(' ', '-')],
+    # ['id_slug', name_work.replace(' ', '-')],
     ['id_person', dict_work['person_name']],
     ['id_customer', dict_work['customer_name']],
     ['id_address', address_list[INDEX]['address']],
