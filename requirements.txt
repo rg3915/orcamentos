@@ -9,6 +9,7 @@ django-localflavor==1.2
 django-test-without-migrations==0.4
 django-widget-tweaks==1.4.1
 gunicorn==19.4.5
+names==0.3.0
 psycopg2==2.6.1
 python-dateutil==2.4.2
 python-decouple==3.0
