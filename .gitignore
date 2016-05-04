@@ -67,4 +67,3 @@ staticfiles/
 .ipynb_checkpoints/
 .idea/
 
-migrations/
