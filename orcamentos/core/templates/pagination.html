@@ -9,7 +9,7 @@
         {% if page_obj.number == pg %}
           <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
         {% else %}
-          <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+          <li><a href="?page={{ pg }}{% if request.GET.search_box %}&search_box={{ request.GET.search_box }}{% endif %}">{{ pg }}</a></li>
         {% endif %}
       {% endfor %}
       {% if page_obj.has_next %}
