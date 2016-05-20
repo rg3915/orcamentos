@@ -35,7 +35,8 @@ proposal_patterns = [
         name='create_contract_url'),
 
     url(r'^proposal_per_status_json/$', g.proposal_per_status_json),
-    url(r'^contract_aprov_canceled_json/$', g.contract_aprov_canceled_json)
+    url(r'^contract_aprov_canceled_json/$', g.contract_aprov_canceled_json),
+    url(r'^contract_more_expensive_json/$', g.contract_more_expensive_json),
 ]
 
 contract_patterns = [

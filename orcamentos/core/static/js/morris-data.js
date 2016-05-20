@@ -1,4 +1,4 @@
-$(function() {
+// $(function() {
 
     // Morris.Area({
     //     element: 'morris-area-chart',
@@ -47,29 +47,29 @@ $(function() {
     //     resize: true
     // });
 
-    Morris.Bar({
-        element: 'morris-bar-chart',
-        data: [{
-            y: 'Berrini One',
-            a: 1780000,
-        }, {
-            y: 'Ed. Timboril',
-            a: 1380000,
-        }, {
-            y: 'Ed. Morizono',
-            a: 800000,
-        }, {
-            y: 'New Parker',
-            a: 720000,
-        }, {
-            y: 'Ed. Boulevard',
-            a: 640000,
-        }],
-        xkey: 'y',
-        ykeys: ['a'],
-        labels: ['Series A'],
-        hideHover: 'auto',
-        resize: true
-    });
+    // Morris.Bar({
+        // element: 'morris-bar-chart',
+        // data: [{
+            // y: 'Berrini One',
+            // a: 1780000,
+        // }, {
+            // y: 'Ed. Timboril',
+            // a: 1380000,
+        // }, {
+            // y: 'Ed. Morizono',
+            // a: 800000,
+        // }, {
+            // y: 'New Parker',
+            // a: 720000,
+        // }, {
+            // y: 'Ed. Boulevard',
+            // a: 640000,
+        // }],
+        // xkey: 'y',
+        // ykeys: ['a'],
+        // labels: ['Series A'],
+        // hideHover: 'auto',
+        // resize: true
+    // });
 
-});
+// });

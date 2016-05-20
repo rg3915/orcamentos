@@ -42,3 +42,12 @@ def contract_aprov_canceled_json(request):
     is_canceled = total - is_aproved
     resp = JsonResponse(get_data(is_aproved, is_canceled), safe=False)
     return HttpResponse(resp.content)
+
+
+def contract_more_expensive_json(request):
+    ''' 5 contratos mais caros '''
+    c = Contract.objects.all().values(
+        'proposal__work__name_work',
+        'proposal__price').order_by('-proposal__price')[:5]
+    s = json.dumps(list(c), cls=DjangoJSONEncoder)
+    return HttpResponse(s)
