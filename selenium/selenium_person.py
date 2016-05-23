@@ -6,8 +6,7 @@ from gen_random_values import gen_cpf, gen_rg, gen_phone
 from selenium import webdriver
 from lists import company_list, department_list
 
-# page = webdriver.Firefox()
-page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
+page = webdriver.Firefox()
 page.maximize_window()
 time.sleep(0.5)
 page.get('http://localhost:8000/crm/person/add/')
