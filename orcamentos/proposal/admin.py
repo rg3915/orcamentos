@@ -21,15 +21,15 @@ class ProposalAdmin(admin.ModelAdmin):
         'work__name_work', 'work__customer__first_name',
         'employee__first_name')
     list_filter = (
-        'status', 'category',   'seller',
+        'status', 'category', 'seller',
         ('created', DateRangeFilter),
     )
 
 
 @admin.register(Contract)
 class ContractAdmin(admin.ModelAdmin):
-    list_display = (
-        '__str__', 'contractor', 'created', 'is_canceled')
+    list_display = ('__str__', 'contractor', 'created',
+                    'is_canceled', 'get_price')
     date_hierarchy = 'created'
     search_fields = (
         'proposal__work__name_work', 'proposal__work__customer__first_name',

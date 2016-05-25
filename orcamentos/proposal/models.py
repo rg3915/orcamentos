@@ -153,6 +153,9 @@ class Contract(TimeStampedModel):
     def get_absolute_url(self):
         return r('proposal:contract_detail', pk=self.pk)
 
+    def get_price(self):
+        return u"R$ %s" % number_format(self.proposal.price, 2)
+
 
 class NumLastProposal(models.Model):
     num_last_prop = models.PositiveIntegerField(u'número', default=0)
