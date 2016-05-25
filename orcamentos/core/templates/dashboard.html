@@ -817,7 +817,21 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart-contract-total-per-month"></div>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="list-group">
+                                        {% for c in contract_total_per_month %}
+                                            <p class="list-group-item">
+                                                {{ c.month }}
+                                                <span class="pull-right text-muted small"><em>R$ {{ c.total }}</em></span>
+                                            </p>
+                                        {% endfor %}
+                                    </div><!-- /.list-group -->
+                                </div>
+                                <div class="col-lg-9">
+                                    <div id="morris-area-chart-contract-total-per-month"></div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>

@@ -1,3 +1,4 @@
+import itertools
 from django.db.models import Q
 from orcamentos.crm.models import Person, Customer
 from orcamentos.proposal.models import Entry, Proposal, Contract, Work
@@ -64,3 +65,12 @@ class DashboardMixin(object):
 
     def persons(self):
         return Person.objects.all().count()
+
+    def contract_total_per_month(self):
+        ''' valor total fechado por mês no ano '''
+        c = Contract.objects.all().values('created', 'proposal__price') \
+            .filter(is_canceled=False)
+        gr = itertools.groupby(c, lambda d: d.get('created').strftime('%Y-%m'))
+        dt = [{'month': month, 'total': sum(
+            [x['proposal__price'] for x in total])} for month, total in gr]
+        return dt
