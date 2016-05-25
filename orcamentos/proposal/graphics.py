@@ -1,4 +1,5 @@
 import json
+import itertools
 from django.db.models import Count
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse, JsonResponse
@@ -50,4 +51,15 @@ def contract_more_expensive_json(request):
         'proposal__work__name_work',
         'proposal__price').order_by('-proposal__price')[:5]
     s = json.dumps(list(c), cls=DjangoJSONEncoder)
+    return HttpResponse(s)
+
+
+def contract_total_per_month_json(request):
+    ''' valor total fechado por mês no ano '''
+    c = Contract.objects.all().values('created', 'proposal__price') \
+        .filter(is_canceled=False)
+    gr = itertools.groupby(c, lambda d: d.get('created').strftime('%Y-%m'))
+    dt = [{'month': month, 'total': sum(
+        [x['proposal__price'] for x in total])} for month, total in gr]
+    s = json.dumps(list(dt), cls=DjangoJSONEncoder)
     return HttpResponse(s)

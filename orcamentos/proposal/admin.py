@@ -1,6 +1,6 @@
 from daterange_filter.filter import DateRangeFilter
 from django.contrib import admin
-from .models import Entry, Proposal, Contract, Work, NumLastProposal
+from .models import Entry, Proposal, Contract, Work
 from .forms import EntryForm
 
 

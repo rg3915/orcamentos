@@ -6,6 +6,7 @@
   <script src="{% static "graphics/proposal-per-status.js" %}"></script>
   <script src="{% static "graphics/contract-aprov-canceled.js" %}"></script>
   <script src="{% static "graphics/contract-more-expensive.js" %}"></script>
+  <script src="{% static "graphics/contract-total-per-month.js" %}"></script>
   <script src="{% static "js/morris-data.js" %}"></script>
   <script src="{% static "js/morris.js" %}"></script>
 {% endblock style %}
@@ -791,7 +792,7 @@
                     <!-- /.panel -->
 
                     
-                    <!-- <div class="panel panel-default">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-star fa-fw status-aprovado"></i> Valor total fechado por mês
                             <div class="pull-right">
@@ -813,11 +814,11 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <!-- /.panel-heading -->
-                        <!-- <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div> -->
+                        <div class="panel-body">
+                            <div id="morris-area-chart-contract-total-per-month"></div>
+                        </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
