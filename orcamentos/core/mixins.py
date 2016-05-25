@@ -74,3 +74,12 @@ class DashboardMixin(object):
         dt = [{'month': month, 'total': sum(
             [x['proposal__price'] for x in total])} for month, total in gr]
         return dt
+
+    def contract_total_per_year(self):
+        ''' valor total fechado por ano '''
+        c = Contract.objects.all().values('created', 'proposal__price') \
+            .filter(is_canceled=False)
+        gr = itertools.groupby(c, lambda d: d.get('created').strftime('%Y'))
+        dt = [{'year': year, 'total': sum(
+            [x['proposal__price'] for x in total])} for year, total in gr]
+        return dt[0]['total']

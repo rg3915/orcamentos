@@ -54,6 +54,7 @@ class Dashboard(DashboardMixin, TemplateView):
         context['proposal_elab'] = self.proposal_elab()
         context['entrys'] = self.entry_list()
         context['contract_total_per_month'] = self.contract_total_per_month()
+        context['contract_total_per_year'] = self.contract_total_per_year()
 
         return context
 
