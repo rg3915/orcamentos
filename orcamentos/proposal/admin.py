@@ -15,7 +15,7 @@ class EntryAdmin(admin.ModelAdmin):
 class ProposalAdmin(admin.ModelAdmin):
     list_display = (
         '__str__', 'work', 'category', 'employee',
-        'status', 'created', 'price')
+        'status', 'created_orc', 'price')
     date_hierarchy = 'created'
     search_fields = (
         'work__name_work', 'work__customer__first_name',

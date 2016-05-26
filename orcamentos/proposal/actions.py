@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.shortcuts import redirect, resolve_url as r
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
@@ -55,7 +56,8 @@ def create_proposal(request, entry_id):
         proposal.update(
             num_prop=nlp.num_last_prop + 1,
             employee=employee,
-            status='elab'
+            status='elab',
+            created_orc=timezone.now(),
         )
         ''' Incrementa o número do último orçamento '''
         nlp.num_last_prop += 1

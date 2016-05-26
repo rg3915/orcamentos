@@ -1,4 +1,4 @@
-{% extends "base_initial.html" %}
+    {% extends "base_initial.html" %}
 
 {% load static from staticfiles %}
 
@@ -612,7 +612,7 @@
                                                 <td><i class="fa fa-circle fa-fw status-elab"></i> {{ p.work }}</td>
                                                 <td>{{ p.work.customer }}</td>
                                                 <td>{{ p.employee }}</td>
-                                                <td>{{ p.created|date:"d/m/Y" }}</td>
+                                                <td>{{ p.created_orc|date:"d/m/Y" }}</td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
@@ -701,7 +701,7 @@
                                                             <td>{{ p.employee }}</td>
                                                         {% endif %}
 
-                                                        <td>{{ p.created|date:"d/m/Y" }}</td>
+                                                        <td>{{ p.created_orc|date:"d/m/Y" }}</td>
                                                     </tr>
                                                 {% endfor %}
 

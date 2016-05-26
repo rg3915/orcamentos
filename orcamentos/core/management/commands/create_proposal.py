@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.core.management.base import BaseCommand
 from optparse import make_option
 from orcamentos.crm.models import Employee
@@ -21,7 +22,8 @@ class Command(BaseCommand):
             proposal.update(
                 num_prop=nlp.num_last_prop + 1,
                 employee=employee,
-                status='elab'
+                status='elab',
+                created_orc=timezone.now(),
             )
             ''' Incrementa o número do último orçamento '''
             nlp.num_last_prop += 1

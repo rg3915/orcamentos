@@ -63,6 +63,7 @@ class Proposal(TimeStampedModel):
     price = models.DecimalField(
         'valor', max_digits=9, decimal_places=2, default=0)
     obs = models.TextField(u'observação', blank=True)
+    created_orc = models.DateTimeField('orç. criado em', null=True, blank=True)
 
     objects = ProposalManager()
 
