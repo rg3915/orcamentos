@@ -78,7 +78,7 @@ def percent_type_customer_json(request):
     que são: 'label' e 'value'. E ainda retornar o get_customer_type_display.
     '''
     lista = [{'label': CUSTOMER_DICT[item['customer_type']],
-              'value': (item['value'] / total) * 100} for item in data]
+              'value': int((item['value'] / total) * 100)} for item in data]
     s = json.dumps(lista, cls=DjangoJSONEncoder)
     print(s)
     return HttpResponse(s)
