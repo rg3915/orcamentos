@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.5] - 2016-05-25
+## [1.6] - 2016-05-25
 ### Changed
 - Updated to Django 1.9.6
 
