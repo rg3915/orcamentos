@@ -1,6 +1,6 @@
 # Orçamentos
 
-Python 3.5 e Django 1.9.1
+Python 3.5 e Django 1.9.6
 
 ## Objetivo
 
@@ -47,60 +47,19 @@ python manage.py test
 
 ## Convenções
 
-**Título de entidades**: primeira maiúscula e no singular. Ex: *Person, Employee, Seller, Proposal, Entry*.
-
-**Classes**: em nomes compostos maiúscula e juntas. Ex: *PersonCreate, PersonList, PersonDetail* ([PEP 8][4]).
-
-**Funções**: nomes compostos minúsculos e separados com underline. Ex: *is_entry* ([PEP 8][4]).
-
-**Templates**: usar a mesma convenção. Ex: *person_list.html, person_detail.html, person_form.html*.
+Leia a wiki [convenções][13].
 
 ## Gerando dados randômicos
 
-Para gerar dados randômicos veja o [Makefile](https://github.com/rg3915/orcamentos/blob/master/Makefile).
+Para gerar dados randômicos veja o [Makefile](Makefile).
 
 ## Comandos personalizados
 
-Este projeto possui comandos personalizados
+Veja os [comandos personalizados](dev/management.md).
 
+## Changelog
 
-**Cria entrada**
-
-```bash
-$ python manage.py create_entry --priority='u' --category=1 --work='vila dos pães' --contact='Doris' --description='Lorem ipsum' --seller='regis'
-$ python manage.py create_entry --work='tiree' --contact='alvin' --seller='regis'
-```
-
-
-**Lista as entradas urgentes**
-
-```bash
-$ python manage.py entrys -u
-```
-
-**Cria orçamento**
-
-```bash
-$ python manage.py create_proposal --user='regis' --id=1
-```
-
-
-**Concluir orçamento**
-
-```bash
-$ python manage.py conclude_proposal --num=1 --price=14350.09
-```
-
-
-**Cria contrato**
-
-```bash
-$ python manage.py create_contract --num=1
-```
-
-
-## [Changelog](https://github.com/rg3915/orcamentos/blob/master/CHANGELOG.md)
-
+Veja o [Changelog](CHANGELOG.md).
 
 ### Auto Flake
 
@@ -115,3 +74,4 @@ autoflake --in-place --remove-unused-variables file.py
 [10]: https://bitbucket.org/pavel_calado/tikz-er2/wiki/Home
 [11]: http://grandeportal.blogspot.com.br/2012/06/editando-imagens-no-imagemagick.html
 [12]: http://perso.ensta-paristech.fr/~kielbasi/tikzuml/index.php?lang=en
+[13]: https://github.com/rg3915/orcamentos/wiki/Conven%C3%A7%C3%B5es
