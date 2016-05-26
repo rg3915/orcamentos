@@ -2,9 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - 2016-01-10
+## [1.5] - 2016-05-25
 ### Changed
-- Updated to Django 1.9.1
+- Updated to Django 1.9.6
 
 ## [1.0] - 2016-01-10
 ### Added
