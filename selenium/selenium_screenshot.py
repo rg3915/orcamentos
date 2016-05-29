@@ -3,7 +3,7 @@ from selenium import webdriver
 
 page = webdriver.Firefox()
 # page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
-# page.maximize_window()
+page.maximize_window()
 time.sleep(0.5)
 
 page.get('http://localhost:8000/')
