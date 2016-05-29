@@ -15,7 +15,7 @@
 <form class="form-horizontal" action="." method="POST">
 	{% csrf_token %}
 	{{ form.non_fields_errors }}
-	<div class="form-group">
+	<div class="form-group required">
 		<label class="control-label col-sm-2 col-lg-2">
 			{{ form.name_work.label }}
 		</label>
@@ -31,7 +31,7 @@
 			{{ form.slug|attr:"class:form-control" }} {{ form.slug.errors }}
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group required">
 		<label class="control-label col-sm-2 col-lg-2">
 			{{ form.customer.label }}
 		</label>

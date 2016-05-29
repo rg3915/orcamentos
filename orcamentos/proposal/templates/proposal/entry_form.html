@@ -11,7 +11,14 @@
 <form class="form-horizontal col-sm-6" action="." method="POST">
     <legend>Entrada</legend>
     {% csrf_token %}
-	{{ form|bootstrap_horizontal }}
+    {{ form.priority|bootstrap_horizontal }}
+    {{ form.category|bootstrap_horizontal }}
+    <div class="is_required">
+        {{ form.work|bootstrap_horizontal }}
+    </div>
+    {{ form.person|bootstrap_horizontal }}
+    {{ form.seller|bootstrap_horizontal }}
+    {{ form.description|bootstrap_horizontal }}
 
 	<div class="form-group">
       <div class="col-sm-10 col-sm-offset-2">
