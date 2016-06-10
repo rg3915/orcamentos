@@ -141,15 +141,15 @@ a:focus {
     display: table;
     width: 100%;
     height: auto;
-    padding: 100px 0;
+    padding: 200px 0;
     text-align: center;
     color: #173357;
-    /*background: url(../img/wallhaven.jpg) no-repeat bottom center scroll;*/
-    background-color: #FAFCF1;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    background: url(../img/logo.png) no-repeat top center;
+    background-color: #ff7e4;
+    -webkit-background-size: relative;
+    -moz-background-size: relative;
+    background-size: relative;
+    -o-background-size: relative;
 }
 
 .intro .intro-body {

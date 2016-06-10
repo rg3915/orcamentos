@@ -1,3 +1,9 @@
+/* Home Style */
+header {
+  /*background: url(../img/logo.png) no-repeat center center;*/
+  /*position: relative;*/
+}
+
 .navbar-default {
   background-color: #ffffff;
 }
