@@ -144,7 +144,8 @@ a:focus {
     padding: 200px 0;
     text-align: center;
     color: #173357;
-    background: url(../img/logo.png) no-repeat top center;
+    /*background: url(../img/background2.jpg) no-repeat center center;*/
+    background: url(https://4.bp.blogspot.com/-BO5bA4-O4e0/U96PuX6bnYI/AAAAAAABF4Q/xTLlW0qQ5co/s0/Google+IO+Paper+Design.jpg) no-repeat center center;
     background-color: #ff7e4;
     -webkit-background-size: relative;
     -moz-background-size: relative;
