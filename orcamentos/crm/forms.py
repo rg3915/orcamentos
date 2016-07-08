@@ -1,7 +1,18 @@
+from django.utils.timezone import now
 from django import forms
 # from orcamentos.crm.validate import validate_documents
 from orcamentos.utils.lists import GENDER, CUSTOMER_TYPE, PERSON_TYPE
 from orcamentos.crm.models import Person, Employee, Customer
+
+
+class SelectDateWidget(forms.SelectDateWidget):
+
+    def create_select(self, *args, **kwargs):
+        old_state = self.is_required
+        self.is_required = False
+        result = super().create_select(*args, **kwargs)
+        self.is_required = old_state
+        return result
 
 
 class CustomerForm(forms.ModelForm):
@@ -21,6 +32,15 @@ class CustomerForm(forms.ModelForm):
                   'department', 'cpf', 'rg', 'cnpj', 'ie',
                   'address', 'complement', 'district', 'city', 'uf', 'cep',
                   'active', 'blocked', 'person_type', 'customer_type']
+        widgets = {
+            'birthday': SelectDateWidget
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        current_year = now().year
+        self.fields['birthday'].widget.years = [
+            current_year - x for x in range(50)][::-1]
 
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None
