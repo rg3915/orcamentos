@@ -89,13 +89,13 @@ class Proposal(TimeStampedModel):
     cliente = property(get_customer)
 
     def get_customer_url(self):
-        return u'/customer/%i' % self.work.customer.id
+        return u'/crm/customer/%s' % self.work.customer.slug
 
     def get_work_url(self):
-        return u'/work/%i' % self.work.id
+        return u'/proposal/work/%s' % self.work.slug
 
     def get_person_url(self):
-        return u'/person/%i' % self.person.id
+        return u'/crm/person/%s' % self.person.slug
 
     def get_seller(self):
         if self.seller:
