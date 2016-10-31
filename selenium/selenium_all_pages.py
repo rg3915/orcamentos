@@ -1,9 +1,10 @@
 import time
+from decouple import config
 from selenium import webdriver
-# from selenium.webdriver.common.keys import Keys
 
+HOME = config('HOME')
 # page = webdriver.Firefox()
-page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
+page = webdriver.Chrome(executable_path=HOME + '/chromedriver/chromedriver')
 page.maximize_window()
 time.sleep(0.5)
 

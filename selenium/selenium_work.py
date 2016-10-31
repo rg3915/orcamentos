@@ -1,13 +1,15 @@
 import time
 import csv
 from random import randint, choice
+from decouple import config
 from gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
 from gen_random_values import gen_digits, gen_cpf, gen_rg
 from selenium import webdriver
 from lists import company_list, department_list
 
+HOME = config('HOME')
 # page = webdriver.Firefox()
-page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
+page = webdriver.Chrome(executable_path=HOME + '/chromedriver/chromedriver')
 page.maximize_window()
 time.sleep(0.5)
 page.get('http://localhost:8000/crm/person/add/')

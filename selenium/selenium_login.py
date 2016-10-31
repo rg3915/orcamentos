@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+from decouple import config
 from selenium import webdriver
-# from selenium.webdriver.common.keys import Keys
 
-page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
+HOME = config('HOME')
 # page = webdriver.Firefox()
+page = webdriver.Chrome(executable_path=HOME + '/chromedriver/chromedriver')
 page.get('http://localhost:8000/admin/login/')
 
 # pegar o campo de busca onde podemos digitar algum termo

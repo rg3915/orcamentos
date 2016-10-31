@@ -1,12 +1,15 @@
 import time
 import csv
 from random import randint, choice
+from decouple import config
 from gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
-from gen_random_values import gen_cpf, gen_rg, gen_phone
+from gen_random_values import gen_cpf, gen_rg
 from selenium import webdriver
 from lists import company_list, department_list
 
-page = webdriver.Firefox()
+HOME = config('HOME')
+# page = webdriver.Firefox()
+page = webdriver.Chrome(executable_path=HOME + '/chromedriver/chromedriver')
 page.maximize_window()
 time.sleep(0.5)
 page.get('http://localhost:8000/crm/person/add/')
@@ -68,7 +71,7 @@ fields = [
 for field in fields:
     search = page.find_element_by_id(field[0])
     search.send_keys(field[1])
-    # time.sleep(0.5)
+    time.sleep(0.5)
 
 button = page.find_element_by_link_text('Documentos')
 button.click()
@@ -82,7 +85,7 @@ fields = [
 for field in fields:
     search = page.find_element_by_id(field[0])
     search.send_keys(field[1])
-    # time.sleep(0.5)
+    time.sleep(0.5)
 
 button = page.find_element_by_link_text('Endereço')
 button.click()
@@ -99,11 +102,11 @@ fields = [
 for field in fields:
     search = page.find_element_by_id(field[0])
     search.send_keys(field[1])
-    # time.sleep(0.5)
+    time.sleep(0.5)
 
 
 # button = page.find_element_by_id('id_submit')
 button = page.find_element_by_class_name('btn-primary')
-button.click()
+# button.click()
 
-page.quit()
+# page.quit()

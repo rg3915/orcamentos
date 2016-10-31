@@ -1,14 +1,15 @@
 import time
-from random import randint, choice
-from gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
-from gen_random_values import gen_cpf, gen_rg, gen_phone
+from random import randint
+from decouple import config
+from gen_names import gen_male_first_name, gen_female_first_name
 from selenium import webdriver
 
+HOME = config('HOME')
 # page = webdriver.Firefox()
-page = webdriver.Chrome(executable_path='/home/rg3915/Downloads/chromedriver')
+page = webdriver.Chrome(executable_path=HOME + '/chromedriver/chromedriver')
 page.maximize_window()
 time.sleep(0.5)
-page.get('http://localhost:8000/registration/')
+page.get('http://localhost:8000/inscricao/')
 
 g = randint(0, 1)
 
