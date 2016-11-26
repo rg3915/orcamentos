@@ -11,18 +11,19 @@ class People(TimeStampedModel, Address):
     gender = models.CharField(u'gênero', max_length=1,
                               choices=GENDER, blank=True)
     treatment = models.CharField(
-        'tratamento', max_length=4, choices=TREATMENT, blank=True)
+        'tratamento', max_length=4, choices=TREATMENT, null=True, blank=True)
     slug = models.SlugField('slug', blank=True)
     photo = models.URLField('foto', null=True, blank=True)
     birthday = models.DateTimeField('nascimento', null=True, blank=True)
-    company = models.CharField('empresa', max_length=50, blank=True)
+    company = models.CharField('empresa', max_length=50, null=True, blank=True)
     department = models.CharField('departamento', max_length=50, blank=True)
     cpf = models.CharField('CPF', max_length=11,
                            unique=True, null=True, blank=True)
-    rg = models.CharField('RG', max_length=11, blank=True)
+    rg = models.CharField('RG', max_length=11, null=True, blank=True)
     cnpj = models.CharField('CNPJ', max_length=14,
                             unique=True, null=True, blank=True)
-    ie = models.CharField(u'inscrição estadual', max_length=12, blank=True)
+    ie = models.CharField(u'inscrição estadual',
+                          max_length=12, null=True, blank=True)
     active = models.BooleanField('ativo', default=True)
     blocked = models.BooleanField('bloqueado', default=False)
 
@@ -37,7 +38,8 @@ class People(TimeStampedModel, Address):
 
 class Person(People):
     first_name = models.CharField('nome', max_length=50)
-    last_name = models.CharField('sobrenome', max_length=50, blank=True)
+    last_name = models.CharField(
+        'sobrenome', max_length=50, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     occupation = models.ForeignKey(
         'Occupation', verbose_name='cargo', related_name='person_occupation',

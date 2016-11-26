@@ -4,8 +4,8 @@ import csv
 from django.template.defaultfilters import slugify
 from orcamentos.crm.models import Customer
 from orcamentos.utils.lists import COMPANY_LIST
-from orcamentos.utils.gen_random_values import *
-from orcamentos.utils.gen_names import *
+from orcamentos.utils.gen_random_values import gen_digits, gen_cpf, gen_rg
+from orcamentos.utils.gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
 
 
 customer_list = []
