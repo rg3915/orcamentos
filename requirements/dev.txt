@@ -1,6 +1,7 @@
--r requirements.txt
+-r base.txt
 django-debug-toolbar==1.4
 flake8==2.5.2
 pydot2==1.0.33
 pyparsing==2.0.7
 selenium==2.53.2
+names==0.3.0

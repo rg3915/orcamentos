@@ -25,7 +25,7 @@ sleep 2
 
 echo "${green}>>> Installing dependencies...${reset}"
 pip install -U pip
-pip install -r requirements-dev.txt
+pip install -r requirements/dev.txt
 
 echo "${green}>>> Creating .env${reset}"
 cp contrib/env-sample .env
