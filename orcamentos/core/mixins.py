@@ -82,4 +82,4 @@ class DashboardMixin(object):
         gr = itertools.groupby(c, lambda d: d.get('created').strftime('%Y'))
         dt = [{'year': year, 'total': sum(
             [x['proposal__price'] for x in total])} for year, total in gr]
-        return dt[0]['total']
+        return dt[0]['total'] if dt else []
