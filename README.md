@@ -1,6 +1,6 @@
 # Orçamentos
 
-Python 3.5 e Django 1.9.6
+Python 3.5 e Django 1.10.3
 
 ## Objetivo
 
