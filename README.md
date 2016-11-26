@@ -39,6 +39,7 @@ cd orcamentos
 python -m venv .venv
 source .venv/bin/activate
 PS1="(`basename \"$VIRTUAL_ENV\"`):/\W$ " # opcional
+pip install -U pip # update the pip
 pip install -r requirements-dev.txt
 cp contrib/env-sample .env
 make initial2
