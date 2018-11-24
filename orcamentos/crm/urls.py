@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from orcamentos.crm import views as c
 
+app_name = 'crm'
 
 person_patterns = [
     url(r'^$', c.PersonList.as_view(), name='person_list'),

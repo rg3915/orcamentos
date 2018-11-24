@@ -3,6 +3,8 @@ from orcamentos.proposal import views as p
 from orcamentos.proposal import actions as a
 from orcamentos.proposal import graphics as g
 
+app_name = 'proposal'
+
 entry_patterns = [
     url(r'^$', p.EntryList.as_view(), name='entry_list'),
     url(r'^(?P<pk>\d+)/$', p.entry_detail, name='entry_detail'),

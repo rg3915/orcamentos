@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from orcamentos.core.views import home, subscription, welcome, Dashboard, status
 
+app_name = 'core'
 
 urlpatterns = [
     url(r'^$', home, name='home'),
