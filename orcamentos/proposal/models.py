@@ -11,10 +11,19 @@ class Work(Address):
     name_work = models.CharField('obra', max_length=100, unique=True)
     slug = models.SlugField('slug', blank=True)
     person = models.ForeignKey(
-        'crm.Person', verbose_name='contato', related_name='work_person',
-        null=True, blank=True)
+        'crm.Person',
+        verbose_name='contato',
+        related_name='work_person',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     customer = models.ForeignKey(
-        'crm.Customer', verbose_name='cliente', related_name='work_customer')
+        'crm.Customer',
+        verbose_name='cliente',
+        related_name='work_customer',
+        on_delete=models.CASCADE
+    )
 
     class Meta:
         ordering = ['name_work']
@@ -46,16 +55,35 @@ class Proposal(TimeStampedModel):
         'categoria', max_length=4, choices=CATEGORY, default='orc')
     description = models.TextField(u'descrição', blank=True)
     work = models.ForeignKey(
-        'Work', verbose_name='obra', related_name='proposal_work')
+        'Work',
+        verbose_name='obra',
+        related_name='proposal_work',
+        on_delete=models.CASCADE
+    )
     person = models.ForeignKey(
-        'crm.Person', verbose_name='contato', related_name='proposal_person',
-        null=True, blank=True)
+        'crm.Person',
+        verbose_name='contato',
+        related_name='proposal_person',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     employee = models.ForeignKey(
-        'crm.Employee', verbose_name=u'orçamentista',
-        related_name='proposal_employee', null=True, blank=True)
+        'crm.Employee',
+        verbose_name=u'orçamentista',
+        related_name='proposal_employee',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     seller = models.ForeignKey(
-        'crm.Seller', verbose_name='vendedor', related_name='proposal_seller',
-        null=True, blank=True)
+        'crm.Seller',
+        verbose_name='vendedor',
+        related_name='proposal_seller',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     status = models.CharField(
         max_length=4, choices=STATUS_LIST, default='elab')
     date_conclusion = models.DateTimeField(
@@ -138,9 +166,17 @@ class Entry(Proposal):
 
 class Contract(TimeStampedModel):
     proposal = models.OneToOneField(
-        'Proposal', verbose_name=u'orçamento', related_name='contract_proposal')
+        'Proposal',
+        verbose_name=u'orçamento',
+        related_name='contract_proposal',
+        on_delete=models.CASCADE
+    )
     contractor = models.ForeignKey(
-        'crm.Customer', verbose_name=u'contratante', related_name='contract_person')
+        'crm.Customer',
+        verbose_name=u'contratante',
+        related_name='contract_person',
+        on_delete=models.CASCADE
+    )
     is_canceled = models.BooleanField('cancelado', default=False)
 
     class Meta:

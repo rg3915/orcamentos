@@ -42,8 +42,12 @@ class Person(People):
         'sobrenome', max_length=50, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     occupation = models.ForeignKey(
-        'Occupation', verbose_name='cargo', related_name='person_occupation',
-        null=True, blank=True)
+        'Occupation',
+        verbose_name='cargo',
+        related_name='person_occupation',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True)
     person_type = models.CharField(
         'cliente ou contato', max_length=1, choices=PERSON_TYPE, default='p')
     customer_type = models.CharField(
@@ -70,7 +74,7 @@ class Person(People):
 
 class PhonePerson(models.Model):
     phone = models.CharField('telefone', max_length=20, blank=True)
-    person = models.ForeignKey('Person')
+    person = models.ForeignKey('Person', on_delete=models.CASCADE)
     phone_type = models.CharField(
         'tipo', max_length=3, choices=PHONE_TYPE, default='pri')
 
@@ -89,8 +93,13 @@ class Customer(Person):
 
 class Employee(People, User):
     occupation = models.ForeignKey(
-        'Occupation', verbose_name='cargo', related_name='employee_occupation',
-        null=True, blank=True)
+        'Occupation',
+        verbose_name='cargo',
+        related_name='employee_occupation',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     internal = models.BooleanField('interno', default=True)
     commissioned = models.BooleanField('comissionado', default=True)
     commission = models.DecimalField(
@@ -106,7 +115,7 @@ class Employee(People, User):
 
 class PhoneEmployee(models.Model):
     phone = models.CharField('telefone', max_length=20, blank=True)
-    employee = models.ForeignKey('Employee')
+    employee = models.ForeignKey('Employee', on_delete=models.CASCADE)
     phone_type = models.CharField(
         'tipo', max_length=3, choices=PHONE_TYPE, default='pri')
 
