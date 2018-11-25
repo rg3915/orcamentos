@@ -30,7 +30,6 @@ class ProposalForm(forms.ModelForm):
     num_prop_type = forms.IntegerField(
         label='Número da revisão',
         widget=forms.NumberInput(attrs={'readonly': 'readonly'}))
-    price = forms.DecimalField(label='Valor', localize=True)
 
     class Meta:
         model = Proposal

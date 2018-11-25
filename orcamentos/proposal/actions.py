@@ -64,7 +64,7 @@ def create_proposal(request, entry_id):
         nlp.save()
         # Pega o pk do orçamento atual
         proposal = Proposal.objects.get(pk=entry_id)
-        print('Orçamento criado com sucesso')
+        # print('Orçamento criado com sucesso')
     return redirect(r('proposal:proposal_detail', proposal.pk))
 
 

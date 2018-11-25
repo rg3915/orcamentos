@@ -49,3 +49,12 @@
 </form>
 
 {% endblock content %}
+
+{% block js %}
+
+<script>
+  $('#id_price').attr('type', 'number')
+  $('#id_price').attr('step', '0.01')
+</script>
+
+{% endblock js %}

@@ -152,7 +152,7 @@
     <form action="{% url 'proposal:conclude_proposal' proposal.id %}" method="POST">
       <div class="modal-body">
       {% csrf_token %}  
-          <input id="id_price" name="price" type="text" placeholder="Digite o valor" />
+          <input id="id_price" name="price" type="number" step="0.01" placeholder="Digite o valor" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
