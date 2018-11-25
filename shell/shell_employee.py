@@ -1,6 +1,8 @@
 from django.template.defaultfilters import slugify
-from orcamentos.crm.models import Employee, Occupation
+from orcamentos.crm.models import Employee, Occupation, PhoneEmployee
+from orcamentos.utils.gen_random_values import gen_phone
 from orcamentos.utils.lists import OCCUPATION_LIST
+
 
 '''
 Definindo a senha padrão para todos os usuarios,
@@ -223,3 +225,24 @@ for k in employees:
 
 
 # done
+
+
+'''
+Para cada Person incluimos dois telefones:
+um principal e um celular
+'''
+employees = Employee.objects.all()
+aux = []
+for employee in employees:
+    obj_pri = PhoneEmployee(
+        phone=gen_phone(),
+        employee=employee,
+    )
+    obj = PhoneEmployee(
+        phone=gen_phone(),
+        employee=employee,
+        phone_type='cel'
+    )
+    aux.append(obj_pri)
+    aux.append(obj)
+PhoneEmployee.objects.bulk_create(aux)

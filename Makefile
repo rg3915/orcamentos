@@ -16,31 +16,31 @@ createuser:
 	./manage.py createsuperuser --username='admin' --email=''
 
 shell_num_last_proposal:
-	./manage.py shell < shell/shell_num_last_proposal.py
+	./manage.py shell_plus < shell/shell_num_last_proposal.py
 
 shell_occupation:
-	./manage.py shell < shell/shell_occupation.py
+	./manage.py shell_plus < shell/shell_occupation.py
 
 shell_employee:
-	./manage.py shell < shell/shell_employee.py
+	./manage.py shell_plus < shell/shell_employee.py
 
 shell_person:
-	./manage.py shell < shell/shell_person.py
+	./manage.py shell_plus < shell/shell_person.py
 
 shell_customer:
-	./manage.py shell < shell/shell_customer.py
+	./manage.py shell_plus < shell/shell_customer.py
 
 shell_work:
-	./manage.py shell < shell/shell_work.py
+	./manage.py shell_plus < shell/shell_work.py
 
 shell_entry:
-	./manage.py shell < shell/shell_entry.py
+	./manage.py shell_plus < shell/shell_entry.py
 
 shell_proposal:
-	./manage.py shell < shell/shell_proposal.py
+	./manage.py shell_plus < shell/shell_proposal.py
 
 shell_contract:
-	./manage.py shell < shell/shell_contract.py
+	./manage.py shell_plus < shell/shell_contract.py
 
 selenium_login:
 	python selenium/selenium_login.py

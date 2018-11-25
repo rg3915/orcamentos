@@ -2,10 +2,18 @@ import random
 import names
 import csv
 from django.template.defaultfilters import slugify
-from orcamentos.crm.models import Customer
+from orcamentos.crm.models import Customer, Person, PhonePerson
 from orcamentos.utils.lists import COMPANY_LIST
-from orcamentos.utils.gen_random_values import gen_digits, gen_cpf, gen_rg
-from orcamentos.utils.gen_names import gen_male_first_name, gen_female_first_name, gen_last_name
+from orcamentos.utils.gen_random_values import (
+    gen_cpf,
+    gen_digits,
+    gen_phone,
+    gen_rg,
+)
+from orcamentos.utils.gen_names import (
+    gen_female_first_name,
+    gen_male_first_name,
+)
 
 
 customer_list = []
@@ -88,3 +96,23 @@ for i in range(REPEAT):
 
 
 # done
+
+'''
+Para cada Person incluimos dois telefones:
+um principal e um celular
+'''
+customers = Customer.objects.all()
+aux = []
+for person in customers:
+    obj_pri = PhonePerson(
+        phone=gen_phone(),
+        person=person,
+    )
+    obj = PhonePerson(
+        phone=gen_phone(),
+        person=person,
+        phone_type='cel'
+    )
+    aux.append(obj_pri)
+    aux.append(obj)
+PhonePerson.objects.bulk_create(aux)
