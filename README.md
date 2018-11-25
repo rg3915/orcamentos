@@ -1,6 +1,6 @@
 # Orçamentos
 
-Python 3.5 e Django 1.10.3
+Python 3.7+ e Django 2.1.3+
 
 ## Objetivo
 
@@ -30,8 +30,9 @@ Ou siga o passo a passo.
 3. Ative o virtualenv.
 4. Instale as dependências.
 5. Configure a instância com o .env
-6. Carregue os dados no banco
-7. Execute os testes.
+6. Rode o arquivo de migrações
+7. Carregue os dados no banco
+8. Execute os testes.
 
 ```bash
 git clone https://github.com/rg3915/orcamentos.git
@@ -42,6 +43,7 @@ PS1="(`basename \"$VIRTUAL_ENV\"`):/\W$ " # opcional
 pip install -U pip # update the pip
 pip install -r requirements/dev.txt
 cp contrib/env-sample .env
+python manage.py migrate
 make initial2
 python manage.py test
 ```
