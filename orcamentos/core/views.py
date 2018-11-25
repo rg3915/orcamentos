@@ -7,7 +7,7 @@ from .mixins import DashboardMixin
 
 
 def home(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('core:dashboard')
     return render(request, 'index.html')
 
