@@ -1,12 +1,12 @@
-from django.conf.urls import url
+from django.urls import path
 from orcamentos.core.views import home, subscription, welcome, Dashboard, status
 
 app_name = 'core'
 
 urlpatterns = [
-    url(r'^$', home, name='home'),
-    url(r'^inscricao/$', subscription, name='subscription'),
-    url(r'^bemvindo/$', welcome, name='welcome'),
-    url(r'^dashboard/$', Dashboard.as_view(), name='dashboard'),
-    url(r'^status/$', status, name='status'),
+    path('', home, name='home'),
+    path('inscricao/', subscription, name='subscription'),
+    path('bemvindo/', welcome, name='welcome'),
+    path('dashboard/', Dashboard.as_view(), name='dashboard'),
+    path('status/', status, name='status'),
 ]

@@ -1,30 +1,30 @@
-from django.conf.urls import include, url
+from django.urls import include, path
 from orcamentos.crm import views as c
 
 app_name = 'crm'
 
 person_patterns = [
-    url(r'^$', c.PersonList.as_view(), name='person_list'),
-    url(r'^add/$', c.PersonCreate.as_view(), name='person_add'),
-    url(r'^(?P<slug>[\w-]+)/edit/$',
-        c.PersonUpdate.as_view(), name='person_edit'),
-    url(r'^(?P<slug>[\w-]+)/$', c.person_detail, name='person_detail'),
+    path('', c.PersonList.as_view(), name='person_list'),
+    path('add/', c.PersonCreate.as_view(), name='person_add'),
+    path('<slug>/edit/',
+         c.PersonUpdate.as_view(), name='person_edit'),
+    path('<slug>/', c.person_detail, name='person_detail'),
 ]
 
 customer_patterns = [
-    url(r'^$', c.CustomerList.as_view(), name='customer_list'),
-    url(r'^add/$', c.CustomerCreate.as_view(), name='customer_add'),
-    url(r'^(?P<slug>[\w-]+)/edit/$',
-        c.CustomerUpdate.as_view(), name='customer_edit'),
-    url(r'^(?P<slug>[\w-]+)/$', c.customer_detail, name='customer_detail'),
+    path('', c.CustomerList.as_view(), name='customer_list'),
+    path('add/', c.CustomerCreate.as_view(), name='customer_add'),
+    path('<slug>/edit/',
+         c.CustomerUpdate.as_view(), name='customer_edit'),
+    path('<slug>/', c.customer_detail, name='customer_detail'),
 ]
 
 employee_patterns = [
-    url(r'^add/$', c.employee_create, name='employee_add'),
+    path('add/', c.employee_create, name='employee_add'),
 ]
 
 urlpatterns = [
-    url(r'^person/', include(person_patterns)),
-    url(r'^customer/', include(customer_patterns)),
-    url(r'^employee/', include(employee_patterns)),
+    path('person/', include(person_patterns)),
+    path('customer/', include(customer_patterns)),
+    path('employee/', include(employee_patterns)),
 ]
