@@ -43,8 +43,11 @@
         <tbody>
         {% for proposal in proposal_list %}
           <tr>
-            <td class="text-info"><a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} <i class="fa fa-fw {% status_icon proposal.status %}"></i>
-            </a></td>
+            <td class="text-info" style="width:9%">
+              <a href="{{ proposal.get_absolute_url }}">{{ proposal.codigo }} 
+                <i class="fa fa-fw {% status_icon proposal.status %}"></i>
+              </a>
+            </td>
             
             <td>{{ proposal.work }}</td>
             <td>{{ proposal.work.customer }}</td>
@@ -52,10 +55,12 @@
             <td class="small">{{ proposal.employee }}</td>
             <td class="small">{{ proposal.seller }}</td>
 
-            <td><i class="fa fa-fw {% status_icon proposal.status %}"></i> {{ proposal.get_status_display }}</td>
+            <td style="width:12%">
+              <i class="fa fa-fw {% status_icon proposal.status %}"></i> {{ proposal.get_status_display }}
+            </td>
 
             {% if proposal.price %}
-              <td class="text-right">{{ proposal.get_price }}</td>
+              <td class="text-right" style="width:15%">{{ proposal.get_price }}</td>
             {% else %}
               <td class="text-center">---</td>
             {% endif %}
