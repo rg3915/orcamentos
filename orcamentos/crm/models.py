@@ -8,22 +8,52 @@ from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, PERSON_TYPE, C
 
 
 class People(TimeStampedModel, Address):
-    gender = models.CharField(u'gênero', max_length=1,
-                              choices=GENDER, blank=True)
+    gender = models.CharField(
+        u'gênero',
+        max_length=1,
+        choices=GENDER,
+        default='I',
+        null=True,
+        blank=True
+    )
     treatment = models.CharField(
-        'tratamento', max_length=4, choices=TREATMENT, null=True, blank=True)
+        'tratamento',
+        max_length=4,
+        choices=TREATMENT,
+        null=True,
+        blank=True
+    )
     slug = models.SlugField('slug', blank=True)
     photo = models.URLField('foto', null=True, blank=True)
     birthday = models.DateTimeField('nascimento', null=True, blank=True)
     company = models.CharField('empresa', max_length=50, null=True, blank=True)
     department = models.CharField('departamento', max_length=50, blank=True)
-    cpf = models.CharField('CPF', max_length=11,
-                           unique=True, null=True, blank=True)
-    rg = models.CharField('RG', max_length=11, null=True, blank=True)
-    cnpj = models.CharField('CNPJ', max_length=14,
-                            unique=True, null=True, blank=True)
-    ie = models.CharField(u'inscrição estadual',
-                          max_length=12, null=True, blank=True)
+    cpf = models.CharField(
+        'CPF',
+        max_length=11,
+        unique=True,
+        null=True,
+        blank=True
+    )
+    rg = models.CharField(
+        'RG',
+        max_length=11,
+        null=True,
+        blank=True
+    )
+    cnpj = models.CharField(
+        'CNPJ',
+        max_length=14,
+        unique=True,
+        null=True,
+        blank=True
+    )
+    ie = models.CharField(
+        u'inscrição estadual',
+        max_length=12,
+        null=True,
+        blank=True
+    )
     active = models.BooleanField('ativo', default=True)
     blocked = models.BooleanField('bloqueado', default=False)
 
@@ -39,7 +69,11 @@ class People(TimeStampedModel, Address):
 class Person(People):
     first_name = models.CharField('nome', max_length=50)
     last_name = models.CharField(
-        'sobrenome', max_length=50, null=True, blank=True)
+        'sobrenome',
+        max_length=50,
+        null=True,
+        blank=True
+    )
     email = models.EmailField(null=True, blank=True)
     occupation = models.ForeignKey(
         'Occupation',
@@ -49,9 +83,17 @@ class Person(People):
         null=True,
         blank=True)
     person_type = models.CharField(
-        'cliente ou contato', max_length=1, choices=PERSON_TYPE, default='p')
+        'cliente ou contato',
+        max_length=1,
+        choices=PERSON_TYPE,
+        default='p'
+    )
     customer_type = models.CharField(
-        'tipo de cliente', max_length=1, choices=CUSTOMER_TYPE, blank=True)
+        'tipo de cliente',
+        max_length=1,
+        choices=CUSTOMER_TYPE,
+        blank=True
+    )
 
     objects = PersonManager()
 
@@ -76,7 +118,11 @@ class PhonePerson(models.Model):
     phone = models.CharField('telefone', max_length=20, blank=True)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
     phone_type = models.CharField(
-        'tipo', max_length=3, choices=PHONE_TYPE, default='pri')
+        'tipo',
+        max_length=3,
+        choices=PHONE_TYPE,
+        default='pri'
+    )
 
 
 class Customer(Person):
@@ -103,9 +149,16 @@ class Employee(People, User):
     internal = models.BooleanField('interno', default=True)
     commissioned = models.BooleanField('comissionado', default=True)
     commission = models.DecimalField(
-        u'comissão', max_digits=6, decimal_places=2, default=0.01)
+        u'comissão',
+        max_digits=6,
+        decimal_places=2,
+        default=0.01
+    )
     date_release = models.DateTimeField(
-        u'data de saída', null=True, blank=True)
+        u'data de saída',
+        null=True,
+        blank=True
+    )
 
     class Meta:
         ordering = ['username']
@@ -117,7 +170,11 @@ class PhoneEmployee(models.Model):
     phone = models.CharField('telefone', max_length=20, blank=True)
     employee = models.ForeignKey('Employee', on_delete=models.CASCADE)
     phone_type = models.CharField(
-        'tipo', max_length=3, choices=PHONE_TYPE, default='pri')
+        'tipo',
+        max_length=3,
+        choices=PHONE_TYPE,
+        default='pri'
+    )
 
 
 class Occupation(models.Model):
