@@ -1,5 +1,6 @@
-from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from orcamentos.core.mixins import FirstnameSearchMixin
@@ -18,11 +19,13 @@ person_detail = DetailView.as_view(model=Person)
 class PersonCreate(LoginRequiredMixin, CreateView):
     model = Person
     form_class = PersonForm
+    success_url = reverse_lazy('crm:person_list')
 
 
 class PersonUpdate(LoginRequiredMixin, UpdateView):
     model = Person
     form_class = PersonForm
+    success_url = reverse_lazy('crm:person_list')
 
 
 class CustomerList(FirstnameSearchMixin, ListView):
@@ -35,11 +38,13 @@ customer_detail = DetailView.as_view(model=Customer)
 class CustomerCreate(LoginRequiredMixin, CreateView):
     model = Customer
     form_class = CustomerForm
+    success_url = reverse_lazy('crm:customer_list')
 
 
 class CustomerUpdate(LoginRequiredMixin, UpdateView):
     model = Customer
     form_class = CustomerForm
+    success_url = reverse_lazy('crm:customer_list')
 
 
 def employee_create(request):

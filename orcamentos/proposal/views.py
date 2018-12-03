@@ -1,6 +1,7 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
 from django.http import HttpResponse
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView
 from .models import Entry, Proposal, Contract, Work
@@ -21,9 +22,17 @@ def entry_detail_json(request, pk):
 
 entry_detail = DetailView.as_view(model=Entry)
 
-entry_create = CreateView.as_view(model=Entry, form_class=EntryForm)
+entry_create = CreateView.as_view(
+    model=Entry,
+    form_class=EntryForm,
+    success_url=reverse_lazy('proposal:entry_list')
+)
 
-entry_update = UpdateView.as_view(model=Entry, form_class=EntryForm)
+entry_update = UpdateView.as_view(
+    model=Entry,
+    form_class=EntryForm,
+    success_url=reverse_lazy('proposal:entry_list')
+)
 
 
 class ProposalList(ProposalMixin, ListView):
@@ -60,6 +69,14 @@ class WorkList(WorkMixin, ListView):
 
 work_detail = DetailView.as_view(model=Work)
 
-work_create = CreateView.as_view(model=Work, form_class=WorkForm)
+work_create = CreateView.as_view(
+    model=Work,
+    form_class=WorkForm,
+    success_url=reverse_lazy('proposal:work_list')
+)
 
-work_update = UpdateView.as_view(model=Work, form_class=WorkForm)
+work_update = UpdateView.as_view(
+    model=Work,
+    form_class=WorkForm,
+    success_url=reverse_lazy('proposal:work_list')
+)
