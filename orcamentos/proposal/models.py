@@ -46,13 +46,27 @@ class Proposal(TimeStampedModel):
     ''' Orçamento é todo orçamento com num_prop > 0 '''
     num_prop = models.PositiveIntegerField(u'número', default=0)
     priority = models.CharField(
-        'prioridade', max_length=2, choices=PRIORITY, default=NORMAL)
+        'prioridade',
+        max_length=2,
+        choices=PRIORITY,
+        default=NORMAL
+    )
     prop_type = models.CharField(
-        u'tipo de orçamento', max_length=20, choices=PROP_TYPE, default='R')
+        u'tipo de orçamento',
+        max_length=20,
+        choices=PROP_TYPE,
+        default='R'
+    )
     num_prop_type = models.PositiveIntegerField(
-        u'número da revisão', default=0)
+        u'número da revisão',
+        default=0
+    )
     category = models.CharField(
-        'categoria', max_length=4, choices=CATEGORY, default='orc')
+        'categoria',
+        max_length=4,
+        choices=CATEGORY,
+        default='orc'
+    )
     description = models.TextField(u'descrição', blank=True)
     work = models.ForeignKey(
         'Work',
@@ -85,11 +99,21 @@ class Proposal(TimeStampedModel):
         blank=True
     )
     status = models.CharField(
-        max_length=4, choices=STATUS_LIST, default='elab')
+        max_length=4,
+        choices=STATUS_LIST,
+        default='elab'
+    )
     date_conclusion = models.DateTimeField(
-        u'data de conclusão', null=True, blank=True)
+        u'data de conclusão',
+        null=True,
+        blank=True
+    )
     price = models.DecimalField(
-        'valor', max_digits=9, decimal_places=2, default=0)
+        'valor',
+        max_digits=9,
+        decimal_places=2,
+        default=0
+    )
     obs = models.TextField(u'observação', blank=True)
     created_orc = models.DateTimeField('orç. criado em', null=True, blank=True)
 
@@ -127,8 +151,10 @@ class Proposal(TimeStampedModel):
 
     def get_seller(self):
         if self.seller:
-            return '{} {}'.format(self.seller.employee.first_name,
-                                  self.seller.employee.last_name)
+            return '{} {}'.format(
+                self.seller.employee.first_name,
+                self.seller.employee.last_name
+            )
         return ''
 
     def get_employee(self):
@@ -140,7 +166,8 @@ class Proposal(TimeStampedModel):
         if self.work.address:
             return '{}, {}, {} - {}'.format(
                 self.work.address, self.work.district,
-                self.work.city, self.work.uf)
+                self.work.city, self.work.uf
+            )
 
 
 class Entry(Proposal):
