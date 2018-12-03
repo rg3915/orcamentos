@@ -230,8 +230,10 @@
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        {% if user.is_authenticated %}
+                          <li class="divider"></li>
+                          <li><a href="{% url 'core:logout' %}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        {% endif %}
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
