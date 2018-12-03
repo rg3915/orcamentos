@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-GENDER = [('M', 'masculino'), ('F', 'feminino')]
+GENDER = (
+    ('I', 'não informado'),
+    ('M', 'masculino'),
+    ('F', 'feminino')
+)
 
 TREATMENT = (
     ('a', 'Arq.'),
