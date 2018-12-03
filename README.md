@@ -31,7 +31,7 @@ Ou siga o passo a passo.
 4. Instale as dependências.
 5. Configure a instância com o .env
 6. Rode o arquivo de migrações
-7. Carregue os dados no banco
+7. Crie o super usuário
 8. Execute os testes.
 
 ```bash
@@ -44,7 +44,7 @@ pip install -U pip # update the pip
 pip install -r requirements/dev.txt
 cp contrib/env-sample .env
 python manage.py migrate
-make initial2
+python manage.py create_admin
 python manage.py test
 ```
 
