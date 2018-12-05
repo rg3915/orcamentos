@@ -81,7 +81,8 @@ class Person(People):
         related_name='person_occupation',
         on_delete=models.CASCADE,
         null=True,
-        blank=True)
+        blank=True
+    )
     person_type = models.CharField(
         'cliente ou contato',
         max_length=1,
