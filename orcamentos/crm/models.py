@@ -197,3 +197,29 @@ class Seller(Employee):
         proxy = True
         verbose_name = 'vendedor'
         verbose_name_plural = 'vendedores'
+
+
+class ContactBase(Active):
+    name = models.CharField('Nome', max_length=100, null=True, blank=True)
+    email = models.EmailField('E-mail', null=True, blank=True)
+    phone = models.CharField('Telefone', max_length=20, null=True, blank=True)
+    phone_type = models.CharField(
+        'tipo',
+        max_length=3,
+        choices=PHONE_TYPE,
+        default='pri',
+    )
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.name
+
+
+class CompanyContact(ContactBase):
+    customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Contato Cliente'
+        verbose_name_plural = 'Contatos Clientes'
