@@ -199,7 +199,7 @@ class Seller(Employee):
         verbose_name_plural = 'vendedores'
 
 
-class ContactBase(Active):
+class ContactBase(models.Model):  # Active
     name = models.CharField('Nome', max_length=100, null=True, blank=True)
     email = models.EmailField('E-mail', null=True, blank=True)
     phone = models.CharField('Telefone', max_length=20, null=True, blank=True)
