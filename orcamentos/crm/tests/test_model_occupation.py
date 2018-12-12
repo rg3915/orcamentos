@@ -1,4 +1,6 @@
+from django.urls import reverse
 from django.test import TestCase
+from model_mommy import mommy
 from orcamentos.crm.models import Occupation
 
 
@@ -12,3 +14,14 @@ class OccupationTest(TestCase):
 
     def test_str(self):
         self.assertEqual('Gerente', str(self.obj))
+
+
+class OccupationTestCase(TestCase):
+
+    def setUp(self):
+        self.occupations = mommy.make('crm.Occupation', _quantity=10)
+        print(self.occupations)
+
+    def test_context(self):
+        occupations = Occupation.objects.all()
+        self.assertEquals(occupations.count(), 10)
