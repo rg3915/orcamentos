@@ -1,0 +1,21 @@
+first_name,last_name,email,occupation,customer_type,company,cpf,cnpj,address,complement,district,city,uf,cep,active
+Huang-Curry,,hc@email.com,,c,,,17.305.842/0001-54,"Vale Lucca Costa, 598",,Vila Jardim Leblon,Azevedo do Amparo,SC,57052491,sim
+Ana,Oliveira,ana_oliveira@email.com,Atendente,p,Campos e Melo,782.695.140-20,,"Campo de Moreira, 32",13º andar,Vila Boa Vista,Santos,AC,75310300,sim
+"Adams, Eaton and Webb",,aew@email.com,,c,,,39.108.472/0001-06,"Jardim de Monteiro, 6",,Engenho Nogueira,Monteiro da Mata,MT,22748262,sim
+Benedito,Melo,benedito@email.com,Digitador,p,Acme,927.435.601-34,,"Esplanada de Caldeira, 30",14º andar,Distrito Industrial Do Jatoba,da Cruz,RS,64853205,não
+Watkins Group,,wg@email.com,,c,,,70.389.421/0001-31,"Lagoa Pedro Lucas Oliveira, 34",,Santa Monica,Carvalho das Flores,MG,30801523,sim
+Juan,Silveira,juan_silveira@email.com,Datilógrafo,p,Cruz S.A.,832.751.964-64,,"Residencial Camila Teixeira, 27",,Leonina,Rodrigues do Amparo,AP,27729-726,sim
+Johnson and Sons,,johnson@email.com,,a,,,72.839.504/0001-00,"Largo de Monteiro, 3",,São Gonçalo,Pinto Paulista,RR,93239-646,sim
+Soraya,Rocha,soraya@email.com,,a,,406.589.123-05,,"Praça Maria Clara Novaes, 80",42º andar,Vila Bandeirantes,Correia,PA,42358-336,não
+Duran PLC,,duran@email.com,,a,,,78.609.524/0001-71,"Lagoa Benjamin Monteiro, 40",,Vila Nova,da Luz de Silveira,PI,99853965,sim
+Emanuel,das Neves,emanuel@email.com,Pizzaiolo,p,Lima Ltda.,051.873.269-02,,"Aeroporto Alexia Castro, 19",,Santo André,Silva das Flores,RO,09931-280,sim
+Arnold PLC,,arnold@email.com,,c,,,12.967.085/0001-60,Residencial de da Paz,,Marieta 3ª Seção,das Neves,CE,40759161,sim
+Pedro,Freitas,pedro@email.com,Motoboy,p,Silva Gomes Ltda.,314.592.806-60,,Lagoa João Miguel Peixoto,Sobreloja,Vila Olhos D'água,Porto da Mata,SC,39211611,não
+"Bryant, Morse and Davis",,bmd@email.com,,c,,,32.674.018/0001-65,"Setor Juan da Conceição, 400",,Mirtes,da Mota,BA,79929-544,sim
+Leonardo,da Luz,leonardo@email.com,Motorista,p,Rodrigues,364.508.972-10,,"Colônia Ribeiro, 20",Sala 2320,Urca,Silva das Pedras,SE,57721-797,sim
+Schultz-Gray,,sg@email.com,,a,,,48.165.723/0001-77,Vereda Ian Nunes,,Vila Olhos D'água,da Conceição,MA,55893-976,sim
+Luiz,Gustavo Cardoso,luiz.gustavo.cardoso@email.com,Programador,p,,378.629.054-74,,"Jardim Freitas, 29",,Serra,Barbosa do Amparo,CE,00727-135,sim
+Lucas-Gordon,,lucas@gordon.com,,c,,,52.364.789/0001-63,"Lagoa Ana Luiza Caldeira, 84",,Marçola,Santos do Amparo,MS,71448555,sim
+Danilo,Azevedo,danilo@azevedo.com,Telefonista,p,Cardoso Pereira S.A.,089.657.412-11,,"Rodovia Lara Araújo, 89",,São Francisco Das Chagas,Peixoto do Galho,PI,57839-486,não
+Emanuel,Cavalcanti,emanuel@cavalcanti.com,Digitador,p,Cardoso Pereira S.A.,807.463.512-08,,"Lago Heloísa Lopes, 56",,Vila Da Paz,Castro da Praia,GO,00546-221,sim
+Stevens-Mcpherson,,sm@email.com,,c,,,,"Colônia Araújo, 1",,,,,,sim

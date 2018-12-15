@@ -1,6 +1,6 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
-from django.template.defaultfilters import slugify
+from django.utils.text import slugify
 from django.utils.formats import number_format
 from orcamentos.core.models import TimeStampedModel, Address
 from .managers import EntryManager, ProposalManager

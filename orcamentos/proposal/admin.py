@@ -37,4 +37,6 @@ class ContractAdmin(admin.ModelAdmin):
     list_filter = ('is_canceled', 'proposal__seller')
 
 
-admin.site.register(Work)
+@admin.register(Work)
+class WorkAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'cep', 'uf', 'customer', 'person')

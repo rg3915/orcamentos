@@ -27,20 +27,22 @@ class CustomerForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = ['gender', 'treatment', 'first_name', 'last_name', 'email',
-                  'slug', 'photo', 'birthday', 'occupation', 'company',
-                  'department', 'cpf', 'rg', 'cnpj', 'ie',
-                  'address', 'complement', 'district', 'city', 'uf', 'cep',
-                  'active', 'blocked', 'person_type', 'customer_type']
-        widgets = {
-            'birthday': SelectDateWidget
-        }
+        fields = (
+            'gender', 'treatment', 'first_name', 'last_name', 'email',
+            'slug', 'photo', 'occupation', 'company',
+            'department', 'cpf', 'rg', 'cnpj', 'ie',
+            'address', 'complement', 'district', 'city', 'uf', 'cep',
+            'active', 'blocked', 'person_type', 'customer_type'
+        )
+        # widgets = {
+        #     'birthday': SelectDateWidget
+        # }
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        current_year = now().year
-        self.fields['birthday'].widget.years = [
-            current_year - x for x in range(50)][::-1]
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     current_year = now().year
+    #     self.fields['birthday'].widget.years = [
+    #         current_year - x for x in range(50)][::-1]
 
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None
@@ -58,11 +60,13 @@ class PersonForm(forms.ModelForm):
 
     class Meta:
         model = Person
-        fields = ['gender', 'treatment', 'first_name', 'last_name', 'slug',
-                  'photo', 'birthday', 'occupation', 'company', 'department',
-                  'email', 'cpf', 'rg', 'cnpj', 'ie', 'person_type',
-                  'customer_type', 'address', 'complement', 'district',
-                  'city', 'uf', 'cep', 'active', 'blocked']
+        fields = (
+            'gender', 'treatment', 'first_name', 'last_name', 'slug',
+            'photo', 'occupation', 'company', 'department',
+            'email', 'cpf', 'rg', 'cnpj', 'ie', 'person_type',
+            'customer_type', 'address', 'complement', 'district',
+            'city', 'uf', 'cep', 'active', 'blocked'
+        )
 
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None
@@ -91,11 +95,13 @@ class EmployeeAdminForm(forms.ModelForm):
 
     class Meta:
         model = Employee
-        fields = ['username', 'slug', 'gender', 'first_name', 'last_name',
-                  'is_staff', 'email', 'photo', 'birthday', 'department',
-                  'cpf', 'rg', 'occupation', 'address', 'complement',
-                  'district', 'city', 'uf', 'cep', 'date_joined',
-                  'date_release', 'active', 'blocked']
+        fields = (
+            'username', 'slug', 'gender', 'first_name', 'last_name',
+            'is_staff', 'email', 'photo', 'department',
+            'cpf', 'rg', 'occupation', 'address', 'complement',
+            'district', 'city', 'uf', 'cep', 'date_joined',
+            'date_release', 'active', 'blocked'
+        )
 
     def clean_cpf(self):
         return self.cleaned_data['cpf'] or None
