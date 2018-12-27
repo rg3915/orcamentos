@@ -53,7 +53,8 @@
 
 <hr>
 <div>
-<h3><b>Total:</b> {{ person_list|length }} contato{{ person_list|length|pluralize }}</h3>
+<h3>{{ person_list|length }} contato{{ person_list|length|pluralize }}</h3>
+<h4><b>Total:</b> {{ page_obj.paginator.count }} contato{{ page_obj.paginator.count|pluralize }}</h4>
 </div>
 
 <!-- pagination -->

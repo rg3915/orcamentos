@@ -55,7 +55,8 @@
 
     <hr>
 	<div>
-		<h3><b>Total:</b> {{ work_list|length }} obra{{ work_list|length|pluralize }}</h3>
+    <h3>{{ work_list|length }} obra{{ work_list|length|pluralize }}</h3>
+    <h4><b>Total:</b> {{ page_obj.paginator.count }} obra{{ page_obj.paginator.count|pluralize }}</h4>
 	</div>
 
 <!-- pagination -->

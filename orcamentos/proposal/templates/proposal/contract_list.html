@@ -76,7 +76,8 @@
 
 <hr>
 <div>
-<h3><b>Total:</b> {{ contract_list|length }} contrato{{ contract_list|length|pluralize }}</h3>
+<h3>{{ contract_list|length }} contrato{{ contract_list|length|pluralize }}</h3>
+<h4><b>Total:</b> {{ page_obj.paginator.count }} contrato{{ page_obj.paginator.count|pluralize }}</h4>
 </div>
 
 <!-- pagination -->

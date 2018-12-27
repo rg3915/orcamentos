@@ -78,7 +78,8 @@
 
     <hr>
   <div>
-    <h3><b>Total:</b> {{ proposal_list|length }} orçamento{{ proposal_list|length|pluralize }}</h3>
+    <h3>{{ proposal_list|length }} entrada{{ proposal_list|length|pluralize }}</h3>
+    <h4><b>Total:</b> {{ page_obj.paginator.count }} entrada{{ page_obj.paginator.count|pluralize }}</h4>
   </div>
 
 <!-- pagination -->

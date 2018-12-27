@@ -57,7 +57,8 @@
 
 <hr>
 <div>
-<h3><b>Total:</b> {{ customer_list|length }} cliente{{ customer_list|length|pluralize }}</h3>
+<h3>{{ customer_list|length }} cliente{{ customer_list|length|pluralize }}</h3>
+<h4><b>Total:</b> {{ page_obj.paginator.count }} cliente{{ page_obj.paginator.count|pluralize }}</h4>
 </div>
 
 <!-- pagination -->
