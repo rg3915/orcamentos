@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1] - 2019-12-02
+### Changed
+- The default user is admin
+
 ## [2.0] - 2018-11-25
 ### Changed
 - Updated to Django 2.1.3
