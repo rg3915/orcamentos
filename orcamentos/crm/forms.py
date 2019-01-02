@@ -28,11 +28,31 @@ class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = (
-            'gender', 'treatment', 'first_name', 'last_name', 'email',
-            'slug', 'photo', 'occupation', 'company',
-            'department', 'cpf', 'rg', 'cnpj', 'ie',
-            'address', 'complement', 'district', 'city', 'uf', 'cep',
-            'active', 'blocked', 'person_type', 'customer_type'
+            # 'active',
+            'address',
+            # 'blocked',
+            # 'birthday',
+            'cep',
+            'city',
+            'cnpj',
+            'company',
+            'complement',
+            'cpf',
+            'customer_type',
+            'department',
+            'district',
+            'email',
+            'first_name',
+            'gender',
+            'ie',
+            'last_name',
+            # 'occupation',
+            'person_type',
+            'photo',
+            'rg',
+            # 'slug',
+            'treatment',
+            'uf',
         )
         # widgets = {
         #     'birthday': SelectDateWidget
