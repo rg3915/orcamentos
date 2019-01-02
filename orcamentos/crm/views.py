@@ -16,13 +16,13 @@ class PersonList(FirstnameSearchMixin, ListView):
 person_detail = DetailView.as_view(model=Person)
 
 
-class PersonCreate(LoginRequiredMixin, CreateView):
+class PersonCreate(CreateView):
     model = Person
     form_class = PersonForm
     success_url = reverse_lazy('crm:person_list')
 
 
-class PersonUpdate(LoginRequiredMixin, UpdateView):
+class PersonUpdate(UpdateView):
     model = Person
     form_class = PersonForm
     success_url = reverse_lazy('crm:person_list')
@@ -35,13 +35,13 @@ class CustomerList(FirstnameSearchMixin, ListView):
 customer_detail = DetailView.as_view(model=Customer)
 
 
-class CustomerCreate(LoginRequiredMixin, CreateView):
+class CustomerCreate(CreateView):
     model = Customer
     form_class = CustomerForm
     success_url = reverse_lazy('crm:customer_list')
 
 
-class CustomerUpdate(LoginRequiredMixin, UpdateView):
+class CustomerUpdate(UpdateView):
     model = Customer
     form_class = CustomerForm
     success_url = reverse_lazy('crm:customer_list')

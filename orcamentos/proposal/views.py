@@ -44,7 +44,7 @@ class ProposalDetail(ProposalDetailMixin, DetailView):
     model = Proposal
 
 
-class ProposalUpdate(LoginRequiredMixin, UpdateView):
+class ProposalUpdate(UpdateView):
     model = Proposal
     form_class = ProposalForm
 
@@ -57,7 +57,7 @@ class ContractList(ContractMixin, ListView):
 contract_detail = DetailView.as_view(model=Contract)
 
 
-class ContractUpdate(LoginRequiredMixin, UpdateView):
+class ContractUpdate(UpdateView):
     model = Contract
     form_class = ContractForm
 
