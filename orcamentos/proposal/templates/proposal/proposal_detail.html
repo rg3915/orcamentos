@@ -7,6 +7,14 @@
 
 {% block content %}
 
+  {% for message in messages %}
+    {% if 'success' in message.tags %}
+    <p class="alert alert-success" role="alert"><span style="font-weight:bold">{{ message }}</span></p>
+    {% else %}
+    <p class="alert alert-danger" role="alert"><span style="font-weight:bold">{{ message }}</span></p>
+    {% endif %}
+  {% endfor %}
+
     <form class="navbar-form navbar-right" action="." method="get">
         <!-- cancel - Button trigger modal -->
         {% if object.status != 'a' %}
@@ -152,7 +160,7 @@
     <form action="{% url 'proposal:conclude_proposal' proposal.id %}" method="POST">
       <div class="modal-body">
       {% csrf_token %}  
-          <input id="id_price" name="price" type="number" step="0.01" placeholder="Digite o valor" />
+          <input id="id_price" name="price" class="form-control" type="number" step="0.01" placeholder="Digite o valor" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -165,19 +173,29 @@
 </div>
 
 <script>
-      $(function(){
-        $('#myModal').on('shown.bs.modal', function(){
-          $('#id_price').val("");
-          $('#id_price').focus();
-        });
-        $("#id_submit").click(function(){
-            var v = $('#id_price').val();
-            console.log(v);
-            if (v <= 0) {
-              console.log("O valor deve ser positivo.");
-            };
-        });
+
+    //close alert after 3 seconds
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
       });
+    }, 3000);
+
+  $(function(){
+    $('#myModal').on('shown.bs.modal', function(){
+      let price = "{{ object.price }}".replace(',', '.');
+      $('#id_price').val(price);
+      $('#id_price').focus();
+    });
+    $("#id_submit").click(function(){
+        var v = $('#id_price').val();
+        console.log(v);
+        if (v <= 0) {
+          console.log("O valor deve ser positivo.");
+        };
+    });
+  });
+
   $(function(){
     $('#myModalCancel').on('shown.bs.modal', function(){});
     $("#id_submit").click(function(){});

@@ -1,6 +1,7 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, resolve_url as r
 from django.utils import timezone
 from orcamentos.crm.models import Employee
@@ -19,7 +20,10 @@ def conclude_proposal(request, proposal_id):
             v = v.replace(',', '.')  # transforma no formato 0.00
             ''' verifica se o novo valor é positivo '''
             if float(v) <= 0 or float(v) is None:
-                return HttpResponse('O valor deve ser positivo.')
+                msg_error = 'O valor deve ser positivo.'
+                messages.error(request, msg_error)
+                url = 'proposal:proposal_detail'
+                return HttpResponseRedirect(r(url, proposal_id))
             else:
                 proposal.price = v
                 proposal.status = 'co'
