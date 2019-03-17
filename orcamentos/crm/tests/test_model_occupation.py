@@ -20,7 +20,6 @@ class OccupationTestCase(TestCase):
 
     def setUp(self):
         self.occupations = mommy.make('crm.Occupation', _quantity=10)
-        print(self.occupations)
 
     def test_context(self):
         occupations = Occupation.objects.all()

@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin as LRM
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView
@@ -8,7 +8,7 @@ from .models import Person, Customer
 from .forms import PersonForm, EmployeeForm, CustomerForm
 
 
-class PersonList(FirstnameSearchMixin, ListView):
+class PersonList(LRM, FirstnameSearchMixin, ListView):
     model = Person
     paginate_by = 10
 
