@@ -40,3 +40,4 @@ class ContractAdmin(admin.ModelAdmin):
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'cep', 'uf', 'customer', 'person')
+    search_fields = ('name_work',)

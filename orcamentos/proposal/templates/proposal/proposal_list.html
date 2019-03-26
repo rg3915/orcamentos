@@ -7,6 +7,10 @@
 
 {% block content %}
 
+<style>
+  .card .card-footer{ border-radius: 0 0 6px 6px; padding: 8px; }
+</style>
+
   <form class="navbar-form navbar-right" action="." method="get">
       <div class="form-group">
         <!-- search form -->
@@ -22,7 +26,33 @@
       </div>
   </form>
   
-  <h2><i class="fa fa-list"></i> Lista de Orçamentos</h2>
+    <h2><i class="fa fa-list"></i> Lista de Orçamentos</h2>
+          Orçamentos mais recentes
+
+  <div class="row">
+
+    <div class="col-sm-12">
+
+      {% for object in last_proposals %}
+
+        <div class="col-xs-6 col-sm-4 col-lg-2">
+          <div class="thumbnail">
+            <div class="caption" style="height: 130px">
+              <h4>
+                <a href="{{ object.get_absolute_url }}">{{ object.codigo }}</a>
+              </h4>
+              <p class="flex-text text-muted">{{ object.work }}</p>
+              <p class="flex-text text-muted">{{ object.work.customer }}</p>
+            </div> <!-- /.caption -->
+            <div class="car-footer"><i class="fa fa-fw {% status_icon object.status %}"></i> <small>{{ object.get_status_display }}</small></div>
+          </div> <!-- /.thumbnail -->
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
 
   <div>
     {% if proposal_list %}

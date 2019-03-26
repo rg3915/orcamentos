@@ -49,6 +49,9 @@ class ProposalMixin(object):
         context.update({'status_search_form': StatusSearchForm(), })
         context['status'] = [(item, item_display, status_classes[item])
                              for item, item_display in STATUS_FILTER]
+        # 6 orçamentos mais recentes
+        last_proposals = Proposal.objects.all().order_by('-modified')[:6]
+        context['last_proposals'] = last_proposals
         return context
 
     def get_queryset(self):
