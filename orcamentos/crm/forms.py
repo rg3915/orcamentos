@@ -50,7 +50,7 @@ class CustomerForm(forms.ModelForm):
             'person_type',
             'photo',
             'rg',
-            # 'slug',
+            'slug',
             'treatment',
             'uf',
         )
