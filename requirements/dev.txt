@@ -1,7 +1,7 @@
 -r base.txt
-django-debug-toolbar==1.10.1
-flake8==3.6.0
-ipdb==0.11
+django-debug-toolbar==2.0
+flake8==3.7.7
+ipdb==0.12
 names==0.3.0
 pydot2==1.0.33
-pyparsing==2.3.0
+pyparsing==2.4.0
