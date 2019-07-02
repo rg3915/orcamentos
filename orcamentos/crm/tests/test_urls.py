@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import resolve_url as r
 from django.test import TestCase
 from django.test.client import Client
@@ -8,6 +9,12 @@ from django.test.client import Client
 
 
 class UrlTest(TestCase):
+
+    def setUp(self):
+        self.credentials = dict(username='regis', password='demodemo')
+        self.user = User.objects.create_user(**self.credentials)
+        self.login = self.client.login(**self.credentials)
+        self.resp = self.client.get(r('crm:person_list'))
 
     def test_urls_contract(self):
         urls = (

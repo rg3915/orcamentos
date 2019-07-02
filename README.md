@@ -1,6 +1,6 @@
 # Orçamentos
 
-Python 3.7+ e Django 2.1.3+
+Python 3.7+ e Django 2.2.3+
 
 ## Objetivo
 
@@ -26,7 +26,7 @@ source setup.sh
 Ou siga o passo a passo.
 
 1. Clone o repositório
-2. Crie um virtualenv com Python 3.5
+2. Crie um virtualenv com Python 3
 3. Ative o virtualenv.
 4. Instale as dependências.
 5. Configure a instância com o .env
