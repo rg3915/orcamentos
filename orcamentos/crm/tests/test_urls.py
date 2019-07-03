@@ -11,7 +11,7 @@ class UrlTest(TestCase):
     def setUp(self):
         self.credentials = dict(username='regis', password='demodemo')
         self.user = User.objects.create_user(**self.credentials)
-        self.login = self.client.login(**self.credentials)
+        self.login = self.client.force_login(self.user)
         self.resp = self.client.get(r('crm:person_list'))
         # Cria Person
         self.person = Person.objects.create(
