@@ -1,6 +1,4 @@
-from django.utils.timezone import now
 from django import forms
-# from orcamentos.crm.validate import validate_documents
 from orcamentos.utils.lists import GENDER, CUSTOMER_TYPE, PERSON_TYPE
 from orcamentos.crm.models import Person, Employee, Customer
 

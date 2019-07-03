@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
-from orcamentos.core.views import home, subscription, welcome, Dashboard, status
+from orcamentos.core.views import home, welcome, Dashboard, status
 
 app_name = 'core'
 

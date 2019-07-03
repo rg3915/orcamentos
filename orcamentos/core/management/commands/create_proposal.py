@@ -25,7 +25,7 @@ class Command(BaseCommand):
                 status='elab',
                 created_orc=timezone.now(),
             )
-            ''' Incrementa o número do último orçamento '''
+            # Incrementa o número do último orçamento.
             nlp.num_last_prop += 1
             nlp.save()
             print('Orçamento criado com sucesso')

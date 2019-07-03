@@ -12,15 +12,15 @@ CUSTOMER_DICT = dict(CUSTOMER_TYPE)
 
 
 def proposal_per_status_json(request):
-    ''' JSON used to generate the graphic '''
-    ''' Quantidade de orçamentos por status '''
+    '''
+    JSON used to generate the graphic
+    Quantidade de orçamentos por status
+    '''
     data = Proposal.objects.values('status')\
         .annotate(value=Count('status'))\
         .order_by('status').values('status', 'value')
-    '''
-    Precisa reescrever o dicionário com os campos do gráfico,
-    que são: 'label' e 'value'. E ainda retornar o get_status_display.
-    '''
+    # Precisa reescrever o dicionário com os campos do gráfico,
+    # que são: 'label' e 'value'. E ainda retornar o get_status_display.
     lista = [{'label': STATUS_DICT[item['status']],
               'value': item['value']} for item in data]
     s = json.dumps(lista, cls=DjangoJSONEncoder)
@@ -38,8 +38,10 @@ def get_data(is_aproved, is_canceled):
 
 
 def contract_aprov_canceled_json(request):
-    ''' JSON used to generate the graphic '''
-    ''' Quantidade de contratos aprovados x cancelados '''
+    '''
+    JSON used to generate the graphic.
+    Quantidade de contratos aprovados x cancelados
+    '''
     total = Contract.objects.count()
     is_aproved = count_contract_aproved()
     is_canceled = total - is_aproved
@@ -73,10 +75,8 @@ def percent_type_customer_json(request):
         .annotate(value=Count('customer_type'))\
         .order_by('customer_type').values('customer_type', 'value')
     total = Customer.objects.all().count()
-    '''
-    Precisa reescrever o dicionário com os campos do gráfico,
-    que são: 'label' e 'value'. E ainda retornar o get_customer_type_display.
-    '''
+    # Precisa reescrever o dicionário com os campos do gráfico,
+    # que são: 'label' e 'value'. E ainda retornar o get_customer_type_display.
     lista = [{'label': CUSTOMER_DICT[item['customer_type']],
               'value': int((item['value'] / total) * 100)} for item in data]
     s = json.dumps(lista, cls=DjangoJSONEncoder)

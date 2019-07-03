@@ -1,14 +1,8 @@
-import string
-import names
-import pandas as pd
 import timeit
 from datetime import datetime
-from random import choice, randint, random, sample
-from django.contrib.auth.models import User, Group, Permission
-from django.utils import timezone
-from django.utils.text import slugify
-from orcamentos.crm.models import Occupation, Employee, Customer, Contact
-from orcamentos.proposal.models import Work, Proposal, Contract, NumLastProposal
+from django.contrib.auth.models import User
+# from orcamentos.crm.models import Occupation, Employee, Customer, Contact
+# from orcamentos.proposal.models import Work, Proposal, Contract, NumLastProposal
 
 
 class Utils:

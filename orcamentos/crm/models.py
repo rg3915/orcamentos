@@ -1,7 +1,6 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
 from django.contrib.auth.models import User
-from django.utils.text import slugify
 from orcamentos.core.models import TimeStampedModel, Address
 from .managers import CustomerManager, PersonManager, SellerManager
 from orcamentos.utils.lists import GENDER, TREATMENT, PHONE_TYPE, PERSON_TYPE, CUSTOMER_TYPE

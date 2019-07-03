@@ -12,7 +12,7 @@ from orcamentos.proposal.models import Entry, Proposal, Contract, NumLastProposa
 # @login_required
 def conclude_proposal(request, proposal_id):
     proposal = Proposal.objects.get(pk=proposal_id)
-    ''' Se o status for 'aprovado', então não pode concluir '''
+    # Se o status for 'aprovado', então não pode concluir.
     if proposal.status == 'a':
         return HttpResponse('Este orçamento já virou contrato.')
     else:
@@ -35,7 +35,7 @@ def conclude_proposal(request, proposal_id):
 # @login_required
 def cancel_proposal(request, proposal_id):
     proposal = Proposal.objects.get(pk=proposal_id)
-    ''' Se o status for 'aprovado', então não pode concluir '''
+    # Se o status for 'aprovado', então não pode concluir.
     if proposal.status == 'a':
         return HttpResponse('Este orçamento já virou contrato.')
     else:
@@ -61,7 +61,7 @@ def create_proposal(request, entry_id):
         status='elab',
         created_orc=timezone.now(),
     )
-    ''' Incrementa o número do último orçamento '''
+    # Incrementa o número do último orçamento.
     nlp.num_last_prop += 1
     nlp.save()
     # Pega o pk do orçamento atual
@@ -73,7 +73,7 @@ def create_proposal(request, entry_id):
 # @login_required
 def create_contract(request, proposal_id):
     proposal = Proposal.objects.get(pk=proposal_id)
-    ''' Se o status for diferente de 'concluído', então não faz nada '''
+    # Se o status for diferente de 'concluído', então não faz nada.
     if proposal.status != 'co':
         return HttpResponse('O status do orçamento deve ser concluido.')
     else:

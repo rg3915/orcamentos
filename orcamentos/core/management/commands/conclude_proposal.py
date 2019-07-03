@@ -13,11 +13,11 @@ class Command(BaseCommand):
 
     def handle(self, num, price, *args, **kwargs):
         proposal = Proposal.objects.get(num_prop=num)
-        ''' Se o status for 'aprovado', então não pode concluir '''
+        # Se o status for 'aprovado', então não pode concluir.
         if proposal.status == 'a':
             print('Este orçamento já virou contrato.')
         else:
-            ''' verifica se o novo valor é positivo '''
+            # verifica se o novo valor é positivo.
             if float(price) <= 0 or float(price) is None:
                 print('O valor deve ser positivo.')
             else:
