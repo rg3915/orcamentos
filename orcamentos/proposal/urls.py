@@ -35,7 +35,12 @@ proposal_patterns = [
     path('<int:proposal_id>/contract/new/',
          a.create_contract,
          name='create_contract_url'),
-
+    # Create Option
+    path(
+        '<int:proposal_id>/proposal/create_option/',
+        a.create_option,
+        name='create_option_url'
+    ),
     path('proposal_per_status_json/', g.proposal_per_status_json),
     path('contract_aprov_canceled_json/', g.contract_aprov_canceled_json),
     path('contract_more_expensive_json/', g.contract_more_expensive_json),

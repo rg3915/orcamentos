@@ -61,6 +61,12 @@ class Proposal(TimeStampedModel):
         u'número da revisão',
         default=0
     )
+    option_prop = models.PositiveIntegerField(
+        'opção',
+        null=True,
+        blank=True,
+        help_text='Cada orçamento pode ter opções 1, 2, 3 ...'
+    )
     category = models.CharField(
         'categoria',
         max_length=4,
@@ -127,7 +133,9 @@ class Proposal(TimeStampedModel):
     def __str__(self):
         # formato 001.15.0
         self.actual_year = self.created.strftime('%y')
-        return "%03d.%s.%d" % (self.num_prop, self.actual_year, self.num_prop_type)
+        if self.option_prop:
+            return f'{str(self.num_prop).zfill(3)}/{self.actual_year}{self.num_prop_type}-OP {self.option_prop}'
+        return f'{str(self.num_prop).zfill(3)}/{self.actual_year}{self.num_prop_type}'
     codigo = property(__str__)
 
     def get_absolute_url(self):

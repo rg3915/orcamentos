@@ -1,3 +1,4 @@
+import uuid
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -6,7 +7,41 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, resolve_url as r
 from django.utils import timezone
 from orcamentos.crm.models import Employee
-from orcamentos.proposal.models import Entry, Proposal, Contract, NumLastProposal
+from orcamentos.proposal.models import Entry, Proposal, Contract
+from orcamentos.proposal.models import NumLastProposal
+
+
+@login_required
+def create_option(request, proposal_id):
+    '''
+    Cria opções numeradas de orçamento.
+    '''
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            _option_prop = request.POST.get('option_prop')
+            if _option_prop:
+                option_prop = int(_option_prop)
+                if option_prop > 0:
+                    for i in range(1, option_prop + 1):
+                        proposal = Proposal.objects.get(pk=proposal_id)
+                        # actual_option = proposal.option_prop
+                        _created = proposal.created
+
+                        # Copiando o registro
+                        proposal.pk = None
+                        proposal.slug = uuid.uuid4()
+                        proposal.status = 'elab'
+                        # proposal.letter_prop_type = get_letter(actual_letter)
+                        proposal.option_prop = i
+                        proposal.save()
+                        # Salva novamente pra mudar a data de criação.
+                        # Necessário por causa do código em relação ao ano.
+                        proposal.created = _created
+                        proposal.created_orc = timezone.now()
+                        proposal.date_conclusion = None
+                        proposal.save()
+
+    return redirect(r('proposal:proposal_list'))
 
 
 # @login_required
