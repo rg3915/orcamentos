@@ -1,6 +1,6 @@
 # Orçamentos
 
-Python 3.7+ e Django 2.2.3+
+Python 3.7+ e Django 2.2.12+
 
 ## Objetivo
 
@@ -9,10 +9,6 @@ Sistema para controle de orçamentos.
 Controla a sequência numérica dos orçamentos, seus valores e status.
 
 Cadastro de clientes, obras e contatos.
-
-## Live Demo
-
-https://rg-orcamentos.herokuapp.com/
 
 ## Baixando e rodando a app
 
