@@ -6,21 +6,57 @@
 
 {% block content %}
 
-<form class="navbar-form navbar-right" action="." method="get">
-<!-- add -->
-<a href="{% url 'crm:customer_add' %}">
-  <button id="new_customer" type="button" class="btn btn-primary">
-    <span class="glyphicon glyphicon-plus"></span> Adicionar
-  </button>
-</a>
-<!-- search form -->
-<div class="form-group">
-  <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
-  <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
-</div>
+<form id="formFilter" class="navbar-form navbar-right" action="." method="GET">
+  <!-- add -->
+  <a href="{% url 'crm:customer_add' %}">
+    <button id="new_customer" type="button" class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus"></span> Adicionar
+    </button>
+  </a>
+  <!-- search form -->
+  <div class="form-group">
+    <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+    <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+    <a href="." class="btn btn-link">Limpar</a>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <h6>Filtrar por Departamento</h6>
+
+      <select id="filterDepartments" name="filter_departments" class="form-control">
+        <option value="">Todos</option>
+        {% for department in departments %}
+          {% if department == selected_filter_department %}
+            <option value="{{ department }}" selected>{{ department }}</option>
+          {% else %}
+            <option value="{{ department }}">{{ department }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+
+    </div>
+
+    <div class="col-sm-6">
+      <h6>Filtrar por Tipo de Cliente</h6>
+
+      <select id="filterCustomerTypes" name="filter_customer_types" class="form-control">
+        <option value="">Todos</option>
+        {% for customer_type in customer_types %}
+          {% if customer_type.value == selected_filter_customer_type %}
+            <option value="{{ customer_type.value }}" selected>{{ customer_type.text }}</option>
+          {% else %}
+            <option value="{{ customer_type.value }}">{{ customer_type.text }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+
+    </div>
+
+  </div>
 </form>
 
-<div class="page-header">
+<div class="page-header" style="margin-top: 80px;">
 <h2><i class="fa fa-users"></i> Lista de Clientes</h2>
 </div>
 
@@ -63,5 +99,17 @@
 
 <!-- pagination -->
 {% include "pagination.html" %}
+
+<script>
+
+  $('#filterDepartments').on('change', function() {
+    $('#formFilter').submit();
+  });
+
+  $('#filterCustomerTypes').on('change', function() {
+    $('#formFilter').submit();
+  });
+
+</script>
 
 {% endblock content %}
