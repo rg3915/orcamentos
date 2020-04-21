@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.2] - 2020-04-21
+### Changed
+- Proposal create options
+
 ## [2.1] - 2019-12-02
 ### Changed
 - The default user is admin
