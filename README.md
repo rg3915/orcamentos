@@ -1,6 +1,6 @@
 # Orçamentos
 
-Python 3.7+ e Django 2.2.12+
+Python 3.8+ e Django 2.2.24+
 
 ## Objetivo
 
